@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4068982270941163003}
   - component: {fileID: 4068982270941163002}
+  - component: {fileID: -1208780061071010109}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4068982270941163005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.486, y: -1.516, z: 0}
+  m_LocalPosition: {x: -1.5, y: -1.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -82,3 +83,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1208780061071010109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4068982270941163005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0174c3674efa1d4c9153c636b7e67b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  strength: 5
+  health: 10
+  speed: 0
+  spawn: 0
+  gold: 10

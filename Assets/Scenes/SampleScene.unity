@@ -1508,11 +1508,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4068982270941163003, guid: 99dae5b6970f86c498e7a1161b2b554b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.486
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4068982270941163003, guid: 99dae5b6970f86c498e7a1161b2b554b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.516
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4068982270941163003, guid: 99dae5b6970f86c498e7a1161b2b554b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1559,6 +1559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 338287410950002373, guid: cefe480707013cc41ba5f34f3445c481, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 338287411984550613, guid: cefe480707013cc41ba5f34f3445c481, type: 3}
       propertyPath: m_Name
       value: RRoom
@@ -1622,7 +1626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6227501802140144002, guid: 14720861f30b1054b9d6f3fe488a812d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6227501802140144002, guid: 14720861f30b1054b9d6f3fe488a812d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1720,6 +1724,10 @@ PrefabInstance:
     - target: {fileID: 7063830034119570579, guid: e996b049e832a634baa55e3bbb7468b0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063830036235987073, guid: e996b049e832a634baa55e3bbb7468b0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e996b049e832a634baa55e3bbb7468b0, type: 3}
