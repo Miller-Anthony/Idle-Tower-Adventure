@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class NPCMovement : MonoBehaviour
 {
+    [SerializeField] NPCStats stats;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,7 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //move NPC
+        //transform.position += transform.forward * stats.GetSpeed() * Time.deltaTime;
     }
 }
