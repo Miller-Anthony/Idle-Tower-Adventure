@@ -18,6 +18,6 @@ public class NPCMovement : MonoBehaviour
     void Update()
     {
         //move NPC
-        //transform.position += transform.forward * stats.GetSpeed() * Time.deltaTime;
+        gameObject.transform.position += -transform.right * stats.GetSpeed() * Time.deltaTime;
     }
 }
