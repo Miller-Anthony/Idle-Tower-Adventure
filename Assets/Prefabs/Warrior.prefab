@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0174c3674efa1d4c9153c636b7e67b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
-  strength: 0
-  health: 0
-  speed: 0
+  level: 1
+  strength: 1
+  health: 3
+  speed: 1
   spawn: 0
   gold: 0
 --- !u!114 &1531315632736660758
@@ -114,3 +114,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f2f29069141b849b0f30f5518d8be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: -8334956582574883947}

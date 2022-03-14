@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7063830034119570579}
   - component: {fileID: 7063830034119570576}
+  - component: {fileID: -8758998253164075687}
   m_Layer: 0
   m_Name: LRoom
   m_TagString: Untagged
@@ -83,6 +84,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-8758998253164075687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063830034119570577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98428aceecbf98149ace7731646c4ca7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor: 0
+  spawnX: 2.5
+  spawnY: -1.5
+  warrior: {fileID: 6227501802140144004, guid: 14720861f30b1054b9d6f3fe488a812d, type: 3}
 --- !u!1 &7063830036235987086
 GameObject:
   m_ObjectHideFlags: 0
