@@ -14,7 +14,7 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         //create the position the object should be spawned at
-        position = new Vector3(spawnX, spawnY, 0);
+        position = new Vector3(spawnX, spawnY, -1);
     }
 
     // Update is called once per frame
