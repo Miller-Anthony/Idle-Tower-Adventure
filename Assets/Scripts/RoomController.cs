@@ -26,11 +26,11 @@ public class RoomController : MonoBehaviour
             GameObject holder = Instantiate(warrior);
             if (floor % 2 == 0)
             {
-                holder.GetComponent<NPCMovement>().SetMoveLeft(false);
+                holder.GetComponent<NPCMovement>().MoveRight();
             }
             else
             {
-                holder.GetComponent<NPCMovement>().SetMoveLeft(true);
+                holder.GetComponent<NPCMovement>().MoveLeft();
             }
             
             

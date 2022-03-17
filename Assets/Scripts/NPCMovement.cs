@@ -6,7 +6,8 @@ public class NPCMovement : MonoBehaviour
 {
     [SerializeField] NPCStats stats;
     [SerializeField] bool moveLeft;
-    
+
+    private bool climb = false;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +18,12 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (climb)
+        {
+            gameObject.transform.position += transform.up * stats.GetSpeed() * Time.deltaTime;
+        }
         //move NPC left if odd floor
-        if(moveLeft)
+        else if(moveLeft)
         {
             gameObject.transform.position += -transform.right * stats.GetSpeed() * Time.deltaTime;
         }
@@ -29,13 +34,28 @@ public class NPCMovement : MonoBehaviour
         //move NPC right if even floor
     }
 
-    public void SetMoveLeft(bool val)
+    public void MoveLeft()
     {
-        moveLeft = val;
+        moveLeft = true;
     }
 
-    public bool GetMoveLeft()
+    public void MoveRight()
+    {
+        moveLeft = false;
+    }
+
+    public bool GetDirection()
     {
         return moveLeft;
+    }
+
+    public void StartClimbing()
+    {
+        climb = true;
+    }
+
+    public void StopClimbing()
+    {
+        climb = false;
     }
 }
