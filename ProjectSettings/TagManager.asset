@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - ladder
+  - enemy
+  - right
+  - left
   layers:
   - Default
   - TransparentFX

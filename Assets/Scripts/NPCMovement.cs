@@ -34,6 +34,53 @@ public class NPCMovement : MonoBehaviour
         //move NPC right if even floor
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        switch(collision.tag)
+        {
+            case "ladder":
+                StartClimbing();
+                break;
+            case "right":
+                MoveRight();
+                break;
+            case "left":
+                MoveLeft();
+                break;
+            case "enemy":
+                if(moveLeft)
+                {
+                    gameObject.transform.position += transform.right;
+                }
+                else
+                {
+                    gameObject.transform.position -= transform.right;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "ladder":
+                StopClimbing();
+                break;
+            case "right":
+                
+                break;
+            case "left":
+                
+                break;
+            default:
+                break;
+        }
+    }
+
     public void MoveLeft()
     {
         moveLeft = true;
