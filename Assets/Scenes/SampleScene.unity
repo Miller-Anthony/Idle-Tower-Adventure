@@ -894,6 +894,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5224617454360536729, guid: e996b049e832a634baa55e3bbb7468b0, type: 3}
+      propertyPath: spawnY
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5224617454360536730, guid: e996b049e832a634baa55e3bbb7468b0, type: 3}
       propertyPath: m_Name
       value: LRoom (1)
@@ -1385,6 +1389,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5729298699687921596, guid: 4f4e42f88ffada147a55b935774cc259, type: 3}
+      propertyPath: spawnY
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7426546190892800956, guid: 4f4e42f88ffada147a55b935774cc259, type: 3}
       propertyPath: m_Name
       value: RRoom (1)
