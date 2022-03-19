@@ -7,7 +7,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] int floor = 0;
     [SerializeField] int spawnCount = 1;
     [SerializeField] float spawnTime = 2;
-    
+    [SerializeField] GameObject enemy;
     [SerializeField] GameObject warrior;
 
     private Vector3 position;
@@ -17,10 +17,11 @@ public class RoomController : MonoBehaviour
     private Vector3 enemy4;
     private Vector2 boundry;
     private float spawnX;
-    private float timer1 = 0;
-    private float timer2 = 0;
-    private float timer3 = 0;
-    private float timer4 = 0;
+    private float timer1 = 0.1f;
+    private float timer2 = 0.1f;
+    private float timer3 = 0.1f;
+    private float timer4 = 0.1f;
+    private bool isTiming;
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +46,9 @@ public class RoomController : MonoBehaviour
 
             //create the position the enemies spawn for the floor
             enemy1 = new Vector3(spawnX, gameObject.transform.position.y - 0.5f, -1);
-            enemy2 = new Vector3(spawnX - 0.5f, gameObject.transform.position.y - 0.5f, -1);
-            enemy3 = new Vector3(spawnX - 1, gameObject.transform.position.y - 0.5f, -1);
-            enemy4 = new Vector3(spawnX - 1.5f, gameObject.transform.position.y - 0.5f, -1);
+            enemy2 = new Vector3(spawnX - 0.6f, gameObject.transform.position.y - 0.5f, -1);
+            enemy3 = new Vector3(spawnX - 1.2f, gameObject.transform.position.y - 0.5f, -1);
+            enemy4 = new Vector3(spawnX - 1.8f, gameObject.transform.position.y - 0.5f, -1);
         }
         else
         {
@@ -55,20 +56,40 @@ public class RoomController : MonoBehaviour
 
             //create the position the enemies spawn for the floor
             enemy1 = new Vector3(spawnX, gameObject.transform.position.y - 0.5f, -1);
-            enemy2 = new Vector3(spawnX + 0.5f, gameObject.transform.position.y - 0.5f, -1);
-            enemy3 = new Vector3(spawnX + 1, gameObject.transform.position.y - 0.5f, -1);
-            enemy4 = new Vector3(spawnX + 1.5f, gameObject.transform.position.y - 0.5f, -1);
+            enemy2 = new Vector3(spawnX + 0.6f, gameObject.transform.position.y - 0.5f, -1);
+            enemy3 = new Vector3(spawnX + 1.2f, gameObject.transform.position.y - 0.5f, -1);
+            enemy4 = new Vector3(spawnX + 1.8f, gameObject.transform.position.y - 0.5f, -1);
         }
-
-        //create the position the enemies spawn for the floor
-        enemy1 = new Vector3(spawnX, gameObject.transform.position.y - 0.5f, -1);
-        enemy2 = new Vector3(spawnX - 0.5f, gameObject.transform.position.y - 0.5f, -1);
-        enemy3 = new Vector3(spawnX - 1, gameObject.transform.position.y - 0.5f, -1);
-        enemy4 = new Vector3(spawnX - 1.5f, gameObject.transform.position.y - 0.5f, -1);
 
         //calculate the boundry for the mouse clicks
         boundry = new Vector2(gameObject.transform.position.y + 1, gameObject.transform.position.y - 1);
 
+        //make the first enemies spawn
+        isTiming = true;
+        
+        //turn off timers that do not spawn
+        if(spawnCount < 1)
+        {
+            timer1 = 0;
+            timer2 = 0;
+            timer3 = 0;
+            timer4 = 0;
+        }
+        else if (spawnCount < 2)
+        {
+            timer2 = 0;
+            timer3 = 0;
+            timer4 = 0;
+        }
+        else if (spawnCount < 2)
+        {
+            timer3 = 0;
+            timer4 = 0;
+        }
+        else if (spawnCount < 3)
+        {
+            timer4 = 0;
+        }
     }
 
     // Update is called once per frame
@@ -98,6 +119,69 @@ public class RoomController : MonoBehaviour
             
         }
         
+        //spawn new enemies
+        if(isTiming)
+        {
+            if(timer1 > 0 && spawnCount > 0)
+            {
+                //decrement timer
+                timer1 -= Time.deltaTime;
+                //if timer is done, spawn a guy
+                if(timer1 <= 0)
+                {
+                    GameObject holder = Instantiate(enemy);
+                    holder.transform.position = enemy1;
+                    holder.GetComponent<NPCStats>().SetLevel(1);
+                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                }
+            }
+            if(timer2 > 0 && spawnCount > 1)
+            {
+                //decrement timer
+                timer2 -= Time.deltaTime;
+                //if timer is done, spawn a guy
+                if (timer2 <= 0)
+                {
+                    GameObject holder = Instantiate(enemy);
+                    holder.transform.position = enemy2;
+                    holder.GetComponent<NPCStats>().SetLevel(2);
+                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                }
+            }
+            if(timer3 > 0 && spawnCount > 2)
+            {
+                //decrement timer
+                timer3 -= Time.deltaTime;
+                //if timer is done, spawn a guy
+                if (timer3 <= 0)
+                {
+                    GameObject holder = Instantiate(enemy);
+                    holder.transform.position = enemy3;
+                    holder.GetComponent<NPCStats>().SetLevel(3);
+                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                }
+            }
+            if (timer4 > 0 && spawnCount > 3)
+            {
+                //decrement timer
+                timer4 -= Time.deltaTime;
+                //if timer is done, spawn a guy
+                if (timer4 <= 0)
+                {
+                    GameObject holder = Instantiate(enemy);
+                    holder.transform.position = enemy4;
+                    holder.GetComponent<NPCStats>().SetLevel(4);
+                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                }
+            }
+
+            //if all timers are done, turn off the timer
+            if(timer1 <= 0 && timer2 <= 0 && timer3 <= 0 && timer4 <= 0)
+            {
+                isTiming = false;
+            }
+        }
+
     }
 
     // Set the floor number
@@ -110,5 +194,30 @@ public class RoomController : MonoBehaviour
     public int GetFloor()
     {
         return floor;
+    }
+
+    public void StartTimer(int timer)
+    {
+        switch(timer)
+        {
+            case 1:
+                timer1 = spawnTime;
+                isTiming = true;
+                break;
+            case 2:
+                timer2 = spawnTime;
+                isTiming = true;
+                break;
+            case 3:
+                timer3 = spawnTime;
+                isTiming = true;
+                break;
+            case 4:
+                timer4 = spawnTime;
+                isTiming = true;
+                break;
+            default:
+                break;
+        }
     }
 }

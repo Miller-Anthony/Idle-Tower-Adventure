@@ -5,6 +5,7 @@ using UnityEngine;
 public class CombatController : MonoBehaviour
 {
     [SerializeField] NPCStats stats;
+    private RoomController floor;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,19 @@ public class CombatController : MonoBehaviour
         if(stats.GetHealth() <= 0)
         {
             Destroy(gameObject);
+
+            //if it was an enemy that died, start the timer to spawn another one
+            if(gameObject.tag == "enemy")
+            {
+                floor.StartTimer(stats.GetLevel());
+                GameObject.Find("Canvas").GetComponent<GeneralStats>().AddGold(stats.GetGold());
+            }
         }
+    }
+
+    public void SetFloor(RoomController room)
+    {
+        floor = room;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneralStats : MonoBehaviour
 {
-    private int gold;
+    [SerializeField] int gold;
 
     // Start is called before the first frame update
     void Start()
