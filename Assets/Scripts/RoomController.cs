@@ -142,10 +142,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer2 <= 0)
                 {
-                    GameObject holder = Instantiate(enemy);
-                    holder.transform.position = enemy2;
-                    holder.GetComponent<NPCStats>().SetLevel(2);
-                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                    NPCFactory.SpawnEmemy(enemy2, gameObject.GetComponent<RoomController>());
                 }
             }
             if(timer3 > 0 && spawnCount > 2)
@@ -155,10 +152,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer3 <= 0)
                 {
-                    GameObject holder = Instantiate(enemy);
-                    holder.transform.position = enemy3;
-                    holder.GetComponent<NPCStats>().SetLevel(3);
-                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                    NPCFactory.SpawnEmemy(enemy3, gameObject.GetComponent<RoomController>());
                 }
             }
             if (timer4 > 0 && spawnCount > 3)

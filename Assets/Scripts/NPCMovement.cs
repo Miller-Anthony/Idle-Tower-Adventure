@@ -27,11 +27,18 @@ public class NPCMovement : MonoBehaviour
         {
             gameObject.transform.position += -transform.right * stats.GetSpeed() * Time.deltaTime;
         }
+        //move NPC right if even floor
         else
         {
             gameObject.transform.position += transform.right * stats.GetSpeed() * Time.deltaTime;
         }
-        //move NPC right if even floor
+        
+        //switch direction if going out of bounds;
+        if(transform.position.x > 2.5 || transform.position.x < -2.5)
+        {
+            moveLeft = !moveLeft;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

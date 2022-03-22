@@ -6,6 +6,9 @@ public class GeneralStats : MonoBehaviour
 {
     [SerializeField] int gold;
 
+    [SerializeField] int topFloor = 1;   //Stores the top floor 
+    private int highestFloor = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,5 +36,24 @@ public class GeneralStats : MonoBehaviour
     public int CheckGold()
     {
         return gold;
+    }
+
+    public void NextFloor()
+    {
+        topFloor++;
+        if(topFloor > highestFloor)
+        {
+            highestFloor = topFloor;
+        }
+    }
+
+    public int GetTopFloor()
+    {
+        return topFloor;
+    }
+
+    public int GetHighestFloor()
+    {
+        return highestFloor;
     }
 }

@@ -5,12 +5,14 @@ using UnityEngine;
 public class CombatController : MonoBehaviour
 {
     [SerializeField] NPCStats stats;
+
+    private GeneralStats general;
     private RoomController floor;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        general = GameObject.Find("Canvas").GetComponent<GeneralStats>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class CombatController : MonoBehaviour
             if(gameObject.tag == "enemy")
             {
                 floor.StartTimer(stats.GetLevel());
-                GameObject.Find("Canvas").GetComponent<GeneralStats>().AddGold(stats.GetGold());
+                general.AddGold(stats.GetGold());
             }
         }
     }
