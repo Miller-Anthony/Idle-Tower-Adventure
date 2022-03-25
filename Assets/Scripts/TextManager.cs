@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIController : MonoBehaviour
+public class TextManager : MonoBehaviour
 {
-    [SerializeField] Text goldText;
+    private Text text;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +19,8 @@ public class UIController : MonoBehaviour
         
     }
 
-    public void UpdateGold(int newGold)
+    public void ChangeText(string str)
     {
-        goldText.text = newGold.ToString();
+        text.text = str;
     }
 }

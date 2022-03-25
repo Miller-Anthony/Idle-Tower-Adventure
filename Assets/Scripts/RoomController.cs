@@ -9,6 +9,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] float spawnTime = 2;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject warrior;
+    [SerializeField] EnemyFactory factory;
 
     private Vector3 position;
     private Vector3 enemy1;
@@ -142,7 +143,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer2 <= 0)
                 {
-                    NPCFactory.SpawnEmemy(enemy2, gameObject.GetComponent<RoomController>());
+                    factory.SpawnEmemy(enemy2, gameObject.GetComponent<RoomController>());
                 }
             }
             if(timer3 > 0 && spawnCount > 2)
@@ -152,7 +153,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer3 <= 0)
                 {
-                    NPCFactory.SpawnEmemy(enemy3, gameObject.GetComponent<RoomController>());
+                    factory.SpawnEmemy(enemy3, gameObject.GetComponent<RoomController>());
                 }
             }
             if (timer4 > 0 && spawnCount > 3)

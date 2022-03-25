@@ -5,7 +5,7 @@ using UnityEngine;
 public class GeneralStats : MonoBehaviour
 {
     [SerializeField] int gold;
-
+    [SerializeField] UIController ui;
     [SerializeField] int topFloor = 1;   //Stores the top floor 
     private int highestFloor = 1;
 
@@ -25,12 +25,14 @@ public class GeneralStats : MonoBehaviour
     public void AddGold(int value)
     {
         gold += value;
+        ui.UpdateGold(gold);
     }
 
     // Subtract a gien amount of gold
     public void SubtractGold(int value)
     {
         gold -= value;
+        ui.UpdateGold(gold);
     }
 
     public int CheckGold()
