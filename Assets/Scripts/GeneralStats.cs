@@ -7,6 +7,11 @@ public class GeneralStats : MonoBehaviour
     [SerializeField] int gold;
     [SerializeField] UIController ui;
     [SerializeField] int topFloor = 1;   //Stores the top floor 
+
+    [SerializeField] int adventurerHealth;
+    [SerializeField] int adventurerDamage;
+    [SerializeField] float adventurerSpeed;
+
     private int highestFloor = 1;
 
     // Start is called before the first frame update
@@ -58,4 +63,41 @@ public class GeneralStats : MonoBehaviour
     {
         return highestFloor;
     }
+
+    //Set the adventurers health stat
+    public void SetAdventurerHealth(int hp)
+    {
+        adventurerHealth = hp;
+    }
+
+    // Get the adventurers health stat
+    public int GetAdventurerHealth()
+    {
+        return adventurerHealth;
+    }
+
+    //Set the adventurers damage stat
+    public void SetAdventurerDamage(int dmg)
+    {
+        adventurerDamage = dmg;
+    }
+
+    // Get the adventurers damage stat
+    public int GetAdventurerDamage()
+    {
+        return adventurerDamage;
+    }
+
+    //Set the adventurers speed stat
+    public void SetAdventurerSpeed(float spd)
+    {
+        adventurerSpeed = spd;
+    }
+
+    // Get the adventurers speed stat
+    public float GetAdventurerSpeed()
+    {
+        return adventurerSpeed;
+    }
+   
 }

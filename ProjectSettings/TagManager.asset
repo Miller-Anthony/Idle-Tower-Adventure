@@ -8,6 +8,11 @@ TagManager:
   - enemy
   - right
   - left
+  - adventurer
+  - mercenary
+  - loot
+  - shop
+  - warriorPanel
   layers:
   - Default
   - TransparentFX

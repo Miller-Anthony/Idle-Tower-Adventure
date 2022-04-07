@@ -8,7 +8,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] int spawnCount = 1;
     [SerializeField] float spawnTime = 2;
     [SerializeField] GameObject enemy;
-    [SerializeField] GameObject warrior;
+    [SerializeField] GameObject adventurer;
     [SerializeField] EnemyFactory factory;
 
     private Vector3 position;
@@ -30,11 +30,11 @@ public class RoomController : MonoBehaviour
         // Calculate the X spawn position for players NPCs for the floor
         if (floor % 2 == 0)
         {
-            spawnX = gameObject.transform.position.x - 2.5f;
+            spawnX = gameObject.transform.position.x - 2.4f;
         }
         else
         {
-            spawnX = gameObject.transform.position.x + 2.5f;
+            spawnX = gameObject.transform.position.x + 2.4f;
         }
 
         //create the position the players NPCs should be spawned at
@@ -105,7 +105,7 @@ public class RoomController : MonoBehaviour
             //if the click is withis the boudry of the floor you spawn a warrior
             if (click.y < boundry.x && click.y > boundry.y)
             {
-                GameObject holder = Instantiate(warrior);
+                GameObject holder = Instantiate(adventurer);
                 if (floor % 2 == 0)
                 {
                     holder.GetComponent<NPCMovement>().MoveRight();
