@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4226260161960687333}
   - component: {fileID: 4226260161960687334}
-  - component: {fileID: 4226260161960687332}
+  - component: {fileID: 6287039250623377954}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4226260161960687332
+--- !u!114 &6287039250623377954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,7 +92,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4226260161960687335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321609dfd5a1b534298c98d46be9e3a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 08a1c030fd741ee47a7749c4dd408017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4068982270941163005, guid: 99dae5b6970f86c498e7a1161b2b554b, type: 3}
+  adventurer: {fileID: 6227501802140144004, guid: 14720861f30b1054b9d6f3fe488a812d, type: 3}

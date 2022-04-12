@@ -249,7 +249,7 @@ MonoBehaviour:
   spawnTime: 2
   enemy: {fileID: 4068982270941163005, guid: 99dae5b6970f86c498e7a1161b2b554b, type: 3}
   adventurer: {fileID: 6227501802140144004, guid: 14720861f30b1054b9d6f3fe488a812d, type: 3}
-  factory: {fileID: 4226260161960687332, guid: 403ec20174bfe7f4c83e5641d8b56e26, type: 3}
+  factory: {fileID: 6287039250623377954, guid: 403ec20174bfe7f4c83e5641d8b56e26, type: 3}
 --- !u!50 &3881851391167141760
 Rigidbody2D:
   serializedVersion: 4

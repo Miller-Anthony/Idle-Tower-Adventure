@@ -9,7 +9,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] float spawnTime = 2;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject adventurer;
-    [SerializeField] EnemyFactory factory;
+    [SerializeField] NPCFactory factory;
 
     private Vector3 position;
     private Vector3 enemy1;

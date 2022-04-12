@@ -192,7 +192,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &390619979
 GameObject:
@@ -865,7 +865,7 @@ Transform:
   m_LocalScale: {x: 7, y: 11, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1019886943
 GameObject:
@@ -1360,7 +1360,7 @@ Transform:
   m_LocalScale: {x: 7, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1565164471
 MonoBehaviour:
@@ -1371,10 +1371,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1565164468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 321609dfd5a1b534298c98d46be9e3a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 08a1c030fd741ee47a7749c4dd408017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 4068982270941163005, guid: 99dae5b6970f86c498e7a1161b2b554b, type: 3}
+  adventurer: {fileID: 6227501802140144004, guid: 14720861f30b1054b9d6f3fe488a812d, type: 3}
 --- !u!1 &1638350303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3679894598079405057, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -1734,7 +1735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3679894597124817101, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3679894597124817101, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2040,7 +2041,7 @@ PrefabInstance:
     - target: {fileID: 3881851391167141772, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
       propertyPath: factory
       value: 
-      objectReference: {fileID: 1565164471}
+      objectReference: {fileID: 6287039250623377954, guid: 403ec20174bfe7f4c83e5641d8b56e26, type: 3}
     - target: {fileID: 3881851391167141775, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
       propertyPath: m_Name
       value: LRoom
