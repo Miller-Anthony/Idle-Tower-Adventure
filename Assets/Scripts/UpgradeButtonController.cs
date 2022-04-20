@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class UpgradeButtonController : MonoBehaviour
 {
-    [SerializeField] GeneralStats stats;
+    [SerializeField] StatStorrage stats;
+    [SerializeField] GeneralStats genStats;
     [SerializeField] float cost;
+    [SerializeField] UpgradePanelController panel;
 
     // Start is called before the first frame update
     void Start()
@@ -19,43 +21,104 @@ public class UpgradeButtonController : MonoBehaviour
         
     }
 
+    public void UpgradeAdventurer()
+    {
+        //get the int stats of the adventurer to modefy
+        int dmg = stats.GetStrength();
+        int hp = stats.GetHealth();
+
+        //calculate and set the damage stat increase
+        if (Mathf.FloorToInt((float)dmg * 1.1f) < dmg + 1)
+        {
+            dmg++;
+            stats.SetStrength(dmg);
+        }
+        else
+        {
+            stats.SetStrength(Mathf.FloorToInt((float)dmg * 1.1f));
+        }
+
+        //calculate and set the health stat increase
+        if (Mathf.FloorToInt((float)hp * 1.1f) < hp + 1)
+        {
+            hp++;
+            stats.SetHealth(hp);
+        }
+        else
+        {
+            stats.SetHealth(Mathf.FloorToInt((float)hp * 1.1f));
+        }
+
+        //set the new speed stat (needs to be updated later to not increase every level)
+        if (stats.GetLevel() % 50 == 0)
+        {
+            stats.SetSpeed(stats.GetSpeed() * 1.1f);
+        }
+
+        // Increase the Adventurers level
+        stats.SetLevel(stats.GetLevel() + 1);
+    }
+
+    public void UpgradeFighter()
+    {
+        //get the int stats of the fighter to modefy
+        int dmg = stats.GetStrength();
+        int hp = stats.GetHealth();
+
+        //calculate and set the damage stat increase
+        if (Mathf.FloorToInt((float)dmg * 1.1f) < dmg + 1)
+        {
+            dmg++;
+            stats.SetStrength(dmg);
+        }
+        else
+        {
+            stats.SetStrength(Mathf.FloorToInt((float)dmg * 1.1f));
+        }
+
+        //calculate and set the health stat increase
+        if (Mathf.FloorToInt((float)hp * 1.1f) < hp + 1)
+        {
+            hp++;
+            stats.SetHealth(hp);
+        }
+        else
+        {
+            stats.SetHealth(Mathf.FloorToInt((float)hp * 1.1f));
+        }
+
+        //set the new speed stat (needs to be updated later to not increase every level)
+        if (stats.GetLevel() % 50 == 0)
+        {
+            stats.SetSpeed(stats.GetSpeed() * 1.1f);
+        }
+
+        // Increase the fighter's level
+        stats.SetLevel(stats.GetLevel() + 1);
+    }
+
     public void OnButtonPress()
     {
-        if(stats.CheckGold() >= cost)
+        if(genStats.CheckGold() >= cost)
         {
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
-            stats.SubtractGold((int)cost);
+            genStats.SubtractGold((int)cost);
             cost *= 1.1f;
 
-            //get the int stats of the adventurer to modefy
-            int dmg = stats.GetAdventurerDamage();
-            int hp = stats.GetAdventurerHealth();
-
-            //calculate and set the damage stat increase
-            if (Mathf.FloorToInt((float)dmg * 1.1f) < dmg + 1)
+            switch(gameObject.tag)
             {
-                dmg++;
-                stats.SetAdventurerDamage(dmg);
-            }
-            else
-            {
-                stats.SetAdventurerDamage(Mathf.FloorToInt((float)dmg * 1.1f));
+                case "adventurer":
+                    UpgradeAdventurer();
+                    break;
+                case "fighter":
+                    UpgradeFighter();
+                    break;
+                default:
+                    break;
             }
 
-            //calculate and set the health stat increase
-            if(Mathf.FloorToInt((float)hp * 1.1f) < hp + 1)
-            {
-                hp++;
-                stats.SetAdventurerHealth(hp);
-            }
-            else
-            {
-                stats.SetAdventurerHealth(Mathf.FloorToInt((float)hp * 1.1f));
-            }
-
-            //set the new speed stat (needs to be updated later to not increase every level)
-            stats.SetAdventurerSpeed(stats.GetAdventurerSpeed() * 1.1f);
-            
+            //update the Adventurer UI text
+            panel.UpdateText((int)cost);
         }
     }
 }

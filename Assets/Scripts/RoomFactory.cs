@@ -10,12 +10,14 @@ public class RoomFactory : MonoBehaviour
 
     //private data
     private GeneralStats stats;
+    private FloorTracker tracker;
     private bool floorNeeded = true;
 
     // Start is called before the first frame update
     void Start()
     {
         stats = GameObject.Find("Canvas").GetComponent<GeneralStats>();
+        tracker = GameObject.Find("Ground").GetComponent<FloorTracker>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,9 @@ public class RoomFactory : MonoBehaviour
             //disable script so it will not check to spawn more floors
             gameObject.GetComponent<RoomFactory>().enabled = false;
             floorNeeded = false;
+
+            //add floor to the floor tracker
+            tracker.AddFloor(holder);
         }
     }
 }

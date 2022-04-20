@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class NPCFactory : MonoBehaviour
 {
+    [SerializeField] StatStorrage adventurerStats;
+    [SerializeField] StatStorrage fighterStats;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject adventurer;
+    [SerializeField] GameObject fighter;
+    [SerializeField] FloorTracker tracker;
+
+    private float fighterTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -16,26 +22,85 @@ public class NPCFactory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (fighterTimer < fighterStats.GetSpawn() && fighterStats.GetLevel() > 0 && tag != "adventurer")
+        {
+            fighterTimer += Time.deltaTime;
+
+            if (fighterTimer >= fighterStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("fighter");
+                fighterTimer = 0;
+            }
+        }
     }
 
     //spawn an enemy at the given position
-    public GameObject SpawnEmemy(Vector3 pos, RoomController floor)
+    public GameObject SpawnEmemy(Vector3 pos, RoomController floor, int lvl)
     {
         GameObject holder = Instantiate(enemy);
         holder.transform.position = pos;
-        holder.GetComponent<NPCStats>().SetLevel(3);
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+        holdStats.SetLevel(lvl);
+        holdStats.SetHealth(floor.GetFloor() * 10);
+        holdStats.SetStrength(floor.GetFloor() * 2);
+        holdStats.SetGold(floor.GetFloor() * 2);
         holder.GetComponent<CombatController>().SetFloor(floor);
         return holder;
     }
 
     //spawn an adventurer at the given position
-    public GameObject SpawnAdventurer(Vector3 pos, RoomController floor)
+    public GameObject SpawnAdventurer(Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(adventurer);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the adventurer
         holder.transform.position = pos;
-        holder.GetComponent<NPCStats>().SetLevel(3);
-        holder.GetComponent<CombatController>().SetFloor(floor);
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(adventurerStats.GetLevel());
+        holdStats.SetHealth(adventurerStats.GetHealth());
+        holdStats.SetStrength(adventurerStats.GetStrength());
+        holdStats.SetSpeed(adventurerStats.GetSpeed());
+
+        return holder;
+    }
+
+    public GameObject SpawnFighter(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(fighter);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the adventurer
+        holder.transform.position = pos;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(fighterStats.GetLevel());
+        holdStats.SetHealth(fighterStats.GetHealth());
+        holdStats.SetStrength(fighterStats.GetStrength());
+        holdStats.SetSpeed(fighterStats.GetSpeed());
+        holdStats.SetSpawn(fighterStats.GetSpawn());
+
         return holder;
     }
 }

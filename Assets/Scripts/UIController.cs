@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] Text goldText;
+    [SerializeField] Text topFloorText;
 
     // Start is called before the first frame update
     void Start()
@@ -22,5 +23,10 @@ public class UIController : MonoBehaviour
     public void UpdateGold(int newGold)
     {
         goldText.text = newGold.ToString();
+    }
+
+    public void UpdateTopFloor(int floor)
+    {
+        topFloorText.text = floor.ToString();
     }
 }

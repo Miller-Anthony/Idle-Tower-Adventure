@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class NPCStats : MonoBehaviour
 {
-    [SerializeField] int level;
-    [SerializeField] int strength;
-    [SerializeField] int health;
-    [SerializeField] float speed;
-    [SerializeField] float spawn;
-    [SerializeField] int gold;
+    [SerializeField] int level;    //the level of the NPC (used to calculate enemy spawn position)
+    [SerializeField] int strength; //how much damage the NPC does
+    [SerializeField] int health;   //how much health the NPC has
+    [SerializeField] float speed;  //how fast the NPC moves (only for moving NPCs) 
+    [SerializeField] float spawn;  //how quick enemies spawn (only needed for enemies)
+    [SerializeField] int gold;     //how much gold you get from the enemy (only needed for enemies)
 
     // Start is called before the first frame update
     void Start()

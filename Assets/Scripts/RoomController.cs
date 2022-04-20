@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class RoomController : MonoBehaviour
 {
-    [SerializeField] int floor = 0;
+    [SerializeField] int floor = 1;
     [SerializeField] int spawnCount = 1;
     [SerializeField] float spawnTime = 2;
-    [SerializeField] GameObject enemy;
-    [SerializeField] GameObject adventurer;
     [SerializeField] NPCFactory factory;
 
     private Vector3 position;
@@ -23,10 +21,14 @@ public class RoomController : MonoBehaviour
     private float timer3 = 0.1f;
     private float timer4 = 0.1f;
     private bool isTiming;
+    private bool isActive = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        //set the NPCFactory to an enstantiated object with the script
+        factory = GameObject.Find("Ground").GetComponent<NPCFactory>();
+
         // Calculate the X spawn position for players NPCs for the floor
         if (floor % 2 == 0)
         {
@@ -98,30 +100,20 @@ public class RoomController : MonoBehaviour
     {
         
         //spawn a warrior
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && isActive)
         {
             Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             //if the click is withis the boudry of the floor you spawn a warrior
             if (click.y < boundry.x && click.y > boundry.y)
             {
-                GameObject holder = Instantiate(adventurer);
-                if (floor % 2 == 0)
-                {
-                    holder.GetComponent<NPCMovement>().MoveRight();
-                }
-                else
-                {
-                    holder.GetComponent<NPCMovement>().MoveLeft();
-                }
-
-                holder.transform.position = position;
+                factory.SpawnAdventurer(position, floor);
             }
             
         }
         
         //spawn new enemies
-        if(isTiming)
+        if(isTiming && isActive)
         {
             if(timer1 > 0 && spawnCount > 0)
             {
@@ -130,10 +122,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if(timer1 <= 0)
                 {
-                    GameObject holder = Instantiate(enemy);
-                    holder.transform.position = enemy1;
-                    holder.GetComponent<NPCStats>().SetLevel(1);
-                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                    factory.SpawnEmemy(enemy1, gameObject.GetComponent<RoomController>(), 1);
                 }
             }
             if(timer2 > 0 && spawnCount > 1)
@@ -143,7 +132,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer2 <= 0)
                 {
-                    factory.SpawnEmemy(enemy2, gameObject.GetComponent<RoomController>());
+                    factory.SpawnEmemy(enemy2, gameObject.GetComponent<RoomController>(), 2);
                 }
             }
             if(timer3 > 0 && spawnCount > 2)
@@ -153,7 +142,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer3 <= 0)
                 {
-                    factory.SpawnEmemy(enemy3, gameObject.GetComponent<RoomController>());
+                    factory.SpawnEmemy(enemy3, gameObject.GetComponent<RoomController>(), 3);
                 }
             }
             if (timer4 > 0 && spawnCount > 3)
@@ -163,10 +152,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer4 <= 0)
                 {
-                    GameObject holder = Instantiate(enemy);
-                    holder.transform.position = enemy4;
-                    holder.GetComponent<NPCStats>().SetLevel(4);
-                    holder.GetComponent<CombatController>().SetFloor(gameObject.GetComponent<RoomController>());
+                    factory.SpawnEmemy(enemy4, gameObject.GetComponent<RoomController>(), 4);
                 }
             }
 
@@ -191,6 +177,16 @@ public class RoomController : MonoBehaviour
         return floor;
     }
 
+    public bool IsActive()
+    {
+        return isActive;
+    }
+
+    public void SetActive(bool active)
+    {
+        isActive = active;
+    }
+
     public void StartTimer(int timer)
     {
         switch(timer)
@@ -210,6 +206,18 @@ public class RoomController : MonoBehaviour
             case 4:
                 timer4 = spawnTime;
                 isTiming = true;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void SpawnMercinary(string mercinary)
+    {
+        switch(mercinary)
+        {
+            case "fighter":
+                factory.SpawnFighter(position, floor);
                 break;
             default:
                 break;
