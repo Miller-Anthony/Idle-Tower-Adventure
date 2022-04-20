@@ -9,7 +9,7 @@ public class StatStorrage : MonoBehaviour
     [SerializeField] int strength;
     [SerializeField] float speed;
     [SerializeField] float spawn;
-    
+    [SerializeField] int gold;
 
     // Start is called before the first frame update
     void Start()
@@ -81,5 +81,17 @@ public class StatStorrage : MonoBehaviour
     public float GetSpawn()
     {
         return spawn;
+    }
+
+    //Set the stored gold stat
+    public void SetGold(int gld)
+    {
+        gold = gld;
+    }
+
+    // Get the stored gold stat
+    public int GetGold()
+    {
+        return gold;
     }
 }

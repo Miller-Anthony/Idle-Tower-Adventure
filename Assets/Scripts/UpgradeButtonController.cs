@@ -6,7 +6,7 @@ public class UpgradeButtonController : MonoBehaviour
 {
     [SerializeField] StatStorrage stats;
     [SerializeField] GeneralStats genStats;
-    [SerializeField] float cost;
+    [SerializeField] int cost;
     [SerializeField] UpgradePanelController panel;
 
     // Start is called before the first frame update
@@ -28,26 +28,9 @@ public class UpgradeButtonController : MonoBehaviour
         int hp = stats.GetHealth();
 
         //calculate and set the damage stat increase
-        if (Mathf.FloorToInt((float)dmg * 1.1f) < dmg + 1)
-        {
-            dmg++;
-            stats.SetStrength(dmg);
-        }
-        else
-        {
-            stats.SetStrength(Mathf.FloorToInt((float)dmg * 1.1f));
-        }
-
-        //calculate and set the health stat increase
-        if (Mathf.FloorToInt((float)hp * 1.1f) < hp + 1)
-        {
-            hp++;
-            stats.SetHealth(hp);
-        }
-        else
-        {
-            stats.SetHealth(Mathf.FloorToInt((float)hp * 1.1f));
-        }
+        stats.SetStrength(Mathf.FloorToInt((dmg * 1.1f) + 1));
+        stats.SetHealth(Mathf.FloorToInt((hp * 1.1f) + 1));
+        
 
         //set the new speed stat (needs to be updated later to not increase every level)
         if (stats.GetLevel() % 50 == 0)
@@ -65,27 +48,11 @@ public class UpgradeButtonController : MonoBehaviour
         int dmg = stats.GetStrength();
         int hp = stats.GetHealth();
 
-        //calculate and set the damage stat increase
-        if (Mathf.FloorToInt((float)dmg * 1.1f) < dmg + 1)
-        {
-            dmg++;
-            stats.SetStrength(dmg);
-        }
-        else
-        {
-            stats.SetStrength(Mathf.FloorToInt((float)dmg * 1.1f));
-        }
-
-        //calculate and set the health stat increase
-        if (Mathf.FloorToInt((float)hp * 1.1f) < hp + 1)
-        {
-            hp++;
-            stats.SetHealth(hp);
-        }
-        else
-        {
-            stats.SetHealth(Mathf.FloorToInt((float)hp * 1.1f));
-        }
+        //calculate and set the damage and health stat increase
+        
+        stats.SetStrength(Mathf.FloorToInt((dmg * 1.05f) + 1));
+        stats.SetHealth(Mathf.FloorToInt((hp * 1.1f) + 1));
+        
 
         //set the new speed stat (needs to be updated later to not increase every level)
         if (stats.GetLevel() % 50 == 0)
@@ -102,8 +69,8 @@ public class UpgradeButtonController : MonoBehaviour
         if(genStats.CheckGold() >= cost)
         {
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
-            genStats.SubtractGold((int)cost);
-            cost *= 1.1f;
+            genStats.SubtractGold(cost);
+            cost = (int)(cost * 1.1f);
 
             switch(gameObject.tag)
             {

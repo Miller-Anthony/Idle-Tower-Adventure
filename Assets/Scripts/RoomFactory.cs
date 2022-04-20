@@ -11,6 +11,7 @@ public class RoomFactory : MonoBehaviour
     //private data
     private GeneralStats stats;
     private FloorTracker tracker;
+    private StatStorrage enemyStats;
     private bool floorNeeded = true;
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class RoomFactory : MonoBehaviour
     {
         stats = GameObject.Find("Canvas").GetComponent<GeneralStats>();
         tracker = GameObject.Find("Ground").GetComponent<FloorTracker>();
+        enemyStats = GameObject.Find("EnemyStatHolder").GetComponent<StatStorrage>();
     }
 
     // Update is called once per frame
@@ -46,10 +48,19 @@ public class RoomFactory : MonoBehaviour
 
             //make the next room
             holder = Instantiate(holder);
+            RoomController holdRoom = holder.GetComponent<RoomController>();
+
+            //update enemy held stats
+            enemyStats.SetStrength((int)(enemyStats.GetStrength() * 1.15f) + 1);
+            enemyStats.SetHealth((int)(enemyStats.GetHealth() * 1.15f) + 1);
+            enemyStats.SetGold((int)(enemyStats.GetGold() * 1.05f) + 1);
 
             //set stats of the room
             stats.NextFloor();
-            holder.GetComponent<RoomController>().SetFloor(stats.GetTopFloor());
+            holdRoom.SetFloor(stats.GetTopFloor());
+            holdRoom.SetEnemyStrength(enemyStats.GetStrength());
+            holdRoom.SetEnemyHealth(enemyStats.GetHealth());
+            holdRoom.SetEnemyGold(enemyStats.GetGold());
             Vector3 pos = holder.transform.position;
             pos.y = (stats.GetTopFloor() * 2) - 3;
             holder.transform.position = pos;

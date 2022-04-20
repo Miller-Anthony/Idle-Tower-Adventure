@@ -41,9 +41,9 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
         NPCStats holdStats = holder.GetComponent<NPCStats>();
         holdStats.SetLevel(lvl);
-        holdStats.SetHealth(floor.GetFloor() * 10);
-        holdStats.SetStrength(floor.GetFloor() * 2);
-        holdStats.SetGold(floor.GetFloor() * 2);
+        holdStats.SetHealth(floor.GetEnemyHealth());
+        holdStats.SetStrength(floor.GetEnemyStrength());
+        holdStats.SetGold(floor.GetEnemyGold());
         holder.GetComponent<CombatController>().SetFloor(floor);
         return holder;
     }

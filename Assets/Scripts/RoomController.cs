@@ -9,6 +9,11 @@ public class RoomController : MonoBehaviour
     [SerializeField] float spawnTime = 2;
     [SerializeField] NPCFactory factory;
 
+    //enemy stats for the floor
+    [SerializeField] int strength;
+    [SerializeField] int health;
+    [SerializeField] int gold;
+
     private Vector3 position;
     private Vector3 enemy1;
     private Vector3 enemy2;
@@ -175,6 +180,36 @@ public class RoomController : MonoBehaviour
     public int GetFloor()
     {
         return floor;
+    }
+
+    public void SetEnemyStrength(int str)
+    {
+        strength = str;
+    }
+
+    public int GetEnemyStrength()
+    {
+        return strength;
+    }
+
+    public void SetEnemyHealth(int hp)
+    {
+        health = hp;
+    }
+
+    public int GetEnemyHealth()
+    {
+        return health;
+    }
+
+    public void SetEnemyGold(int gld)
+    {
+        gold = gld;
+    }
+
+    public int GetEnemyGold()
+    {
+        return gold;
     }
 
     public bool IsActive()
