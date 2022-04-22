@@ -8,19 +8,18 @@ public class RoomController : MonoBehaviour
     [SerializeField] int spawnCount = 1;
     [SerializeField] float spawnTime = 2;
     [SerializeField] NPCFactory factory;
+    [SerializeField] GameObject enemySpawn1;
+    [SerializeField] GameObject enemySpawn2;
+    [SerializeField] GameObject enemySpawn3;
+    [SerializeField] GameObject enemySpawn4;
+    [SerializeField] GameObject playerSpawn;
 
     //enemy stats for the floor
     [SerializeField] int strength;
     [SerializeField] int health;
     [SerializeField] int gold;
 
-    private Vector3 position;
-    private Vector3 enemy1;
-    private Vector3 enemy2;
-    private Vector3 enemy3;
-    private Vector3 enemy4;
     private Vector2 boundry;
-    private float spawnX;
     private float timer1 = 0.1f;
     private float timer2 = 0.1f;
     private float timer3 = 0.1f;
@@ -34,43 +33,8 @@ public class RoomController : MonoBehaviour
         //set the NPCFactory to an enstantiated object with the script
         factory = GameObject.Find("Ground").GetComponent<NPCFactory>();
 
-        // Calculate the X spawn position for players NPCs for the floor
-        if (floor % 2 == 0)
-        {
-            spawnX = gameObject.transform.position.x - 2.4f;
-        }
-        else
-        {
-            spawnX = gameObject.transform.position.x + 2.4f;
-        }
-
-        //create the position the players NPCs should be spawned at
-        position = new Vector3(spawnX, gameObject.transform.position.y - 0.5f, -1);
-
-        //calculate the X spawn position for enemies for the floor 
-        if (floor % 2 == 0)
-        {
-            spawnX = gameObject.transform.position.x + 1.5f;
-
-            //create the position the enemies spawn for the floor
-            enemy1 = new Vector3(spawnX, gameObject.transform.position.y - 0.5f, -1);
-            enemy2 = new Vector3(spawnX - 0.6f, gameObject.transform.position.y - 0.5f, -1);
-            enemy3 = new Vector3(spawnX - 1.2f, gameObject.transform.position.y - 0.5f, -1);
-            enemy4 = new Vector3(spawnX - 1.8f, gameObject.transform.position.y - 0.5f, -1);
-        }
-        else
-        {
-            spawnX = gameObject.transform.position.x - 1.5f;
-
-            //create the position the enemies spawn for the floor
-            enemy1 = new Vector3(spawnX, gameObject.transform.position.y - 0.5f, -1);
-            enemy2 = new Vector3(spawnX + 0.6f, gameObject.transform.position.y - 0.5f, -1);
-            enemy3 = new Vector3(spawnX + 1.2f, gameObject.transform.position.y - 0.5f, -1);
-            enemy4 = new Vector3(spawnX + 1.8f, gameObject.transform.position.y - 0.5f, -1);
-        }
-
         //calculate the boundry for the mouse clicks
-        boundry = new Vector2(gameObject.transform.position.y + 1, gameObject.transform.position.y - 1);
+        boundry = new Vector2(transform.position.y + (transform.localScale.y / 2), transform.position.y - (transform.localScale.y / 2));
 
         //make the first enemies spawn
         isTiming = true;
@@ -104,7 +68,7 @@ public class RoomController : MonoBehaviour
     void Update()
     {
         
-        //spawn a warrior
+        //spawn an adventurer
         if(Input.GetMouseButtonDown(0) && isActive)
         {
             Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -112,7 +76,7 @@ public class RoomController : MonoBehaviour
             //if the click is withis the boudry of the floor you spawn a warrior
             if (click.y < boundry.x && click.y > boundry.y)
             {
-                factory.SpawnAdventurer(position, floor);
+                factory.SpawnAdventurer(playerSpawn.transform.position, floor);
             }
             
         }
@@ -127,7 +91,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if(timer1 <= 0)
                 {
-                    factory.SpawnEmemy(enemy1, gameObject.GetComponent<RoomController>(), 1);
+                    factory.SpawnEmemy(enemySpawn1.transform.position, gameObject.GetComponent<RoomController>(), 1);
                 }
             }
             if(timer2 > 0 && spawnCount > 1)
@@ -137,7 +101,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer2 <= 0)
                 {
-                    factory.SpawnEmemy(enemy2, gameObject.GetComponent<RoomController>(), 2);
+                    factory.SpawnEmemy(enemySpawn2.transform.position, gameObject.GetComponent<RoomController>(), 2);
                 }
             }
             if(timer3 > 0 && spawnCount > 2)
@@ -147,7 +111,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer3 <= 0)
                 {
-                    factory.SpawnEmemy(enemy3, gameObject.GetComponent<RoomController>(), 3);
+                    factory.SpawnEmemy(enemySpawn3.transform.position, gameObject.GetComponent<RoomController>(), 3);
                 }
             }
             if (timer4 > 0 && spawnCount > 3)
@@ -157,7 +121,7 @@ public class RoomController : MonoBehaviour
                 //if timer is done, spawn a guy
                 if (timer4 <= 0)
                 {
-                    factory.SpawnEmemy(enemy4, gameObject.GetComponent<RoomController>(), 4);
+                    factory.SpawnEmemy(enemySpawn4.transform.position, gameObject.GetComponent<RoomController>(), 4);
                 }
             }
 
@@ -252,7 +216,7 @@ public class RoomController : MonoBehaviour
         switch(mercinary)
         {
             case "fighter":
-                factory.SpawnFighter(position, floor);
+                factory.SpawnFighter(playerSpawn.transform.position, floor);
                 break;
             default:
                 break;

@@ -55,6 +55,12 @@ public class RoomFactory : MonoBehaviour
             enemyStats.SetHealth((int)(enemyStats.GetHealth() * 1.15f) + 1);
             enemyStats.SetGold((int)(enemyStats.GetGold() * 1.05f) + 1);
 
+            //Calculate the scale of the room
+            Vector3 scale = holder.transform.localScale;
+            scale.x *= 1.5f * Screen.width / Screen.height;
+            scale.y *= 1.5f * Screen.width / Screen.height;
+            holder.transform.localScale = scale;
+
             //set stats of the room
             stats.NextFloor();
             holdRoom.SetFloor(stats.GetTopFloor());
@@ -62,7 +68,7 @@ public class RoomFactory : MonoBehaviour
             holdRoom.SetEnemyHealth(enemyStats.GetHealth());
             holdRoom.SetEnemyGold(enemyStats.GetGold());
             Vector3 pos = holder.transform.position;
-            pos.y = (stats.GetTopFloor() * 2) - 3;
+            pos.y = GetComponentInParent<Transform>().position.y + scale.y;
             holder.transform.position = pos;
 
             //disable script so it will not check to spawn more floors

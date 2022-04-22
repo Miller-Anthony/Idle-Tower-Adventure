@@ -37,14 +37,24 @@ public class NPCFactory : MonoBehaviour
     //spawn an enemy at the given position
     public GameObject SpawnEmemy(Vector3 pos, RoomController floor, int lvl)
     {
+        //Make the object and store its stats
         GameObject holder = Instantiate(enemy);
-        holder.transform.position = pos;
         NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //Calculate the scale of the room
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //set the stats
+        holder.transform.position = pos;
         holdStats.SetLevel(lvl);
         holdStats.SetHealth(floor.GetEnemyHealth());
         holdStats.SetStrength(floor.GetEnemyStrength());
         holdStats.SetGold(floor.GetEnemyGold());
         holder.GetComponent<CombatController>().SetFloor(floor);
+
         return holder;
     }
 
@@ -63,6 +73,12 @@ public class NPCFactory : MonoBehaviour
 
         //Set the position of the adventurer
         holder.transform.position = pos;
+
+        //Calculate the scale of the room
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
 
         //get the adventurers stat block to be able to set its stats
         NPCStats holdStats = holder.GetComponent<NPCStats>();
@@ -90,6 +106,12 @@ public class NPCFactory : MonoBehaviour
 
         //Set the position of the adventurer
         holder.transform.position = pos;
+
+        //Calculate the scale of the room
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
 
         //get the adventurers stat block to be able to set its stats
         NPCStats holdStats = holder.GetComponent<NPCStats>();
