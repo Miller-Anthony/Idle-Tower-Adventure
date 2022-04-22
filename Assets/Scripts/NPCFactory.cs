@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NPCFactory : MonoBehaviour
 {
+    [SerializeField] GeneralStats general;
     [SerializeField] StatStorrage adventurerStats;
     [SerializeField] StatStorrage fighterStats;
     [SerializeField] GameObject enemy;
@@ -89,6 +90,7 @@ public class NPCFactory : MonoBehaviour
         holdStats.SetStrength(adventurerStats.GetStrength());
         holdStats.SetSpeed(adventurerStats.GetSpeed());
 
+        general.SummonAdventurer();
         return holder;
     }
 

@@ -7,6 +7,7 @@ public class UIController : MonoBehaviour
 {
     [SerializeField] Text goldText;
     [SerializeField] Text topFloorText;
+    [SerializeField] Text adventurerCountText;
 
     // Start is called before the first frame update
     void Start()
@@ -28,5 +29,10 @@ public class UIController : MonoBehaviour
     public void UpdateTopFloor(int floor)
     {
         topFloorText.text = floor.ToString();
+    }
+
+    public void UpdateAdventurerCount(int count, int max)
+    {
+        adventurerCountText.text = count.ToString() + "/" + max.ToString();
     }
 }

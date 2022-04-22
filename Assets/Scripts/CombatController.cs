@@ -28,6 +28,11 @@ public class CombatController : MonoBehaviour
                 floor.StartTimer(stats.GetLevel());
                 general.AddGold(stats.GetGold());
             }
+            //if it was an adventurer that dies, decrease the count
+            else if (name == "Adventurer(Clone)")
+            {
+                general.DestroyAdventurer();
+            }
         }
     }
 

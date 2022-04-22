@@ -42,6 +42,8 @@ public class UpgradeButtonController : MonoBehaviour
         stats.SetLevel(stats.GetLevel() + 1);
     }
 
+    
+
     public void UpgradeFighter()
     {
         //get the int stats of the fighter to modefy
@@ -66,13 +68,13 @@ public class UpgradeButtonController : MonoBehaviour
 
     public void OnButtonPress()
     {
-        if(genStats.CheckGold() >= cost)
+        if (genStats.CheckGold() >= cost)
         {
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
             cost = (int)(cost * 1.1f);
 
-            switch(gameObject.tag)
+            switch (gameObject.tag)
             {
                 case "adventurer":
                     UpgradeAdventurer();

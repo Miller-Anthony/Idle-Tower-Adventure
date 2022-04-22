@@ -8,6 +8,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] int spawnCount = 1;
     [SerializeField] float spawnTime = 2;
     [SerializeField] NPCFactory factory;
+    [SerializeField] GeneralStats stats;
     [SerializeField] GameObject enemySpawn1;
     [SerializeField] GameObject enemySpawn2;
     [SerializeField] GameObject enemySpawn3;
@@ -30,8 +31,9 @@ public class RoomController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //set the NPCFactory to an enstantiated object with the script
+        //set the NPCFactory and general stats to an enstantiated object with the script
         factory = GameObject.Find("Ground").GetComponent<NPCFactory>();
+        stats = GameObject.Find("Canvas").GetComponent<GeneralStats>();
 
         //calculate the boundry for the mouse clicks
         boundry = new Vector2(transform.position.y + (transform.localScale.y / 2), transform.position.y - (transform.localScale.y / 2));
@@ -69,7 +71,7 @@ public class RoomController : MonoBehaviour
     {
         
         //spawn an adventurer
-        if(Input.GetMouseButtonDown(0) && isActive)
+        if(Input.GetMouseButtonDown(0) && isActive && stats.GetMaxAdventurers() > stats.GetNumAdventurers())
         {
             Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
