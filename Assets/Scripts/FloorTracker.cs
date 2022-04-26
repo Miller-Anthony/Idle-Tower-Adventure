@@ -5,7 +5,8 @@ using UnityEngine;
 public class FloorTracker : MonoBehaviour
 {
     [SerializeField] GeneralStats stats;
-
+    [SerializeField] CameraController camera;
+    
     private Queue<GameObject> floorQueue;
     private int queueSize = 0;
     
@@ -64,12 +65,20 @@ public class FloorTracker : MonoBehaviour
             holderController.SetActive(false);
 
             holderController = floorQueue.Peek().GetComponent<RoomController>();
+
+            stats.SetBottomFloor(holderController.GetFloor());
         }
+    }
+
+    public void ClearFloors(int count = 10)
+    {
+        SetBottomFloor(GetBottomFloor().GetComponent<RoomController>().GetFloor() + count);
     }
 
     public void AddFloor(GameObject floor)
     {
         floorQueue.Enqueue(floor);
+        camera.SetLimit(floor.transform.position.y);
     }
 
     public GameObject GetBottomFloor()

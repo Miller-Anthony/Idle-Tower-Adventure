@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour
 {
     private GeneralStats stats;
     private Vector3 MouseStart;
+    private float limit;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +30,10 @@ public class CameraController : MonoBehaviour
             transform.position = transform.position - (MouseMove - MouseStart);
 
             //if out of bounds above the tower
-            if (transform.position.y > stats.GetTopFloor() * 2 - 5)
+            if (transform.position.y > limit)
             {
                 var holder = transform.position;
-                holder.y = stats.GetTopFloor() * 2 - 5;
+                holder.y = limit;
                 transform.position = holder;
             }
 
@@ -44,5 +45,10 @@ public class CameraController : MonoBehaviour
                 transform.position = holder;
             }
         }
+    }
+
+    public void SetLimit(float y)
+    {
+        limit = y;
     }
 }

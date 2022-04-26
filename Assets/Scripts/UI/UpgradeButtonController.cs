@@ -42,7 +42,7 @@ public class UpgradeButtonController : MonoBehaviour
         stats.SetLevel(stats.GetLevel() + 1);
     }
 
-    
+
 
     public void UpgradeFighter()
     {
@@ -51,10 +51,32 @@ public class UpgradeButtonController : MonoBehaviour
         int hp = stats.GetHealth();
 
         //calculate and set the damage and health stat increase
-        
+
         stats.SetStrength(Mathf.FloorToInt((dmg * 1.05f) + 1));
         stats.SetHealth(Mathf.FloorToInt((hp * 1.1f) + 1));
-        
+
+
+        //set the new speed stat (needs to be updated later to not increase every level)
+        if (stats.GetLevel() % 50 == 0)
+        {
+            stats.SetSpeed(stats.GetSpeed() * 1.1f);
+        }
+
+        // Increase the fighter's level
+        stats.SetLevel(stats.GetLevel() + 1);
+    }
+
+    public void UpgradeBarbarian()
+    {
+        //get the int stats of the fighter to modefy
+        int dmg = stats.GetStrength();
+        int hp = stats.GetHealth();
+
+        //calculate and set the damage and health stat increase
+
+        stats.SetStrength(Mathf.FloorToInt((dmg * 1.05f) + 1));
+        stats.SetHealth(Mathf.FloorToInt((hp * 1.1f) + 1));
+
 
         //set the new speed stat (needs to be updated later to not increase every level)
         if (stats.GetLevel() % 50 == 0)
@@ -81,6 +103,9 @@ public class UpgradeButtonController : MonoBehaviour
                     break;
                 case "fighter":
                     UpgradeFighter();
+                    break;
+                case "barbarian":
+                    UpgradeBarbarian();
                     break;
                 default:
                     break;

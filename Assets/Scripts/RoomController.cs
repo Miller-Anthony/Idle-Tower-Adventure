@@ -220,6 +220,9 @@ public class RoomController : MonoBehaviour
             case "fighter":
                 factory.SpawnFighter(playerSpawn.transform.position, floor);
                 break;
+            case "barbarian":
+                factory.SpawnBarbarian(playerSpawn.transform.position, floor);
+                break;
             default:
                 break;
         }

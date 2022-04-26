@@ -7,6 +7,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
     [SerializeField] GeneralStats genStats;
     [SerializeField] int cost;
     [SerializeField] MiscUpgradeController panel;
+    [SerializeField] FloorTracker floors;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,8 @@ public class MiscUpgradeButtonController : MonoBehaviour
         genStats.SetMaxAdventurers(genStats.GetMaxAdventurers() + 1);
     }
 
+    
+
     public void OnButtonPress()
     {
         if (genStats.CheckGold() >= cost)
@@ -37,6 +40,9 @@ public class MiscUpgradeButtonController : MonoBehaviour
             {
                 case "adventurerCount":
                     UpgradeAdventurerCount();
+                    break;
+                case "clearFloor":
+                    floors.ClearFloors();
                     break;
                 default:
                     break;

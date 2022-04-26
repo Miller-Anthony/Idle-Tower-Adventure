@@ -24,8 +24,16 @@ public class MiscUpgradeController : MonoBehaviour
     public void UpdateText(int newCost)
     {
         costText.text = newCost.ToString();
-        countText.text = stats.GetMaxAdventurers().ToString();
 
+        if(tag == "adventurerCount")
+        {
+            countText.text = stats.GetMaxAdventurers().ToString();
+        }
+        else if (tag == "clearFloor")
+        {
+            countText.text = (stats.GetBottomFloor() - 1).ToString();
+        }
+        
 
     }
 }
