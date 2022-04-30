@@ -517,6 +517,7 @@ MonoBehaviour:
   spawnCount: 2
   spawnTime: 3
   factory: {fileID: 6287039250623377954, guid: 403ec20174bfe7f4c83e5641d8b56e26, type: 3}
+  stats: {fileID: 0}
   enemySpawn1: {fileID: 6507356565221674499}
   enemySpawn2: {fileID: 3214647370350436795}
   enemySpawn3: {fileID: 2097132350888129376}
@@ -718,3 +719,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lRoom: {fileID: 3881851391167141775, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
   rRoom: {fileID: 7139423975778739821}
+  lBossRoom: {fileID: 6649411820056032309, guid: 9757e47370a08514a93402904744be7c, type: 3}
+  rBossRoom: {fileID: 5089564780044460310, guid: 2a8438c5f3417c24b995252cfcea0ba1, type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 public class FloorTracker : MonoBehaviour
 {
     [SerializeField] GeneralStats stats;
-    [SerializeField] CameraController camera;
+    [SerializeField] CameraController cam;
     
     private Queue<GameObject> floorQueue;
     private int queueSize = 0;
@@ -78,7 +78,7 @@ public class FloorTracker : MonoBehaviour
     public void AddFloor(GameObject floor)
     {
         floorQueue.Enqueue(floor);
-        camera.SetLimit(floor.transform.position.y);
+        cam.SetLimit(floor.transform.position.y);
     }
 
     public GameObject GetBottomFloor()

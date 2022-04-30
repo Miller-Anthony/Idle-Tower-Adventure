@@ -717,7 +717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 985715577}
-  camera: {fileID: 519420030}
+  cam: {fileID: 519420030}
 --- !u!114 &1939296628 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 874354396757500044, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -1096,6 +1096,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 946766555314014463, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
+      propertyPath: lBossRoom
+      value: 
+      objectReference: {fileID: 6649411820056032309, guid: 9757e47370a08514a93402904744be7c, type: 3}
+    - target: {fileID: 946766555314014463, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
+      propertyPath: rBossRoom
+      value: 
+      objectReference: {fileID: 5089564780044460310, guid: 2a8438c5f3417c24b995252cfcea0ba1, type: 3}
     - target: {fileID: 3881851391167141762, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
       propertyPath: m_RootOrder
       value: 1

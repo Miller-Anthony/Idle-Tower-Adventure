@@ -7,12 +7,15 @@ public class RoomFactory : MonoBehaviour
     //serilizable data
     [SerializeField] GameObject lRoom;
     [SerializeField] GameObject rRoom;
+    [SerializeField] GameObject lBossRoom;
+    [SerializeField] GameObject rBossRoom;
 
     //private data
     private GeneralStats stats;
     private FloorTracker tracker;
     private StatStorrage enemyStats;
     private bool floorNeeded = true;
+    private bool bossFloor = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +42,28 @@ public class RoomFactory : MonoBehaviour
             //set what room to spawn
             if (stats.GetTopFloor() % 2 == 0)
             {
-                holder = lRoom;
+                if ((stats.GetTopFloor() + 1) % 5 == 0)
+                {
+                    holder = lBossRoom;
+                    bossFloor = true;
+                }
+                else
+                {
+                    holder = lRoom;
+                }
+                
             }
             else
             {
-                holder = rRoom;
+                if ((stats.GetTopFloor() + 1) % 5 == 0)
+                {
+                    holder = rBossRoom;
+                    bossFloor = true;
+                }
+                else
+                {
+                    holder = rRoom;
+                }
             }
 
             //make the next room
@@ -64,9 +84,19 @@ public class RoomFactory : MonoBehaviour
             //set stats of the room
             stats.NextFloor();
             holdRoom.SetFloor(stats.GetTopFloor());
-            holdRoom.SetEnemyStrength(enemyStats.GetStrength());
-            holdRoom.SetEnemyHealth(enemyStats.GetHealth());
-            holdRoom.SetEnemyGold(enemyStats.GetGold());
+            if (bossFloor)
+            {
+                holdRoom.SetEnemyStrength((int)(enemyStats.GetStrength() * 1.2f) + 1);
+                holdRoom.SetEnemyHealth((int)(enemyStats.GetHealth() * 1.2f) + 1);
+                holdRoom.SetEnemyGold((int)(enemyStats.GetGold() * 1.05f) + 1);
+            }
+            else
+            {
+                holdRoom.SetEnemyStrength(enemyStats.GetStrength());
+                holdRoom.SetEnemyHealth(enemyStats.GetHealth());
+                holdRoom.SetEnemyGold(enemyStats.GetGold());
+            }
+            
             Vector3 pos = holder.transform.position;
             pos.y = GetComponentInParent<Transform>().position.y + scale.y;
             holder.transform.position = pos;
