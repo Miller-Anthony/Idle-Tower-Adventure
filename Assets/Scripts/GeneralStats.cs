@@ -40,11 +40,13 @@ public class GeneralStats : MonoBehaviour
         ui.UpdateGold(gold);
     }
 
+    //return the amount of gold currently held
     public int CheckGold()
     {
         return gold;
     }
 
+    //increment the top floor to the next floor
     public void NextFloor()
     {
         topFloor++;
@@ -55,48 +57,63 @@ public class GeneralStats : MonoBehaviour
         }
     }
 
+    //get the current top floor of the tower
     public int GetTopFloor()
     {
         return topFloor;
     }
 
+    //Get the highest floor of the tower ever reached
     public int GetHighestFloor()
     {
         return highestFloor;
     }
 
+    //set the highest floor ever reached
+    public void SetHighestFloor(int hFloor)
+    {
+        highestFloor = hFloor;
+    }
+
+    //get the current bottom floor of the tower
     public int GetBottomFloor()
     {
         return bottomFloor;
     }
 
+    //set the bottom flor of the tower
     public void SetBottomFloor(int floor)
     {
         bottomFloor = floor;
     }
 
+    //Get the total amount of adventurers that can be summoned at any given time
     public int GetMaxAdventurers()
     {
         return maxAdventurers;
     }
 
+    //Set how many adventurers can be summoned at a given time
     public void SetMaxAdventurers(int max)
     {
         maxAdventurers = max;
         ui.UpdateAdventurerCount(numAdventurers, maxAdventurers);
     }
 
+    //Get the number of adventurers currently summoned
     public int GetNumAdventurers()
     {
         return numAdventurers;
     }
 
+    //Increase the count of how many adventurers are currently summoned
     public void SummonAdventurer()
     {
         numAdventurers++;
         ui.UpdateAdventurerCount(numAdventurers, maxAdventurers);
     }
 
+    //decrease the number of adventurers that are currently summoned
     public void DestroyAdventurer()
     {
         numAdventurers--;

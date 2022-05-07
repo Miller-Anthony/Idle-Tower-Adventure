@@ -115,4 +115,31 @@ public class UpgradeButtonController : MonoBehaviour
             panel.UpdateText((int)cost);
         }
     }
+
+    public void LoadLevels(int levels)
+    {
+        //for the number of levels, level up the given NPC
+        for(int i = 0; i < levels; i++)
+        {
+            cost = (int)(cost * 1.1f);
+
+            switch (gameObject.tag)
+            {
+                case "adventurer":
+                    UpgradeAdventurer();
+                    break;
+                case "fighter":
+                    UpgradeFighter();
+                    break;
+                case "barbarian":
+                    UpgradeBarbarian();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        //update the Adventurer UI text
+        panel.UpdateText((int)cost);
+    }
 }

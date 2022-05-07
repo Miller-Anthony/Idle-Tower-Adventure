@@ -52,4 +52,29 @@ public class MiscUpgradeButtonController : MonoBehaviour
             panel.UpdateText((int)cost);
         }
     }
+
+    //load the amount of upgrades bought for the given upgrade
+    public void LoadLevels(int levels)
+    {
+        //for the numbers of levels, level up the upgrade
+        for (int i = 0; i < levels; i++)
+        {
+            cost = (int)(cost * 10.0f);
+
+            switch (tag)
+            {
+                case "adventurerCount":
+                    UpgradeAdventurerCount();
+                    break;
+                case "clearFloor":
+                    floors.ClearFloors();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        //update the Adventurer UI text
+        panel.UpdateText((int)cost);
+    }
 }
