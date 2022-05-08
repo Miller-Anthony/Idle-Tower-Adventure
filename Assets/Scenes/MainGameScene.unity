@@ -204,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 210542991}
   - component: {fileID: 210542990}
+  - component: {fileID: 210542992}
   m_Layer: 0
   m_Name: SaveManager
   m_TagString: Untagged
@@ -229,11 +230,6 @@ MonoBehaviour:
   barbarianStats: {fileID: 275950702}
   adventurerCountController: {fileID: 969396972}
   clearedFloorController: {fileID: 1047047771}
-  adventurerButton: {fileID: 1646843126}
-  fighterButton: {fileID: 15285207}
-  barbarianButton: {fileID: 1660544233}
-  adventurerCountButton: {fileID: 2121718975}
-  clearedFloorButton: {fileID: 1499580323}
 --- !u!4 &210542991
 Transform:
   m_ObjectHideFlags: 0
@@ -248,6 +244,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &210542992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210542989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaf7999b6e8a2314c94511f439781d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genStats: {fileID: 985715577}
+  adventurerButton: {fileID: 1646843126}
+  fighterButton: {fileID: 15285207}
+  barbarianButton: {fileID: 1660544233}
+  adventurerCountButton: {fileID: 2121718975}
+  clearedFloorButton: {fileID: 1499580323}
+  factory: {fileID: 2109486394}
 --- !u!114 &275950702 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 830624247440288209, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -847,6 +862,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82e9b60079b4faf49bc3ed317ae42766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2109486394 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 946766555314014463, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
+  m_PrefabInstance: {fileID: 3881851389722330074}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf69f9c353916f46ba4959e14d36a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2121718975 stripped

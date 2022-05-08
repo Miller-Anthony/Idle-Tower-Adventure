@@ -32,6 +32,10 @@ public class MiscUpgradeButtonController : MonoBehaviour
     {
         if (genStats.CheckGold() >= cost)
         {
+            if(tag == "clearFloor" && genStats.GetTopFloor() - 20 < genStats.GetBottomFloor())
+            {
+                return;
+            }
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
             cost = (int)(cost * 10.0f);

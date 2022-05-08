@@ -13,14 +13,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] MiscUpgradeController adventurerCountController;
     [SerializeField] MiscUpgradeController clearedFloorController;
 
-    //Additional places to load data to
-    [SerializeField] UpgradeButtonController adventurerButton;
-    [SerializeField] UpgradeButtonController fighterButton;
-    [SerializeField] UpgradeButtonController barbarianButton;
-    [SerializeField] MiscUpgradeButtonController adventurerCountButton;
-    [SerializeField] MiscUpgradeButtonController clearedFloorButton;
-
-    //data to save and load
+    //data to save
     private int highestFloor;
     private int topFloor;
     private int gold;
@@ -31,12 +24,12 @@ public class SaveManager : MonoBehaviour
     private int barbarianLevel;
 
     //stuff to track when to save
-    private float saveTimer = 15.0f;
+    private float saveTimer = 10.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadGame();
+        
     }
 
     // Update is called once per frame
@@ -77,32 +70,5 @@ public class SaveManager : MonoBehaviour
         File.WriteAllText(path, data);
     }
 
-    public void LoadGame()
-    {
-        if(File.Exists(Application.persistentDataPath + "\\Save.txt"))
-        {
-            //Get data from the save file
-            string[] data = File.ReadAllLines(Application.persistentDataPath + "\\Save.txt");
-
-            //Parse save data
-            highestFloor = (int)int.Parse(data[0]);
-            topFloor = (int)int.Parse(data[1]);
-            gold = (int)int.Parse(data[2]);
-            adventurerLevel = (int)int.Parse(data[3]);
-            fighterLevel = (int)int.Parse(data[4]);
-            barbarianLevel = (int)int.Parse(data[5]);
-            adventurerCount = (int)int.Parse(data[6]);
-            clearedFloorLevel = (int)int.Parse(data[7]);
-
-            //Load the save data into the game
-            genStats.SetHighestFloor(highestFloor);
-            //spawn all the floors needed
-            genStats.AddGold(gold);
-            adventurerButton.LoadLevels(adventurerLevel - 1);
-            fighterButton.LoadLevels(fighterLevel);
-            barbarianButton.LoadLevels(barbarianLevel);
-            adventurerCountButton.LoadLevels(adventurerCount - 5);
-            clearedFloorButton.LoadLevels((clearedFloorLevel - 1) / 10);
-        }
-    }
+    
 }
