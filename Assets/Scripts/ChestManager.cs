@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class ChestManager : MonoBehaviour
 {
-    [SerializeField] float spawnChance;
-    [SerializeField] int minFloorSpawn;
-    [SerializeField] GeneralStats genStats;
+    private int floor;
 
     // Start is called before the first frame update
     void Start()
@@ -20,20 +18,14 @@ public class ChestManager : MonoBehaviour
         
     }
 
-    public bool ChestSpawn()
+    public void SetFloor(int f)
     {
-        bool answer = false;
+        floor = f;
+    }
 
-        if(genStats.GetTopFloor() >= minFloorSpawn)
-        {
-            float num = Random.Range(0.0f, 100.0f);
-
-            if(num <= spawnChance)
-            {
-                answer = true;
-            }
-        }
-                
-        return answer;
+    //get the floor the chest spawned on
+    public int GetFloor()
+    {
+        return floor;
     }
 }

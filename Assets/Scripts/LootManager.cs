@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestStats : MonoBehaviour
+public class LootManager : MonoBehaviour
 {
-    private int floor;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +14,5 @@ public class ChestStats : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void SetFloor(int f)
-    {
-        floor = f;
-    }
-
-    public int GetFloor()
-    {
-        return floor;
     }
 }
