@@ -8,8 +8,8 @@ public class RoomController : MonoBehaviour
     [SerializeField] int spawnCount = 1;
     [SerializeField] float spawnTime = 2;
     [SerializeField] NPCFactory factory;
+    [SerializeField] ChestFactory chestFactory;
     [SerializeField] GeneralStats stats;
-    [SerializeField] ChestManager chestManager;
     [SerializeField] GameObject enemySpawn1;
     [SerializeField] GameObject enemySpawn2;
     [SerializeField] GameObject enemySpawn3;
@@ -36,7 +36,7 @@ public class RoomController : MonoBehaviour
         //set the NPCFactory and general stats to an enstantiated object with the script
         factory = GameObject.Find("Ground").GetComponent<NPCFactory>();
         stats = GameObject.Find("Canvas").GetComponent<GeneralStats>();
-        chestManager = GameObject.Find("ChestManager").GetComponent<ChestManager>();
+        chestFactory = GameObject.Find("ChestTracker").GetComponent<ChestFactory>();
 
         //calculate the boundry for the mouse clicks
         boundry = new Vector2(transform.position.y + (transform.localScale.y / 2), transform.position.y - (transform.localScale.y / 2));
@@ -66,6 +66,12 @@ public class RoomController : MonoBehaviour
         else if (spawnCount < 3)
         {
             timer4 = 0;
+        }
+
+        //check to see if a chest should spawn
+        if(floor % 10 == 0 && (chestFactory.SpawnCheck() || floor % 50 == 0))
+        {
+            chestFactory.SpawnChest(chestSpawn, floor);
         }
     }
 

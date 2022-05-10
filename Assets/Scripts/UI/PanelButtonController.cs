@@ -8,6 +8,7 @@ public class PanelButtonController : MonoBehaviour
     [SerializeField] GameObject mercenaryPanel;
     [SerializeField] GameObject lootPanel;
     [SerializeField] GameObject shopPanel;
+    [SerializeField] ChestTracker tracker;
 
     private bool isActive = false;
 
@@ -62,5 +63,10 @@ public class PanelButtonController : MonoBehaviour
         {
             holder.SetActive(true);
         }
+    }
+
+    public void LootChest()
+    {
+        tracker.LootChest();
     }
 }

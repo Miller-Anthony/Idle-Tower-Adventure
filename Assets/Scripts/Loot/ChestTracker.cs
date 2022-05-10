@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class ChestTracker : MonoBehaviour
 {
-    [SerializeField] float spawnChance;
-    [SerializeField] int minFloorSpawn;
-    [SerializeField] GeneralStats genStats;
+    [SerializeField] GameObject button;
 
     private Queue<GameObject> chestQueue;
 
@@ -29,29 +27,23 @@ public class ChestTracker : MonoBehaviour
 
     public void AddChest(GameObject chest)
     {
+        if(chestQueue.Count == 0)
+        {
+            button.SetActive(true);
+        }
+        
         chestQueue.Enqueue(chest);
     }
 
-    public GameObject LootChest()
+    public void LootChest()
     {
-        return chestQueue.Dequeue();
-    }
+        chestQueue.Dequeue();
 
-    //tell weither a chest should spawn or not
-    public bool ChestSpawn()
-    {
-        bool answer = false;
-
-        if (genStats.GetTopFloor() >= minFloorSpawn)
+        if(chestQueue.Count == 0)
         {
-            float num = Random.Range(0.0f, 100.0f);
-
-            if (num <= spawnChance)
-            {
-                answer = true;
-            }
+            button.SetActive(false);
         }
-
-        return answer;
     }
+
+    
 }
