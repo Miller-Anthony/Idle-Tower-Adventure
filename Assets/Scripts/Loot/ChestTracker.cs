@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChestTracker : MonoBehaviour
 {
     [SerializeField] GameObject button;
+    [SerializeField] LootTracker loot;
 
     private Queue<GameObject> chestQueue;
 
@@ -37,7 +38,7 @@ public class ChestTracker : MonoBehaviour
 
     public void LootChest()
     {
-        chestQueue.Dequeue();
+        loot.AddLoot(chestQueue.Dequeue().GetComponent<ChestManager>().GetFloor());
 
         if(chestQueue.Count == 0)
         {

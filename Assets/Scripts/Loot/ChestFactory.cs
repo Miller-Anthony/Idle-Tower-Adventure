@@ -6,7 +6,6 @@ public class ChestFactory : MonoBehaviour
 {
     [SerializeField] float spawnChance;
     [SerializeField] int minFloorSpawn;
-    [SerializeField] GeneralStats genStats;
     [SerializeField] GameObject chest;
     // Start is called before the first frame update
     void Start()
@@ -21,11 +20,11 @@ public class ChestFactory : MonoBehaviour
     }
 
     //tell weither a chest should spawn or not
-    public bool SpawnCheck()
+    public bool SpawnCheck(int floor)
     {
         bool answer = false;
 
-        if (genStats.GetTopFloor() >= minFloorSpawn) //top floor loads before the floors generate, so it will spawn chests on lower floors when loading
+        if (floor >= minFloorSpawn) //top floor loads before the floors generate, so it will spawn chests on lower floors when loading
         {
             float num = Random.Range(0.0f, 100.0f);
 

@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 1001115781}
   - component: {fileID: 1001115780}
   m_Layer: 0
-  m_Name: LootManager
+  m_Name: LootTracker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -926,6 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 933782583}
+  loot: {fileID: 0}
 --- !u!4 &1524125959
 Transform:
   m_ObjectHideFlags: 0
@@ -954,7 +955,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnChance: 100
   minFloorSpawn: 50
-  genStats: {fileID: 985715577}
   chest: {fileID: 1712489960744577879, guid: 659ee7b39409c334f91fc356946c3468, type: 3}
 --- !u!1 &1565164468
 GameObject:

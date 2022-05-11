@@ -69,7 +69,7 @@ public class RoomController : MonoBehaviour
         }
 
         //check to see if a chest should spawn
-        if(floor % 10 == 0 && (chestFactory.SpawnCheck() || floor % 50 == 0))
+        if(floor % 10 == 0 && (chestFactory.SpawnCheck(floor) || floor % 50 == 0))
         {
             chestFactory.SpawnChest(chestSpawn, floor);
         }
