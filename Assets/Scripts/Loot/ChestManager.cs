@@ -35,7 +35,7 @@ public class ChestManager : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            tracker.AddChest(gameObject);
+            tracker.AddChest(floor);
             gameObject.SetActive(false);
         }
     }

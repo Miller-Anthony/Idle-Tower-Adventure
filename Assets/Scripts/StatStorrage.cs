@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class StatStorrage : MonoBehaviour
 {
+    //stats
     [SerializeField] int level;
     [SerializeField] int health;
     [SerializeField] int strength;
     [SerializeField] float speed;
     [SerializeField] float spawn;
     [SerializeField] int gold;
+    
+    //stat modifiers
+    [SerializeField] LootDisplayController sword;
+    [SerializeField] LootDisplayController shield;
+    [SerializeField] LootDisplayController wallet;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +50,15 @@ public class StatStorrage : MonoBehaviour
     // Get the stored health stat
     public int GetHealth()
     {
+        if (tag == "enemy")
+        {
+            return health;
+        }
+        return (int)(health * shield.GetTotalBonus());
+    }
+
+    public int LevelHealth()
+    {
         return health;
     }
 
@@ -55,6 +70,16 @@ public class StatStorrage : MonoBehaviour
 
     // Get the stored strength stat
     public int GetStrength()
+    {
+        if(tag == "enemy")
+        {
+            return strength;
+        }
+        
+        return (int)(strength * sword.GetTotalBonus());
+    }
+
+    public int LevelStrength()
     {
         return strength;
     }
@@ -92,6 +117,6 @@ public class StatStorrage : MonoBehaviour
     // Get the stored gold stat
     public int GetGold()
     {
-        return gold;
+        return (int)(gold * wallet.GetTotalBonus());
     }
 }

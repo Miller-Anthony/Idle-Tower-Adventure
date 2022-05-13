@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] GameObject enemySpawn4;
     [SerializeField] GameObject playerSpawn;
     [SerializeField] GameObject chestSpawn;
+    [SerializeField] Text text;
 
     //enemy stats for the floor
     [SerializeField] int strength;
@@ -29,6 +31,7 @@ public class RoomController : MonoBehaviour
     private float timer4 = 0.1f;
     private bool isTiming;
     private bool isActive = true;
+    private bool isLoading = false;
 
     // Start is called before the first frame update
     void Start()
@@ -69,10 +72,13 @@ public class RoomController : MonoBehaviour
         }
 
         //check to see if a chest should spawn
-        if(floor % 10 == 0 && (chestFactory.SpawnCheck(floor) || floor % 50 == 0))
+        if(floor % 10 == 0 && (chestFactory.SpawnCheck(floor) || floor % 50 == 0) && !isLoading)
         {
             chestFactory.SpawnChest(chestSpawn, floor);
         }
+
+        //Set the floor UI
+        text.text = floor.ToString();
     }
 
     // Update is called once per frame
@@ -195,6 +201,11 @@ public class RoomController : MonoBehaviour
     public void SetActive(bool active)
     {
         isActive = active;
+    }
+
+    public void SetLoading(bool status)
+    {
+        isLoading = status;
     }
 
     public void StartTimer(int timer)

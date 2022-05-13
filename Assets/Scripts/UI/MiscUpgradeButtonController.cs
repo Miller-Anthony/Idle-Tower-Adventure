@@ -8,6 +8,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
     [SerializeField] int cost;
     [SerializeField] MiscUpgradeController panel;
     [SerializeField] FloorTracker floors;
+    [SerializeField] SaveManager save;
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +48,9 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "clearFloor":
                     floors.ClearFloors();
+                    break;
+                case "rebirth":
+                    save.Rebirth();
                     break;
                 default:
                     break;

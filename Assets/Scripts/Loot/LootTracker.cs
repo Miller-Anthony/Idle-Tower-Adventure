@@ -5,21 +5,21 @@ using UnityEngine;
 public class LootTracker : MonoBehaviour
 {
     //odjects that can be added to the list
-    [SerializeField] GameObject sword;
-    [SerializeField] GameObject shield;
-    [SerializeField] GameObject wallet;
+    [SerializeField] LootDisplayController sword;
+    [SerializeField] LootDisplayController shield;
+    [SerializeField] LootDisplayController wallet;
 
     //chance to get each item
     [SerializeField] float swordChance;
     [SerializeField] float shieldChance;
     [SerializeField] float walletChance;
 
-    private List<GameObject> lootList;
+    //private List<LootDisplayController> lootList;
 
     // Start is called before the first frame update
     void Start()
     {
-        lootList = new List<GameObject>();
+        //lootList = new List<LootDisplayController>();
     }
 
     // Update is called once per frame
@@ -30,21 +30,20 @@ public class LootTracker : MonoBehaviour
 
     public void AddLoot(int floor)
     {
-        float num = Random.Range(0.0f, 100.0f);
-        GameObject holder = wallet;
+        float num = Random.Range(0.0f, swordChance + shieldChance + walletChance);
+        LootDisplayController holder = wallet;
 
+        //set the loot from the chest
         if(num < swordChance)
         {
             holder = sword;
         }
-        else if(num < shieldChance)
+        else if(num < swordChance + shieldChance)
         {
             holder = shield;
         }
-        
-        //check to see if the object is in the list
-        //if it is, increment its level
-        //if it is not, add it to the list
-        lootList.Add(holder);
+
+        holder.AddLoot();
+        holder.UpdateText();
     }
 }

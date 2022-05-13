@@ -47,7 +47,7 @@ public class RoomFactory : MonoBehaviour
         }
     }
 
-    public GameObject BuildNextFloor()
+    public GameObject BuildNextFloor(bool loading = false)
     {
         //object to hold the created room;
         GameObject holder;
@@ -97,6 +97,7 @@ public class RoomFactory : MonoBehaviour
         //set stats of the room
         stats.NextFloor();
         holdRoom.SetFloor(stats.GetTopFloor());
+        holdRoom.SetLoading(loading);
         if (bossFloor)
         {
             holdRoom.SetEnemyStrength((int)(enemyStats.GetStrength() * 1.2f) + 1);

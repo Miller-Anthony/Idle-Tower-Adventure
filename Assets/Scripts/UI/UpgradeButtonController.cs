@@ -24,8 +24,8 @@ public class UpgradeButtonController : MonoBehaviour
     public void UpgradeAdventurer()
     {
         //get the int stats of the adventurer to modefy
-        int dmg = stats.GetStrength();
-        int hp = stats.GetHealth();
+        int dmg = stats.LevelStrength();
+        int hp = stats.LevelHealth();
 
         //calculate and set the damage stat increase
         stats.SetStrength(Mathf.FloorToInt((dmg * 1.1f) + 1));
@@ -47,8 +47,8 @@ public class UpgradeButtonController : MonoBehaviour
     public void UpgradeFighter()
     {
         //get the int stats of the fighter to modefy
-        int dmg = stats.GetStrength();
-        int hp = stats.GetHealth();
+        int dmg = stats.LevelStrength();
+        int hp = stats.LevelHealth();
 
         //calculate and set the damage and health stat increase
 
@@ -69,8 +69,8 @@ public class UpgradeButtonController : MonoBehaviour
     public void UpgradeBarbarian()
     {
         //get the int stats of the fighter to modefy
-        int dmg = stats.GetStrength();
-        int hp = stats.GetHealth();
+        int dmg = stats.LevelStrength();
+        int hp = stats.LevelHealth();
 
         //calculate and set the damage and health stat increase
 

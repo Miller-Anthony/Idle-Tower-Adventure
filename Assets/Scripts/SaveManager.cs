@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class SaveManager : MonoBehaviour
     [SerializeField] StatStorrage barbarianStats;
     [SerializeField] MiscUpgradeController adventurerCountController;
     [SerializeField] MiscUpgradeController clearedFloorController;
+    [SerializeField] LootDisplayController swordController;
+    [SerializeField] LootDisplayController shieldController;
+    [SerializeField] LootDisplayController walletController;
+    [SerializeField] ChestTracker chestList;
 
     //data to save
     private int highestFloor;
@@ -22,14 +27,16 @@ public class SaveManager : MonoBehaviour
     private int clearedFloorLevel;
     private int fighterLevel;
     private int barbarianLevel;
+    private int[] chests;
 
     //stuff to track when to save
-    private float saveTimer = 10.0f;
+    private float saveTime = 10.0f;
+    private float saveTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        saveTimer = saveTime;
     }
 
     // Update is called once per frame
@@ -40,6 +47,7 @@ public class SaveManager : MonoBehaviour
         if(saveTimer <= 0)
         {
             SaveGame();
+            saveTimer = saveTime;
         }
     }
 
@@ -54,6 +62,7 @@ public class SaveManager : MonoBehaviour
         barbarianLevel = barbarianStats.GetLevel();
         adventurerCount = genStats.GetMaxAdventurers();
         clearedFloorLevel = genStats.GetBottomFloor();  //don't like this and need to change it to be how many times the upgrade happened
+        chests = chestList.Save();
 
         //Format save data
         string path = Application.persistentDataPath + "\\Save.txt";
@@ -65,10 +74,58 @@ public class SaveManager : MonoBehaviour
         data = data + barbarianLevel + "\n";
         data = data + adventurerCount + "\n";
         data = data + clearedFloorLevel + "\n";
+        data = data + swordController.GetLooted() + "\n";
+        data = data + shieldController.GetLooted() + "\n";
+        data = data + walletController.GetLooted() + "\n";
+        data = data + chests.Length.ToString().PadLeft(3);
+
+        for (int i = 0; i < chests.Length; i++)
+        {
+            data = data + " " + chests;
+        }
+
 
         //write the save data to the save file
         File.WriteAllText(path, data);
     }
 
-    
+    public void Rebirth()
+    {
+        //gather all data needed to be saved
+        highestFloor = genStats.GetHighestFloor();
+        topFloor = 1;
+        gold = 0;
+        adventurerLevel = 1;
+        fighterLevel = 0;
+        barbarianLevel = 0;
+        adventurerCount = 0;
+        clearedFloorLevel = 1;  
+        chests = chestList.Save();
+
+        //Format save data
+        string path = Application.persistentDataPath + "\\Save.txt";
+        string data = highestFloor + "\n";
+        data = data + topFloor + "\n";
+        data = data + gold + "\n";
+        data = data + adventurerLevel + "\n";
+        data = data + fighterLevel + "\n";
+        data = data + barbarianLevel + "\n";
+        data = data + adventurerCount + "\n";
+        data = data + clearedFloorLevel + "\n";
+        data = data + swordController.GetLooted() + "\n";
+        data = data + shieldController.GetLooted() + "\n";
+        data = data + walletController.GetLooted() + "\n";
+        data = data + chests.Length.ToString().PadLeft(3);
+
+        for (int i = 0; i < chests.Length; i++)
+        {
+            data = data + " " + chests.ToString().PadLeft(5);
+        }
+
+        //write the save data to the save file
+        File.WriteAllText(path, data);
+
+        //reload the scene to strat the new tower
+        SceneManager.LoadScene("MainGameScene");
+    }
 }

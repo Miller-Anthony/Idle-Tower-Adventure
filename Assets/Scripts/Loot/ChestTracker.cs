@@ -7,12 +7,12 @@ public class ChestTracker : MonoBehaviour
     [SerializeField] GameObject button;
     [SerializeField] LootTracker loot;
 
-    private Queue<GameObject> chestQueue;
+    private Queue<int> chestQueue;
 
     // Start is called before the first frame update
     void Start()
     {
-        chestQueue = new Queue<GameObject>();
+        chestQueue = new Queue<int>();
     }
 
     // Update is called once per frame
@@ -26,19 +26,19 @@ public class ChestTracker : MonoBehaviour
         return chestQueue.Count;
     }
 
-    public void AddChest(GameObject chest)
+    public void AddChest(int chestFloor)
     {
         if(chestQueue.Count == 0)
         {
             button.SetActive(true);
         }
         
-        chestQueue.Enqueue(chest);
+        chestQueue.Enqueue(chestFloor);
     }
 
     public void LootChest()
     {
-        loot.AddLoot(chestQueue.Dequeue().GetComponent<ChestManager>().GetFloor());
+        loot.AddLoot(chestQueue.Dequeue());
 
         if(chestQueue.Count == 0)
         {
@@ -46,5 +46,26 @@ public class ChestTracker : MonoBehaviour
         }
     }
 
-    
+    public int[] Save()
+    {
+        //make list
+        int[] save = new int[chestQueue.Count];
+
+        //populate list
+        for (int i = 0; i < chestQueue.Count; i++)
+        {
+            save[i] = chestQueue.Dequeue();
+            chestQueue.Enqueue(save[i]);
+        }
+
+        return save;
+    }
+
+    public void Load(int[] data)
+    {
+        for (int i = 0; i < data.Length; i++)
+        {
+            chestQueue.Enqueue(data[i]);
+        }
+    }
 }

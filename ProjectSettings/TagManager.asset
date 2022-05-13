@@ -17,6 +17,7 @@ TagManager:
   - adventurerCount
   - barbarian
   - clearFloor
+  - rebirth
   layers:
   - Default
   - TransparentFX
