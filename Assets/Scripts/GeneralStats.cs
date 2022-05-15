@@ -5,6 +5,7 @@ using UnityEngine;
 public class GeneralStats : MonoBehaviour
 {
     [SerializeField] int gold;
+    [SerializeField] int goldModifier;
     [SerializeField] UIController ui;
     [SerializeField] int topFloor = 1;   //Stores the top floor 
     [SerializeField] int bottomFloor;    //Stores the bottom floor 
@@ -17,6 +18,7 @@ public class GeneralStats : MonoBehaviour
     void Start()
     {
         gold = 0;
+        goldModifier = 0;
         numAdventurers = 0;
     }
 
@@ -27,7 +29,7 @@ public class GeneralStats : MonoBehaviour
     }
 
     // Add a given amount of gold
-    public void AddGold(int value)
+    public void AddGold(int value, int mod)
     {
         gold += value;
         ui.UpdateGold(gold);
