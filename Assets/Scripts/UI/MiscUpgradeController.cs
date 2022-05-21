@@ -21,7 +21,7 @@ public class MiscUpgradeController : MonoBehaviour
         
     }
 
-    public void UpdateText(int newCost)
+    public void UpdateText(BigNumber newCost)
     {
         costText.text = newCost.ToString();
 

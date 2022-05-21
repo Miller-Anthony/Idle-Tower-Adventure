@@ -8,17 +8,19 @@ public class CombatController : MonoBehaviour
 
     private GeneralStats general;
     private RoomController floor;
+    private float enemyHealthTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         general = GameObject.Find("Canvas").GetComponent<GeneralStats>();
+        enemyHealthTimer = 2.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(stats.GetHealth() <= 0)
+        if(stats.IsDead())
         {
             Destroy(gameObject);
 
@@ -34,6 +36,15 @@ public class CombatController : MonoBehaviour
                 general.DestroyAdventurer();
             }
         }
+        else if (tag == "enemy" && !stats.FullHealth())
+        {
+            enemyHealthTimer -= Time.deltaTime;
+            if (enemyHealthTimer <= 0.0f)
+            {
+                stats.RegenHealth();
+                enemyHealthTimer = 2.0f;
+            }
+        }
     }
 
     public void SetFloor(RoomController room)
@@ -47,10 +58,10 @@ public class CombatController : MonoBehaviour
         switch (collision.tag)
         {
             case "enemy":
-                collision.GetComponent<NPCStats>().SubtractHealth(stats.GetStrength());
+                collision.GetComponent<NPCStats>().Damage(stats.GetStrength());
                 break;
             case "Player":
-                collision.GetComponent<NPCStats>().SubtractHealth(stats.GetStrength());
+                collision.GetComponent<NPCStats>().Damage(stats.GetStrength());
                 break;
             default:
                 break;

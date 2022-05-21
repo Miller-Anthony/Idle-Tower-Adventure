@@ -21,7 +21,7 @@ public class SaveManager : MonoBehaviour
     //data to save
     private int highestFloor;
     private int topFloor;
-    private int gold;
+    private BigNumber gold;
     private int adventurerLevel;
     private int adventurerCount;
     private int clearedFloorLevel;
@@ -68,7 +68,7 @@ public class SaveManager : MonoBehaviour
         string path = Application.persistentDataPath + "\\Save.txt";
         string data = highestFloor + "\n";
         data = data + topFloor + "\n";
-        data = data + gold + "\n";
+        data = data + gold.SaveString() + "\n";
         data = data + adventurerLevel + "\n";
         data = data + fighterLevel + "\n";
         data = data + barbarianLevel + "\n";
@@ -94,7 +94,7 @@ public class SaveManager : MonoBehaviour
         //gather all data needed to be saved
         highestFloor = genStats.GetHighestFloor();
         topFloor = 1;
-        gold = 0;
+        gold = new BigNumber(0);
         adventurerLevel = 1;
         fighterLevel = 0;
         barbarianLevel = 0;
@@ -106,7 +106,7 @@ public class SaveManager : MonoBehaviour
         string path = Application.persistentDataPath + "\\Save.txt";
         string data = highestFloor + "\n";
         data = data + topFloor + "\n";
-        data = data + gold + "\n";
+        data = data + gold.SaveString() + "\n";
         data = data + adventurerLevel + "\n";
         data = data + fighterLevel + "\n";
         data = data + barbarianLevel + "\n";

@@ -32,9 +32,10 @@ public class NPCMovement : MonoBehaviour
         {
             gameObject.transform.position += transform.right * stats.GetSpeed() * Time.deltaTime;
         }
-        
+
         //switch direction if going out of bounds;
-        if(transform.position.x > 2.5 || transform.position.x < -2.5)
+        float limit = 1.5f * 2.5f * Screen.width / Screen.height;
+        if (transform.position.x > limit || transform.position.x < -limit)
         {
             moveLeft = !moveLeft;
         }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class MiscUpgradeButtonController : MonoBehaviour
 {
     [SerializeField] GeneralStats genStats;
-    [SerializeField] int cost;
+    [SerializeField] BigNumber cost;
     [SerializeField] MiscUpgradeController panel;
     [SerializeField] FloorTracker floors;
     [SerializeField] SaveManager save;
@@ -20,6 +20,24 @@ public class MiscUpgradeButtonController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnStart()
+    {
+        switch (tag)
+        {
+            case "adventurerCount":
+                cost = new BigNumber(100);
+                break;
+            case "clearFloor":
+                cost = new BigNumber(500);
+                break;
+            case "rebirth":
+                cost = new BigNumber(123456);
+                break;
+            default:
+                break;
+        }
     }
 
     public void UpgradeAdventurerCount()
@@ -39,7 +57,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
             }
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
-            cost = (int)(cost * 10.0f);
+            cost = cost * 10.0f;
 
             switch (tag)
             {
@@ -57,7 +75,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
             }
 
             //update the Adventurer UI text
-            panel.UpdateText((int)cost);
+            panel.UpdateText(cost);
         }
     }
 
@@ -67,7 +85,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
         //for the numbers of levels, level up the upgrade
         for (int i = 0; i < levels; i++)
         {
-            cost = (int)(cost * 10.0f);
+            cost = cost * 10.0f;
 
             switch (tag)
             {
@@ -83,6 +101,6 @@ public class MiscUpgradeButtonController : MonoBehaviour
         }
 
         //update the Adventurer UI text
-        panel.UpdateText((int)cost);
+        panel.UpdateText(cost);
     }
 }

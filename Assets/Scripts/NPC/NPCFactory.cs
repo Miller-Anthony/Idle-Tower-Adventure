@@ -65,7 +65,7 @@ public class NPCFactory : MonoBehaviour
         //set the stats
         holder.transform.position = pos;
         holdStats.SetLevel(lvl);
-        holdStats.SetHealth(floor.GetEnemyHealth());
+        holdStats.SetMaxHealth(floor.GetEnemyHealth());
         holdStats.SetStrength(floor.GetEnemyStrength());
         holdStats.SetGold(floor.GetEnemyGold());
         holder.GetComponent<CombatController>().SetFloor(floor);
@@ -100,9 +100,10 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(adventurerStats.GetLevel());
-        holdStats.SetHealth(adventurerStats.GetHealth());
+        holdStats.SetMaxHealth(adventurerStats.GetHealth());
         holdStats.SetStrength(adventurerStats.GetStrength());
         holdStats.SetSpeed(adventurerStats.GetSpeed());
+        holdStats.SetGold(new BigNumber(0));
 
         general.SummonAdventurer();
         return holder;
@@ -134,10 +135,11 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(fighterStats.GetLevel());
-        holdStats.SetHealth(fighterStats.GetHealth());
+        holdStats.SetMaxHealth(fighterStats.GetHealth());
         holdStats.SetStrength(fighterStats.GetStrength());
         holdStats.SetSpeed(fighterStats.GetSpeed());
         holdStats.SetSpawn(fighterStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
 
         return holder;
     }
@@ -168,10 +170,11 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(barbarianStats.GetLevel());
-        holdStats.SetHealth(barbarianStats.GetHealth());
+        holdStats.SetMaxHealth(barbarianStats.GetHealth());
         holdStats.SetStrength(barbarianStats.GetStrength());
         holdStats.SetSpeed(barbarianStats.GetSpeed());
         holdStats.SetSpawn(barbarianStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
 
         return holder;
     }

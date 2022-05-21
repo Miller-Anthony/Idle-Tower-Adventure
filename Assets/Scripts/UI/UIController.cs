@@ -21,7 +21,7 @@ public class UIController : MonoBehaviour
         
     }
 
-    public void UpdateGold(int newGold)
+    public void UpdateGold(BigNumber newGold)
     {
         goldText.text = newGold.ToString();
     }

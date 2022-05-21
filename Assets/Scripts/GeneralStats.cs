@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneralStats : MonoBehaviour
 {
-    [SerializeField] int gold;
+    [SerializeField] BigNumber gold;
     [SerializeField] UIController ui;
     [SerializeField] int topFloor = 1;   //Stores the top floor 
     [SerializeField] int bottomFloor;    //Stores the bottom floor 
@@ -16,7 +16,7 @@ public class GeneralStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gold = 0;
+        gold = new BigNumber(0);
         numAdventurers = 0;
     }
 
@@ -27,21 +27,21 @@ public class GeneralStats : MonoBehaviour
     }
 
     // Add a given amount of gold
-    public void AddGold(int value)
+    public void AddGold(BigNumber value)
     {
         gold += value;
         ui.UpdateGold(gold);
     }
 
     // Subtract a gien amount of gold
-    public void SubtractGold(int value)
+    public void SubtractGold(BigNumber value)
     {
         gold -= value;
         ui.UpdateGold(gold);
     }
 
     //return the amount of gold currently held
-    public int CheckGold()
+    public BigNumber CheckGold()
     {
         return gold;
     }

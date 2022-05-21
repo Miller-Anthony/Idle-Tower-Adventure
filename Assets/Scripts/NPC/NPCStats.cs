@@ -5,16 +5,18 @@ using UnityEngine;
 public class NPCStats : MonoBehaviour
 {
     [SerializeField] int level;    //the level of the NPC (used to calculate enemy spawn position)
-    [SerializeField] int strength; //how much damage the NPC does
-    [SerializeField] int health;   //how much health the NPC has
+    [SerializeField] BigNumber strength; //how much damage the NPC does
+    [SerializeField] BigNumber health;   //how much health the NPC has
     [SerializeField] float speed;  //how fast the NPC moves (only for moving NPCs) 
     [SerializeField] float spawn;  //how quick enemies spawn (only needed for enemies)
-    [SerializeField] int gold;     //how much gold you get from the enemy (only needed for enemies)
+    [SerializeField] BigNumber gold;     //how much gold you get from the enemy (only needed for enemies)
+
+    private BigNumber currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        currentHealth = health;
     }
 
     // Update is called once per frame
@@ -23,17 +25,24 @@ public class NPCStats : MonoBehaviour
         
     }
 
-    // Returns the level of the NPC
+    /// <summary>
+    /// Get the level of the NPC
+    /// </summary>
+    /// <returns>the level of the NPC</returns>
     public int GetLevel()
     {
         return level;
     }
 
-    // Set the level of the NPC to something specific
+    /// <summary>
+    /// Set the level of the NPC to something specific
+    /// </summary>
+    /// <param name="correction">the corrected level of the NPC</param>
     public void SetLevel(int correction)
     {
         level = correction;
     }
+
 
     // Add an amount of levels to the NPC
     public void AddLevel(int addition)
@@ -48,51 +57,101 @@ public class NPCStats : MonoBehaviour
     }
 
     // Returns the strength of the NPC
-    public int GetStrength()
+    public BigNumber GetStrength()
     {
         return strength;
     }
 
     // Set the strength of the NPC to something specific
-    public void SetStrength(int correction)
+    public void SetStrength(BigNumber correction)
     {
         strength = correction;
     }
 
     // Add an amount of strength to the NPC
-    public void AddStrength(int addition)
+    public void AddStrength(BigNumber addition)
     {
         strength += addition;
     }
 
     // Subtract an amount of strength to the NPC
-    public void SubtractStrength(int subtraction)
+    public void SubtractStrength(BigNumber subtraction)
     {
         strength -= subtraction;
     }
 
-    // Returns the health of the NPC
-    public int GetHealth()
+    // Returns the current health of the NPC
+    public BigNumber GetCurrentHealth()
     {
-        return health;
+        return currentHealth;
     }
 
-    // Set the health of the NPC to something specific
-    public void SetHealth(int correction)
+    // Set the current health of the NPC to something specific
+    public void SetCurrentHealth(BigNumber correction)
     {
-        health = correction;
+        currentHealth = correction;
+        if (currentHealth > health)
+        {
+            currentHealth = health;
+        }
+    }
+
+    // Returns the maximum health of the NPC
+    public BigNumber GetMaxHealth()
+    {
+        return currentHealth;
+    }
+
+    // Set the maximum health of the NPC to something specific
+    public void SetMaxHealth(BigNumber correction)
+    {
+        currentHealth = correction;
     }
 
     // Add an amount of health to the NPC
-    public void AddHealth(int addition)
+    public void Heal(BigNumber addition)
     {
-        health += addition;
+        currentHealth += addition;
+        if (currentHealth > health)
+        {
+            currentHealth = health;
+        }
     }
 
     // Subtract an amount of health to the NPC
-    public void SubtractHealth(int subtraction)
+    public void Damage(BigNumber subtraction)
     {
-        health -= subtraction;
+        currentHealth -= subtraction;
+    }
+
+    //regenerate a portion of maximum health
+    public void RegenHealth()
+    {
+        currentHealth += health * 0.2f;
+        if(currentHealth > health)
+        {
+            currentHealth = health;
+        }
+    }
+
+    //returns true if current health is at maximum
+    public bool FullHealth()
+    {
+        if(health == currentHealth)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    //return true if the NPC has no health left
+    public bool IsDead()
+    {
+        if(currentHealth <= 0)
+        {
+            return true;
+        }
+        return false;
     }
 
     // Returns the speed of the NPC
@@ -144,25 +203,25 @@ public class NPCStats : MonoBehaviour
     }
 
     // Returns the gold of the NPC
-    public int GetGold()
+    public BigNumber GetGold()
     {
         return gold;
     }
 
     // Set the gold of the NPC to something specific
-    public void SetGold(int correction)
+    public void SetGold(BigNumber correction)
     {
         gold = correction;
     }
 
     // Add an amount of gold to the NPC
-    public void AddGold(int addition)
+    public void AddGold(BigNumber addition)
     {
         gold += addition;
     }
 
     // Subtract an amount of gold to the NPC
-    public void SubtractGold(int subtraction)
+    public void SubtractGold(BigNumber subtraction)
     {
         gold -= subtraction;
     }

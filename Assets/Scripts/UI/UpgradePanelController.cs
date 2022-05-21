@@ -24,7 +24,7 @@ public class UpgradePanelController : MonoBehaviour
         
     }
 
-    public void UpdateText(int newCost)
+    public void UpdateText(BigNumber newCost)
     {
         costText.text = newCost.ToString();
         levelText.text = stats.GetLevel().ToString();

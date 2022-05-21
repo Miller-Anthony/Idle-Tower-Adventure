@@ -9,18 +9,36 @@ public class LootDisplayController : MonoBehaviour
     [SerializeField] Text bonusText;
 
     [SerializeField] int looted;
-    [SerializeField] float bonus;
+    [SerializeField] BigNumber bonus;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    public void OnStart()
+    {
+        switch (tag)
+        {
+            case "sword":
+                bonus = new BigNumber(30);
+                break;
+            case "shield":
+                bonus = new BigNumber(30);
+                break;
+            case "wallet":
+                bonus = new BigNumber(15);
+                break;
+            default:
+                break;
+        }
     }
 
     //Set the amount looted
@@ -42,27 +60,27 @@ public class LootDisplayController : MonoBehaviour
     }
 
     //Set the bonus amount each item gives
-    public void SetBonus(int bns)
+    public void SetBonus(BigNumber bns)
     {
         bonus = bns;
     }
 
     // Get the bonus amount each item gives
-    public float GetBonus()
+    public BigNumber GetBonus()
     {
         return bonus;
     }
 
     // Get the total bonus granted from the item
-    public float GetTotalBonus()
+    public BigNumber GetTotalBonus()
     {
-        return 1.0f + (bonus * looted);
+        return bonus * looted;
     }
 
     //updates the text to 
     public void UpdateText()
     {
         lootedText.text = looted.ToString();
-        bonusText.text = (100 * bonus * looted) + "%";
+        bonusText.text = (bonus * looted) + "%";
     }
 }

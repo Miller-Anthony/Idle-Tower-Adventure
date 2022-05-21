@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    private GeneralStats stats;
     private Vector3 MouseStart;
     private float limit;
 
     // Start is called before the first frame update
     void Start()
     {
-        stats = GameObject.Find("Canvas").GetComponent<GeneralStats>();
+
     }
 
     // Update is called once per frame

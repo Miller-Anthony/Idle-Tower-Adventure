@@ -20,9 +20,9 @@ public class RoomController : MonoBehaviour
     [SerializeField] Text text;
 
     //enemy stats for the floor
-    [SerializeField] int strength;
-    [SerializeField] int health;
-    [SerializeField] int gold;
+    [SerializeField] BigNumber strength;
+    [SerializeField] BigNumber health;
+    [SerializeField] BigNumber gold;
 
     private Vector2 boundry;
     private float timer1 = 0.1f;
@@ -40,6 +40,14 @@ public class RoomController : MonoBehaviour
         factory = GameObject.Find("Ground").GetComponent<NPCFactory>();
         stats = GameObject.Find("Canvas").GetComponent<GeneralStats>();
         chestFactory = GameObject.Find("ChestTracker").GetComponent<ChestFactory>();
+
+        //set stats for first floor
+        if (floor == 1)
+        {
+            health = new BigNumber(7);
+            strength = new BigNumber(3);
+            gold = new BigNumber(2);
+        }
 
         //calculate the boundry for the mouse clicks
         boundry = new Vector2(transform.position.y + (transform.localScale.y / 2), transform.position.y - (transform.localScale.y / 2));
@@ -163,32 +171,32 @@ public class RoomController : MonoBehaviour
         return floor;
     }
 
-    public void SetEnemyStrength(int str)
+    public void SetEnemyStrength(BigNumber str)
     {
         strength = str;
     }
 
-    public int GetEnemyStrength()
+    public BigNumber GetEnemyStrength()
     {
         return strength;
     }
 
-    public void SetEnemyHealth(int hp)
+    public void SetEnemyHealth(BigNumber hp)
     {
         health = hp;
     }
 
-    public int GetEnemyHealth()
+    public BigNumber GetEnemyHealth()
     {
         return health;
     }
 
-    public void SetEnemyGold(int gld)
+    public void SetEnemyGold(BigNumber gld)
     {
         gold = gld;
     }
 
-    public int GetEnemyGold()
+    public BigNumber GetEnemyGold()
     {
         return gold;
     }

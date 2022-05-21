@@ -6,7 +6,7 @@ public class UpgradeButtonController : MonoBehaviour
 {
     [SerializeField] StatStorrage stats;
     [SerializeField] GeneralStats genStats;
-    [SerializeField] int cost;
+    [SerializeField] BigNumber cost;
     [SerializeField] UpgradePanelController panel;
 
     // Start is called before the first frame update
@@ -21,15 +21,33 @@ public class UpgradeButtonController : MonoBehaviour
         
     }
 
+    public void OnStart()
+    {
+        switch (tag)
+        {
+            case "adventurer":
+                cost = new BigNumber(10);
+                break;
+            case "fighter":
+                cost = new BigNumber(10);
+                break;
+            case "barbarian":
+                cost = new BigNumber(1111);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void UpgradeAdventurer()
     {
         //get the int stats of the adventurer to modefy
-        int dmg = stats.LevelStrength();
-        int hp = stats.LevelHealth();
+        BigNumber dmg = stats.LevelStrength();
+        BigNumber hp = stats.LevelHealth();
 
         //calculate and set the damage stat increase
-        stats.SetStrength(Mathf.FloorToInt((dmg * 1.1f) + 1));
-        stats.SetHealth(Mathf.FloorToInt((hp * 1.1f) + 1));
+        stats.SetStrength((dmg * 1.1f) + 1);
+        stats.SetHealth((hp * 1.1f) + 1);
         
 
         //set the new speed stat (needs to be updated later to not increase every level)
@@ -46,14 +64,22 @@ public class UpgradeButtonController : MonoBehaviour
 
     public void UpgradeFighter()
     {
+        // Increase the fighter's level
+        stats.SetLevel(stats.GetLevel() + 1);
+
+        //if the first level, dont change the stats
+        if (stats.GetLevel() == 1)
+        {
+            return;
+        }
+
         //get the int stats of the fighter to modefy
-        int dmg = stats.LevelStrength();
-        int hp = stats.LevelHealth();
+        BigNumber dmg = stats.LevelStrength();
+        BigNumber hp = stats.LevelHealth();
 
         //calculate and set the damage and health stat increase
-
-        stats.SetStrength(Mathf.FloorToInt((dmg * 1.05f) + 1));
-        stats.SetHealth(Mathf.FloorToInt((hp * 1.1f) + 1));
+        stats.SetStrength((dmg * 1.05f) + 1);
+        stats.SetHealth((hp * 1.1f) + 1);
 
 
         //set the new speed stat (needs to be updated later to not increase every level)
@@ -61,21 +87,26 @@ public class UpgradeButtonController : MonoBehaviour
         {
             stats.SetSpeed(stats.GetSpeed() * 1.1f);
         }
-
-        // Increase the fighter's level
-        stats.SetLevel(stats.GetLevel() + 1);
     }
 
     public void UpgradeBarbarian()
     {
+        // Increase the barbarian's level
+        stats.SetLevel(stats.GetLevel() + 1);
+
+        //if the first level, dont change the stats
+        if (stats.GetLevel() == 1)
+        {
+            return;
+        }
+
         //get the int stats of the fighter to modefy
-        int dmg = stats.LevelStrength();
-        int hp = stats.LevelHealth();
+        BigNumber dmg = stats.LevelStrength();
+        BigNumber hp = stats.LevelHealth();
 
         //calculate and set the damage and health stat increase
-
-        stats.SetStrength(Mathf.FloorToInt((dmg * 1.05f) + 1));
-        stats.SetHealth(Mathf.FloorToInt((hp * 1.1f) + 1));
+        stats.SetStrength((dmg * 1.05f) + 1);
+        stats.SetHealth((hp * 1.1f) + 1);
 
 
         //set the new speed stat (needs to be updated later to not increase every level)
@@ -83,9 +114,6 @@ public class UpgradeButtonController : MonoBehaviour
         {
             stats.SetSpeed(stats.GetSpeed() * 1.1f);
         }
-
-        // Increase the fighter's level
-        stats.SetLevel(stats.GetLevel() + 1);
     }
 
     public void OnButtonPress()
@@ -94,7 +122,7 @@ public class UpgradeButtonController : MonoBehaviour
         {
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
-            cost = (int)(cost * 1.1f);
+            cost = cost * 1.1f;
 
             switch (gameObject.tag)
             {
@@ -112,7 +140,7 @@ public class UpgradeButtonController : MonoBehaviour
             }
 
             //update the Adventurer UI text
-            panel.UpdateText((int)cost);
+            panel.UpdateText(cost);
         }
     }
 
@@ -121,7 +149,7 @@ public class UpgradeButtonController : MonoBehaviour
         //for the number of levels, level up the given NPC
         for(int i = 0; i < levels; i++)
         {
-            cost = (int)(cost * 1.1f);
+            cost = cost * 1.1f;
 
             switch (gameObject.tag)
             {
@@ -140,6 +168,6 @@ public class UpgradeButtonController : MonoBehaviour
         }
 
         //update the Adventurer UI text
-        panel.UpdateText((int)cost);
+        panel.UpdateText(cost);
     }
 }

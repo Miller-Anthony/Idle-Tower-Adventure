@@ -180,11 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  health: 10
-  strength: 3
   speed: 0
   spawn: 0
-  gold: 2
   sword: {fileID: 2666387354376992953}
   shield: {fileID: 755575566}
   wallet: {fileID: 1227188265}
@@ -582,6 +579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: m_TagString
+      value: shield
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113902640971558, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: 0
@@ -936,6 +937,10 @@ PrefabInstance:
     - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Name
       value: WalletDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: m_TagString
+      value: wallet
       objectReference: {fileID: 0}
     - target: {fileID: 8244113902640971558, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
@@ -1375,6 +1380,7 @@ GameObject:
   - component: {fileID: 1565164470}
   - component: {fileID: 1565164469}
   - component: {fileID: 1565164471}
+  - component: {fileID: 1565164473}
   - component: {fileID: 1565164472}
   m_Layer: 0
   m_Name: Ground
@@ -1483,6 +1489,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 985715577}
   cam: {fileID: 519420030}
+--- !u!114 &1565164473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565164468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd9c24b1a17c5142a571e92a254a971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adventurerStats: {fileID: 2099734206}
+  fighterStats: {fileID: 69711939}
+  barbarianStats: {fileID: 275950702}
+  enemyStats: {fileID: 115338009}
+  adventurer: {fileID: 1646843126}
+  fighter: {fileID: 15285207}
+  barbarian: {fileID: 1660544233}
+  adventureCount: {fileID: 2121718975}
+  clearFloor: {fileID: 1499580323}
+  rebirth: {fileID: 823465699}
+  sword: {fileID: 2666387354376992953}
+  shield: {fileID: 755575566}
+  wallet: {fileID: 1227188265}
 --- !u!114 &1646843126 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 830624247494469359, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -1797,6 +1828,10 @@ PrefabInstance:
     - target: {fileID: 830624248838841073, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 830624248847036836, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 836850148845241201, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2126,6 +2161,10 @@ PrefabInstance:
     - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: m_TagString
+      value: sword
       objectReference: {fileID: 0}
     - target: {fileID: 8244113902640971558, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text

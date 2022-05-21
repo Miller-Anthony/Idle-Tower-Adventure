@@ -18,6 +18,9 @@ TagManager:
   - barbarian
   - clearFloor
   - rebirth
+  - sword
+  - shield
+  - wallet
   layers:
   - Default
   - TransparentFX

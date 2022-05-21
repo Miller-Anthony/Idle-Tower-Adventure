@@ -21,7 +21,7 @@ public class LoadManager : MonoBehaviour
     //data to load
     private int highestFloor;
     private int topFloor;
-    private int gold;
+    private BigNumber gold;
     private int adventurerLevel;
     private int adventurerCount;
     private int clearedFloorLevel;
@@ -47,62 +47,72 @@ public class LoadManager : MonoBehaviour
 
     public void LoadGame()
     {
-        if (File.Exists(Application.persistentDataPath + "\\Save.txt"))
+        try
         {
-            //variable to be used later
-            GameObject holder;
-
-            //Get data from the save file
-            string[] data = File.ReadAllLines(Application.persistentDataPath + "\\Save.txt");
-
-            //Parse save data
-            highestFloor = int.Parse(data[0]);
-            topFloor = int.Parse(data[1]);
-            gold = int.Parse(data[2]);
-            adventurerLevel = int.Parse(data[3]);
-            fighterLevel = int.Parse(data[4]);
-            barbarianLevel = int.Parse(data[5]);
-            adventurerCount =int.Parse(data[6]);
-            clearedFloorLevel = int.Parse(data[7]);
-            swordLoot = int.Parse(data[8]);
-            shieldLoot = int.Parse(data[9]);
-            walletLoot = int.Parse(data[10]);
-            chestCount = int.Parse(data[11].Substring(0, 3));
-            
-            //grab all the chests
-            for (int i = 0; i < chestCount; i++)
+            if (File.Exists(Application.persistentDataPath + "\\Save.txt"))
             {
-                chestList[i] = int.Parse(data[11].Substring(5 + (6 * i), 5));
+                //variable to be used later
+                GameObject holder;
+
+                //Get data from the save file
+                string[] data = File.ReadAllLines(Application.persistentDataPath + "\\Save.txt");
+
+                //Parse save data
+                highestFloor = int.Parse(data[0]);
+                topFloor = int.Parse(data[1]);
+                gold = new BigNumber(decimal.Parse(data[2]), int.Parse(data[3]));
+                adventurerLevel = int.Parse(data[4]);
+                fighterLevel = int.Parse(data[5]);
+                barbarianLevel = int.Parse(data[6]);
+                adventurerCount = int.Parse(data[7]);
+                clearedFloorLevel = int.Parse(data[8]);
+                swordLoot = int.Parse(data[9]);
+                shieldLoot = int.Parse(data[10]);
+                walletLoot = int.Parse(data[11]);
+                chestCount = int.Parse(data[12].Substring(0, 3));
+
+                chestList = new int[chestCount];
+
+                //grab all the chests
+                for (int i = 0; i < chestCount; i++)
+                {
+                    chestList[i] = int.Parse(data[12].Substring(5 + (6 * i), 5));
+                }
+
+                //spawn all the floors needed
+                for (int i = 1; i < topFloor - 1; i++)
+                {
+                    holder = factory.BuildNextFloor(true);
+                    factory = holder.GetComponentInChildren<RoomFactory>();
+                    factory.Load();
+                }
+
+                if (topFloor > 1)
+                {
+                    holder = factory.BuildNextFloor();
+                    factory = holder.GetComponentInChildren<RoomFactory>();
+                    factory.Load();
+                }
+
+                //Load the save data into the game
+                genStats.SetHighestFloor(highestFloor);
+                genStats.AddGold(gold);
+                adventurerButton.LoadLevels(adventurerLevel - 1);
+                fighterButton.LoadLevels(fighterLevel);
+                barbarianButton.LoadLevels(barbarianLevel);
+                adventurerCountButton.LoadLevels(adventurerCount - 5);
+                clearedFloorButton.LoadLevels((clearedFloorLevel - 1) / 10);
+                swordController.Setlooted(swordLoot);
+                shieldController.Setlooted(shieldLoot);
+                walletController.Setlooted(walletLoot);
+
             }
-
-            //spawn all the floors needed
-            for (int i = 1; i < topFloor - 1; i++)
-            {
-                holder = factory.BuildNextFloor(true);
-                factory = holder.GetComponentInChildren<RoomFactory>();
-                factory.Load();
-            }
-
-            if(topFloor > 1)
-            {
-                holder = factory.BuildNextFloor();
-                factory = holder.GetComponentInChildren<RoomFactory>();
-                factory.Load();
-            }
-
-            //Load the save data into the game
-            genStats.SetHighestFloor(highestFloor);
-            genStats.AddGold(gold);
-            adventurerButton.LoadLevels(adventurerLevel - 1);
-            fighterButton.LoadLevels(fighterLevel);
-            barbarianButton.LoadLevels(barbarianLevel);
-            adventurerCountButton.LoadLevels(adventurerCount - 5);
-            clearedFloorButton.LoadLevels((clearedFloorLevel - 1) / 10);
-            swordController.Setlooted(swordLoot);
-            shieldController.Setlooted(shieldLoot);
-            walletController.Setlooted(walletLoot);
-
+            gameObject.GetComponent<LoadManager>().enabled = false;
         }
-        gameObject.GetComponent<LoadManager>().enabled = false;
+        catch
+        {
+            gameObject.GetComponent<LoadManager>().enabled = false;
+        }
+        
     }
 }

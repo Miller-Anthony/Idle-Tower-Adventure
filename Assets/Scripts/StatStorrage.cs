@@ -6,11 +6,11 @@ public class StatStorrage : MonoBehaviour
 {
     //stats
     [SerializeField] int level;
-    [SerializeField] int health;
-    [SerializeField] int strength;
+    [SerializeField] BigNumber health;
+    [SerializeField] BigNumber strength;
     [SerializeField] float speed;
     [SerializeField] float spawn;
-    [SerializeField] int gold;
+    [SerializeField] BigNumber gold;
     
     //stat modifiers
     [SerializeField] LootDisplayController sword;
@@ -29,6 +29,35 @@ public class StatStorrage : MonoBehaviour
         
     }
 
+    public void OnStart()
+    {
+        switch (tag)
+        {
+            case "adventurer":
+                health = new BigNumber(3);
+                strength = new BigNumber(2);
+                gold = new BigNumber(0);
+                break;
+            case "enemy":
+                health = new BigNumber(7);
+                strength = new BigNumber(3);
+                gold = new BigNumber(2);
+                break;
+            case "fighter":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "barbarian":
+                health = new BigNumber(1444);
+                strength = new BigNumber(1555);
+                gold = new BigNumber(0);
+                break;
+            default:
+                break;
+        }
+    }
+
     //Set the stored Level
     public void SetLevel(int lvl)
     {
@@ -42,44 +71,44 @@ public class StatStorrage : MonoBehaviour
     }
 
     //Set the stored health stat
-    public void SetHealth(int hp)
+    public void SetHealth(BigNumber hp)
     {
         health = hp;
     }
 
     // Get the stored health stat
-    public int GetHealth()
+    public BigNumber GetHealth()
     {
         if (tag == "enemy")
         {
             return health;
         }
-        return (int)(health * shield.GetTotalBonus());
+        return health % shield.GetTotalBonus();
     }
 
-    public int LevelHealth()
+    public BigNumber LevelHealth()
     {
         return health;
     }
 
     //Set the stored strength stat
-    public void SetStrength(int str)
+    public void SetStrength(BigNumber str)
     {
         strength = str;
     }
 
     // Get the stored strength stat
-    public int GetStrength()
+    public BigNumber GetStrength()
     {
         if(tag == "enemy")
         {
             return strength;
         }
         
-        return (int)(strength * sword.GetTotalBonus());
+        return strength % sword.GetTotalBonus();
     }
 
-    public int LevelStrength()
+    public BigNumber LevelStrength()
     {
         return strength;
     }
@@ -109,14 +138,14 @@ public class StatStorrage : MonoBehaviour
     }
 
     //Set the stored gold stat
-    public void SetGold(int gld)
+    public void SetGold(BigNumber gld)
     {
         gold = gld;
     }
 
     // Get the stored gold stat
-    public int GetGold()
+    public BigNumber GetGold()
     {
-        return (int)(gold * wallet.GetTotalBonus());
+        return gold % wallet.GetTotalBonus();
     }
 }
