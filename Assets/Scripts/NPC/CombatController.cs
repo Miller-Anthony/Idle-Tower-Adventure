@@ -36,7 +36,7 @@ public class CombatController : MonoBehaviour
                 general.DestroyAdventurer();
             }
         }
-        else if (tag == "enemy" && !stats.FullHealth())
+        else if (tag == "enemy" && !stats.IsFullHealth())
         {
             enemyHealthTimer -= Time.deltaTime;
             if (enemyHealthTimer <= 0.0f)

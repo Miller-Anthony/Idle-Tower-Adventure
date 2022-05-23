@@ -10,13 +10,16 @@ public class NPCStats : MonoBehaviour
     [SerializeField] float speed;  //how fast the NPC moves (only for moving NPCs) 
     [SerializeField] float spawn;  //how quick enemies spawn (only needed for enemies)
     [SerializeField] BigNumber gold;     //how much gold you get from the enemy (only needed for enemies)
-
+    [SerializeField] GameObject healthBar; //the healthbar of an enemy
+    [SerializeField] Transform currentHealthBar; //the current health represented graphically
+    
     private BigNumber currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = health;
+
     }
 
     // Update is called once per frame
@@ -90,9 +93,22 @@ public class NPCStats : MonoBehaviour
     public void SetCurrentHealth(BigNumber correction)
     {
         currentHealth = correction;
-        if (currentHealth > health)
+        if (currentHealth >= health)
         {
             currentHealth = health;
+            if (tag == "enemy")
+            {
+                healthBar.SetActive(false);
+                return;
+            }
+        }
+
+        if (tag == "enemy")
+        {
+            healthBar.SetActive(true);
+            Vector3 holder = currentHealthBar.localScale;
+            holder.x = PercentHealth();
+            currentHealthBar.localScale = holder;
         }
     }
 
@@ -112,9 +128,21 @@ public class NPCStats : MonoBehaviour
     public void Heal(BigNumber addition)
     {
         currentHealth += addition;
-        if (currentHealth > health)
+        if (currentHealth >= health)
         {
             currentHealth = health;
+            if (tag == "enemy")
+            {
+                healthBar.SetActive(false);
+                return;
+            }
+        }
+
+        if (tag == "enemy")
+        {
+            Vector3 holder = currentHealthBar.localScale;
+            holder.x = PercentHealth();
+            currentHealthBar.localScale = holder;
         }
     }
 
@@ -122,20 +150,45 @@ public class NPCStats : MonoBehaviour
     public void Damage(BigNumber subtraction)
     {
         currentHealth -= subtraction;
-    }
 
-    //regenerate a portion of maximum health
-    public void RegenHealth()
-    {
-        currentHealth += health * 0.2f;
-        if(currentHealth > health)
+        if(tag == "enemy")
         {
-            currentHealth = health;
+            healthBar.SetActive(true);
+        }
+
+        if (tag == "enemy")
+        {
+            Vector3 holder = currentHealthBar.localScale;
+            holder.x = PercentHealth();
+            currentHealthBar.localScale = holder;
         }
     }
 
+    //regenerate a portion of maximum health
+    //only called for enemies
+    public void RegenHealth()
+    {
+        currentHealth += health * 0.2f;
+        if(currentHealth >= health)
+        {
+            currentHealth = health;
+            healthBar.SetActive(false);
+            return;
+        }
+
+        Vector3 holder = currentHealthBar.localScale;
+        holder.x = PercentHealth();
+        currentHealthBar.localScale = holder;
+    }
+
+    //return the percent health left of the NPC as a float
+    public float PercentHealth()
+    {
+        return currentHealth / health;
+    }
+
     //returns true if current health is at maximum
-    public bool FullHealth()
+    public bool IsFullHealth()
     {
         if(health == currentHealth)
         {

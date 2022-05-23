@@ -127,8 +127,32 @@ public class BigNumber
         return new BigNumber(num1.number * num2.number, num1.modifier + num2.modifier);
     }
 
+    public static float operator /(BigNumber num1, BigNumber num2)
+    {
+        if (num1.modifier > num2.modifier)
+        {
+            while (num1.modifier > num2.modifier)
+            {
+                num2.number = num2.number / 1000;
+                num2.modifier++;
+            }
+        }
+        else if (num1.modifier < num2.modifier)
+        {
+            while (num1.modifier < num2.modifier)
+            {
+                num1.number = num1.number / 1000;
+                num1.modifier++;
+            }
+        }
+
+        return (float)(num1.number / num2.number);
+    }
+
+    //multiplies BigNumber by another BigNumber representing a percentage
     public static BigNumber operator %(BigNumber num1, BigNumber num2)
     {
+        //this is wrong as it does not take the modefier of the percentage big number into account
         return new BigNumber(num1.number * ((num2.number / 100) + 1), num1.modifier);
     }
 
