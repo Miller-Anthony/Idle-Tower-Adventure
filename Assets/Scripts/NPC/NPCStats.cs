@@ -105,7 +105,7 @@ public class NPCStats : MonoBehaviour
     // Set the maximum health of the NPC to something specific
     public void SetMaxHealth(BigNumber correction)
     {
-        currentHealth = correction;
+        health = correction;
     }
 
     // Add an amount of health to the NPC
