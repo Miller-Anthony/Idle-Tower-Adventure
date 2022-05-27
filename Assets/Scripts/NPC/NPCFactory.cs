@@ -8,17 +8,47 @@ public class NPCFactory : MonoBehaviour
     [SerializeField] StatStorrage adventurerStats;
     [SerializeField] StatStorrage fighterStats;
     [SerializeField] StatStorrage barbarianStats;
+    [SerializeField] StatStorrage rogueStats;
+    [SerializeField] StatStorrage rangerStats;
+    [SerializeField] StatStorrage monkStats;
+    [SerializeField] StatStorrage clericStats;
+    [SerializeField] StatStorrage bardStats;
+    [SerializeField] StatStorrage wizzardStats;
+    [SerializeField] StatStorrage warlockStats;
+    [SerializeField] StatStorrage sorcererStats;
+    [SerializeField] StatStorrage paladinStats;
+    [SerializeField] StatStorrage druidStats;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject enemyChest;
     [SerializeField] GameObject adventurer;
     [SerializeField] GameObject fighter;
     [SerializeField] GameObject barbarian;
+    [SerializeField] GameObject rogue;
+    [SerializeField] GameObject ranger;
+    [SerializeField] GameObject monk;
+    [SerializeField] GameObject cleric;
+    [SerializeField] GameObject bard;
+    [SerializeField] GameObject wizzard;
+    [SerializeField] GameObject warlock;
+    [SerializeField] GameObject sorcerer;
+    [SerializeField] GameObject paladin;
+    [SerializeField] GameObject druid;
     [SerializeField] FloorTracker tracker;
 
     [SerializeField] float chestChance;
 
     private float fighterTimer = 0;
     private float barbarianTimer = 0;
+    private float rogueTimer = 0;
+    private float rangerTimer = 0;
+    private float monkTimer = 0;
+    private float clericTimer = 0;
+    private float bardTimer = 0;
+    private float wizzardTimer = 0;
+    private float warlockTimer = 0;
+    private float sorcererTimer = 0;
+    private float paladinTimer = 0;
+    private float druidTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +59,7 @@ public class NPCFactory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fighterTimer < fighterStats.GetSpawn() && fighterStats.GetLevel() > 0 && tag != "adventurer")
+        if (fighterStats.GetLevel() > 0 && fighterTimer < fighterStats.GetSpawn() && tag != "adventurer")
         {
             fighterTimer += Time.deltaTime;
 
@@ -40,7 +70,7 @@ public class NPCFactory : MonoBehaviour
             }
         }
 
-        if (barbarianTimer < barbarianStats.GetSpawn() && barbarianStats.GetLevel() > 0 && tag != "adventurer")
+        if (barbarianStats.GetLevel() > 0 && barbarianTimer < barbarianStats.GetSpawn() && tag != "adventurer")
         {
             barbarianTimer += Time.deltaTime;
 
@@ -48,6 +78,28 @@ public class NPCFactory : MonoBehaviour
             {
                 tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("barbarian");
                 barbarianTimer = 0;
+            }
+        }
+
+        if (rogueStats.GetLevel() > 0 && rogueTimer < rogueStats.GetSpawn() && tag != "adventurer")
+        {
+            rogueTimer += Time.deltaTime;
+
+            if (rogueTimer >= rogueStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("rogue");
+                rogueTimer = 0;
+            }
+        }
+
+        if (rangerStats.GetLevel() > 0 && rangerTimer < rangerStats.GetSpawn() && tag != "adventurer")
+        {
+            rangerTimer += Time.deltaTime;
+
+            if (rangerTimer >= rangerStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("ranger");
+                rangerTimer = 0;
             }
         }
     }
@@ -193,6 +245,356 @@ public class NPCFactory : MonoBehaviour
         holdStats.SetStrength(barbarianStats.GetStrength());
         holdStats.SetSpeed(barbarianStats.GetSpeed());
         holdStats.SetSpawn(barbarianStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnRogue(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(rogue);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(rogueStats.GetLevel());
+        holdStats.SetMaxHealth(rogueStats.GetHealth());
+        holdStats.SetStrength(rogueStats.GetStrength());
+        holdStats.SetSpeed(rogueStats.GetSpeed());
+        holdStats.SetSpawn(rogueStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnRanger(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(ranger);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(rangerStats.GetLevel());
+        holdStats.SetMaxHealth(rangerStats.GetHealth());
+        holdStats.SetStrength(rangerStats.GetStrength());
+        holdStats.SetSpeed(rangerStats.GetSpeed());
+        holdStats.SetSpawn(rangerStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnMonk(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(monk);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(monkStats.GetLevel());
+        holdStats.SetMaxHealth(monkStats.GetHealth());
+        holdStats.SetStrength(monkStats.GetStrength());
+        holdStats.SetSpeed(monkStats.GetSpeed());
+        holdStats.SetSpawn(monkStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnCleric(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(cleric);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(clericStats.GetLevel());
+        holdStats.SetMaxHealth(clericStats.GetHealth());
+        holdStats.SetStrength(clericStats.GetStrength());
+        holdStats.SetSpeed(clericStats.GetSpeed());
+        holdStats.SetSpawn(clericStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnBard(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(bard);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(bardStats.GetLevel());
+        holdStats.SetMaxHealth(bardStats.GetHealth());
+        holdStats.SetStrength(bardStats.GetStrength());
+        holdStats.SetSpeed(bardStats.GetSpeed());
+        holdStats.SetSpawn(bardStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnWizzard(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(wizzard);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(wizzardStats.GetLevel());
+        holdStats.SetMaxHealth(wizzardStats.GetHealth());
+        holdStats.SetStrength(wizzardStats.GetStrength());
+        holdStats.SetSpeed(wizzardStats.GetSpeed());
+        holdStats.SetSpawn(wizzardStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnWarlock(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(warlock);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(warlockStats.GetLevel());
+        holdStats.SetMaxHealth(warlockStats.GetHealth());
+        holdStats.SetStrength(warlockStats.GetStrength());
+        holdStats.SetSpeed(warlockStats.GetSpeed());
+        holdStats.SetSpawn(warlockStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnSorcerer(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(sorcerer);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(sorcererStats.GetLevel());
+        holdStats.SetMaxHealth(sorcererStats.GetHealth());
+        holdStats.SetStrength(sorcererStats.GetStrength());
+        holdStats.SetSpeed(sorcererStats.GetSpeed());
+        holdStats.SetSpawn(sorcererStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnPaladin(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(paladin);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(paladinStats.GetLevel());
+        holdStats.SetMaxHealth(paladinStats.GetHealth());
+        holdStats.SetStrength(paladinStats.GetStrength());
+        holdStats.SetSpeed(paladinStats.GetSpeed());
+        holdStats.SetSpawn(paladinStats.GetSpawn());
+        holdStats.SetGold(new BigNumber(0));
+
+        return holder;
+    }
+
+    public GameObject SpawnDruid(Vector3 pos, int floor)
+    {
+        GameObject holder = Instantiate(druid);
+        if (floor % 2 == 0)
+        {
+            holder.GetComponent<NPCMovement>().MoveRight();
+        }
+        else
+        {
+            holder.GetComponent<NPCMovement>().MoveLeft();
+        }
+
+        //Set the position of the barbarian
+        holder.transform.position = pos;
+
+        //Calculate the scale of the barbarian
+        Vector3 scale = holder.transform.localScale;
+        scale.x *= 1.5f * Screen.width / Screen.height;
+        scale.y *= 1.5f * Screen.width / Screen.height;
+        holder.transform.localScale = scale;
+
+        //get the adventurers stat block to be able to set its stats
+        NPCStats holdStats = holder.GetComponent<NPCStats>();
+
+        //set the adventurers stats
+        holdStats.SetLevel(druidStats.GetLevel());
+        holdStats.SetMaxHealth(druidStats.GetHealth());
+        holdStats.SetStrength(druidStats.GetStrength());
+        holdStats.SetSpeed(druidStats.GetSpeed());
+        holdStats.SetSpawn(druidStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
 
         return holder;
