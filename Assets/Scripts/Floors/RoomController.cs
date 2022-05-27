@@ -272,6 +272,36 @@ public class RoomController : MonoBehaviour
             case "barbarian":
                 factory.SpawnBarbarian(playerSpawn.transform.position, floor);
                 break;
+            case "rogue":
+                factory.SpawnRogue(playerSpawn.transform.position, floor);
+                break;
+            case "ranger":
+                factory.SpawnRanger(playerSpawn.transform.position, floor);
+                break;
+            case "monk":
+                factory.SpawnMonk(playerSpawn.transform.position, floor);
+                break;
+            case "cleric":
+                factory.SpawnCleric(playerSpawn.transform.position, floor);
+                break;
+            case "bard":
+                factory.SpawnBard(playerSpawn.transform.position, floor);
+                break;
+            case "wizzard":
+                factory.SpawnWizzard(playerSpawn.transform.position, floor);
+                break;
+            case "warlock":
+                factory.SpawnWarlock(playerSpawn.transform.position, floor);
+                break;
+            case "sorcerer":
+                factory.SpawnSorcerer(playerSpawn.transform.position, floor);
+                break;
+            case "paladin":
+                factory.SpawnPaladin(playerSpawn.transform.position, floor);
+                break;
+            case "druid":
+                factory.SpawnDruid(playerSpawn.transform.position, floor);
+                break;
             default:
                 break;
         }

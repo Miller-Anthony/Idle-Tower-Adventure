@@ -34,64 +34,44 @@ public class UpgradeButtonController : MonoBehaviour
             case "barbarian":
                 cost = new BigNumber(1111);
                 break;
+            case "rogue":
+                cost = new BigNumber(11);
+                break;
+            case "ranger":
+                cost = new BigNumber(11);
+                break;
+            case "monk":
+                cost = new BigNumber(11);
+                break;
+            case "cleric":
+                cost = new BigNumber(11);
+                break;
+            case "bard":
+                cost = new BigNumber(11);
+                break;
+            case "wizzard":
+                cost = new BigNumber(11);
+                break;
+            case "warlock":
+                cost = new BigNumber(11);
+                break;
+            case "sorcerer":
+                cost = new BigNumber(11);
+                break;
+            case "paladin":
+                cost = new BigNumber(11);
+                break;
+            case "druid":
+                cost = new BigNumber(11);
+                break;
             default:
                 break;
         }
     }
 
-    public void UpgradeAdventurer()
-    {
-        //get the int stats of the adventurer to modefy
-        BigNumber dmg = stats.LevelStrength();
-        BigNumber hp = stats.LevelHealth();
-
-        //calculate and set the damage stat increase
-        stats.SetStrength((dmg * 1.1f) + 1);
-        stats.SetHealth((hp * 1.1f) + 1);
-        
-
-        //set the new speed stat (needs to be updated later to not increase every level)
-        if (stats.GetLevel() % 50 == 0)
-        {
-            stats.SetSpeed(stats.GetSpeed() * 1.1f);
-        }
-
-        // Increase the Adventurers level
-        stats.SetLevel(stats.GetLevel() + 1);
-    }
-
-
-
-    public void UpgradeFighter()
+    public void Upgrade()
     {
         // Increase the fighter's level
-        stats.SetLevel(stats.GetLevel() + 1);
-
-        //if the first level, dont change the stats
-        if (stats.GetLevel() == 1)
-        {
-            return;
-        }
-
-        //get the int stats of the fighter to modefy
-        BigNumber dmg = stats.LevelStrength();
-        BigNumber hp = stats.LevelHealth();
-
-        //calculate and set the damage and health stat increase
-        stats.SetStrength((dmg * 1.05f) + 1);
-        stats.SetHealth((hp * 1.1f) + 1);
-
-
-        //set the new speed stat (needs to be updated later to not increase every level)
-        if (stats.GetLevel() % 50 == 0)
-        {
-            stats.SetSpeed(stats.GetSpeed() * 1.1f);
-        }
-    }
-
-    public void UpgradeBarbarian()
-    {
-        // Increase the barbarian's level
         stats.SetLevel(stats.GetLevel() + 1);
 
         //if the first level, dont change the stats
@@ -124,20 +104,7 @@ public class UpgradeButtonController : MonoBehaviour
             genStats.SubtractGold(cost);
             cost = cost * 1.1f;
 
-            switch (gameObject.tag)
-            {
-                case "adventurer":
-                    UpgradeAdventurer();
-                    break;
-                case "fighter":
-                    UpgradeFighter();
-                    break;
-                case "barbarian":
-                    UpgradeBarbarian();
-                    break;
-                default:
-                    break;
-            }
+            Upgrade();
 
             //update the Adventurer UI text
             panel.UpdateText(cost);
@@ -151,20 +118,7 @@ public class UpgradeButtonController : MonoBehaviour
         {
             cost = cost * 1.1f;
 
-            switch (gameObject.tag)
-            {
-                case "adventurer":
-                    UpgradeAdventurer();
-                    break;
-                case "fighter":
-                    UpgradeFighter();
-                    break;
-                case "barbarian":
-                    UpgradeBarbarian();
-                    break;
-                default:
-                    break;
-            }
+            Upgrade();
         }
 
         //update the Adventurer UI text

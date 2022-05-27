@@ -59,7 +59,7 @@ public class NPCFactory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fighterStats.GetLevel() > 0 && fighterTimer < fighterStats.GetSpawn() && tag != "adventurer")
+        if (fighterStats.GetLevel() > 0 && fighterTimer < fighterStats.GetSpawn())
         {
             fighterTimer += Time.deltaTime;
 
@@ -70,7 +70,7 @@ public class NPCFactory : MonoBehaviour
             }
         }
 
-        if (barbarianStats.GetLevel() > 0 && barbarianTimer < barbarianStats.GetSpawn() && tag != "adventurer")
+        if (barbarianStats.GetLevel() > 0 && barbarianTimer < barbarianStats.GetSpawn())
         {
             barbarianTimer += Time.deltaTime;
 
@@ -81,7 +81,7 @@ public class NPCFactory : MonoBehaviour
             }
         }
 
-        if (rogueStats.GetLevel() > 0 && rogueTimer < rogueStats.GetSpawn() && tag != "adventurer")
+        if (rogueStats.GetLevel() > 0 && rogueTimer < rogueStats.GetSpawn())
         {
             rogueTimer += Time.deltaTime;
 
@@ -92,7 +92,7 @@ public class NPCFactory : MonoBehaviour
             }
         }
 
-        if (rangerStats.GetLevel() > 0 && rangerTimer < rangerStats.GetSpawn() && tag != "adventurer")
+        if (rangerStats.GetLevel() > 0 && rangerTimer < rangerStats.GetSpawn())
         {
             rangerTimer += Time.deltaTime;
 
@@ -100,6 +100,94 @@ public class NPCFactory : MonoBehaviour
             {
                 tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("ranger");
                 rangerTimer = 0;
+            }
+        }
+
+        if(monkStats.GetLevel() > 0 && monkTimer < monkStats.GetSpawn())
+        {
+            monkTimer += Time.deltaTime;
+
+            if (monkTimer >= monkStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("monk");
+                monkTimer = 0;
+            }
+        }
+
+        if (clericStats.GetLevel() > 0 && clericTimer < clericStats.GetSpawn())
+        {
+            clericTimer += Time.deltaTime;
+
+            if (clericTimer >= clericStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("cleric");
+                clericTimer = 0;
+            }
+        }
+
+        if (bardStats.GetLevel() > 0 && bardTimer < bardStats.GetSpawn())
+        {
+            bardTimer += Time.deltaTime;
+
+            if (bardTimer >= bardStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("bard");
+                bardTimer = 0;
+            }
+        }
+
+        if (wizzardStats.GetLevel() > 0 && wizzardTimer < wizzardStats.GetSpawn())
+        {
+            wizzardTimer += Time.deltaTime;
+
+            if (wizzardTimer >= wizzardStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("wizzard");
+                wizzardTimer = 0;
+            }
+        }
+
+        if (warlockStats.GetLevel() > 0 && warlockTimer < warlockStats.GetSpawn())
+        {
+            warlockTimer += Time.deltaTime;
+
+            if (warlockTimer >= warlockStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("warlock");
+                warlockTimer = 0;
+            }
+        }
+
+        if (sorcererStats.GetLevel() > 0 && sorcererTimer < sorcererStats.GetSpawn())
+        {
+            sorcererTimer += Time.deltaTime;
+
+            if (sorcererTimer >= sorcererStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("sorcerer");
+                sorcererTimer = 0;
+            }
+        }
+
+        if (paladinStats.GetLevel() > 0 && paladinTimer < paladinStats.GetSpawn())
+        {
+            paladinTimer += Time.deltaTime;
+
+            if (paladinTimer >= paladinStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("paladin");
+                paladinTimer = 0;
+            }
+        }
+
+        if (druidStats.GetLevel() > 0 && druidTimer < druidStats.GetSpawn())
+        {
+            druidTimer += Time.deltaTime;
+
+            if (druidTimer >= druidStats.GetSpawn())
+            {
+                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("druid");
+                druidTimer = 0;
             }
         }
     }

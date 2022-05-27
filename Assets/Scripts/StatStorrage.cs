@@ -35,7 +35,7 @@ public class StatStorrage : MonoBehaviour
         {
             case "adventurer":
                 health = new BigNumber(3);
-                strength = new BigNumber(2);
+                strength = new BigNumber(1);
                 gold = new BigNumber(0);
                 break;
             case "enemy":
@@ -51,6 +51,56 @@ public class StatStorrage : MonoBehaviour
             case "barbarian":
                 health = new BigNumber(1444);
                 strength = new BigNumber(1555);
+                gold = new BigNumber(0);
+                break;
+            case "rogue":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "ranger":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "monk":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "cleric":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "bard":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "wizzard":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "warlock":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "sorcerer":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "paladin":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
+                gold = new BigNumber(0);
+                break;
+            case "druid":
+                health = new BigNumber(5);
+                strength = new BigNumber(1);
                 gold = new BigNumber(0);
                 break;
             default:
