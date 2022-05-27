@@ -171,6 +171,27 @@ public class RoomController : MonoBehaviour
         return floor;
     }
 
+    // Set how many enemies spawn on the floor
+    public void SetSpawnCount(int val)
+    {
+        if (val > 4)
+        {
+            val = 4;
+        }    
+
+        if(val < 1)
+        {
+            val = 1;
+        }    
+        spawnCount = val;
+    }
+
+    // returns the floor number
+    public int GetSpawnCount()
+    {
+        return spawnCount;
+    }
+
     public void SetEnemyStrength(BigNumber str)
     {
         strength = str;

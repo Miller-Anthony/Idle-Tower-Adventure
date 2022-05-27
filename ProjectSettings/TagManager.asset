@@ -21,6 +21,15 @@ TagManager:
   - sword
   - shield
   - wallet
+  - rogue
+  - ranger
+  - monk
+  - cleric
+  - bard
+  - wizzard
+  - warlock
+  - sorcerer
+  - paladin
   layers:
   - Default
   - TransparentFX

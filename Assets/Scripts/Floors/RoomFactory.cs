@@ -97,6 +97,7 @@ public class RoomFactory : MonoBehaviour
         //set stats of the room
         stats.NextFloor();
         holdRoom.SetFloor(stats.GetTopFloor());
+        holdRoom.SetSpawnCount(CalculateSpawnCount(stats.GetTopFloor() % 50));
         holdRoom.SetLoading(loading);
         if (bossFloor)
         {
@@ -123,5 +124,114 @@ public class RoomFactory : MonoBehaviour
         tracker.AddFloor(holder);
 
         return holder;
+    }
+
+    private int CalculateSpawnCount(int floor)
+    {
+        switch (floor)
+        {
+            case 1:
+                return 1;
+            case 2:
+                return 1;
+            case 3:
+                return 1;
+            case 4:
+                return 2;
+            case 5:
+                return 2;
+            case 6:
+                return 1;
+            case 7:
+                return 1;
+            case 8:
+                return 2;
+            case 9:
+                return 2;
+            case 10:
+                return 2;
+            case 11:
+                return 1;
+            case 12:
+                return 1;
+            case 13:
+                return 2;
+            case 14:
+                return 3;
+            case 15:
+                return 2;
+            case 16:
+                return 1;
+            case 17:
+                return 1;
+            case 18:
+                return 2;
+            case 19:
+                return 3;
+            case 20:
+                return 3;
+            case 21:
+                return 1;
+            case 22:
+                return 1;
+            case 23:
+                return 2;
+            case 24:
+                return 2;
+            case 25:
+                return 3;
+            case 26:
+                return 1;
+            case 27:
+                return 1;
+            case 28:
+                return 2;
+            case 29:
+                return 3;
+            case 30:
+                return 3;
+            case 31:
+                return 1;
+            case 32:
+                return 2;
+            case 33:
+                return 2;
+            case 34:
+                return 2;
+            case 35:
+                return 3;
+            case 36:
+                return 1;
+            case 37:
+                return 2;
+            case 38:
+                return 2;
+            case 39:
+                return 3;
+            case 40:
+                return 3;
+            case 41:
+                return 1;
+            case 42:
+                return 2;
+            case 43:
+                return 3;
+            case 44:
+                return 3;
+            case 45:
+                return 3;
+            case 46:
+                return 1;
+            case 47:
+                return 2;
+            case 48:
+                return 3;
+            case 49:
+                return 3;
+            case 0:
+                return 4;
+            default:
+                return 1;
+        }
     }
 }

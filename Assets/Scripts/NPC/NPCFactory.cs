@@ -9,10 +9,13 @@ public class NPCFactory : MonoBehaviour
     [SerializeField] StatStorrage fighterStats;
     [SerializeField] StatStorrage barbarianStats;
     [SerializeField] GameObject enemy;
+    [SerializeField] GameObject enemyChest;
     [SerializeField] GameObject adventurer;
     [SerializeField] GameObject fighter;
     [SerializeField] GameObject barbarian;
     [SerializeField] FloorTracker tracker;
+
+    [SerializeField] float chestChance;
 
     private float fighterTimer = 0;
     private float barbarianTimer = 0;
@@ -52,8 +55,16 @@ public class NPCFactory : MonoBehaviour
     //spawn an enemy at the given position
     public GameObject SpawnEmemy(Vector3 pos, RoomController floor, int lvl)
     {
+        //determine if a chest will be spawned or not
+        GameObject spawn = enemy;
+
+        if(floor.GetFloor() % 5 != 0 && chestChance > Random.value)
+        {
+            spawn = enemyChest;
+        }
+
         //Make the object and store its stats
-        GameObject holder = Instantiate(enemy);
+        GameObject holder = Instantiate(spawn);
         NPCStats holdStats = holder.GetComponent<NPCStats>();
 
         //Calculate the scale of the room
@@ -67,8 +78,16 @@ public class NPCFactory : MonoBehaviour
         holdStats.SetLevel(lvl);
         holdStats.SetMaxHealth(floor.GetEnemyHealth());
         holdStats.SetStrength(floor.GetEnemyStrength());
-        holdStats.SetGold(floor.GetEnemyGold());
         holder.GetComponent<CombatController>().SetFloor(floor);
+
+        if(spawn == enemyChest)
+        {
+            holdStats.SetGold(floor.GetEnemyGold() * 2.0f);
+        }
+        else
+        {
+            holdStats.SetGold(floor.GetEnemyGold());
+        }
 
         return holder;
     }
