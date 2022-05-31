@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MiscUpgradeButtonController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class MiscUpgradeButtonController : MonoBehaviour
     [SerializeField] BigNumber cost;
     [SerializeField] MiscUpgradeController panel;
     [SerializeField] FloorTracker floors;
+    [SerializeField] AutoFloorClearManager autoClear;
+    [SerializeField] GameObject autoClearUpgradeButton;
     [SerializeField] SaveManager save;
 
     // Start is called before the first frame update
@@ -30,6 +33,33 @@ public class MiscUpgradeButtonController : MonoBehaviour
                 cost = new BigNumber(100);
                 break;
             case "clearFloor":
+                cost = new BigNumber(500);
+                break;
+            case "clearFloorAuto":
+                cost = new BigNumber(123456);
+                break;
+            case "skilledAdventurer":
+                cost = new BigNumber(100);
+                break;
+            case "hireRate":
+                cost = new BigNumber(500);
+                break;
+            case "improveGear":
+                cost = new BigNumber(123456);
+                break;
+            case "strengthInNumbers":
+                cost = new BigNumber(100);
+                break;
+            case "hastePotion":
+                cost = new BigNumber(500);
+                break;
+            case "increasedBounty":
+                cost = new BigNumber(123456);
+                break;
+            case "teleport":
+                cost = new BigNumber(100);
+                break;
+            case "autoSpawner":
                 cost = new BigNumber(500);
                 break;
             case "rebirth":
@@ -66,6 +96,33 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "clearFloor":
                     floors.ClearFloors();
+                    if(genStats.GetBottomFloor() > 50)
+                    {
+                        gameObject.GetComponent<Button>().interactable = false;
+                    }    
+                    break;
+                case "clearFloorAuto":
+                    if (!autoClearUpgradeButton.activeInHierarchy)
+                    {
+                        autoClearUpgradeButton.SetActive(true);
+                    }
+                    autoClear.Upgrade();
+                    break;
+                case "skilledAdventurer":
+                    break;
+                case "hireRate":
+                    break;
+                case "improveGear":
+                    break;
+                case "strengthInNumbers":
+                    break;
+                case "hastePotion":
+                    break;
+                case "increasedBounty":
+                    break;
+                case "teleport":
+                    break;
+                case "autoSpawner":
                     break;
                 case "rebirth":
                     save.Rebirth();
@@ -94,6 +151,13 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "clearFloor":
                     floors.ClearFloors();
+                    break;
+                case "clearFloorAuto":
+                    if(!autoClearUpgradeButton.activeInHierarchy)
+                    {
+                        autoClearUpgradeButton.SetActive(true);
+                    }
+                    autoClear.Upgrade();
                     break;
                 default:
                     break;

@@ -9,6 +9,8 @@ public class FloorTracker : MonoBehaviour
     
     private Queue<GameObject> floorQueue;
     private int queueSize = 0;
+    private int maxQueueSize = 0;
+    private int minQueueSize = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -40,19 +42,47 @@ public class FloorTracker : MonoBehaviour
         }
     }
 
-    public int GetMaxQueueSize()
+    public int GetQueueSize()
     {
         return queueSize;
     }
 
-    public void SetMaxQueueSize(int size)
+    public void SetQueueSize(int size)
     {
+        if(size > maxQueueSize)
+        {
+            size = maxQueueSize;
+        }
+        else if (size < minQueueSize)
+        {
+            size = minQueueSize;
+        }
         queueSize = size;
     }
 
-    public int GetQueueSize()
+    public int GetCurrentQueueSize()
     {
         return floorQueue.Count;
+    }
+
+    public void SetMaxQueueSize(int size)
+    {
+        maxQueueSize = size;
+    }
+
+    public int GetMaxQueueSize()
+    {
+        return maxQueueSize;
+    }
+
+    public void SetMinQueueSize(int size)
+    {
+        minQueueSize = size;
+    }
+
+    public int GetMinQueueSize()
+    {
+        return minQueueSize;
     }
 
     public void SetBottomFloor(int floor)

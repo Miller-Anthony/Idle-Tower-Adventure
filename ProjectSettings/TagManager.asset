@@ -30,6 +30,15 @@ TagManager:
   - warlock
   - sorcerer
   - paladin
+  - skilledAdventurer
+  - clearFloorAuto
+  - hireRate
+  - improveGear
+  - strengthInNumbers
+  - hastePotion
+  - increasedBounty
+  - teleport
+  - autoSpawner
   layers:
   - Default
   - TransparentFX

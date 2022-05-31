@@ -23,6 +23,15 @@ public class SaveManager : MonoBehaviour
     [SerializeField] StatStorrage druidStats;
     [SerializeField] MiscUpgradeController adventurerCountController;
     [SerializeField] MiscUpgradeController clearedFloorController;
+    [SerializeField] MiscUpgradeController clearedFloorAutoController;
+    [SerializeField] MiscUpgradeController skilledAdventurerController;
+    [SerializeField] MiscUpgradeController hireRateController;
+    [SerializeField] MiscUpgradeController improveGearController;
+    [SerializeField] MiscUpgradeController strengthInNumbersController;
+    [SerializeField] MiscUpgradeController hastePotionController;
+    [SerializeField] MiscUpgradeController increasedBountyController;
+    [SerializeField] MiscUpgradeController teleportController;
+    [SerializeField] MiscUpgradeController autoSpawnerController;
     [SerializeField] LootDisplayController swordController;
     [SerializeField] LootDisplayController shieldController;
     [SerializeField] LootDisplayController walletController;
@@ -35,6 +44,15 @@ public class SaveManager : MonoBehaviour
     private int adventurerLevel;
     private int adventurerCount;
     private int clearedFloorLevel;
+    private int clearedFloorAutoLevel;
+    private int skilledAdventurerLevel;
+    private int hireRateLevel;
+    private int improveGearLevel;
+    private int strengthInNumbersLevel;
+    private int hastePotionLevel;
+    private int increasedBountyLevel;
+    private int teleportLevel;
+    private int autoSpawnerLevel;
     private int fighterLevel;
     private int barbarianLevel;
     private int rogueLevel;
@@ -92,6 +110,7 @@ public class SaveManager : MonoBehaviour
         druidLevel = druidStats.GetLevel();
         adventurerCount = genStats.GetMaxAdventurers();
         clearedFloorLevel = genStats.GetBottomFloor();  //don't like this and need to change it to be how many times the upgrade happened
+        
         chests = chestList.Save();
 
         //Format save data
