@@ -40,7 +40,7 @@ public class MiscUpgradeController : MonoBehaviour
         }
         else if (tag == "skilledAdventurer")
         {
-            countText.text = (stats.GetBottomFloor() - 1).ToString();
+            countText.text = (stats.GetSkilledChance() * 100).ToString() + "%";
         }
         else if(tag == "hireRate")
         {

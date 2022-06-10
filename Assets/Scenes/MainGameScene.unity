@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genStats: {fileID: 985715577}
+  floors: {fileID: 1565164472}
   adventurerStats: {fileID: 2099734206}
   fighterStats: {fileID: 69711939}
   barbarianStats: {fileID: 275950702}
@@ -456,6 +457,8 @@ MonoBehaviour:
   druidButton: {fileID: 701588489}
   adventurerCountButton: {fileID: 2121718975}
   clearedFloorButton: {fileID: 1499580323}
+  clearedFloorAutoButton: {fileID: 690321932}
+  skilledAdventurerController: {fileID: 1500563138}
   swordController: {fileID: 2666387354376992953}
   shieldController: {fileID: 755575566}
   walletController: {fileID: 1227188265}
@@ -859,8 +862,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 1288953167}
   m_HandleRect: {fileID: 61781574}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 19
+  m_MaxValue: 20
   m_WholeNumbers: 1
   m_Value: 1
   m_OnValueChanged:
@@ -869,7 +872,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1697662692}
         m_TargetAssemblyTypeName: AutoFloorClearManager, Assembly-CSharp
         m_MethodName: OnSliderChange
-        m_Mode: 4
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2729,6 +2732,7 @@ MonoBehaviour:
   enemy: {fileID: 4068982270941163005, guid: 99dae5b6970f86c498e7a1161b2b554b, type: 3}
   enemyChest: {fileID: 2837577424335706613, guid: ef2904c7186f86a448f0fae5a5c4f824, type: 3}
   adventurer: {fileID: 6227501802140144004, guid: 14720861f30b1054b9d6f3fe488a812d, type: 3}
+  skilledAdventurer: {fileID: 1062105965655053529, guid: 6fdd8f90c3d884e44aa8fda1c420848c, type: 3}
   fighter: {fileID: 5201228203480868241, guid: 63d737b6f4a4cd74e890f9ea2043b109, type: 3}
   barbarian: {fileID: 6846075101001261984, guid: b69cfb6865414a34da901fb85c678c85, type: 3}
   rogue: {fileID: 4072579901192927630, guid: a8dce0568e865af4cb5fa7ce3f1d33fc, type: 3}
@@ -3172,6 +3176,10 @@ PrefabInstance:
       value: -105.69
       objectReference: {fileID: 0}
     - target: {fileID: 46149997253505442, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 46149997253505442, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 2666387354376992953}
@@ -3208,6 +3216,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1461233455}
     - target: {fileID: 515051782794462195, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 515051782794462195, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 2666387354376992953}
@@ -3235,6 +3247,22 @@ PrefabInstance:
       propertyPath: countText
       value: 
       objectReference: {fileID: 1130730933}
+    - target: {fileID: 815116829380198522, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 815116829380198522, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 690321932}
+    - target: {fileID: 815116829380198522, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 815116829380198522, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 815116829380198524, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Name
       value: AutoClearButton
@@ -3243,9 +3271,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: clearFloorAuto
       objectReference: {fileID: 0}
+    - target: {fileID: 815116829481909438, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 815116829820148243, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
       value: Auto Clear Floors
+      objectReference: {fileID: 0}
+    - target: {fileID: 815116830777602377, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 123456
       objectReference: {fileID: 0}
     - target: {fileID: 815116830892443022, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -3269,7 +3305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830624247440288209, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: spawn
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 830624247440288209, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
@@ -3298,6 +3334,10 @@ PrefabInstance:
     - target: {fileID: 830624247645901019, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -21.963
+      objectReference: {fileID: 0}
+    - target: {fileID: 830624247781277180, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 830624247781277180, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
@@ -3627,6 +3667,14 @@ PrefabInstance:
       propertyPath: autoClear
       value: 
       objectReference: {fileID: 1697662692}
+    - target: {fileID: 2016861074394784080, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: autoClearUpgradeButton
+      value: 
+      objectReference: {fileID: 1697662691}
+    - target: {fileID: 2020550233797346577, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2020550233797346577, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
@@ -3716,6 +3764,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3944172677840627554, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3944172677840627554, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 2666387354376992953}
@@ -3780,6 +3832,10 @@ PrefabInstance:
       value: autoSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 5076688229306518902, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076688229306518902, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 2666387354376992953}
@@ -3828,6 +3884,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 88100877}
     - target: {fileID: 5643559556946340151, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643559556946340151, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 2666387354376992953}
@@ -3840,6 +3900,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1227188265}
     - target: {fileID: 5677575127393667872, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5677575127393667872, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
       objectReference: {fileID: 2666387354376992953}
@@ -3851,6 +3915,10 @@ PrefabInstance:
       propertyPath: wallet
       value: 
       objectReference: {fileID: 1227188265}
+    - target: {fileID: 5855784314477692473, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5855784314477692473, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
@@ -3927,13 +3995,39 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6995350461651958973, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 'Summon
+
+        Chance:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995350462154225456, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1500563138}
+    - target: {fileID: 6995350462154225456, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995350462154225456, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6995350462154225462, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: skilledAdventurer
       objectReference: {fileID: 0}
+    - target: {fileID: 6995350462253845492, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 0%
+      objectReference: {fileID: 0}
     - target: {fileID: 6995350462866010820, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: skilledAdventurer
+      objectReference: {fileID: 0}
+    - target: {fileID: 6995350463046977027, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7007791687341212756, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -3965,7 +4059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130441621181117496, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 246
+      value: 394
       objectReference: {fileID: 0}
     - target: {fileID: 7277673767687990169, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -4007,6 +4101,10 @@ PrefabInstance:
       propertyPath: floors
       value: 
       objectReference: {fileID: 1565164472}
+    - target: {fileID: 7376490564392615957, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7376490564392615957, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword
       value: 
@@ -4214,6 +4312,10 @@ PrefabInstance:
     - target: {fileID: 8714444631056938201, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -155.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934196732779162589, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: spawn
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8934196732779162589, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: sword

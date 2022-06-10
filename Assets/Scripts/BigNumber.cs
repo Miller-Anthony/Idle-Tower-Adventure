@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BigNumber
 {
-    private decimal number;
+    private double number;
     private int modifier;
 
 
@@ -46,7 +46,7 @@ public class BigNumber
         ab
     }
 
-    public BigNumber(decimal num, int mod = 0)
+    public BigNumber(double num, int mod = 0)
     {
         if (num < 0)
         {
@@ -260,7 +260,7 @@ public class BigNumber
     //when an int is added to a BigNumber
     public static BigNumber operator +(int num1, BigNumber num2)
     {
-        return new BigNumber(num2.number + num1, num2.modifier);
+        return num2 + new BigNumber(num1);
     }
 
     //when a BigNumber is multiplied by an int
@@ -278,7 +278,7 @@ public class BigNumber
     //when a BigNumber is multiplied by a float
     public static BigNumber operator *(BigNumber num1, float num2)
     {
-        return new BigNumber(num1.number * (decimal)num2, num1.modifier);
+        return new BigNumber(num1.number * num2, num1.modifier);
     }
 
     //when a BigNumber is compared to an int

@@ -21,6 +21,7 @@ public class NPCFactory : MonoBehaviour
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject enemyChest;
     [SerializeField] GameObject adventurer;
+    [SerializeField] GameObject skilledAdventurer;
     [SerializeField] GameObject fighter;
     [SerializeField] GameObject barbarian;
     [SerializeField] GameObject rogue;
@@ -235,7 +236,12 @@ public class NPCFactory : MonoBehaviour
     //spawn an adventurer at the given position
     public GameObject SpawnAdventurer(Vector3 pos, int floor)
     {
-        GameObject holder = Instantiate(adventurer);
+        GameObject toSpawn = adventurer;
+        if (general.GetSkilledChance() >= Random.Range(0.01f, 1))
+        {
+            toSpawn = skilledAdventurer;
+        }
+        GameObject holder = Instantiate(toSpawn);
         if (floor % 2 == 0)
         {
             holder.GetComponent<NPCMovement>().MoveRight();
@@ -257,12 +263,24 @@ public class NPCFactory : MonoBehaviour
         //get the adventurers stat block to be able to set its stats
         NPCStats holdStats = holder.GetComponent<NPCStats>();
 
-        //set the adventurers stats
-        holdStats.SetLevel(adventurerStats.GetLevel());
-        holdStats.SetMaxHealth(adventurerStats.GetHealth());
-        holdStats.SetStrength(adventurerStats.GetStrength());
-        holdStats.SetSpeed(adventurerStats.GetSpeed());
-        holdStats.SetGold(new BigNumber(0));
+        if(holder == skilledAdventurer)
+        {
+            //set the skilledAdventurers stats
+            holdStats.SetLevel(adventurerStats.GetLevel());
+            holdStats.SetMaxHealth(adventurerStats.GetHealth() * 0.05f);
+            holdStats.SetStrength(adventurerStats.GetStrength()* 0.05f);
+            holdStats.SetSpeed(adventurerStats.GetSpeed() * 0.02f);
+            holdStats.SetGold(new BigNumber(0));
+        }
+        else
+        {
+            //set the adventurers stats
+            holdStats.SetLevel(adventurerStats.GetLevel());
+            holdStats.SetMaxHealth(adventurerStats.GetHealth());
+            holdStats.SetStrength(adventurerStats.GetStrength());
+            holdStats.SetSpeed(adventurerStats.GetSpeed());
+            holdStats.SetGold(new BigNumber(0));
+        }
 
         general.SummonAdventurer();
         return holder;

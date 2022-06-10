@@ -22,6 +22,8 @@ public class LoadManager : MonoBehaviour
     [SerializeField] UpgradeButtonController druidButton;
     [SerializeField] MiscUpgradeButtonController adventurerCountButton;
     [SerializeField] MiscUpgradeButtonController clearedFloorButton;
+    [SerializeField] MiscUpgradeButtonController clearedFloorAutoButton;
+    [SerializeField] MiscUpgradeButtonController skilledAdventurerController;
     [SerializeField] LootDisplayController swordController;
     [SerializeField] LootDisplayController shieldController;
     [SerializeField] LootDisplayController walletController;
@@ -32,7 +34,6 @@ public class LoadManager : MonoBehaviour
     private int highestFloor;
     private int topFloor;
     private BigNumber gold;
-    private int clearedFloorLevel;
     private int fighterLevel;
     private int barbarianLevel;
     private int rogueLevel;
@@ -47,6 +48,9 @@ public class LoadManager : MonoBehaviour
     private int druidLevel;
     private int adventurerLevel;
     private int adventurerCount;
+    private int clearedFloorLevel;
+    private int clearedFloorAutoLevel;
+    private float skilledChance;
     private int swordLoot;
     private int shieldLoot;
     private int walletLoot;
@@ -80,7 +84,7 @@ public class LoadManager : MonoBehaviour
                 //Parse save data
                 highestFloor = int.Parse(data[0]);
                 topFloor = int.Parse(data[1]);
-                gold = new BigNumber(decimal.Parse(data[2]), int.Parse(data[3]));
+                gold = new BigNumber(double.Parse(data[2]), int.Parse(data[3]));
                 adventurerLevel = int.Parse(data[4]);
                 fighterLevel = int.Parse(data[5]);
                 barbarianLevel = int.Parse(data[6]);
@@ -96,17 +100,19 @@ public class LoadManager : MonoBehaviour
                 druidLevel = int.Parse(data[16]);
                 adventurerCount = int.Parse(data[17]);
                 clearedFloorLevel = int.Parse(data[18]);
-                swordLoot = int.Parse(data[19]);
-                shieldLoot = int.Parse(data[20]);
-                walletLoot = int.Parse(data[21]);
-                chestCount = int.Parse(data[22].Substring(0, 3));
+                clearedFloorAutoLevel = int.Parse(data[19]);
+                skilledChance = float.Parse(data[20]);
+                swordLoot = int.Parse(data[21]);
+                shieldLoot = int.Parse(data[22]);
+                walletLoot = int.Parse(data[23]);
+                chestCount = int.Parse(data[24].Substring(0, 3));
 
                 chestList = new int[chestCount];
 
                 //grab all the chests
                 for (int i = 0; i < chestCount; i++)
                 {
-                    chestList[i] = int.Parse(data[12].Substring(5 + (6 * i), 5));
+                    chestList[i] = int.Parse(data[24].Substring(5 + (6 * i), 5));
                 }
 
                 //spawn all the floors needed
@@ -142,10 +148,21 @@ public class LoadManager : MonoBehaviour
                 druidButton.LoadLevels(druidLevel);
                 adventurerCountButton.LoadLevels(adventurerCount - 5);
                 clearedFloorButton.LoadLevels((clearedFloorLevel - 1) / 10);
+                clearedFloorAutoButton.LoadLevels(-(clearedFloorAutoLevel - 19));
+                if(skilledChance == 0)
+                {
+                    skilledAdventurerController.LoadLevels((int)skilledChance);
+                }
+                else 
+                {
+                    float num = (skilledChance * 100);
+                    num -= 5;
+                    num *= 2;
+                    skilledAdventurerController.LoadLevels((int)++num);
+                }
                 swordController.Setlooted(swordLoot);
                 shieldController.Setlooted(shieldLoot);
                 walletController.Setlooted(walletLoot);
-
             }
             gameObject.GetComponent<LoadManager>().enabled = false;
         }

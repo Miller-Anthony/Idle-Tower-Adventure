@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
 {
     //places to get save data from
     [SerializeField] GeneralStats genStats;
+    [SerializeField] FloorTracker floors;
     [SerializeField] StatStorrage adventurerStats;
     [SerializeField] StatStorrage fighterStats;
     [SerializeField] StatStorrage barbarianStats;
@@ -45,7 +46,7 @@ public class SaveManager : MonoBehaviour
     private int adventurerCount;
     private int clearedFloorLevel;
     private int clearedFloorAutoLevel;
-    private int skilledAdventurerLevel;
+    private float skilledAdventurerChance;
     private int hireRateLevel;
     private int improveGearLevel;
     private int strengthInNumbersLevel;
@@ -110,7 +111,8 @@ public class SaveManager : MonoBehaviour
         druidLevel = druidStats.GetLevel();
         adventurerCount = genStats.GetMaxAdventurers();
         clearedFloorLevel = genStats.GetBottomFloor();  //don't like this and need to change it to be how many times the upgrade happened
-        
+        clearedFloorAutoLevel = floors.GetMinQueueSize();
+        skilledAdventurerChance = genStats.GetSkilledChance();
         chests = chestList.Save();
 
         //Format save data
@@ -133,6 +135,8 @@ public class SaveManager : MonoBehaviour
         data = data + druidLevel + "\n";
         data = data + adventurerCount + "\n";
         data = data + clearedFloorLevel + "\n";
+        data = data + clearedFloorAutoLevel + "\n";
+        data = data + skilledAdventurerChance + "\n";
         data = data + swordController.GetLooted() + "\n";
         data = data + shieldController.GetLooted() + "\n";
         data = data + walletController.GetLooted() + "\n";
@@ -168,7 +172,9 @@ public class SaveManager : MonoBehaviour
         paladinLevel = 0;
         druidLevel = 0;
         adventurerCount = 0;
-        clearedFloorLevel = 1;  
+        clearedFloorLevel = 1;
+        clearedFloorAutoLevel = 19;
+        skilledAdventurerChance = 0;
         chests = chestList.Save();
 
         //Format save data
@@ -191,6 +197,8 @@ public class SaveManager : MonoBehaviour
         data = data + druidLevel + "\n";
         data = data + adventurerCount + "\n";
         data = data + clearedFloorLevel + "\n";
+        data = data + clearedFloorAutoLevel + "\n";
+        data = data + skilledAdventurerChance + "\n";
         data = data + swordController.GetLooted() + "\n";
         data = data + shieldController.GetLooted() + "\n";
         data = data + walletController.GetLooted() + "\n";

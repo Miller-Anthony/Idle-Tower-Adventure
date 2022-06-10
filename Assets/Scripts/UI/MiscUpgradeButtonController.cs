@@ -109,6 +109,14 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     autoClear.Upgrade();
                     break;
                 case "skilledAdventurer":
+                    if(genStats.GetSkilledChance() == 0)
+                    {
+                        genStats.SetSkilledChance(0.05f);
+                    }
+                    else
+                    {
+                        genStats.SetSkilledChance(genStats.GetSkilledChance() + 0.005f);
+                    }
                     break;
                 case "hireRate":
                     break;
@@ -158,6 +166,16 @@ public class MiscUpgradeButtonController : MonoBehaviour
                         autoClearUpgradeButton.SetActive(true);
                     }
                     autoClear.Upgrade();
+                    break;
+                case "skilledAdventurer":
+                    if (genStats.GetSkilledChance() == 0)
+                    {
+                        genStats.SetSkilledChance(0.05f);
+                    }
+                    else
+                    {
+                        genStats.SetSkilledChance(genStats.GetSkilledChance() + 0.005f);
+                    }
                     break;
                 default:
                     break;

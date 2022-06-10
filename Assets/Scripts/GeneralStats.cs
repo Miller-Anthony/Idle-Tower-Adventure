@@ -9,6 +9,7 @@ public class GeneralStats : MonoBehaviour
     [SerializeField] int topFloor = 1;   //Stores the top floor 
     [SerializeField] int bottomFloor;    //Stores the bottom floor 
     [SerializeField] int maxAdventurers; //maximum number of adventurers that can be summoned at any given time.
+    [SerializeField] float skilledChance; //chance a skilled adventurer will spawn
 
     private int highestFloor = 1;
     private int numAdventurers;          //the number of adventurers currantly summoned
@@ -18,6 +19,7 @@ public class GeneralStats : MonoBehaviour
     {
         gold = new BigNumber(0);
         numAdventurers = 0;
+        skilledChance = 0;
     }
 
     // Update is called once per frame
@@ -85,6 +87,18 @@ public class GeneralStats : MonoBehaviour
     public void SetBottomFloor(int floor)
     {
         bottomFloor = floor;
+    }
+
+    //Get the chance a skilled adventurer will be summoned instead
+    public float GetSkilledChance()
+    {
+        return skilledChance;
+    }
+
+    //Set the chance a skilled adventurer will be summoned instead
+    public void SetSkilledChance(float chance)
+    {
+        skilledChance = chance;
     }
 
     //Get the total amount of adventurers that can be summoned at any given time

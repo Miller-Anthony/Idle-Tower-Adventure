@@ -47,7 +47,7 @@ public class AutoFloorClearManager : MonoBehaviour
 
     public void Upgrade()
     {
-        if (slider.minValue == 0)
+        if (slider.minValue == 19)
         {
             slider.minValue = 18;
             slider.maxValue = 20;
