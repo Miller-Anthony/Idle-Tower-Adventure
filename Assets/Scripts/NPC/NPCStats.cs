@@ -19,7 +19,6 @@ public class NPCStats : MonoBehaviour
     void Start()
     {
         currentHealth = health;
-
     }
 
     // Update is called once per frame

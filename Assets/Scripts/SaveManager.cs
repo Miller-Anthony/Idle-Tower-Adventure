@@ -47,7 +47,7 @@ public class SaveManager : MonoBehaviour
     private int clearedFloorLevel;
     private int clearedFloorAutoLevel;
     private float skilledAdventurerChance;
-    private int hireRateLevel;
+    private float hireRatePercent;
     private int improveGearLevel;
     private int strengthInNumbersLevel;
     private int hastePotionLevel;
@@ -113,6 +113,13 @@ public class SaveManager : MonoBehaviour
         clearedFloorLevel = genStats.GetBottomFloor();  //don't like this and need to change it to be how many times the upgrade happened
         clearedFloorAutoLevel = floors.GetMinQueueSize();
         skilledAdventurerChance = genStats.GetSkilledChance();
+        hireRatePercent = fighterStats.GetSpawnPercent();
+        improveGearLevel = 0;
+        strengthInNumbersLevel= 0;
+        hastePotionLevel = 0;
+        increasedBountyLevel = 0;
+        teleportLevel = 0;
+        autoSpawnerLevel = 0;
         chests = chestList.Save();
 
         //Format save data
@@ -137,6 +144,13 @@ public class SaveManager : MonoBehaviour
         data = data + clearedFloorLevel + "\n";
         data = data + clearedFloorAutoLevel + "\n";
         data = data + skilledAdventurerChance + "\n";
+        data = data + hireRatePercent + "\n";
+        data = data + improveGearLevel + "\n";
+        data = data + strengthInNumbersLevel + "\n";
+        data = data + hastePotionLevel + "\n";
+        data = data + increasedBountyLevel + "\n";
+        data = data + teleportLevel + "\n";
+        data = data + autoSpawnerLevel + "\n";
         data = data + swordController.GetLooted() + "\n";
         data = data + shieldController.GetLooted() + "\n";
         data = data + walletController.GetLooted() + "\n";
@@ -175,6 +189,13 @@ public class SaveManager : MonoBehaviour
         clearedFloorLevel = 1;
         clearedFloorAutoLevel = 19;
         skilledAdventurerChance = 0;
+        hireRatePercent = 1;
+        improveGearLevel = 0;
+        strengthInNumbersLevel = 0;
+        hastePotionLevel = 0;
+        increasedBountyLevel = 0;
+        teleportLevel = 0;
+        autoSpawnerLevel = 0;
         chests = chestList.Save();
 
         //Format save data
@@ -199,6 +220,13 @@ public class SaveManager : MonoBehaviour
         data = data + clearedFloorLevel + "\n";
         data = data + clearedFloorAutoLevel + "\n";
         data = data + skilledAdventurerChance + "\n";
+        data = data + hireRatePercent + "\n";
+        data = data + improveGearLevel + "\n";
+        data = data + strengthInNumbersLevel + "\n";
+        data = data + hastePotionLevel + "\n";
+        data = data + increasedBountyLevel + "\n";
+        data = data + teleportLevel + "\n";
+        data = data + autoSpawnerLevel + "\n";
         data = data + swordController.GetLooted() + "\n";
         data = data + shieldController.GetLooted() + "\n";
         data = data + walletController.GetLooted() + "\n";

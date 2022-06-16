@@ -24,6 +24,13 @@ public class LoadManager : MonoBehaviour
     [SerializeField] MiscUpgradeButtonController clearedFloorButton;
     [SerializeField] MiscUpgradeButtonController clearedFloorAutoButton;
     [SerializeField] MiscUpgradeButtonController skilledAdventurerController;
+    [SerializeField] MiscUpgradeButtonController hireRateController;
+    [SerializeField] MiscUpgradeButtonController improveGearController;
+    [SerializeField] MiscUpgradeButtonController strengthInNumbersController;
+    [SerializeField] MiscUpgradeButtonController hastePotionController;
+    [SerializeField] MiscUpgradeButtonController increasedBountyController;
+    [SerializeField] MiscUpgradeButtonController teleportController;
+    [SerializeField] MiscUpgradeButtonController autoSpawnerController;
     [SerializeField] LootDisplayController swordController;
     [SerializeField] LootDisplayController shieldController;
     [SerializeField] LootDisplayController walletController;
@@ -51,6 +58,13 @@ public class LoadManager : MonoBehaviour
     private int clearedFloorLevel;
     private int clearedFloorAutoLevel;
     private float skilledChance;
+    private float spawnPercent;
+    private int improveGearLevel;
+    private int strengthInNumbersLevel;
+    private int hastePotionLevel;
+    private int increasedBountyLevel;
+    private int teleportLevel;
+    private int autoSpawnerLevel;
     private int swordLoot;
     private int shieldLoot;
     private int walletLoot;
@@ -102,17 +116,24 @@ public class LoadManager : MonoBehaviour
                 clearedFloorLevel = int.Parse(data[18]);
                 clearedFloorAutoLevel = int.Parse(data[19]);
                 skilledChance = float.Parse(data[20]);
-                swordLoot = int.Parse(data[21]);
-                shieldLoot = int.Parse(data[22]);
-                walletLoot = int.Parse(data[23]);
-                chestCount = int.Parse(data[24].Substring(0, 3));
+                spawnPercent = float.Parse(data[21]);
+                improveGearLevel = int.Parse(data[22]);
+                strengthInNumbersLevel = int.Parse(data[23]);
+                hastePotionLevel = int.Parse(data[24]);
+                increasedBountyLevel = int.Parse(data[25]);
+                teleportLevel = int.Parse(data[26]);
+                autoSpawnerLevel = int.Parse(data[27]);
+                swordLoot = int.Parse(data[28]);
+                shieldLoot = int.Parse(data[29]);
+                walletLoot = int.Parse(data[30]);
+                chestCount = int.Parse(data[31].Substring(0, 3));
 
                 chestList = new int[chestCount];
 
                 //grab all the chests
                 for (int i = 0; i < chestCount; i++)
                 {
-                    chestList[i] = int.Parse(data[24].Substring(5 + (6 * i), 5));
+                    chestList[i] = int.Parse(data[31].Substring(5 + (6 * i), 5));
                 }
 
                 //spawn all the floors needed
@@ -149,6 +170,7 @@ public class LoadManager : MonoBehaviour
                 adventurerCountButton.LoadLevels(adventurerCount - 5);
                 clearedFloorButton.LoadLevels((clearedFloorLevel - 1) / 10);
                 clearedFloorAutoButton.LoadLevels(-(clearedFloorAutoLevel - 19));
+                
                 if(skilledChance == 0)
                 {
                     skilledAdventurerController.LoadLevels((int)skilledChance);
@@ -160,6 +182,17 @@ public class LoadManager : MonoBehaviour
                     num *= 2;
                     skilledAdventurerController.LoadLevels((int)++num);
                 }
+
+                spawnPercent -= 1;
+                spawnPercent *= 100;
+                hireRateController.LoadLevels((int)spawnPercent);
+
+                improveGearController.LoadLevels(improveGearLevel);
+                strengthInNumbersController.LoadLevels(strengthInNumbersLevel);
+                hastePotionController.LoadLevels(hastePotionLevel);
+                increasedBountyController.LoadLevels(increasedBountyLevel);
+                teleportController.LoadLevels(teleportLevel);
+                autoSpawnerController.LoadLevels(autoSpawnerLevel);
                 swordController.Setlooted(swordLoot);
                 shieldController.Setlooted(shieldLoot);
                 walletController.Setlooted(walletLoot);

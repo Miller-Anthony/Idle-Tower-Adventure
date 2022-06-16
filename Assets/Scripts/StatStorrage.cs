@@ -17,6 +17,8 @@ public class StatStorrage : MonoBehaviour
     [SerializeField] LootDisplayController shield;
     [SerializeField] LootDisplayController wallet;
 
+    private float spawnPercent = 1.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -184,7 +186,25 @@ public class StatStorrage : MonoBehaviour
     // Get the stored spawn stat
     public float GetSpawn()
     {
-        return spawn;
+        return spawn * spawnPercent;
+    }
+
+    //Set the stored spawnPercent stat
+    public void SetSpawnPercent(float spwn)
+    {
+        spawn = spwn;
+    }
+
+    // Get the stored spawn stat
+    public float GetSpawnPercent()
+    {
+        return spawnPercent;
+    }
+
+    //change the spawn time by a given ammount
+    public void ChangeSpawnPercent(float change)
+    {
+        spawnPercent += change;
     }
 
     //Set the stored gold stat

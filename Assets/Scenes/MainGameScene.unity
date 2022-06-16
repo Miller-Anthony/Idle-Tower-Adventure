@@ -459,6 +459,13 @@ MonoBehaviour:
   clearedFloorButton: {fileID: 1499580323}
   clearedFloorAutoButton: {fileID: 690321932}
   skilledAdventurerController: {fileID: 1500563138}
+  hireRateController: {fileID: 1034588721}
+  improveGearController: {fileID: 615153357}
+  strengthInNumbersController: {fileID: 941900273}
+  hastePotionController: {fileID: 1516105713}
+  increasedBountyController: {fileID: 303716788}
+  teleportController: {fileID: 740944587}
+  autoSpawnerController: {fileID: 669588566}
   swordController: {fileID: 2666387354376992953}
   shieldController: {fileID: 755575566}
   walletController: {fileID: 1227188265}
@@ -2628,6 +2635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1565164470}
   - component: {fileID: 1565164469}
+  - component: {fileID: 1565164474}
   - component: {fileID: 1565164471}
   - component: {fileID: 1565164473}
   - component: {fileID: 1565164472}
@@ -2815,6 +2823,31 @@ MonoBehaviour:
   sword: {fileID: 2666387354376992953}
   shield: {fileID: 755575566}
   wallet: {fileID: 1227188265}
+--- !u!114 &1565164474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565164468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4adfb05829f99b445bc46e2b78df5750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  general: {fileID: 985715577}
+  fighterStats: {fileID: 69711939}
+  barbarianStats: {fileID: 275950702}
+  rogueStats: {fileID: 258577472}
+  rangerStats: {fileID: 24699742}
+  monkStats: {fileID: 752194859}
+  clericStats: {fileID: 1774441470}
+  bardStats: {fileID: 1479159945}
+  wizzardStats: {fileID: 847301577}
+  warlockStats: {fileID: 1417630892}
+  sorcererStats: {fileID: 1826545929}
+  paladinStats: {fileID: 125475996}
+  druidStats: {fileID: 791518770}
 --- !u!114 &1646843126 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 830624247494469359, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -3863,6 +3896,10 @@ PrefabInstance:
       propertyPath: genStats
       value: 
       objectReference: {fileID: 985715577}
+    - target: {fileID: 5490102242113989134, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: mManager
+      value: 
+      objectReference: {fileID: 1565164474}
     - target: {fileID: 5543157691145498259, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -3975,13 +4012,43 @@ PrefabInstance:
       propertyPath: countText
       value: 
       objectReference: {fileID: 137563419}
+    - target: {fileID: 6666021105081940503, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 6666021106103865040, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: hireRate
       objectReference: {fileID: 0}
+    - target: {fileID: 6666021106445236192, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 0%
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666021106445236193, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 38
+      objectReference: {fileID: 0}
     - target: {fileID: 6666021106479844130, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: hireRate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666021106479844132, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1034588721}
+    - target: {fileID: 6666021106479844132, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666021106479844132, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6666021107047121065, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 'Current
+
+        Increase:'
       objectReference: {fileID: 0}
     - target: {fileID: 6969817290178169761, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4059,7 +4126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130441621181117496, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 394
+      value: 480
       objectReference: {fileID: 0}
     - target: {fileID: 7277673767687990169, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MiscUpgradeButtonController : MonoBehaviour
 {
     [SerializeField] GeneralStats genStats;
+    [SerializeField] MercenaryManager mManager;
     [SerializeField] BigNumber cost;
     [SerializeField] MiscUpgradeController panel;
     [SerializeField] FloorTracker floors;
@@ -119,6 +120,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     }
                     break;
                 case "hireRate":
+                    mManager.ChangeSpawnTime(0.01f);
                     break;
                 case "improveGear":
                     break;
@@ -176,6 +178,9 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     {
                         genStats.SetSkilledChance(genStats.GetSkilledChance() + 0.005f);
                     }
+                    break;
+                case "hireRate":
+                    mManager.ChangeSpawnTime(0.01f);
                     break;
                 default:
                     break;
