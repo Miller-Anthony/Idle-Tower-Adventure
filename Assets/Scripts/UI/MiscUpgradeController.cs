@@ -9,6 +9,7 @@ public class MiscUpgradeController : MonoBehaviour
     [SerializeField] Text countText;
     [SerializeField] GeneralStats stats;
     [SerializeField] FloorTracker floors;
+    [SerializeField] MercenaryManager mManager;
 
     // Start is called before the first frame update
     void Start()
@@ -44,11 +45,19 @@ public class MiscUpgradeController : MonoBehaviour
         }
         else if(tag == "hireRate")
         {
-            countText.text = stats.GetMaxAdventurers().ToString();
+            float holder = mManager.GetSpawnPercent();
+            holder -= 1.0f;
+            holder *= 100;
+            holder = Mathf.Round(holder);
+            countText.text = holder.ToString() + "%";
         }
         else if (tag == "improveGear")
         {
-            countText.text = (stats.GetBottomFloor() - 1).ToString();
+            float holder = mManager.GetGearPercent();
+            holder -= 1;
+            holder *= 100;
+            holder = Mathf.Round(holder);
+            countText.text = holder.ToString() + "%";
         }
         else if(tag == "adventustrengthInNumbersrerCount")
         {

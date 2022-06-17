@@ -48,6 +48,11 @@ public class MercenaryManager : MonoBehaviour
         return holder * percent;
     }
 
+    public float GetSpawnPercent()
+    {
+        return fighterStats.GetSpawnPercent();
+    }
+
     public void ChangeSpawnTime(float change)
     {
         fighterStats.ChangeSpawnPercent(change);
@@ -62,5 +67,25 @@ public class MercenaryManager : MonoBehaviour
         sorcererStats.ChangeSpawnPercent(change);
         paladinStats.ChangeSpawnPercent(change);
         druidStats.ChangeSpawnPercent(change);
+    }
+
+    public float GetGearPercent()
+    {
+        return fighterStats.GetGearPercent();
+    }
+    public void ChangeGearValue(float change)
+    {
+        fighterStats.ChangeGearPercent(change);
+        barbarianStats.ChangeGearPercent(change);
+        rogueStats.ChangeGearPercent(change);
+        rangerStats.ChangeGearPercent(change);
+        monkStats.ChangeGearPercent(change);
+        clericStats.ChangeGearPercent(change);
+        bardStats.ChangeGearPercent(change);
+        wizzardStats.ChangeGearPercent(change);
+        warlockStats.ChangeGearPercent(change);
+        sorcererStats.ChangeGearPercent(change);
+        paladinStats.ChangeGearPercent(change);
+        druidStats.ChangeGearPercent(change);
     }
 }

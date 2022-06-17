@@ -48,7 +48,7 @@ public class SaveManager : MonoBehaviour
     private int clearedFloorAutoLevel;
     private float skilledAdventurerChance;
     private float hireRatePercent;
-    private int improveGearLevel;
+    private float improveGearLevel;
     private int strengthInNumbersLevel;
     private int hastePotionLevel;
     private int increasedBountyLevel;
@@ -114,7 +114,7 @@ public class SaveManager : MonoBehaviour
         clearedFloorAutoLevel = floors.GetMinQueueSize();
         skilledAdventurerChance = genStats.GetSkilledChance();
         hireRatePercent = fighterStats.GetSpawnPercent();
-        improveGearLevel = 0;
+        improveGearLevel = fighterStats.GetGearPercent();
         strengthInNumbersLevel= 0;
         hastePotionLevel = 0;
         increasedBountyLevel = 0;
@@ -190,7 +190,7 @@ public class SaveManager : MonoBehaviour
         clearedFloorAutoLevel = 19;
         skilledAdventurerChance = 0;
         hireRatePercent = 1;
-        improveGearLevel = 0;
+        improveGearLevel = 1;
         strengthInNumbersLevel = 0;
         hastePotionLevel = 0;
         increasedBountyLevel = 0;

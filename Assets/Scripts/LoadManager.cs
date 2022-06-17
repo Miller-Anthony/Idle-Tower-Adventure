@@ -59,7 +59,7 @@ public class LoadManager : MonoBehaviour
     private int clearedFloorAutoLevel;
     private float skilledChance;
     private float spawnPercent;
-    private int improveGearLevel;
+    private float improveGearLevel;
     private int strengthInNumbersLevel;
     private int hastePotionLevel;
     private int increasedBountyLevel;
@@ -117,7 +117,7 @@ public class LoadManager : MonoBehaviour
                 clearedFloorAutoLevel = int.Parse(data[19]);
                 skilledChance = float.Parse(data[20]);
                 spawnPercent = float.Parse(data[21]);
-                improveGearLevel = int.Parse(data[22]);
+                improveGearLevel = float.Parse(data[22]);
                 strengthInNumbersLevel = int.Parse(data[23]);
                 hastePotionLevel = int.Parse(data[24]);
                 increasedBountyLevel = int.Parse(data[25]);
@@ -187,7 +187,10 @@ public class LoadManager : MonoBehaviour
                 spawnPercent *= 100;
                 hireRateController.LoadLevels((int)spawnPercent);
 
-                improveGearController.LoadLevels(improveGearLevel);
+                improveGearLevel -= 1;
+                improveGearLevel *= 10;
+                improveGearController.LoadLevels((int)improveGearLevel);
+
                 strengthInNumbersController.LoadLevels(strengthInNumbersLevel);
                 hastePotionController.LoadLevels(hastePotionLevel);
                 increasedBountyController.LoadLevels(increasedBountyLevel);

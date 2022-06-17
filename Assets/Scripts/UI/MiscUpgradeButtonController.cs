@@ -123,6 +123,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     mManager.ChangeSpawnTime(0.01f);
                     break;
                 case "improveGear":
+                    mManager.ChangeGearValue(0.1f);
                     break;
                 case "strengthInNumbers":
                     break;
@@ -181,6 +182,9 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "hireRate":
                     mManager.ChangeSpawnTime(0.01f);
+                    break;
+                case "improveGear":
+                    mManager.ChangeGearValue(0.1f);
                     break;
                 default:
                     break;

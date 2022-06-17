@@ -18,6 +18,7 @@ public class StatStorrage : MonoBehaviour
     [SerializeField] LootDisplayController wallet;
 
     private float spawnPercent = 1.0f;
+    private float gearPercent = 1.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -135,7 +136,7 @@ public class StatStorrage : MonoBehaviour
         {
             return health;
         }
-        return health % shield.GetTotalBonus();
+        return health % shield.GetTotalBonus() * gearPercent;
     }
 
     public BigNumber LevelHealth()
@@ -157,7 +158,7 @@ public class StatStorrage : MonoBehaviour
             return strength;
         }
         
-        return strength % sword.GetTotalBonus();
+        return strength % sword.GetTotalBonus() * gearPercent;
     }
 
     public BigNumber LevelStrength()
@@ -192,7 +193,7 @@ public class StatStorrage : MonoBehaviour
     //Set the stored spawnPercent stat
     public void SetSpawnPercent(float spwn)
     {
-        spawn = spwn;
+        spawnPercent = spwn;
     }
 
     // Get the stored spawn stat
@@ -205,6 +206,24 @@ public class StatStorrage : MonoBehaviour
     public void ChangeSpawnPercent(float change)
     {
         spawnPercent += change;
+    }
+
+    //Set the stored gearPercent stat
+    public void SetGearPercent(float prcnt)
+    {
+        gearPercent = prcnt;
+    }
+
+    // Get the stored gearPercent stat
+    public float GetGearPercent()
+    {
+        return gearPercent;
+    }
+
+    //change the gear modefier for health and attack by a given ammount
+    public void ChangeGearPercent(float change)
+    {
+        gearPercent += change;
     }
 
     //Set the stored gold stat

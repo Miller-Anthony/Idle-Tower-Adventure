@@ -3736,18 +3736,52 @@ PrefabInstance:
       propertyPath: m_TagString
       value: hastePotion
       objectReference: {fileID: 0}
+    - target: {fileID: 2491649483907295505, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 'Current
+
+        Increase:'
+      objectReference: {fileID: 0}
     - target: {fileID: 2491649484478767770, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: improveGear
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491649484478767772, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 615153357}
+    - target: {fileID: 2491649484478767772, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491649484478767772, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491649484513353304, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 0%
+      objectReference: {fileID: 0}
+    - target: {fileID: 2491649484513353305, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 2491649484850423656, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: improveGear
       objectReference: {fileID: 0}
+    - target: {fileID: 2491649485339546543, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 123456
+      objectReference: {fileID: 0}
     - target: {fileID: 2704313912862684618, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: floors
       value: 
       objectReference: {fileID: 1565164472}
+    - target: {fileID: 2704313912862684618, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: mManager
+      value: 
+      objectReference: {fileID: 1565164474}
     - target: {fileID: 2742976919182779334, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: floors
       value: 
@@ -3784,6 +3818,10 @@ PrefabInstance:
       propertyPath: floors
       value: 
       objectReference: {fileID: 1565164472}
+    - target: {fileID: 3613762698826679222, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: mManager
+      value: 
+      objectReference: {fileID: 1565164474}
     - target: {fileID: 3898190910487364049, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4008,6 +4046,10 @@ PrefabInstance:
       propertyPath: costText
       value: 
       objectReference: {fileID: 1654427882}
+    - target: {fileID: 6598283408827948146, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: mManager
+      value: 
+      objectReference: {fileID: 1565164474}
     - target: {fileID: 6598283408827948146, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: countText
       value: 
