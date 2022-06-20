@@ -10,6 +10,7 @@ public class MiscUpgradeController : MonoBehaviour
     [SerializeField] GeneralStats stats;
     [SerializeField] FloorTracker floors;
     [SerializeField] MercenaryManager mManager;
+    [SerializeField] StatStorrage adventurerStats;
 
     // Start is called before the first frame update
     void Start()
@@ -59,9 +60,11 @@ public class MiscUpgradeController : MonoBehaviour
             holder = Mathf.Round(holder);
             countText.text = holder.ToString() + "%";
         }
-        else if(tag == "adventustrengthInNumbersrerCount")
+        else if(tag == "strengthInNumbers")
         {
-            countText.text = stats.GetMaxAdventurers().ToString();
+            float holder = adventurerStats.GetStrengthPercent();
+            holder *= 100;
+            countText.text = holder.ToString() + "%";
         }
         else if (tag == "hastePotion")
         {

@@ -60,7 +60,7 @@ public class LoadManager : MonoBehaviour
     private float skilledChance;
     private float spawnPercent;
     private float improveGearLevel;
-    private int strengthInNumbersLevel;
+    private float strengthInNumbersLevel;
     private int hastePotionLevel;
     private int increasedBountyLevel;
     private int teleportLevel;
@@ -118,7 +118,7 @@ public class LoadManager : MonoBehaviour
                 skilledChance = float.Parse(data[20]);
                 spawnPercent = float.Parse(data[21]);
                 improveGearLevel = float.Parse(data[22]);
-                strengthInNumbersLevel = int.Parse(data[23]);
+                strengthInNumbersLevel = float.Parse(data[23]);
                 hastePotionLevel = int.Parse(data[24]);
                 increasedBountyLevel = int.Parse(data[25]);
                 teleportLevel = int.Parse(data[26]);
@@ -191,7 +191,9 @@ public class LoadManager : MonoBehaviour
                 improveGearLevel *= 10;
                 improveGearController.LoadLevels((int)improveGearLevel);
 
-                strengthInNumbersController.LoadLevels(strengthInNumbersLevel);
+                strengthInNumbersLevel *= 100;
+                strengthInNumbersController.LoadLevels((int)strengthInNumbersLevel);
+
                 hastePotionController.LoadLevels(hastePotionLevel);
                 increasedBountyController.LoadLevels(increasedBountyLevel);
                 teleportController.LoadLevels(teleportLevel);

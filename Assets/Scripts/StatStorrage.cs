@@ -16,9 +16,11 @@ public class StatStorrage : MonoBehaviour
     [SerializeField] LootDisplayController sword;
     [SerializeField] LootDisplayController shield;
     [SerializeField] LootDisplayController wallet;
+    [SerializeField] MercenaryManager mManager;
 
     private float spawnPercent = 1.0f;
     private float gearPercent = 1.0f;
+    private float strengthPercent = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -158,7 +160,12 @@ public class StatStorrage : MonoBehaviour
             return strength;
         }
         
-        return strength % sword.GetTotalBonus() * gearPercent;
+        if(strengthPercent == 0)
+        {
+            return strength % sword.GetTotalBonus() * gearPercent;
+        }
+
+        return strength % sword.GetTotalBonus() * gearPercent + mManager.GetTotalStrength(strengthPercent);
     }
 
     public BigNumber LevelStrength()
@@ -224,6 +231,24 @@ public class StatStorrage : MonoBehaviour
     public void ChangeGearPercent(float change)
     {
         gearPercent += change;
+    }
+
+    //Set the stored strengthPercent stat
+    public void SetStrengthPercent(float prcnt)
+    {
+        strengthPercent = prcnt;
+    }
+
+    // Get the stored strengthPercent stat
+    public float GetStrengthPercent()
+    {
+        return strengthPercent;
+    }
+
+    //change the strength modefier for adventurers attack by a given ammount
+    public void ChangeStrengthPercent(float change)
+    {
+        strengthPercent += change;
     }
 
     //Set the stored gold stat

@@ -32,18 +32,67 @@ public class MercenaryManager : MonoBehaviour
 
     public BigNumber GetTotalStrength(float percent = 1.0f)
     {
-        BigNumber holder = fighterStats.GetStrength();
-        holder += barbarianStats.GetStrength();
-        holder += rogueStats.GetStrength();
-        holder += rangerStats.GetStrength();
-        holder += monkStats.GetStrength();
-        holder += clericStats.GetStrength();
-        holder += bardStats.GetStrength();
-        holder += wizzardStats.GetStrength();
-        holder += warlockStats.GetStrength();
-        holder += sorcererStats.GetStrength();
-        holder += paladinStats.GetStrength();
-        holder += druidStats.GetStrength();
+        BigNumber holder = new BigNumber(0);
+
+        if (fighterStats.GetLevel() > 0)
+        {
+            holder += fighterStats.GetStrength();
+        }
+
+        if (barbarianStats.GetLevel() > 0)
+        {
+            holder += barbarianStats.GetStrength();
+        }
+
+        if (rogueStats.GetLevel() > 0)
+        {
+            holder += rogueStats.GetStrength();
+        }
+
+        if (rangerStats.GetLevel() > 0)
+        {
+            holder += rangerStats.GetStrength();
+        }
+
+        if (monkStats.GetLevel() > 0)
+        {
+            holder += monkStats.GetStrength();
+        }
+
+        if (clericStats.GetLevel() > 0)
+        {
+            holder += clericStats.GetStrength();
+        }
+
+        if (bardStats.GetLevel() > 0)
+        {
+            holder += bardStats.GetStrength();
+        }
+
+        if (wizzardStats.GetLevel() > 0)
+        {
+            holder += wizzardStats.GetStrength();
+        }
+
+        if (warlockStats.GetLevel() > 0)
+        {
+            holder += warlockStats.GetStrength();
+        }
+
+        if (sorcererStats.GetLevel() > 0)
+        {
+            holder += sorcererStats.GetStrength();
+        }
+
+        if (paladinStats.GetLevel() > 0)
+        {
+            holder += paladinStats.GetStrength();
+        }
+
+        if (druidStats.GetLevel() > 0)
+        {
+            holder += druidStats.GetStrength();
+        }
 
         return holder * percent;
     }

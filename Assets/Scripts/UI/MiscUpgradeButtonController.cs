@@ -13,6 +13,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
     [SerializeField] AutoFloorClearManager autoClear;
     [SerializeField] GameObject autoClearUpgradeButton;
     [SerializeField] SaveManager save;
+    [SerializeField] StatStorrage adventurerStats;
 
     // Start is called before the first frame update
     void Start()
@@ -126,6 +127,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     mManager.ChangeGearValue(0.1f);
                     break;
                 case "strengthInNumbers":
+                    adventurerStats.ChangeStrengthPercent(0.01f);
                     break;
                 case "hastePotion":
                     break;
@@ -185,6 +187,9 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "improveGear":
                     mManager.ChangeGearValue(0.1f);
+                    break;
+                case "strengthInNumbers":
+                    adventurerStats.ChangeStrengthPercent(0.01f);
                     break;
                 default:
                     break;

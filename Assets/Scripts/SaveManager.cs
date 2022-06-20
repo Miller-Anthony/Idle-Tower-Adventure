@@ -49,7 +49,7 @@ public class SaveManager : MonoBehaviour
     private float skilledAdventurerChance;
     private float hireRatePercent;
     private float improveGearLevel;
-    private int strengthInNumbersLevel;
+    private float strengthInNumbersLevel;
     private int hastePotionLevel;
     private int increasedBountyLevel;
     private int teleportLevel;
@@ -115,7 +115,7 @@ public class SaveManager : MonoBehaviour
         skilledAdventurerChance = genStats.GetSkilledChance();
         hireRatePercent = fighterStats.GetSpawnPercent();
         improveGearLevel = fighterStats.GetGearPercent();
-        strengthInNumbersLevel= 0;
+        strengthInNumbersLevel= adventurerStats.GetStrengthPercent();
         hastePotionLevel = 0;
         increasedBountyLevel = 0;
         teleportLevel = 0;

@@ -271,6 +271,7 @@ MonoBehaviour:
   sword: {fileID: 2666387354376992953}
   shield: {fileID: 755575566}
   wallet: {fileID: 1227188265}
+  mManager: {fileID: 0}
 --- !u!4 &115338010
 Transform:
   m_ObjectHideFlags: 0
@@ -3488,6 +3489,10 @@ PrefabInstance:
       propertyPath: wallet
       value: 
       objectReference: {fileID: 1227188265}
+    - target: {fileID: 830624247932314369, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: mManager
+      value: 
+      objectReference: {fileID: 1565164474}
     - target: {fileID: 830624247932314373, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -3802,6 +3807,14 @@ PrefabInstance:
       propertyPath: genStats
       value: 
       objectReference: {fileID: 985715577}
+    - target: {fileID: 3143612503660265789, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: fighterStats
+      value: 
+      objectReference: {fileID: 2099734206}
+    - target: {fileID: 3143612503660265789, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: adventurerStats
+      value: 
+      objectReference: {fileID: 2099734206}
     - target: {fileID: 3580379099613402554, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: save
       value: 
@@ -3850,9 +3863,35 @@ PrefabInstance:
       propertyPath: wallet
       value: 
       objectReference: {fileID: 1227188265}
+    - target: {fileID: 4256727297734667162, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 'Current
+
+        Increase:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256727298202311890, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256727298202311891, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 0%
+      objectReference: {fileID: 0}
     - target: {fileID: 4256727298236932113, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: strengthInNumbers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256727298236932119, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 941900273}
+    - target: {fileID: 4256727298236932119, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256727298236932119, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4256727298947016163, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -3874,6 +3913,10 @@ PrefabInstance:
       propertyPath: countText
       value: 
       objectReference: {fileID: 2117684584}
+    - target: {fileID: 4323833605696075585, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: adventurerStats
+      value: 
+      objectReference: {fileID: 2099734206}
     - target: {fileID: 4699235179944194449, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: sorcerer
@@ -4164,11 +4207,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130441621181117496, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -237.05
+      value: -242
       objectReference: {fileID: 0}
     - target: {fileID: 7130441621181117496, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 480
+      value: 657
       objectReference: {fileID: 0}
     - target: {fileID: 7277673767687990169, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
