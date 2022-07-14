@@ -558,6 +558,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45375b3c58fe8404bb1a9018d43982ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &227996769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7625649816615736220, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &258577472 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5643559556946340151, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -657,6 +668,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384117368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &430833835 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 458903589340728838, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -668,6 +690,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &445793556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8510286763966525617, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &449115320 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1102916346953245274, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &461468243 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4323833605696075585, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -677,6 +721,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &495345010 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6961083212769340165, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &519420028
@@ -1217,6 +1272,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82e9b60079b4faf49bc3ed317ae42766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &752563161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7998930372375155200, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &755575563
@@ -2251,6 +2317,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e9b60079b4faf49bc3ed317ae42766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1424275578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9072965926630277305, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1424275580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424275578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca79a2c667efb64589eacbfbf085893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasteButton: {fileID: 449115320}
+  increaseButton: {fileID: 384117368}
+  teleportButton: {fileID: 1822407113}
+  autoButton: {fileID: 495345010}
+  hasteText: {fileID: 227996769}
+  increaseText: {fileID: 752563161}
+  teleportText: {fileID: 445793556}
+  autoText: {fileID: 1584071352}
+  hasteActiveTime: 11
+  increaseActiveTime: 11
+  teleportActiveTime: 11
+  autoActiveTime: 11
+  hasteCooldown: 11
+  increaseCooldown: 11
+  teleportCooldown: 11
+  autoCooldown: 11
 --- !u!114 &1461233455 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 93981099187365268, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -2849,6 +2948,17 @@ MonoBehaviour:
   sorcererStats: {fileID: 1826545929}
   paladinStats: {fileID: 125475996}
   druidStats: {fileID: 791518770}
+--- !u!114 &1584071352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2912474049063832377, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1646843126 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 830624247494469359, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -3042,6 +3152,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1822407113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1654231354892558109, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+  m_PrefabInstance: {fileID: 830624247716218303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1826545929 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3944172677840627554, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -3232,6 +3353,18 @@ PrefabInstance:
     - target: {fileID: 93981098854751396, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: increasedBounty
+      objectReference: {fileID: 0}
+    - target: {fileID: 93981099289057616, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 303716788}
+    - target: {fileID: 93981099289057616, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 93981099289057616, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 93981099289057622, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -3617,6 +3750,22 @@ PrefabInstance:
       propertyPath: floors
       value: 
       objectReference: {fileID: 1565164472}
+    - target: {fileID: 1102916346953245274, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102916346953245274, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1424275580}
+    - target: {fileID: 1102916346953245274, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Clicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1102916346953245274, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: hastePotion
+      objectReference: {fileID: 0}
     - target: {fileID: 1118820371504466852, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: monk
@@ -3681,6 +3830,26 @@ PrefabInstance:
       propertyPath: genStats
       value: 
       objectReference: {fileID: 985715577}
+    - target: {fileID: 1296851192030361722, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: pManager
+      value: 
+      objectReference: {fileID: 1424275580}
+    - target: {fileID: 1654231354892558109, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654231354892558109, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1424275580}
+    - target: {fileID: 1654231354892558109, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Clicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654231354892558109, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: teleport
+      objectReference: {fileID: 0}
     - target: {fileID: 1674562853610513178, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: floors
       value: 
@@ -3744,6 +3913,18 @@ PrefabInstance:
     - target: {fileID: 2378670073333477732, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: hastePotion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378670073965180048, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1516105713}
+    - target: {fileID: 2378670073965180048, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378670073965180048, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2378670073965180054, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -3835,6 +4016,10 @@ PrefabInstance:
       propertyPath: floors
       value: 
       objectReference: {fileID: 1565164472}
+    - target: {fileID: 3580379099613402554, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: pManager
+      value: 
+      objectReference: {fileID: 1424275580}
     - target: {fileID: 3613762698826679222, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: save
       value: 
@@ -3956,6 +4141,18 @@ PrefabInstance:
     - target: {fileID: 4970966859331989434, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: autoSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970966859331989436, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 669588566}
+    - target: {fileID: 4970966859331989436, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970966859331989436, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5076688229306518902, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: spawn
@@ -4093,6 +4290,10 @@ PrefabInstance:
       propertyPath: floors
       value: 
       objectReference: {fileID: 1565164472}
+    - target: {fileID: 6075030456468999830, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: pManager
+      value: 
+      objectReference: {fileID: 1424275580}
     - target: {fileID: 6558036351036039075, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: ranger
@@ -4159,6 +4360,22 @@ PrefabInstance:
 
         Increase:'
       objectReference: {fileID: 0}
+    - target: {fileID: 6961083212769340165, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961083212769340165, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1424275580}
+    - target: {fileID: 6961083212769340165, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Clicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961083212769340165, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: autoSpawner
+      objectReference: {fileID: 0}
     - target: {fileID: 6969817290178169761, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4208,6 +4425,18 @@ PrefabInstance:
     - target: {fileID: 7007791687341212756, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: teleport
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007791687972389280, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 740944587}
+    - target: {fileID: 7007791687972389280, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnButtonPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007791687972389280, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MiscUpgradeButtonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7007791687972389286, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -4313,6 +4542,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: rogue
       objectReference: {fileID: 0}
+    - target: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1424275580}
+    - target: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Clicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: increasedBounty
+      objectReference: {fileID: 0}
     - target: {fileID: 8022788903256706174, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4357,6 +4602,10 @@ PrefabInstance:
       propertyPath: genStats
       value: 
       objectReference: {fileID: 985715577}
+    - target: {fileID: 8210653036670673034, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: pManager
+      value: 
+      objectReference: {fileID: 1424275580}
     - target: {fileID: 8490989323762850938, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -4509,7 +4758,15 @@ PrefabInstance:
       propertyPath: wallet
       value: 
       objectReference: {fileID: 1227188265}
-    m_RemovedComponents: []
+    - target: {fileID: 9072965926630277305, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Name
+      value: powerPanel
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8925072935652408884, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+    - {fileID: 1790971969077768284, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+    - {fileID: 3671199909995410172, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+    - {fileID: 5590902790340069918, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
 --- !u!1001 &2666387354376992950
 PrefabInstance:

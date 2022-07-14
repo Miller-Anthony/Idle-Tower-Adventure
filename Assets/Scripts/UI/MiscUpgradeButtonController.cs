@@ -14,6 +14,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
     [SerializeField] GameObject autoClearUpgradeButton;
     [SerializeField] SaveManager save;
     [SerializeField] StatStorrage adventurerStats;
+    [SerializeField] PowerManager pManager;
 
     // Start is called before the first frame update
     void Start()
@@ -130,12 +131,16 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     adventurerStats.ChangeStrengthPercent(0.01f);
                     break;
                 case "hastePotion":
+                    pManager.LevelUp(tag);
                     break;
                 case "increasedBounty":
+                    pManager.LevelUp(tag);
                     break;
                 case "teleport":
+                    pManager.LevelUp(tag);
                     break;
                 case "autoSpawner":
+                    pManager.LevelUp(tag);
                     break;
                 case "rebirth":
                     save.Rebirth();
@@ -190,6 +195,18 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "strengthInNumbers":
                     adventurerStats.ChangeStrengthPercent(0.01f);
+                    break;
+                case "hastePotion":
+                    pManager.LevelUp(tag);
+                    break;
+                case "increasedBounty":
+                    pManager.LevelUp(tag);
+                    break;
+                case "teleport":
+                    pManager.LevelUp(tag);
+                    break;
+                case "autoSpawner":
+                    pManager.LevelUp(tag);
                     break;
                 default:
                     break;

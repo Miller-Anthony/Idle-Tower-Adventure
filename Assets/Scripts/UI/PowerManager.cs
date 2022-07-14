@@ -13,15 +13,16 @@ public class PowerManager : MonoBehaviour
     [SerializeField] Text increaseText;
     [SerializeField] Text teleportText;
     [SerializeField] Text autoText;
-    [SerializeField] float hasteActive;
-    [SerializeField] float increaseActive;
-    [SerializeField] float teleportActive;
-    [SerializeField] float autoActive;
+    [SerializeField] float hasteActiveTime;
+    [SerializeField] float increaseActiveTime;
+    [SerializeField] float teleportActiveTime;
+    [SerializeField] float autoActiveTime;
     [SerializeField] float hasteCooldown;
     [SerializeField] float increaseCooldown;
     [SerializeField] float teleportCooldown;
     [SerializeField] float autoCooldown;
 
+    //stored timer values
     private float hasteTimer;
     private float increaseTimer;
     private float teleportTimer;
@@ -30,6 +31,21 @@ public class PowerManager : MonoBehaviour
     private bool increaseIsActive;
     private bool teleportIsActive;
     private bool autoIsActive;
+
+    //stored power effect values
+    private float hasteRate;
+    private float hasteSpeed;
+    private float bountyRate;
+    private float teleportRate;
+    private float teleportBoost = 1.2f;
+    private int autoLimit;
+    private int autoPerSecond;
+
+    //level of the upgrade
+    private int hasteLevel = 0;
+    private int bountyLevel = 0;
+    private int teleportLevel = 0;
+    private int autoLevel = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +65,7 @@ public class PowerManager : MonoBehaviour
                 if (hasteIsActive)
                 {
                     hasteTimer = hasteCooldown;
+                    hasteIsActive = false;
                 }
             }
             if (hasteTimer <= 0)
@@ -71,6 +88,7 @@ public class PowerManager : MonoBehaviour
                 if (increaseIsActive)
                 {
                     increaseTimer = increaseCooldown;
+                    increaseIsActive = false;
                 }
             }
             if (increaseTimer <= 0)
@@ -93,6 +111,7 @@ public class PowerManager : MonoBehaviour
                 if (teleportIsActive)
                 {
                     teleportTimer = teleportCooldown;
+                    teleportIsActive = false;
                 }
             }
             if (teleportTimer <= 0)
@@ -115,6 +134,7 @@ public class PowerManager : MonoBehaviour
                 if (autoIsActive)
                 {
                     autoTimer = autoCooldown;
+                    autoIsActive = false;
                 }
             }
             if (autoTimer <= 0)
@@ -129,6 +149,107 @@ public class PowerManager : MonoBehaviour
                 autoText.text = autoTimer + "s";
             }
         }
+    }
+
+    public void SetHasteRate(float rate)
+    {
+        hasteRate = rate;
+    }
+
+    public float GetHasteRate()
+    {
+        if(hasteIsActive)
+        {
+            return hasteRate;
+        }
+        return 1.0f;
+    }
+
+    public void SetHasteSpeed(float speed)
+    {
+        hasteSpeed = speed;
+    }
+
+    public float GetHasteSpeed()
+    {
+        if (hasteIsActive)
+        {
+            return hasteSpeed;
+        }
+        return 1.0f;
+    }
+
+    public void SetBountyRate(float rate)
+    {
+        bountyRate = rate;
+    }
+
+    public float GetBountyRate()
+    {
+        if(increaseIsActive)
+        {
+            return bountyRate;
+        }
+        return 1.0f;
+    }
+
+    public void SetTeleportRate(float rate)
+    {
+        teleportRate = rate;
+    }
+
+    public float GetTeleportRate()
+    {
+        return teleportRate;
+    }
+
+    public float GetTeleportBoost()
+    {
+        if (teleportIsActive)
+        {
+            return teleportBoost;
+        }
+        return 1.0f;
+    }
+
+    public void SetAutoLimit(int limit)
+    {
+        autoLimit = limit;
+    }
+
+    public float GetAutoLimit()
+    {
+        return autoLimit;
+    }
+
+    public void SetAutoPerSecond(int ps)
+    {
+        autoPerSecond = ps;
+    }
+
+    public float GetAutoPerSecond()
+    {
+        return autoPerSecond;
+    }
+
+    public int GetHasteLevel()
+    {
+        return hasteLevel;
+    }
+
+    public int GetBountyLevel()
+    {
+        return bountyLevel;
+    }
+
+    public int GetTeleportLevel()
+    {
+        return teleportLevel;
+    }
+
+    public int GetAutoLevel()
+    {
+        return autoLevel;
     }
 
     public void Activate(string name)
@@ -152,35 +273,95 @@ public class PowerManager : MonoBehaviour
         }
     }
 
-    public void OnClick()
+    public void LevelUp(string name)
     {
-        switch (tag)
+        switch (name)
+        {
+            case "hastePotion":
+                if(hasteLevel == 0)
+                {
+                    hasteRate = 1.05f;
+                    hasteSpeed = 1.6f;
+                    Activate(name);
+                }
+                else
+                {
+                    hasteRate += 0.04f;
+                }
+                hasteLevel++;
+                break;
+            case "increasedBounty":
+                if (bountyLevel == 0)
+                {
+                    bountyRate = 1.05f;
+                    Activate(name);
+                }
+                else
+                {
+                    bountyRate += 0.04f;
+                }
+                bountyLevel++;
+                break;
+            case "teleport":
+                if (teleportLevel == 0)
+                {
+                    teleportRate = 1.05f;
+                    Activate(name);
+                }
+                else
+                {
+                    teleportRate += 0.04f;
+                }
+                teleportLevel++;
+                break;
+            case "autoSpawner":
+                if (autoLevel == 0)
+                {
+                    autoLimit = 100;
+                    autoPerSecond = 40;
+                    Activate(name);
+                }
+                else
+                {
+                    autoLimit += 10;
+                    autoPerSecond += 1;
+                }
+                teleportLevel++;
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void Clicked(string name)
+    {
+        switch (name)
         {
             case "hastePotion":
                 if (hasteTimer <= 0)
                 {
-                    hasteTimer = hasteActive;
+                    hasteTimer = hasteActiveTime;
                     hasteIsActive = true;
                 }
                 break;
             case "increasedBounty":
                 if (increaseTimer <= 0)
                 {
-                    increaseTimer = increaseActive;
+                    increaseTimer = increaseActiveTime;
                     increaseIsActive = true;
                 }
                 break;
             case "teleport":
                 if (teleportTimer <= 0)
                 {
-                    teleportTimer = teleportActive;
+                    teleportTimer = teleportActiveTime;
                     teleportIsActive = true;
                 }
                 break;
             case "autoSpawner":
                 if (autoTimer <= 0)
                 {
-                    autoTimer = autoActive;
+                    autoTimer = autoActiveTime;
                     autoIsActive = true;
                 }
                 break;

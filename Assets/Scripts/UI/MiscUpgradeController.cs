@@ -10,6 +10,7 @@ public class MiscUpgradeController : MonoBehaviour
     [SerializeField] GeneralStats stats;
     [SerializeField] FloorTracker floors;
     [SerializeField] MercenaryManager mManager;
+    [SerializeField] PowerManager pManager;
     [SerializeField] StatStorrage adventurerStats;
 
     // Start is called before the first frame update
