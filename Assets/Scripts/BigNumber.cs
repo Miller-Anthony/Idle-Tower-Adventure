@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BigNumber
 {
-    private double number;
-    private int modifier;
+    List<byte> digit;
 
 
     public enum numbers
@@ -46,9 +46,10 @@ public class BigNumber
         ab
     }
 
+    // lots of references, remain undeprecated
     public BigNumber(double num, int mod = 0)
     {
-        if (num < 0)
+        /*if (num <= 0)
         {
             num = 0;
             mod = 0;
@@ -64,12 +65,33 @@ public class BigNumber
         {
             num = num * 1000;
             mod--;
+        }*/
+        digit = new List<byte>();
+        while (mod > 0)
+        {
+            num = num * 1000;
+            mod--;
         }
 
+        while (num > 9)
+        {
+            digit.Add((byte)(num % 10));
+            num /= 10;
+        }
+        if (num != 0)
+            digit.Add((byte)num);
+    }
 
-
-        number = num;
-        modifier = mod;
+    public BigNumber(ulong num)
+    {
+        digit = new List<byte>();
+        while (num > 9)
+        {
+            digit.Add((byte)(num % 10));
+            num /= 10;
+        }
+        if (num != 0)
+            digit.Add((byte)num);
     }
 
     public static BigNumber operator +(BigNumber num)
@@ -79,30 +101,64 @@ public class BigNumber
 
     public static BigNumber operator +(BigNumber num1, BigNumber num2)
     {
-        
-        if(num1.modifier > num2.modifier)
-        { 
-            while (num1.modifier > num2.modifier)
-            {
-                num2.number = num2.number / 1000;
-                num2.modifier++;
-            }
-        }
-        else if (num1.modifier < num2.modifier)
-        {
-            while (num1.modifier < num2.modifier)
-            {
-                num1.number = num1.number / 1000;
-                num1.modifier++;
-            }
-        }
+        int max = Math.Max(num1.digit.Count, num2.digit.Count);
+        int min = Math.Min(num1.digit.Count, num2.digit.Count);
 
-        return new BigNumber(num1.number + num2.number, num2.modifier);
+        BigNumber toReturn = new BigNumber(0);
+        byte carry = 0;
+        int continued = 0;
+
+        for (int i = 0; i < min; ++i)
+        {
+            byte total = (byte)(num1.digit[i] + num2.digit[i] + carry);
+            if (total > 9)
+            {
+                total -= 10;
+                carry = 1;
+            }
+            else
+            {
+                carry = 0;
+            }
+            toReturn.digit.Add(total);
+            continued = i + 1;
+        }
+        for(int i = continued; i < max; ++i)
+        {
+            if(num1 > num2)
+            {
+                if(num1.digit[i] + carry > 9)
+                {
+                    toReturn.digit.Add(0);
+                }
+                else
+                {
+                    toReturn.digit.Add((byte)(num1.digit[i] + carry));
+                    carry = 0;
+                }
+            }
+            else
+            {
+                if (num2.digit[i] + carry > 9)
+                {
+                    toReturn.digit.Add(0);
+                }
+                else
+                {
+                    toReturn.digit.Add((byte)(num2.digit[i] + carry));
+                    carry = 0;
+                }
+            }
+        }
+        if (carry > 0)
+            toReturn.digit.Add(carry);
+
+        return toReturn;
     }
 
     public static BigNumber operator -(BigNumber num1, BigNumber num2)
     {
-        if (num1.modifier > num2.modifier)
+        /*if (num1.modifier > num2.modifier)
         {
             while (num1.modifier > num2.modifier)
             {
@@ -119,17 +175,19 @@ public class BigNumber
             }
         }
 
-        return new BigNumber(num1.number - num2.number, num2.modifier);
+        return new BigNumber(num1.number - num2.number, num2.modifier);*/
+        return new BigNumber(0);
     }
 
     public static BigNumber operator *(BigNumber num1, BigNumber num2)
     {
-        return new BigNumber(num1.number * num2.number, num1.modifier + num2.modifier);
+        //return new BigNumber(num1.number * num2.number, num1.modifier + num2.modifier);
+        return new BigNumber(0);
     }
 
     public static float operator /(BigNumber num1, BigNumber num2)
     {
-        if (num1.modifier > num2.modifier)
+        /*if (num1.modifier > num2.modifier)
         {
             while (num1.modifier > num2.modifier)
             {
@@ -146,109 +204,65 @@ public class BigNumber
             }
         }
 
-        return (float)(num1.number / num2.number);
+        return (float)(num1.number / num2.number);*/
+        return 0;
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
     public static BigNumber operator %(BigNumber num1, BigNumber num2)
     {
         //this is wrong as it does not take the modefier of the percentage big number into account
-        return new BigNumber(num1.number * ((num2.number / 100) + 1), num1.modifier);
+        //return new BigNumber(num1.number * ((num2.number / 100) + 1), num1.modifier);
+        return new BigNumber(0);
     }
 
     public static bool operator <(BigNumber num1, BigNumber num2)
     {
-        
-        if(num1.modifier < num2.modifier)
-        {
+        if (num1.digit.Count < num2.digit.Count)
             return true;
-        }
-        else if(num1.modifier > num2.modifier)
-        {
+        else if (num1.digit.Count > num2.digit.Count)
             return false;
-        }
-
-        if(num1.number < num2.number)
+        else
         {
-            return true;
+            for(int i = num1.digit.Count - 1; i >= 0; --i)
+            {
+                if (num1.digit[i] < num2.digit[i])
+                    return true;
+                else if (num1.digit[i] < num2.digit[i])
+                    return false;
+            }
         }
-        else if(num1.number > num2.number)
-        {
-            return false;
-        }    
-
         return false;
     }
 
     public static bool operator >(BigNumber num1, BigNumber num2)
-    { 
-        if (num1.modifier > num2.modifier)
-        {
-            return true;
-        }
-        else if (num1.modifier < num2.modifier)
-        {
-            return false;
-        }
-
-        if (num1.number > num2.number)
-        {
-            return true;
-        }
-        else if (num1.number < num2.number)
-        {
-            return false;
-        }
-
-        return false;
+    {
+        return num2 < num1;
     }
 
     public static bool operator <=(BigNumber num1, BigNumber num2)
     {
-
-        if (num1.modifier < num2.modifier)
-        {
+        if (num1.digit.Count < num2.digit.Count)
             return true;
-        }
-        else if (num1.modifier > num2.modifier)
-        {
+        else if (num1.digit.Count > num2.digit.Count)
             return false;
-        }
-
-        if (num1.number < num2.number)
+        else
         {
-            return true;
+            for (int i = num1.digit.Count - 1; i >= 0; --i)
+            {
+                if (num1.digit[i] < num2.digit[i])
+                    return true;
+                else if (num1.digit[i] < num2.digit[i])
+                    return false;
+            }
         }
-        else if (num1.number > num2.number)
-        {
-            return false;
-        }
-
         return true;
     }
 
     //Compare 2 big numbers to if one is bigger than the other
     public static bool operator >=(BigNumber num1, BigNumber num2)
     {
-        if (num1.modifier > num2.modifier)
-        {
-            return true;
-        }
-        else if (num1.modifier < num2.modifier)
-        {
-            return false;
-        }
-
-        if (num1.number > num2.number)
-        {
-            return true;
-        }
-        else if (num1.number < num2.number)
-        {
-            return false;
-        }
-
-        return true;
+        return num2 <= num1;
     }
 
     //when an int is added to a BigNumber
@@ -266,19 +280,22 @@ public class BigNumber
     //when a BigNumber is multiplied by an int
     public static BigNumber operator *(BigNumber num1, int num2)
     {
-        return new BigNumber(num1.number * num2, num1.modifier);
+        //return new BigNumber(num1.number * num2, num1.modifier);
+        return new BigNumber(0);
     }
 
     //when a BigNumber is multiplied by an int
     public static BigNumber operator *(int num1, BigNumber num2)
     {
-        return new BigNumber(num1 * num2.number, num2.modifier);
+        //return new BigNumber(num1 * num2.number, num2.modifier);
+        return new BigNumber(0);
     }
 
     //when a BigNumber is multiplied by a float
     public static BigNumber operator *(BigNumber num1, float num2)
     {
-        return new BigNumber(num1.number * num2, num1.modifier);
+        //return new BigNumber(num1.number * num2, num1.modifier);
+        return new BigNumber(0);
     }
 
     //when a BigNumber is compared to an int
@@ -305,18 +322,61 @@ public class BigNumber
         return num1 <= new BigNumber(num2);
     }
 
+    public static bool operator !=(BigNumber num1, BigNumber num2)
+    {
+        return !(num1 == num2);
+    }
+
+    public static bool operator ==(BigNumber num1, BigNumber num2)
+    {
+        if (num1.digit.Count != num2.digit.Count)
+            return false;
+        for(int i = 0; i < num1.digit.Count; ++i)
+        {
+            if (num1.digit[i] != num2.digit[i])
+                return false;
+        }
+        return true;
+    }
+
     //returns a string formatted for UI display purposes
     public override string ToString()
     {
-        string num = number.ToString("#.###");
+        /*string num = number.ToString("#.###");
         num = num + GetModefier(modifier);
-        return num;
+        return num;*/
+        if(digit.Count == 0)
+            return "0";
+
+        if (digit.Count < 10)
+        {
+            string num = "";
+            for (int i = digit.Count - 1; i >= 0; --i)
+                num += digit[i].ToString();
+            return num;
+        }
+        else
+        {
+            string num = digit[digit.Count - 1].ToString();
+            num += ".";
+            for (int i = 1; i < 4; ++i)
+                num += digit[digit.Count - (1 + i)].ToString();
+            num += " * 10^";
+            num += (digit.Count - 1).ToString();
+            return num;
+        }
     }
 
     //returns a modified string for game saving purposes
     public string SaveString()
     {
-        return number + "\n" + modifier;
+        string num = "";
+        for(int i = digit.Count - 1; i >= 0; --i)
+        {
+            num += digit[i].ToString();
+        }
+        return num;
+        //return number + "\n" + modifier;
     }
 
     //gets the apropriate number place value for UI string display 
