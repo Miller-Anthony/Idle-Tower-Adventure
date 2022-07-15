@@ -54,16 +54,16 @@ public class MiscUpgradeButtonController : MonoBehaviour
                 cost = new BigNumber(100);
                 break;
             case "hastePotion":
-                cost = new BigNumber(500);
+                cost = new BigNumber(100);
                 break;
             case "increasedBounty":
-                cost = new BigNumber(123456);
+                cost = new BigNumber(100);
                 break;
             case "teleport":
                 cost = new BigNumber(100);
                 break;
             case "autoSpawner":
-                cost = new BigNumber(500);
+                cost = new BigNumber(100);
                 break;
             case "rebirth":
                 cost = new BigNumber(123456);

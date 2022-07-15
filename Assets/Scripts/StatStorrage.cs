@@ -17,6 +17,7 @@ public class StatStorrage : MonoBehaviour
     [SerializeField] LootDisplayController shield;
     [SerializeField] LootDisplayController wallet;
     [SerializeField] MercenaryManager mManager;
+    [SerializeField] PowerManager pManager;
 
     private float spawnPercent = 1.0f;
     private float gearPercent = 1.0f;
@@ -25,7 +26,7 @@ public class StatStorrage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        pManager = GameObject.Find("powerPanel").GetComponent<PowerManager>();
     }
 
     // Update is called once per frame
@@ -182,7 +183,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored speed stat
     public float GetSpeed()
     {
-        return speed;
+        return speed * pManager.GetHasteSpeed();
     }
 
     //Set the stored spawn stat
@@ -194,7 +195,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored spawn stat
     public float GetSpawn()
     {
-        return spawn * spawnPercent;
+        return (spawn * spawnPercent) / pManager.GetHasteRate();
     }
 
     //Set the stored spawnPercent stat
@@ -260,6 +261,6 @@ public class StatStorrage : MonoBehaviour
     // Get the stored gold stat
     public BigNumber GetGold()
     {
-        return gold % wallet.GetTotalBonus();
+        return (gold % wallet.GetTotalBonus()) * pManager.GetBountyRate();
     }
 }

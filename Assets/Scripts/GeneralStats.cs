@@ -10,6 +10,7 @@ public class GeneralStats : MonoBehaviour
     [SerializeField] int bottomFloor;    //Stores the bottom floor 
     [SerializeField] int maxAdventurers; //maximum number of adventurers that can be summoned at any given time.
     [SerializeField] float skilledChance; //chance a skilled adventurer will spawn
+    [SerializeField] PowerManager pManager; //power manager for max number of adventurers
 
     private int highestFloor = 1;
     private int numAdventurers;          //the number of adventurers currantly summoned
@@ -104,7 +105,7 @@ public class GeneralStats : MonoBehaviour
     //Get the total amount of adventurers that can be summoned at any given time
     public int GetMaxAdventurers()
     {
-        return maxAdventurers;
+        return maxAdventurers + pManager.GetAutoLimit();
     }
 
     //Set how many adventurers can be summoned at a given time

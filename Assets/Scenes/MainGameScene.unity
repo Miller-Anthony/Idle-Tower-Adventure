@@ -272,6 +272,7 @@ MonoBehaviour:
   shield: {fileID: 755575566}
   wallet: {fileID: 1227188265}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!4 &115338010
 Transform:
   m_ObjectHideFlags: 0
@@ -2350,6 +2351,10 @@ MonoBehaviour:
   increaseCooldown: 11
   teleportCooldown: 11
   autoCooldown: 11
+  hasteIsActive: 0
+  increaseIsActive: 0
+  teleportIsActive: 0
+  autoIsActive: 0
 --- !u!114 &1461233455 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 93981099187365268, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -2854,6 +2859,7 @@ MonoBehaviour:
   paladin: {fileID: 8201478140946997941, guid: cc13a577d1fb55844a8099ecfdac1e1c, type: 3}
   druid: {fileID: 8881954282645153907, guid: 4689b38b63894bd468e1a78f1f14f063, type: 3}
   tracker: {fileID: 1565164472}
+  pManager: {fileID: 1424275580}
   chestChance: 0.01
 --- !u!114 &1565164472
 MonoBehaviour:
@@ -3462,6 +3468,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: clearFloorAuto
       objectReference: {fileID: 0}
+    - target: {fileID: 830624246730544838, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: pManager
+      value: 
+      objectReference: {fileID: 1424275580}
     - target: {fileID: 830624246749808459, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3910,6 +3920,10 @@ PrefabInstance:
       propertyPath: floors
       value: 
       objectReference: {fileID: 1565164472}
+    - target: {fileID: 2378670072491235470, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: Increase movement and appearance rate of Adventurers and Mercenaries
+      objectReference: {fileID: 0}
     - target: {fileID: 2378670073333477732, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: hastePotion
@@ -4460,11 +4474,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130441621181117496, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -242
+      value: -236.01
       objectReference: {fileID: 0}
     - target: {fileID: 7130441621181117496, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 657
+      value: 969
       objectReference: {fileID: 0}
     - target: {fileID: 7277673767687990169, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
