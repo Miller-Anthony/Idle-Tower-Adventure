@@ -309,17 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &151176094 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4895365690750351594, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
-  m_PrefabInstance: {fileID: 830624247716218303}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &163059178 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7339466651354164547, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -409,10 +398,7 @@ MonoBehaviour:
   hireRateController: {fileID: 2007361682}
   improveGearController: {fileID: 1387835656}
   strengthInNumbersController: {fileID: 461468243}
-  hastePotionController: {fileID: 1546212048}
-  increasedBountyController: {fileID: 430833835}
-  teleportController: {fileID: 91835477}
-  autoSpawnerController: {fileID: 151176094}
+  pManager: {fileID: 1424275580}
   swordController: {fileID: 2666387354376992953}
   shieldController: {fileID: 755575566}
   walletController: {fileID: 1227188265}
@@ -2719,17 +2705,6 @@ MonoBehaviour:
   spawnChance: 10
   minFloorSpawn: 50
   chest: {fileID: 1712489960744577879, guid: 659ee7b39409c334f91fc356946c3468, type: 3}
---- !u!114 &1546212048 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2742976919182779334, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
-  m_PrefabInstance: {fileID: 830624247716218303}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1565164468
 GameObject:
   m_ObjectHideFlags: 0

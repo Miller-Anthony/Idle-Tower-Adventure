@@ -29,10 +29,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] MiscUpgradeController hireRateController;
     [SerializeField] MiscUpgradeController improveGearController;
     [SerializeField] MiscUpgradeController strengthInNumbersController;
-    [SerializeField] MiscUpgradeController hastePotionController;
-    [SerializeField] MiscUpgradeController increasedBountyController;
-    [SerializeField] MiscUpgradeController teleportController;
-    [SerializeField] MiscUpgradeController autoSpawnerController;
+    [SerializeField] PowerManager pManager;
     [SerializeField] LootDisplayController swordController;
     [SerializeField] LootDisplayController shieldController;
     [SerializeField] LootDisplayController walletController;
@@ -116,10 +113,10 @@ public class SaveManager : MonoBehaviour
         hireRatePercent = fighterStats.GetSpawnPercent();
         improveGearLevel = fighterStats.GetGearPercent();
         strengthInNumbersLevel= adventurerStats.GetStrengthPercent();
-        hastePotionLevel = 0;
-        increasedBountyLevel = 0;
-        teleportLevel = 0;
-        autoSpawnerLevel = 0;
+        hastePotionLevel = pManager.GetHasteLevel();
+        increasedBountyLevel = pManager.GetBountyLevel();
+        teleportLevel = pManager.GetTeleportLevel();
+        autoSpawnerLevel = pManager.GetAutoLevel();
         chests = chestList.Save();
 
         //Format save data

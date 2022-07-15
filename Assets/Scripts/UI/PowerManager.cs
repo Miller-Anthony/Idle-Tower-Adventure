@@ -27,10 +27,10 @@ public class PowerManager : MonoBehaviour
     private float increaseTimer;
     private float teleportTimer;
     private float autoTimer;
-    public bool hasteIsActive;
-    public bool increaseIsActive;
-    public bool teleportIsActive;
-    public bool autoIsActive;
+    public bool hasteIsActive = false;
+    public bool increaseIsActive = false;
+    public bool teleportIsActive = false;
+    public bool autoIsActive = false;
 
     //stored power effect values
     private float hasteRate;
@@ -309,7 +309,7 @@ public class PowerManager : MonoBehaviour
             case "teleport":
                 if (teleportLevel == 0)
                 {
-                    teleportRate = 0.05f;
+                    teleportRate = 1.0f;
                     Activate(name);
                 }
                 else
@@ -330,7 +330,7 @@ public class PowerManager : MonoBehaviour
                     autoLimit += 10;
                     autoPerSecond += 1;
                 }
-                teleportLevel++;
+                autoLevel++;
                 break;
             default:
                 break;

@@ -26,7 +26,7 @@ public class StatStorrage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pManager = GameObject.Find("powerPanel").GetComponent<PowerManager>();
+        
     }
 
     // Update is called once per frame
@@ -112,6 +112,8 @@ public class StatStorrage : MonoBehaviour
             default:
                 break;
         }
+
+        pManager = GameObject.Find("powerPanel").GetComponent<PowerManager>();
     }
 
     //Set the stored Level
