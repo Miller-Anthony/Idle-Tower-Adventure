@@ -68,6 +68,12 @@ public class LoadManager : MonoBehaviour
     private int swordLoot;
     private int shieldLoot;
     private int walletLoot;
+    private int year;
+    private int month;
+    private int day;
+    private int hour;
+    private int minute;
+    private int second;
     private int chestCount;
     private int[] chestList;
 
@@ -126,14 +132,20 @@ public class LoadManager : MonoBehaviour
                 swordLoot = int.Parse(data[28]);
                 shieldLoot = int.Parse(data[29]);
                 walletLoot = int.Parse(data[30]);
-                chestCount = int.Parse(data[31].Substring(0, 3));
+                year = int.Parse(data[31].Substring(0, 4));
+                month = int.Parse(data[31].Substring(5, 2));
+                day = int.Parse(data[31].Substring(8, 2));
+                hour = int.Parse(data[31].Substring(11, 2));
+                minute = int.Parse(data[31].Substring(14, 2));
+                second = int.Parse(data[31].Substring(17, 2));
+                chestCount = int.Parse(data[32].Substring(0, 3));
 
                 chestList = new int[chestCount];
 
                 //grab all the chests
                 for (int i = 0; i < chestCount; i++)
                 {
-                    chestList[i] = int.Parse(data[31].Substring(5 + (6 * i), 5));
+                    chestList[i] = int.Parse(data[32].Substring(5 + (6 * i), 5));
                 }
 
                 //spawn all the floors needed
@@ -201,6 +213,7 @@ public class LoadManager : MonoBehaviour
                 swordController.Setlooted(swordLoot);
                 shieldController.Setlooted(shieldLoot);
                 walletController.Setlooted(walletLoot);
+                genStats.OfflineGold(year, month, day, hour, minute, second);
             }
             gameObject.GetComponent<LoadManager>().enabled = false;
         }
@@ -210,4 +223,6 @@ public class LoadManager : MonoBehaviour
         }
         
     }
+
+    
 }

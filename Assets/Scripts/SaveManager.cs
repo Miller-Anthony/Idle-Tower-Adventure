@@ -63,6 +63,12 @@ public class SaveManager : MonoBehaviour
     private int sorcererLevel;
     private int paladinLevel;
     private int druidLevel;
+    private int year;
+    private int month;
+    private int day;
+    private int hour;
+    private int minute;
+    private int second;
     private int[] chests;
 
     //stuff to track when to save
@@ -117,6 +123,12 @@ public class SaveManager : MonoBehaviour
         increasedBountyLevel = pManager.GetBountyLevel();
         teleportLevel = pManager.GetTeleportLevel();
         autoSpawnerLevel = pManager.GetAutoLevel();
+        year = System.DateTime.UtcNow.Year;
+        month = System.DateTime.UtcNow.Month;
+        day = System.DateTime.UtcNow.Day;
+        hour = System.DateTime.UtcNow.Hour;
+        minute = System.DateTime.UtcNow.Minute;
+        second = System.DateTime.UtcNow.Second;
         chests = chestList.Save();
 
         //Format save data
@@ -151,6 +163,7 @@ public class SaveManager : MonoBehaviour
         data = data + swordController.GetLooted() + "\n";
         data = data + shieldController.GetLooted() + "\n";
         data = data + walletController.GetLooted() + "\n";
+        data = data + year + " " + month.ToString().PadLeft(2) + " " + day.ToString().PadLeft(2) + " " + hour.ToString().PadLeft(2) + " " + minute.ToString().PadLeft(2) + " " + second.ToString().PadLeft(2) + "\n";
         data = data + chests.Length.ToString().PadLeft(3);
 
         for (int i = 0; i < chests.Length; i++)
@@ -227,6 +240,7 @@ public class SaveManager : MonoBehaviour
         data = data + swordController.GetLooted() + "\n";
         data = data + shieldController.GetLooted() + "\n";
         data = data + walletController.GetLooted() + "\n";
+        data = data + year + " " + month.ToString().PadLeft(2) + " " + day.ToString().PadLeft(2) + " " + hour.ToString().PadLeft(2) + " " + minute.ToString().PadLeft(2) + " " + second.ToString().PadLeft(2) + "\n";
         data = data + chests.Length.ToString().PadLeft(3);
 
         for (int i = 0; i < chests.Length; i++)

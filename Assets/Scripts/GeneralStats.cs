@@ -11,6 +11,8 @@ public class GeneralStats : MonoBehaviour
     [SerializeField] int maxAdventurers; //maximum number of adventurers that can be summoned at any given time.
     [SerializeField] float skilledChance; //chance a skilled adventurer will spawn
     [SerializeField] PowerManager pManager; //power manager for max number of adventurers
+    [SerializeField] FloorTracker fTracker;
+    [SerializeField] MercenaryManager mManager;
 
     private int highestFloor = 1;
     private int numAdventurers;          //the number of adventurers currantly summoned
@@ -133,5 +135,37 @@ public class GeneralStats : MonoBehaviour
     {
         numAdventurers--;
         ui.UpdateAdventurerCount(numAdventurers, maxAdventurers);
+    }
+
+    //add gold for the amount of offline time
+    public void OfflineGold(int loadYear, int loadMonth, int loadDay, int loadHour, int loadMin, int loadSec)
+    {
+        //get needed info for calculations
+        RoomController room = fTracker.GetTopFloor().GetComponent<RoomController>();
+        BigNumber topGold = room.GetEnemyGold();
+        BigNumber topHealth = room.GetEnemyHealth();
+        BigNumber totalAttack = mManager.GetTotalStrength();
+        BigNumber curentHealth = topHealth;
+        BigNumber currentGold = new BigNumber(0);
+
+        //load time from save file and calculate the time passed
+        System.DateTime oldTime = new System.DateTime(loadYear, loadMonth, loadDay, loadHour, loadMin, loadSec, 0, System.DateTimeKind.Utc);
+        System.TimeSpan holder = System.DateTime.UtcNow.Subtract(oldTime);
+
+        
+        for (double i = 0; i < holder.TotalSeconds; i += 4)
+        {
+            curentHealth -= totalAttack;
+
+            if(curentHealth <= 0)
+            {
+                curentHealth = topHealth;
+                currentGold += topGold;
+            }
+        }
+
+        AddGold(currentGold);
+
+        //add popup for the amount of gold gained
     }
 }
