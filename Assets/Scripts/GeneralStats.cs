@@ -152,7 +152,14 @@ public class GeneralStats : MonoBehaviour
         System.DateTime oldTime = new System.DateTime(loadYear, loadMonth, loadDay, loadHour, loadMin, loadSec, 0, System.DateTimeKind.Utc);
         System.TimeSpan holder = System.DateTime.UtcNow.Subtract(oldTime);
 
-        
+        /*
+         * calculation to use after BigNumber is finnished
+        double count = holder.TotalSeconds / 4;
+        int attackCount = topHealth / totalAttack;
+        count = count / attackCount;
+        AddGold(topGold * count);
+        */
+
         for (double i = 0; i < holder.TotalSeconds; i += 4)
         {
             curentHealth -= totalAttack;

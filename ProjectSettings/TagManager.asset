@@ -39,6 +39,9 @@ TagManager:
   - increasedBounty
   - teleport
   - autoSpawner
+  - magnifyingGlass
+  - helmet
+  - longSword
   layers:
   - Default
   - TransparentFX

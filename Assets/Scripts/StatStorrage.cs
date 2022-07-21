@@ -15,7 +15,7 @@ public class StatStorrage : MonoBehaviour
     //stat modifiers
     [SerializeField] LootDisplayController sword;
     [SerializeField] LootDisplayController shield;
-    [SerializeField] LootDisplayController wallet;
+    [SerializeField] LootDisplayController magnifyingGlass;
     [SerializeField] MercenaryManager mManager;
     [SerializeField] PowerManager pManager;
 
@@ -263,6 +263,6 @@ public class StatStorrage : MonoBehaviour
     // Get the stored gold stat
     public BigNumber GetGold()
     {
-        return (gold % wallet.GetTotalBonus()) * pManager.GetBountyRate();
+        return (gold % magnifyingGlass.GetTotalBonus()) * pManager.GetBountyRate();
     }
 }
