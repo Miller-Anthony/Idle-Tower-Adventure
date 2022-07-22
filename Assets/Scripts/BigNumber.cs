@@ -168,7 +168,7 @@ public class BigNumber
         return toReturn;
     }
 
-    public static BigNumber operator -(BigNumber num1, BigNumber num2)
+    public static BigNumber operator -(BigNumber num1, BigNumber num2) // 30 - 22 = 18?
     {
         if(num2.CountDigits() > num1.CountDigits())
         {
@@ -193,7 +193,7 @@ public class BigNumber
             }
             else
             {
-                toReturn.digit.Add((byte)(num1.digit[i] - num2.digit[i]));
+                toReturn.digit.Add((byte)(num1.digit[i] - (num2.digit[i] + carry)));
                 carry = 0;
             }
             continued = i + 1;
@@ -232,12 +232,11 @@ public class BigNumber
     }
 
 
-    // TODO: Continue Below
+    // Precision: 15 decimal places
     public static double operator /(BigNumber num1, BigNumber num2) // fractional method
     {
         BigNumber num1_clone = num1;
         double total = 0;
-        int a = 0;
         while (num1_clone > num2)
         {
             double iter = 1;
@@ -256,43 +255,75 @@ public class BigNumber
             }
             num1_clone -= val;
             total += iter;
-            ++a;
-            if (a > 10000000)
+        }
+
+        for(int i = 1; i <= 15; ++i)
+        {
+            if (num1_clone == new BigNumber(0))
                 break;
+            num1_clone *= new BigNumber(10);
+            BigNumber val = num2;
+            BigNumber val_clone = val;
+            double iter = 1;
+            double iter_clone = iter;
+            while (val + val_clone < num1_clone)
+            {
+                val += val_clone;
+                iter += iter_clone;
+            }
+            num1_clone -= val;
+            total += iter * Math.Pow(10, -i);
         }
 
         return total;
     }
 
+
     public static BigNumber BigDivision(BigNumber num1, BigNumber num2) // groups method
     {
-        /*if (num1.modifier > num2.modifier)
+        BigNumber num1_clone = num1;
+        BigNumber total = new BigNumber(0);
+        while (num1_clone > num2)
         {
-            while (num1.modifier > num2.modifier)
+            BigNumber iter = new BigNumber(1);
+            BigNumber val = num2;
+            while (val * new BigNumber(10) < num1_clone)
             {
-                num2.number = num2.number / 1000;
-                num2.modifier++;
+                val *= new BigNumber(10);
+                iter *= 10;
             }
-        }
-        else if (num1.modifier < num2.modifier)
-        {
-            while (num1.modifier < num2.modifier)
+            BigNumber val_clone = val;
+            BigNumber iter_clone = iter;
+            while (val + val_clone < num1_clone)
             {
-                num1.number = num1.number / 1000;
-                num1.modifier++;
+                val += val_clone;
+                iter += iter_clone;
             }
+            num1_clone -= val;
+            total += iter;
         }
-
-        return (float)(num1.number / num2.number);*/
-        return new BigNumber(0);
+        return total;
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
     public static BigNumber operator %(BigNumber num1, BigNumber num2)
     {
-        //this is wrong as it does not take the modefier of the percentage big number into account
-        //return new BigNumber(num1.number * ((num2.number / 100) + 1), num1.modifier);
-        return new BigNumber(0);
+        BigNumber num1_clone = num1;
+        while (num1_clone > num2)
+        {
+            BigNumber val = num2;
+            while (val * new BigNumber(10) < num1_clone)
+            {
+                val *= new BigNumber(10);
+            }
+            BigNumber val_clone = val;
+            while (val + val_clone < num1_clone)
+            {
+                val += val_clone;
+            }
+            num1_clone -= val;
+        }
+        return num1_clone;
     }
 
     public static bool operator <(BigNumber num1, BigNumber num2)
@@ -424,24 +455,24 @@ public class BigNumber
         /*string num = number.ToString("#.###");
         num = num + GetModefier(modifier);
         return num;*/
-        if(digit.Count == 0)
+        if(CountDigits() == 0)
             return "0";
 
-        if (digit.Count < 10)
+        if (CountDigits() < 10)
         {
             string num = "";
-            for (int i = digit.Count - 1; i >= 0; --i)
+            for (int i = CountDigits() - 1; i >= 0; --i)
                 num += digit[i].ToString();
             return num;
         }
         else
         {
-            string num = digit[digit.Count - 1].ToString();
+            string num = digit[CountDigits() - 1].ToString();
             num += ".";
             for (int i = 1; i < 4; ++i)
-                num += digit[digit.Count - (1 + i)].ToString();
+                num += digit[CountDigits() - (1 + i)].ToString();
             num += " * 10^";
-            num += (digit.Count - 1).ToString();
+            num += (CountDigits() - 1).ToString();
             return num;
         }
     }
@@ -450,7 +481,7 @@ public class BigNumber
     public string SaveString()
     {
         string num = "";
-        for(int i = digit.Count - 1; i >= 0; --i)
+        for(int i = CountDigits() - 1; i >= 0; --i)
         {
             num += digit[i].ToString();
         }

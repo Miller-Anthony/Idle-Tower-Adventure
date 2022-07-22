@@ -81,6 +81,9 @@ public class BigNumberTests : MonoBehaviour
         Debug.Log("993 / 11 = ");
         Debug.Log((l / m).ToString());
 
+        Debug.Log("993 % 11 = ");
+        Debug.Log((l % m).ToString());
+
         /*BigNumber d = new BigNumber(1, 0);
         int comparator = 1;
 
