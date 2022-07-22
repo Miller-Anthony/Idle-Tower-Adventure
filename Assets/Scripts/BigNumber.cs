@@ -46,6 +46,18 @@ public class BigNumber
         ab
     }
 
+    public int CountDigits()
+    {
+        int subtract_from = 0;
+        for(int i = digit.Count - 1; i >= 0; --i)
+        {
+            if (digit[i] != 0)
+                break;
+            ++subtract_from;
+        }
+        return digit.Count - subtract_from;
+    }
+
     // lots of references, remain undeprecated
     public BigNumber(double num, int mod = 0)
     {
@@ -101,8 +113,8 @@ public class BigNumber
 
     public static BigNumber operator +(BigNumber num1, BigNumber num2)
     {
-        int max = Math.Max(num1.digit.Count, num2.digit.Count);
-        int min = Math.Min(num1.digit.Count, num2.digit.Count);
+        int max = Math.Max(num1.CountDigits(), num2.CountDigits());
+        int min = Math.Min(num1.CountDigits(), num2.CountDigits());
 
         BigNumber toReturn = new BigNumber(0);
         byte carry = 0;
@@ -158,34 +170,101 @@ public class BigNumber
 
     public static BigNumber operator -(BigNumber num1, BigNumber num2)
     {
-        /*if (num1.modifier > num2.modifier)
+        if(num2.CountDigits() > num1.CountDigits())
         {
-            while (num1.modifier > num2.modifier)
-            {
-                num2.number = num2.number / 1000;
-                num2.modifier++;
-            }
-        }
-        else if (num1.modifier < num2.modifier)
-        {
-            while (num1.modifier < num2.modifier)
-            {
-                num1.number = num1.number / 1000;
-                num1.modifier++;
-            }
+            return new BigNumber(0);
         }
 
-        return new BigNumber(num1.number - num2.number, num2.modifier);*/
-        return new BigNumber(0);
+        BigNumber toReturn = new BigNumber(0);
+        byte carry = 0;
+        int continued = 0;
+
+        for (int i = 0; i < num2.CountDigits(); ++i)
+        {
+            if (num1.digit[i] == 0 && carry != 0)
+            {
+                toReturn.digit.Add((byte)(9 - num2.digit[i]));
+                carry = 1;
+            }
+            else if (num2.digit[i] > (num1.digit[i] - carry))
+            {
+                toReturn.digit.Add((byte)(num1.digit[i] + 10 - (num2.digit[i] + carry)));
+                carry = 1;
+            }
+            else
+            {
+                toReturn.digit.Add((byte)(num1.digit[i] - num2.digit[i]));
+                carry = 0;
+            }
+            continued = i + 1;
+        }
+        for(int i = continued; i < num1.CountDigits(); ++i)
+        {
+            if(num1.digit[i] == 0 && carry != 0)
+            {
+                toReturn.digit.Add(9);
+                carry = 1;
+            }
+            else if(carry != 0)
+            {
+                toReturn.digit.Add((byte)(num1.digit[i] - carry));
+                carry = 0;
+            }
+            else
+                toReturn.digit.Add(num1.digit[i]);
+        }
+        if (carry != 0)
+            return new BigNumber(0);
+        return toReturn;
     }
 
     public static BigNumber operator *(BigNumber num1, BigNumber num2)
     {
-        //return new BigNumber(num1.number * num2.number, num1.modifier + num2.modifier);
-        return new BigNumber(0);
+        BigNumber toReturn = new BigNumber(0);
+        for(int i = 0; i < num1.CountDigits(); ++i)
+        {
+            for(int j = 0; j < num2.CountDigits(); ++j)
+            {
+                toReturn += new BigNumber(num1.digit[i] * num2.digit[j] * Math.Pow(10, (i + j)));
+            }
+        }
+        return toReturn;
     }
 
-    public static float operator /(BigNumber num1, BigNumber num2)
+
+    // TODO: Continue Below
+    public static double operator /(BigNumber num1, BigNumber num2) // fractional method
+    {
+        BigNumber num1_clone = num1;
+        double total = 0;
+        int a = 0;
+        while (num1_clone > num2)
+        {
+            double iter = 1;
+            BigNumber val = num2;
+            while (val * new BigNumber(10) < num1_clone)
+            {
+                val *= new BigNumber(10);
+                iter *= 10;
+            }
+            BigNumber val_clone = val;
+            double iter_clone = iter;
+            while (val + val_clone < num1_clone)
+            {
+                val += val_clone;
+                iter += iter_clone;
+            }
+            num1_clone -= val;
+            total += iter;
+            ++a;
+            if (a > 10000000)
+                break;
+        }
+
+        return total;
+    }
+
+    public static BigNumber BigDivision(BigNumber num1, BigNumber num2) // groups method
     {
         /*if (num1.modifier > num2.modifier)
         {
@@ -205,7 +284,7 @@ public class BigNumber
         }
 
         return (float)(num1.number / num2.number);*/
-        return 0;
+        return new BigNumber(0);
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
@@ -218,13 +297,13 @@ public class BigNumber
 
     public static bool operator <(BigNumber num1, BigNumber num2)
     {
-        if (num1.digit.Count < num2.digit.Count)
+        if (num1.CountDigits() < num2.CountDigits())
             return true;
-        else if (num1.digit.Count > num2.digit.Count)
+        else if (num1.CountDigits() > num2.CountDigits())
             return false;
         else
         {
-            for(int i = num1.digit.Count - 1; i >= 0; --i)
+            for(int i = num1.CountDigits() - 1; i >= 0; --i)
             {
                 if (num1.digit[i] < num2.digit[i])
                     return true;
@@ -242,13 +321,13 @@ public class BigNumber
 
     public static bool operator <=(BigNumber num1, BigNumber num2)
     {
-        if (num1.digit.Count < num2.digit.Count)
+        if (num1.CountDigits() < num2.CountDigits())
             return true;
-        else if (num1.digit.Count > num2.digit.Count)
+        else if (num1.CountDigits() > num2.CountDigits())
             return false;
         else
         {
-            for (int i = num1.digit.Count - 1; i >= 0; --i)
+            for (int i = num1.CountDigits() - 1; i >= 0; --i)
             {
                 if (num1.digit[i] < num2.digit[i])
                     return true;
@@ -329,9 +408,9 @@ public class BigNumber
 
     public static bool operator ==(BigNumber num1, BigNumber num2)
     {
-        if (num1.digit.Count != num2.digit.Count)
+        if (num1.CountDigits() != num2.CountDigits())
             return false;
-        for(int i = 0; i < num1.digit.Count; ++i)
+        for(int i = 0; i < num1.CountDigits(); ++i)
         {
             if (num1.digit[i] != num2.digit[i])
                 return false;
