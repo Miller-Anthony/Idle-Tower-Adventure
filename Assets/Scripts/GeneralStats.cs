@@ -160,10 +160,13 @@ public class GeneralStats : MonoBehaviour
         AddGold(topGold * count);
         */
 
+        //for every 4 seconds of idle time, have an attack happen
         for (double i = 0; i < holder.TotalSeconds; i += 4)
         {
+            //the attack
             curentHealth -= totalAttack;
 
+            //if the atack killed the top floor, increase kill count and reset the health
             if(curentHealth <= 0)
             {
                 curentHealth = topHealth;
