@@ -42,6 +42,12 @@ TagManager:
   - magnifyingGlass
   - helmet
   - longSword
+  - spear
+  - dagger
+  - breastPlate
+  - gauntlets
+  - gemPouch
+  - tombOfLuck
   layers:
   - Default
   - TransparentFX

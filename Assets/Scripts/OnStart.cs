@@ -44,7 +44,10 @@ public class OnStart : MonoBehaviour
     [SerializeField] MiscUpgradeButtonController autoSpawner;
     [SerializeField] MiscUpgradeButtonController rebirth;
     [SerializeField] LootDisplayController sword;
+    [SerializeField] LootDisplayController longSword;
     [SerializeField] LootDisplayController shield;
+    [SerializeField] LootDisplayController helmet;
+    [SerializeField] LootDisplayController magnifyingGlass;
     [SerializeField] LootDisplayController wallet;
 
     // Start is called before the first frame update
@@ -90,7 +93,10 @@ public class OnStart : MonoBehaviour
         autoSpawner.OnStart();
         rebirth.OnStart();
         sword.OnStart();
+        longSword.OnStart();
         shield.OnStart();
+        helmet.OnStart();
+        magnifyingGlass.OnStart();
         wallet.OnStart();
     }
 

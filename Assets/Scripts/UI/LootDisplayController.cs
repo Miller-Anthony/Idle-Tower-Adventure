@@ -30,7 +30,34 @@ public class LootDisplayController : MonoBehaviour
             case "sword":
                 bonus = new BigNumber(30);
                 break;
+            case "longSword":
+                bonus = new BigNumber(80);
+                break;
+            case "spear":
+                bonus = new BigNumber(30);
+                break;
+            case "dagger":
+                bonus = new BigNumber(30);
+                break;
             case "shield":
+                bonus = new BigNumber(30);
+                break;
+            case "helmet":
+                bonus = new BigNumber(30);
+                break;
+            case "breastPlate":
+                bonus = new BigNumber(30);
+                break;
+            case "gauntlets":
+                bonus = new BigNumber(30);
+                break;
+            case "magnifyingGlass":
+                bonus = new BigNumber(30);
+                break;
+            case "tombOfLuck":
+                bonus = new BigNumber(30);
+                break;
+            case "gemPouch":
                 bonus = new BigNumber(30);
                 break;
             case "wallet":

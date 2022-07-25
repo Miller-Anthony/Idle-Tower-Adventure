@@ -5,13 +5,19 @@ using UnityEngine;
 public class LootTracker : MonoBehaviour
 {
     //odjects that can be added to the list
-    [SerializeField] LootDisplayController sword;
-    [SerializeField] LootDisplayController shield;
-    [SerializeField] LootDisplayController wallet;
+    [SerializeField] LootDisplayController swordController;
+    [SerializeField] LootDisplayController longSwordController;
+    [SerializeField] LootDisplayController shieldController;
+    [SerializeField] LootDisplayController helmetController;
+    [SerializeField] LootDisplayController magnifyingGlassController;
+    [SerializeField] LootDisplayController walletController;
 
     //chance to get each item
     [SerializeField] float swordChance;
+    [SerializeField] float longSwordChance;
     [SerializeField] float shieldChance;
+    [SerializeField] float helmetChance;
+    [SerializeField] float magnifyingGlassChance;
     [SerializeField] float walletChance;
 
     //private List<LootDisplayController> lootList;
@@ -31,16 +37,16 @@ public class LootTracker : MonoBehaviour
     public void AddLoot(int floor)
     {
         float num = Random.Range(0.0f, swordChance + shieldChance + walletChance);
-        LootDisplayController holder = wallet;
+        LootDisplayController holder = walletController;
 
         //set the loot from the chest
         if(num < swordChance)
         {
-            holder = sword;
+            holder = swordController;
         }
         else if(num < swordChance + shieldChance)
         {
-            holder = shield;
+            holder = shieldController;
         }
 
         holder.AddLoot();
