@@ -231,6 +231,15 @@ public class BigNumber
         return toReturn;
     }
 
+    public static BigNumber operator *(BigNumber num1, double num2)
+    {
+        BigNumber toReturn = new BigNumber(0);
+
+        // code here - WIP
+
+        return toReturn;
+    }
+
 
     // Precision: 15 decimal places
     public static double operator /(BigNumber num1, BigNumber num2) // fractional method
@@ -308,6 +317,9 @@ public class BigNumber
     //multiplies BigNumber by another BigNumber representing a percentage
     public static BigNumber operator %(BigNumber num1, BigNumber num2)
     {
+        if (num2 == new BigNumber(0))
+            return num1;
+
         BigNumber num1_clone = num1;
         while (num1_clone > num2)
         {
