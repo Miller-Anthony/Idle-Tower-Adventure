@@ -8,6 +8,7 @@ public class FloorTracker : MonoBehaviour
     [SerializeField] CameraController cam;
     
     private Queue<GameObject> floorQueue;
+    private GameObject topFloor;
     private int queueSize = 0;
     private int maxQueueSize = 0;
     private int minQueueSize = 0;
@@ -17,6 +18,7 @@ public class FloorTracker : MonoBehaviour
     {
         GameObject room = GameObject.Find("LRoom");
         floorQueue = new Queue<GameObject>();
+        topFloor = room;
         floorQueue.Enqueue(room);
 
         //Calculate the scale of the room
@@ -107,6 +109,7 @@ public class FloorTracker : MonoBehaviour
 
     public void AddFloor(GameObject floor)
     {
+        topFloor = floor;
         floorQueue.Enqueue(floor);
         cam.SetLimit(floor.transform.position.y);
     }
@@ -114,5 +117,10 @@ public class FloorTracker : MonoBehaviour
     public GameObject GetBottomFloor()
     {
         return floorQueue.Peek();
+    }
+
+    public GameObject GetTopFloor()
+    {
+        return topFloor;
     }
 }

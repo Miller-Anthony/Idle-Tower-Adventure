@@ -32,7 +32,10 @@ public class LoadManager : MonoBehaviour
     [SerializeField] MiscUpgradeButtonController teleportController;
     [SerializeField] MiscUpgradeButtonController autoSpawnerController;
     [SerializeField] LootDisplayController swordController;
+    [SerializeField] LootDisplayController longSwordController;
     [SerializeField] LootDisplayController shieldController;
+    [SerializeField] LootDisplayController helmetController;
+    [SerializeField] LootDisplayController magnifyingGlassController;
     [SerializeField] LootDisplayController walletController;
     [SerializeField] ChestTracker chests;
     [SerializeField] RoomFactory factory;
@@ -66,8 +69,17 @@ public class LoadManager : MonoBehaviour
     private int teleportLevel;
     private int autoSpawnerLevel;
     private int swordLoot;
+    private int longSwordLoot;
     private int shieldLoot;
+    private int helmetLoot;
+    private int magnifyingGlassLoot;
     private int walletLoot;
+    private int year;
+    private int month;
+    private int day;
+    private int hour;
+    private int minute;
+    private int second;
     private int chestCount;
     private int[] chestList;
 
@@ -124,16 +136,25 @@ public class LoadManager : MonoBehaviour
                 teleportLevel = int.Parse(data[26]);
                 autoSpawnerLevel = int.Parse(data[27]);
                 swordLoot = int.Parse(data[28]);
-                shieldLoot = int.Parse(data[29]);
-                walletLoot = int.Parse(data[30]);
-                chestCount = int.Parse(data[31].Substring(0, 3));
+                longSwordLoot = int.Parse(data[29]);
+                shieldLoot = int.Parse(data[30]);
+                helmetLoot = int.Parse(data[31]);
+                magnifyingGlassLoot = int.Parse(data[32]);
+                walletLoot = int.Parse(data[33]);
+                year = int.Parse(data[34].Substring(0, 4));
+                month = int.Parse(data[34].Substring(5, 2));
+                day = int.Parse(data[34].Substring(8, 2));
+                hour = int.Parse(data[34].Substring(11, 2));
+                minute = int.Parse(data[34].Substring(14, 2));
+                second = int.Parse(data[34].Substring(17, 2));
+                chestCount = int.Parse(data[35].Substring(0, 3));
 
                 chestList = new int[chestCount];
 
                 //grab all the chests
                 for (int i = 0; i < chestCount; i++)
                 {
-                    chestList[i] = int.Parse(data[31].Substring(5 + (6 * i), 5));
+                    chestList[i] = int.Parse(data[35].Substring(5 + (6 * i), 5));
                 }
 
                 //spawn all the floors needed
@@ -201,6 +222,7 @@ public class LoadManager : MonoBehaviour
                 swordController.Setlooted(swordLoot);
                 shieldController.Setlooted(shieldLoot);
                 walletController.Setlooted(walletLoot);
+                genStats.OfflineGold(year, month, day, hour, minute, second);
             }
             gameObject.GetComponent<LoadManager>().enabled = false;
         }
@@ -210,4 +232,6 @@ public class LoadManager : MonoBehaviour
         }
         
     }
+
+    
 }

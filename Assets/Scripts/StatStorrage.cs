@@ -15,8 +15,9 @@ public class StatStorrage : MonoBehaviour
     //stat modifiers
     [SerializeField] LootDisplayController sword;
     [SerializeField] LootDisplayController shield;
-    [SerializeField] LootDisplayController wallet;
+    [SerializeField] LootDisplayController magnifyingGlass;
     [SerializeField] MercenaryManager mManager;
+    [SerializeField] PowerManager pManager;
 
     private float spawnPercent = 1.0f;
     private float gearPercent = 1.0f;
@@ -111,6 +112,8 @@ public class StatStorrage : MonoBehaviour
             default:
                 break;
         }
+
+        pManager = GameObject.Find("powerPanel").GetComponent<PowerManager>();
     }
 
     //Set the stored Level
@@ -182,7 +185,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored speed stat
     public float GetSpeed()
     {
-        return speed;
+        return speed * pManager.GetHasteSpeed();
     }
 
     //Set the stored spawn stat
@@ -194,7 +197,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored spawn stat
     public float GetSpawn()
     {
-        return spawn * spawnPercent;
+        return (spawn * spawnPercent) / pManager.GetHasteRate();
     }
 
     //Set the stored spawnPercent stat
@@ -260,6 +263,6 @@ public class StatStorrage : MonoBehaviour
     // Get the stored gold stat
     public BigNumber GetGold()
     {
-        return gold % wallet.GetTotalBonus();
+        return (gold % magnifyingGlass.GetTotalBonus()) * pManager.GetBountyRate();
     }
 }

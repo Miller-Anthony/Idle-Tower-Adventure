@@ -35,6 +35,7 @@ public class NPCFactory : MonoBehaviour
     [SerializeField] GameObject paladin;
     [SerializeField] GameObject druid;
     [SerializeField] FloorTracker tracker;
+    [SerializeField] PowerManager pManager;
 
     [SerializeField] float chestChance;
 
@@ -66,7 +67,15 @@ public class NPCFactory : MonoBehaviour
 
             if (fighterTimer >= fighterStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("fighter");
+                if(pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("fighter");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("fighter");
+                }
+                
                 fighterTimer = 0;
             }
         }
@@ -77,7 +86,15 @@ public class NPCFactory : MonoBehaviour
 
             if (barbarianTimer >= barbarianStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("barbarian");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("barbarian");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("barbarian");
+                }
+
                 barbarianTimer = 0;
             }
         }
@@ -88,7 +105,15 @@ public class NPCFactory : MonoBehaviour
 
             if (rogueTimer >= rogueStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("rogue");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("rogue");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("rogue");
+                }
+
                 rogueTimer = 0;
             }
         }
@@ -99,7 +124,15 @@ public class NPCFactory : MonoBehaviour
 
             if (rangerTimer >= rangerStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("ranger");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("ranger");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("ranger");
+                }
+
                 rangerTimer = 0;
             }
         }
@@ -110,7 +143,15 @@ public class NPCFactory : MonoBehaviour
 
             if (monkTimer >= monkStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("monk");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("monk");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("monk");
+                }
+
                 monkTimer = 0;
             }
         }
@@ -121,7 +162,15 @@ public class NPCFactory : MonoBehaviour
 
             if (clericTimer >= clericStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("cleric");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("cleric");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("cleric");
+                }
+
                 clericTimer = 0;
             }
         }
@@ -132,7 +181,15 @@ public class NPCFactory : MonoBehaviour
 
             if (bardTimer >= bardStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("bard");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("bard");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("bard");
+                }
+
                 bardTimer = 0;
             }
         }
@@ -143,7 +200,15 @@ public class NPCFactory : MonoBehaviour
 
             if (wizzardTimer >= wizzardStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("wizzard");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("wizzard");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("wizzard");
+                }
+
                 wizzardTimer = 0;
             }
         }
@@ -154,7 +219,15 @@ public class NPCFactory : MonoBehaviour
 
             if (warlockTimer >= warlockStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("warlock");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("warlock");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("warlock");
+                }
+
                 warlockTimer = 0;
             }
         }
@@ -165,7 +238,15 @@ public class NPCFactory : MonoBehaviour
 
             if (sorcererTimer >= sorcererStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("sorcerer");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("sorcerer");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("sorcerer");
+                }
+
                 sorcererTimer = 0;
             }
         }
@@ -176,7 +257,15 @@ public class NPCFactory : MonoBehaviour
 
             if (paladinTimer >= paladinStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("paladin");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("paladin");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("paladin");
+                }
+
                 paladinTimer = 0;
             }
         }
@@ -187,7 +276,15 @@ public class NPCFactory : MonoBehaviour
 
             if (druidTimer >= druidStats.GetSpawn())
             {
-                tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("druid");
+                if (pManager.teleportIsActive && pManager.GetTeleportRate() >= Random.value)
+                {
+                    tracker.GetTopFloor().GetComponent<RoomController>().SpawnMercinary("druid");
+                }
+                else
+                {
+                    tracker.GetBottomFloor().GetComponent<RoomController>().SpawnMercinary("druid");
+                }
+
                 druidTimer = 0;
             }
         }
@@ -267,8 +364,8 @@ public class NPCFactory : MonoBehaviour
         {
             //set the skilledAdventurers stats
             holdStats.SetLevel(adventurerStats.GetLevel());
-            holdStats.SetMaxHealth(adventurerStats.GetHealth() * 0.05f);
-            holdStats.SetStrength(adventurerStats.GetStrength()* 0.05f);
+            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost() * 0.05f);
+            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost() * 0.05f);
             holdStats.SetSpeed(adventurerStats.GetSpeed() * 0.02f);
             holdStats.SetGold(new BigNumber(0));
         }
@@ -276,8 +373,8 @@ public class NPCFactory : MonoBehaviour
         {
             //set the adventurers stats
             holdStats.SetLevel(adventurerStats.GetLevel());
-            holdStats.SetMaxHealth(adventurerStats.GetHealth());
-            holdStats.SetStrength(adventurerStats.GetStrength());
+            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost());
+            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost());
             holdStats.SetSpeed(adventurerStats.GetSpeed());
             holdStats.SetGold(new BigNumber(0));
         }
@@ -312,8 +409,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(fighterStats.GetLevel());
-        holdStats.SetMaxHealth(fighterStats.GetHealth());
-        holdStats.SetStrength(fighterStats.GetStrength());
+        holdStats.SetMaxHealth(fighterStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(fighterStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(fighterStats.GetSpeed());
         holdStats.SetSpawn(fighterStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -347,8 +444,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(barbarianStats.GetLevel());
-        holdStats.SetMaxHealth(barbarianStats.GetHealth());
-        holdStats.SetStrength(barbarianStats.GetStrength());
+        holdStats.SetMaxHealth(barbarianStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(barbarianStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(barbarianStats.GetSpeed());
         holdStats.SetSpawn(barbarianStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -382,8 +479,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(rogueStats.GetLevel());
-        holdStats.SetMaxHealth(rogueStats.GetHealth());
-        holdStats.SetStrength(rogueStats.GetStrength());
+        holdStats.SetMaxHealth(rogueStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(rogueStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(rogueStats.GetSpeed());
         holdStats.SetSpawn(rogueStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -417,8 +514,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(rangerStats.GetLevel());
-        holdStats.SetMaxHealth(rangerStats.GetHealth());
-        holdStats.SetStrength(rangerStats.GetStrength());
+        holdStats.SetMaxHealth(rangerStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(rangerStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(rangerStats.GetSpeed());
         holdStats.SetSpawn(rangerStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -452,8 +549,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(monkStats.GetLevel());
-        holdStats.SetMaxHealth(monkStats.GetHealth());
-        holdStats.SetStrength(monkStats.GetStrength());
+        holdStats.SetMaxHealth(monkStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(monkStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(monkStats.GetSpeed());
         holdStats.SetSpawn(monkStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -487,8 +584,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(clericStats.GetLevel());
-        holdStats.SetMaxHealth(clericStats.GetHealth());
-        holdStats.SetStrength(clericStats.GetStrength());
+        holdStats.SetMaxHealth(clericStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(clericStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(clericStats.GetSpeed());
         holdStats.SetSpawn(clericStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -522,8 +619,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(bardStats.GetLevel());
-        holdStats.SetMaxHealth(bardStats.GetHealth());
-        holdStats.SetStrength(bardStats.GetStrength());
+        holdStats.SetMaxHealth(bardStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(bardStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(bardStats.GetSpeed());
         holdStats.SetSpawn(bardStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -557,8 +654,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(wizzardStats.GetLevel());
-        holdStats.SetMaxHealth(wizzardStats.GetHealth());
-        holdStats.SetStrength(wizzardStats.GetStrength());
+        holdStats.SetMaxHealth(wizzardStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(wizzardStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(wizzardStats.GetSpeed());
         holdStats.SetSpawn(wizzardStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -592,8 +689,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(warlockStats.GetLevel());
-        holdStats.SetMaxHealth(warlockStats.GetHealth());
-        holdStats.SetStrength(warlockStats.GetStrength());
+        holdStats.SetMaxHealth(warlockStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(warlockStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(warlockStats.GetSpeed());
         holdStats.SetSpawn(warlockStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -627,8 +724,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(sorcererStats.GetLevel());
-        holdStats.SetMaxHealth(sorcererStats.GetHealth());
-        holdStats.SetStrength(sorcererStats.GetStrength());
+        holdStats.SetMaxHealth(sorcererStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(sorcererStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(sorcererStats.GetSpeed());
         holdStats.SetSpawn(sorcererStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -662,8 +759,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(paladinStats.GetLevel());
-        holdStats.SetMaxHealth(paladinStats.GetHealth());
-        holdStats.SetStrength(paladinStats.GetStrength());
+        holdStats.SetMaxHealth(paladinStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(paladinStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(paladinStats.GetSpeed());
         holdStats.SetSpawn(paladinStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));
@@ -697,8 +794,8 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(druidStats.GetLevel());
-        holdStats.SetMaxHealth(druidStats.GetHealth());
-        holdStats.SetStrength(druidStats.GetStrength());
+        holdStats.SetMaxHealth(druidStats.GetHealth() * pManager.GetTeleportBoost());
+        holdStats.SetStrength(druidStats.GetStrength() * pManager.GetTeleportBoost());
         holdStats.SetSpeed(druidStats.GetSpeed());
         holdStats.SetSpawn(druidStats.GetSpawn());
         holdStats.SetGold(new BigNumber(0));

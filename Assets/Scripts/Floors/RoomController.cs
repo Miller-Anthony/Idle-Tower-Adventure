@@ -11,6 +11,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] NPCFactory factory;
     [SerializeField] ChestFactory chestFactory;
     [SerializeField] GeneralStats stats;
+    [SerializeField] PowerManager pManager;
     [SerializeField] GameObject enemySpawn1;
     [SerializeField] GameObject enemySpawn2;
     [SerializeField] GameObject enemySpawn3;
@@ -25,6 +26,7 @@ public class RoomController : MonoBehaviour
     [SerializeField] BigNumber gold;
 
     private Vector2 boundry;
+    private float spawnTimer;
     private float timer1 = 0.1f;
     private float timer2 = 0.1f;
     private float timer3 = 0.1f;
@@ -40,6 +42,7 @@ public class RoomController : MonoBehaviour
         factory = GameObject.Find("Ground").GetComponent<NPCFactory>();
         stats = GameObject.Find("Canvas").GetComponent<GeneralStats>();
         chestFactory = GameObject.Find("ChestTracker").GetComponent<ChestFactory>();
+        pManager = GameObject.Find("powerPanel").GetComponent<PowerManager>();
 
         //set stats for first floor
         if (floor == 1)
@@ -94,7 +97,7 @@ public class RoomController : MonoBehaviour
     {
         
         //spawn an adventurer
-        if(Input.GetMouseButtonDown(0) && isActive && stats.GetMaxAdventurers() > stats.GetNumAdventurers())
+        if(isActive && Input.GetMouseButtonDown(0) && stats.GetMaxAdventurers() > stats.GetNumAdventurers())
         {
             Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -103,7 +106,21 @@ public class RoomController : MonoBehaviour
             {
                 factory.SpawnAdventurer(playerSpawn.transform.position, floor);
             }
-            
+            spawnTimer = 1.0f / pManager.GetAutoPerSecond();
+        }
+        else if(pManager.autoIsActive && isActive && Input.GetMouseButton(0) && stats.GetMaxAdventurers() > stats.GetNumAdventurers())
+        {
+            Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+            spawnTimer -= Time.deltaTime;
+
+            //if the click is withis the boudry of the floor you spawn a warrior
+            if (click.y < boundry.x && click.y > boundry.y && spawnTimer <= 0)
+            {
+                factory.SpawnAdventurer(playerSpawn.transform.position, floor);
+                spawnTimer = 1.0f / pManager.GetAutoPerSecond();
+            }
+
         }
         
         //spawn new enemies
