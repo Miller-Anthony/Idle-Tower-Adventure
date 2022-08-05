@@ -30,12 +30,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] MiscUpgradeController improveGearController;
     [SerializeField] MiscUpgradeController strengthInNumbersController;
     [SerializeField] PowerManager pManager;
-    [SerializeField] LootDisplayController swordController;
-    [SerializeField] LootDisplayController longSwordController;
-    [SerializeField] LootDisplayController shieldController;
-    [SerializeField] LootDisplayController helmetController;
-    [SerializeField] LootDisplayController magnifyingGlassController;
-    [SerializeField] LootDisplayController walletController;
+    [SerializeField] LootTracker loot;
     [SerializeField] ChestTracker chestList;
 
     //data to save
@@ -163,12 +158,12 @@ public class SaveManager : MonoBehaviour
         data = data + increasedBountyLevel + "\n";
         data = data + teleportLevel + "\n";
         data = data + autoSpawnerLevel + "\n";
-        data = data + swordController.GetLooted() + "\n";
-        data = data + longSwordController.GetLooted() + "\n";
-        data = data + shieldController.GetLooted() + "\n";
-        data = data + helmetController.GetLooted() + "\n";
-        data = data + magnifyingGlassController.GetLooted() + "\n";
-        data = data + walletController.GetLooted() + "\n";
+        data = data + loot.GetController("sword").GetLooted() + "\n";
+        data = data + loot.GetController("longSword").GetLooted() + "\n";
+        data = data + loot.GetController("shield").GetLooted() + "\n";
+        data = data + loot.GetController("helmet").GetLooted() + "\n";
+        data = data + loot.GetController("magnifyingGlass").GetLooted() + "\n";
+        data = data + loot.GetController("wallet").GetLooted() + "\n";
         data = data + year + " " + month.ToString().PadLeft(2) + " " + day.ToString().PadLeft(2) + " " + hour.ToString().PadLeft(2) + " " + minute.ToString().PadLeft(2) + " " + second.ToString().PadLeft(2) + "\n";
         data = data + chests.Length.ToString().PadLeft(3);
 
@@ -187,7 +182,7 @@ public class SaveManager : MonoBehaviour
         //gather all data needed to be saved
         highestFloor = genStats.GetHighestFloor();
         topFloor = 1;
-        gold = walletController.GetTotalBonus();
+        gold = loot.GetController("walletController").GetTotalBonus();
         adventurerLevel = 1;
         fighterLevel = 0;
         barbarianLevel = 0;
@@ -243,12 +238,12 @@ public class SaveManager : MonoBehaviour
         data = data + increasedBountyLevel + "\n";
         data = data + teleportLevel + "\n";
         data = data + autoSpawnerLevel + "\n";
-        data = data + swordController.GetLooted() + "\n";
-        data = data + longSwordController.GetLooted() + "\n";
-        data = data + shieldController.GetLooted() + "\n";
-        data = data + helmetController.GetLooted() + "\n";
-        data = data + magnifyingGlassController.GetLooted() + "\n";
-        data = data + walletController.GetLooted() + "\n";
+        data = data + loot.GetController("sword").GetLooted() + "\n";
+        data = data + loot.GetController("longSword").GetLooted() + "\n";
+        data = data + loot.GetController("shield").GetLooted() + "\n";
+        data = data + loot.GetController("helmet").GetLooted() + "\n";
+        data = data + loot.GetController("magnifyingGlass").GetLooted() + "\n";
+        data = data + loot.GetController("wallet").GetLooted() + "\n";
         data = data + year + " " + month.ToString().PadLeft(2) + " " + day.ToString().PadLeft(2) + " " + hour.ToString().PadLeft(2) + " " + minute.ToString().PadLeft(2) + " " + second.ToString().PadLeft(2) + "\n";
         data = data + chests.Length.ToString().PadLeft(3);
 

@@ -11,11 +11,9 @@ public class StatStorrage : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float spawn;
     [SerializeField] BigNumber gold;
-    
+
     //stat modifiers
-    [SerializeField] LootDisplayController sword;
-    [SerializeField] LootDisplayController shield;
-    [SerializeField] LootDisplayController magnifyingGlass;
+    [SerializeField] LootTracker loot;
     [SerializeField] MercenaryManager mManager;
     [SerializeField] PowerManager pManager;
 
@@ -139,9 +137,23 @@ public class StatStorrage : MonoBehaviour
     {
         if (tag == "enemy")
         {
-            return health;
+            return health % loot.GetController("sharpeningStone").GetTotalBonus();
         }
-        return health % shield.GetTotalBonus() * gearPercent;
+
+        BigNumber holder = health;
+
+        holder %= loot.GetController("shield").GetTotalBonus();
+        holder %= loot.GetController("helmet").GetTotalBonus();
+
+        if (level >= 1000)
+        {
+            holder %= loot.GetController("breastplate").GetTotalBonus();
+        }
+
+        holder *= gearPercent;
+        holder += loot.GetController("gauntlets").GetTotalBonus();
+
+        return holder;
     }
 
     public BigNumber LevelHealth()
@@ -160,15 +172,28 @@ public class StatStorrage : MonoBehaviour
     {
         if(tag == "enemy")
         {
-            return strength;
-        }
-        
-        if(strengthPercent == 0)
-        {
-            return strength % sword.GetTotalBonus() * gearPercent;
+            return strength % loot.GetController("tomeOfEndurance").GetTotalBonus();
         }
 
-        return strength % sword.GetTotalBonus() * gearPercent + mManager.GetTotalStrength(strengthPercent);
+        BigNumber holder = strength;
+        holder %= loot.GetController("sword").GetTotalBonus();
+        holder %= loot.GetController("longSword").GetTotalBonus();
+
+        if(level >= 1000)
+        {
+            holder %= loot.GetController("spear").GetTotalBonus();
+        }
+
+        holder *= gearPercent;
+        
+        if(strengthPercent != 0)
+        {
+            holder += mManager.GetTotalStrength(strengthPercent);
+        }
+
+        holder += loot.GetController("dagger").GetTotalBonus();
+
+        return holder;
     }
 
     public BigNumber LevelStrength()
@@ -263,6 +288,6 @@ public class StatStorrage : MonoBehaviour
     // Get the stored gold stat
     public BigNumber GetGold()
     {
-        return (gold % magnifyingGlass.GetTotalBonus()) * pManager.GetBountyRate();
+        return gold % loot.GetController("magnifyingGlass").GetTotalBonus() * pManager.GetBountyRate();
     }
 }

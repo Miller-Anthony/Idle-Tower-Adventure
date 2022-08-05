@@ -11,6 +11,10 @@ public class LootDisplayController : MonoBehaviour
     [SerializeField] int looted;
     [SerializeField] BigNumber bonus;
 
+    //internal stats for figuring out loot chance
+    [SerializeField] float startingWeight;
+    [SerializeField] int startingFloor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +58,7 @@ public class LootDisplayController : MonoBehaviour
             case "magnifyingGlass":
                 bonus = new BigNumber(30);
                 break;
-            case "tombOfLuck":
+            case "tomeOfLuck":
                 bonus = new BigNumber(30);
                 break;
             case "gemPouch":
@@ -102,6 +106,44 @@ public class LootDisplayController : MonoBehaviour
     public BigNumber GetTotalBonus()
     {
         return bonus * looted;
+    }
+
+    //get the loots starting weight
+    public float GetStartingWeight()
+    {
+        return startingWeight;
+    }
+
+    //get the loots starting floor
+    public int GetStartingFloor()
+    {
+        return startingFloor;
+    }
+
+    public float GetWeight(int floor)
+    {
+        // If the loot should not spawn yet return no weight
+        if (startingFloor < floor)
+        {
+            return 0;
+        }
+
+        int difference = floor - startingFloor;
+
+        if(difference <= 200)
+        {
+            return startingWeight + difference;
+        }
+        else 
+        {
+            float holder = startingWeight + difference - ((difference - 200) * (difference - 200));
+
+            if(holder < 10)
+            {
+                holder = 10;
+            }
+            return holder;
+        }  
     }
 
     //updates the text to 

@@ -47,7 +47,33 @@ TagManager:
   - breastPlate
   - gauntlets
   - gemPouch
+  - tomeOfLuck
+  - alchemyKit
+  - largeVial
   - tombOfLuck
+  - highQualityIngredients
+  - ringOfWishes
+  - amuletOfTime
+  - glovesOfMidas
+  - manaPotion
+  - magicFocus
+  - tomeOfIntelegence
+  - summonersRobe
+  - summonersRing
+  - summonersStaff
+  - tomeOfCharisma
+  - loadedDice
+  - tomeOfStrength
+  - swiftBoots
+  - tomeOfDexterity
+  - poisonVial
+  - tomeOfEndurance
+  - sharpeningStone
+  - investments
+  - adventuringVoucher
+  - dungeonMap
+  - portalStone
+  - pendantOfTheDawn
   layers:
   - Default
   - TransparentFX

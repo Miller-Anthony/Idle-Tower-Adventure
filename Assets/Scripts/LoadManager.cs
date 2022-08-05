@@ -31,12 +31,7 @@ public class LoadManager : MonoBehaviour
     [SerializeField] MiscUpgradeButtonController increasedBountyController;
     [SerializeField] MiscUpgradeButtonController teleportController;
     [SerializeField] MiscUpgradeButtonController autoSpawnerController;
-    [SerializeField] LootDisplayController swordController;
-    [SerializeField] LootDisplayController longSwordController;
-    [SerializeField] LootDisplayController shieldController;
-    [SerializeField] LootDisplayController helmetController;
-    [SerializeField] LootDisplayController magnifyingGlassController;
-    [SerializeField] LootDisplayController walletController;
+    [SerializeField] LootTracker loot;
     [SerializeField] ChestTracker chests;
     [SerializeField] RoomFactory factory;
 
@@ -219,9 +214,12 @@ public class LoadManager : MonoBehaviour
                 increasedBountyController.LoadLevels(increasedBountyLevel);
                 teleportController.LoadLevels(teleportLevel);
                 autoSpawnerController.LoadLevels(autoSpawnerLevel);
-                swordController.Setlooted(swordLoot);
-                shieldController.Setlooted(shieldLoot);
-                walletController.Setlooted(walletLoot);
+                loot.GetController("sword").Setlooted(swordLoot);
+                loot.GetController("longSword").Setlooted(swordLoot);
+                loot.GetController("shield").Setlooted(shieldLoot);
+                loot.GetController("helmet").Setlooted(swordLoot);
+                loot.GetController("magnifyingGlass").Setlooted(swordLoot);
+                loot.GetController("wallet").Setlooted(walletLoot);
                 genStats.OfflineGold(year, month, day, hour, minute, second);
             }
             gameObject.GetComponent<LoadManager>().enabled = false;

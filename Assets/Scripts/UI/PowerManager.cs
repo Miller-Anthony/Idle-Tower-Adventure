@@ -21,6 +21,7 @@ public class PowerManager : MonoBehaviour
     [SerializeField] float increaseCooldown;
     [SerializeField] float teleportCooldown;
     [SerializeField] float autoCooldown;
+    [SerializeField] LootTracker loot;
 
     //stored timer values
     private float hasteTimer;
@@ -64,7 +65,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (hasteIsActive)
                 {
-                    hasteTimer = hasteCooldown;
+                    hasteTimer = hasteCooldown % loot.GetController("alchemyKit").GetTotalBonus();
                     hasteIsActive = false;
                 }
             }
@@ -87,7 +88,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (increaseIsActive)
                 {
-                    increaseTimer = increaseCooldown;
+                    increaseTimer = increaseCooldown % loot.GetController("ringOfWishes").GetTotalBonus();
                     increaseIsActive = false;
                 }
             }
@@ -110,7 +111,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (teleportIsActive)
                 {
-                    teleportTimer = teleportCooldown;
+                    teleportTimer = teleportCooldown % loot.GetController("manaPotion").GetTotalBonus();
                     teleportIsActive = false;
                 }
             }
@@ -133,7 +134,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (autoIsActive)
                 {
-                    autoTimer = autoCooldown;
+                    autoTimer = autoCooldown % loot.GetController("summonersRobe").GetTotalBonus();
                     autoIsActive = false;
                 }
             }
@@ -174,7 +175,7 @@ public class PowerManager : MonoBehaviour
     {
         if (hasteIsActive)
         {
-            return hasteSpeed;
+            return hasteSpeed % loot.GetController("highQualityIngredients").GetTotalBonus();
         }
         return 1.0f;
     }
@@ -188,7 +189,7 @@ public class PowerManager : MonoBehaviour
     {
         if(increaseIsActive)
         {
-            return bountyRate;
+            return bountyRate % loot.GetController("glovesOfMidas").GetTotalBonus();
         }
         return 1.0f;
     }
@@ -214,7 +215,7 @@ public class PowerManager : MonoBehaviour
 
     public void SetAutoLimit(int limit)
     {
-        autoLimit = limit;
+        autoLimit = limit % loot.GetController("summonersStaff").GetTotalBonus();
     }
 
     public int GetAutoLimit()
@@ -228,12 +229,12 @@ public class PowerManager : MonoBehaviour
 
     public void SetAutoPerSecond(int ps)
     {
-        autoPerSecond = ps;
+        autoPerSecond = ps;  
     }
 
     public int GetAutoPerSecond()
     {
-        return autoPerSecond;
+        return autoPerSecond % loot.GetController("summonersStaff").GetTotalBonus();
     }
 
     public int GetHasteLevel()
@@ -344,28 +345,28 @@ public class PowerManager : MonoBehaviour
             case "hastePotion":
                 if (hasteTimer <= 0)
                 {
-                    hasteTimer = hasteActiveTime;
+                    hasteTimer = hasteActiveTime % loot.GetController("largeVial").GetTotalBonus();
                     hasteIsActive = true;
                 }
                 break;
             case "increasedBounty":
                 if (increaseTimer <= 0)
                 {
-                    increaseTimer = increaseActiveTime;
+                    increaseTimer = increaseActiveTime % loot.GetController("amuletOfTime").GetTotalBonus();
                     increaseIsActive = true;
                 }
                 break;
             case "teleport":
                 if (teleportTimer <= 0)
                 {
-                    teleportTimer = teleportActiveTime;
+                    teleportTimer = teleportActiveTime % loot.GetController("magicFocus").GetTotalBonus();
                     teleportIsActive = true;
                 }
                 break;
             case "autoSpawner":
                 if (autoTimer <= 0)
                 {
-                    autoTimer = autoActiveTime;
+                    autoTimer = autoActiveTime % loot.GetController("summonersRing").GetTotalBonus();
                     autoIsActive = true;
                 }
                 break;

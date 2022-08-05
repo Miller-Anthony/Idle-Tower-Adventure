@@ -36,6 +36,7 @@ public class NPCFactory : MonoBehaviour
     [SerializeField] GameObject druid;
     [SerializeField] FloorTracker tracker;
     [SerializeField] PowerManager pManager;
+    [SerializeField] LootTracker loot;
 
     [SerializeField] float chestChance;
 
@@ -296,7 +297,7 @@ public class NPCFactory : MonoBehaviour
         //determine if a chest will be spawned or not
         GameObject spawn = enemy;
 
-        if(floor.GetFloor() % 5 != 0 && chestChance > Random.value)
+        if(floor.GetFloor() % 5 != 0 && chestChance % loot.GetController("tomeOfLuck").GetTotalBonus() > Random.value)
         {
             spawn = enemyChest;
         }
@@ -320,7 +321,7 @@ public class NPCFactory : MonoBehaviour
 
         if(spawn == enemyChest)
         {
-            holdStats.SetGold(floor.GetEnemyGold() * 2.0f);
+            holdStats.SetGold(floor.GetEnemyGold() * 1.5f % loot.GetController("gemPouch").GetTotalBonus());
         }
         else
         {

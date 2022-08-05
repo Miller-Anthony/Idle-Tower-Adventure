@@ -11,33 +11,83 @@ public class LootTracker : MonoBehaviour
     [SerializeField] LootDisplayController daggerController;
     [SerializeField] LootDisplayController shieldController;
     [SerializeField] LootDisplayController helmetController;
-    [SerializeField] LootDisplayController breastPlateController;
+    [SerializeField] LootDisplayController breastplateController;
     [SerializeField] LootDisplayController gauntletsController;
     [SerializeField] LootDisplayController magnifyingGlassController;
-    [SerializeField] LootDisplayController tombOfLuckController;
+    [SerializeField] LootDisplayController tomeOfLuckController;
     [SerializeField] LootDisplayController gemPouchController;
     [SerializeField] LootDisplayController walletController;
+    [SerializeField] LootDisplayController alchemyKitController;
+    [SerializeField] LootDisplayController largeVialController;
+    [SerializeField] LootDisplayController highQualityIngredientsController;
+    [SerializeField] LootDisplayController ringOfWishesController;
+    [SerializeField] LootDisplayController amuletOfTimeController;
+    [SerializeField] LootDisplayController glovesOfMidasController;
+    [SerializeField] LootDisplayController manaPotionController;
+    [SerializeField] LootDisplayController magicFocusController;
+    [SerializeField] LootDisplayController tomeOfIntelegenceController;
+    [SerializeField] LootDisplayController summonersRobeController;
+    [SerializeField] LootDisplayController summonersRingController;
+    [SerializeField] LootDisplayController summonersStaffController;
+    [SerializeField] LootDisplayController tomeOfCharismaController;
+    [SerializeField] LootDisplayController lodedDiceController;
+    [SerializeField] LootDisplayController tomeOfStrengthController;
+    [SerializeField] LootDisplayController swiftBootsController;
+    [SerializeField] LootDisplayController tomeOfDexterityController;
+    [SerializeField] LootDisplayController poisonVialController;
+    [SerializeField] LootDisplayController tomeOfEnduranceController;
+    [SerializeField] LootDisplayController sharpeningStoneController;
+    [SerializeField] LootDisplayController investmentsController;
+    [SerializeField] LootDisplayController adventuringVoucherController;
+    [SerializeField] LootDisplayController dungeonMapController;
+    [SerializeField] LootDisplayController portalStoneController;
+    [SerializeField] LootDisplayController pendantOfTheDawnController;
 
-    //chance to get each item
-    [SerializeField] float swordChance;
-    [SerializeField] float longSwordChance;
-    [SerializeField] float spaerChance;
-    [SerializeField] float daggerChance;
-    [SerializeField] float shieldChance;
-    [SerializeField] float helmetChance;
-    [SerializeField] float breastPlateChance;
-    [SerializeField] float gauntletsChance;
-    [SerializeField] float magnifyingGlassChance;
-    [SerializeField] float tombOfLuckChance;
-    [SerializeField] float gemPouchChance;
-    [SerializeField] float walletChance;
-
-    //private List<LootDisplayController> lootList;
+    //internal variables
+    private List<LootDisplayController> lootList;
+    private List<LootDisplayController> tempList;
 
     // Start is called before the first frame update
     void Start()
     {
-        //lootList = new List<LootDisplayController>();
+        lootList = new List<LootDisplayController>();
+        lootList.Add(swordController);
+        lootList.Add(longSwordController);
+        lootList.Add(spearController);
+        lootList.Add(daggerController);
+        lootList.Add(shieldController);
+        lootList.Add(helmetController);
+        lootList.Add(breastplateController);
+        lootList.Add(gauntletsController);
+        lootList.Add(magnifyingGlassController);
+        lootList.Add(tomeOfLuckController);
+        lootList.Add(gemPouchController);
+        lootList.Add(walletController);
+        lootList.Add(alchemyKitController);
+        lootList.Add(largeVialController);
+        lootList.Add(highQualityIngredientsController);
+        lootList.Add(ringOfWishesController);
+        lootList.Add(amuletOfTimeController);
+        lootList.Add(glovesOfMidasController);
+        lootList.Add(manaPotionController);
+        lootList.Add(magicFocusController);
+        lootList.Add(tomeOfIntelegenceController);
+        lootList.Add(summonersRobeController);
+        lootList.Add(summonersRingController);
+        lootList.Add(summonersStaffController);
+        lootList.Add(tomeOfCharismaController);
+        lootList.Add(lodedDiceController);
+        lootList.Add(tomeOfStrengthController);
+        lootList.Add(swiftBootsController);
+        lootList.Add(tomeOfDexterityController);
+        lootList.Add(poisonVialController);
+        lootList.Add(tomeOfEnduranceController);
+        lootList.Add(sharpeningStoneController);
+        lootList.Add(investmentsController);
+        lootList.Add(adventuringVoucherController);
+        lootList.Add(dungeonMapController);
+        lootList.Add(portalStoneController);
+        lootList.Add(pendantOfTheDawnController);
     }
 
     // Update is called once per frame
@@ -48,31 +98,162 @@ public class LootTracker : MonoBehaviour
 
     public void AddLoot(int floor)
     {
-        float num = Random.Range(0.0f, swordChance + shieldChance + walletChance);
-        LootDisplayController holder = walletController;
+        //get data needed for calculations
+        float weight = TotalWeight(floor);
+        float num = Random.Range(0.0f, weight);
+        List<LootDisplayController>.Enumerator numerator = tempList.GetEnumerator();
 
-        //set the loot from the chest
-        if(num < swordChance)
-        {
-            holder = swordController;
-        }
-        else if(num < swordChance + shieldChance)
-        {
-            holder = shieldController;
-        }
 
-        holder.AddLoot();
-        holder.UpdateText();
+        while (numerator.MoveNext())
+        {
+            num -= (float)numerator.Current.GetWeight(floor);
+            if(num <= 0)
+            {
+                numerator.Current.AddLoot();
+                numerator.Current.UpdateText();
+                return;
+            }
+        }
     }
 
-    public void GetWeight(float weight, int StartingFloor, int currentFloor)
+    public LootDisplayController GetController(string loot)
     {
-        //calculate the weight
-        //have a starting weight and a starting floor and current floor
-        //get difference between the current floor and the chests starting floor
-        //if (x <= 200)
-        //weight + x
-        //else if (x > 200)
-        //weight + x - (x-200)^2
+        LootDisplayController holder = null;
+        switch(loot)
+        {
+            case "sword":
+                holder = swordController;
+                break;
+            case "longSword":
+                holder = longSwordController;
+                break;
+            case "spear":
+                holder = spearController;
+                break;
+            case "dagger":
+                holder = daggerController;
+                break;
+            case "shield":
+                holder = shieldController;
+                break;
+            case "helmet":
+                holder = helmetController;
+                break;
+            case "breastplate":
+                holder = breastplateController;
+                break;
+            case "gauntlets":
+                holder = gauntletsController;
+                break;
+            case "magnifyingGlass":
+                holder = magnifyingGlassController;
+                break;
+            case "tomeOfLuck":
+                holder = tomeOfLuckController;
+                break;
+            case "gemPouch":
+                holder = gemPouchController;
+                break;
+            case "wallet":
+                holder = walletController;
+                break;
+            case "alchemyKit":
+                holder = alchemyKitController;
+                break;
+            case "largeVial":
+                holder = largeVialController;
+                break;
+            case "highQualityIngredients":
+                holder = highQualityIngredientsController;
+                break;
+            case "ringOfWishes":
+                holder = ringOfWishesController;
+                break;
+            case "amuletOfTime":
+                holder = amuletOfTimeController;
+                break;
+            case "glovesOfMidas":
+                holder = glovesOfMidasController;
+                break;
+            case "manaPotion":
+                holder = manaPotionController;
+                break;
+            case "magicFocus":
+                holder = magicFocusController;
+                break;
+            case "tomeOfIntelegence":
+                holder = tomeOfIntelegenceController;
+                break;
+            case "summonersRobe":
+                holder = summonersRobeController;
+                break;
+            case "summonersRing":
+                holder = summonersRingController;
+                break;
+            case "summonersStaff":
+                holder = summonersStaffController;
+                break;
+            case "tomeOfCharisma":
+                holder = tomeOfCharismaController;
+                break;
+            case "lodedDice":
+                holder = lodedDiceController;
+                break;
+            case "tomeOfStrength":
+                holder = tomeOfStrengthController;
+                break;
+            case "swiftBoots":
+                holder = swiftBootsController;
+                break;
+            case "tomeOfDexterity":
+                holder = tomeOfDexterityController;
+                break;
+            case "poisonVial":
+                holder = poisonVialController;
+                break;
+            case "tomeOfEndurance":
+                holder = tomeOfEnduranceController;
+                break;
+            case "sharpeningStone":
+                holder = sharpeningStoneController;
+                break;
+            case "investments":
+                holder = investmentsController;
+                break;
+            case "adventuringVoucher":
+                holder = adventuringVoucherController;
+                break;
+            case "dungeonMap":
+                holder = dungeonMapController;
+                break;
+            case "portalStone":
+                holder = portalStoneController;
+                break;
+            case "pendantOfTheDawn":
+                holder = pendantOfTheDawnController;
+                break;
+            default:
+                break;
+        }
+        return holder;
+    }
+
+    private float TotalWeight(int floor)
+    {
+        List<LootDisplayController>.Enumerator numerator = lootList.GetEnumerator();
+        float total = 0;
+
+        while(numerator.MoveNext())
+        {
+            float holder = numerator.Current.GetWeight(floor);
+
+            if (holder > 0)
+            {
+                tempList.Add(numerator.Current);
+            }
+            total += holder;
+        }
+
+        return total;
     }
 }
