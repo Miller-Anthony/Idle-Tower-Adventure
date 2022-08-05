@@ -9,6 +9,7 @@ public class LootDisplayController : MonoBehaviour
     [SerializeField] Text bonusText;
 
     [SerializeField] int looted;
+    [SerializeField] int maxLootable; // 0 = unlimited
     [SerializeField] BigNumber bonus;
 
     //internal stats for figuring out loot chance
@@ -105,7 +106,13 @@ public class LootDisplayController : MonoBehaviour
     // Get the total bonus granted from the item
     public BigNumber GetTotalBonus()
     {
-        return bonus * looted;
+        switch(tag)
+        {
+            case "alchemistKit":
+                return new BigNumber(100) - (bonus * looted);
+            default:
+                return bonus * looted;
+        }
     }
 
     //get the loots starting weight
@@ -123,7 +130,7 @@ public class LootDisplayController : MonoBehaviour
     public float GetWeight(int floor)
     {
         // If the loot should not spawn yet return no weight
-        if (startingFloor < floor)
+        if (startingFloor < floor || looted == maxLootable)
         {
             return 0;
         }
@@ -136,6 +143,7 @@ public class LootDisplayController : MonoBehaviour
         }
         else 
         {
+            //y = s + x - x^2
             float holder = startingWeight + difference - ((difference - 200) * (difference - 200));
 
             if(holder < 10)
