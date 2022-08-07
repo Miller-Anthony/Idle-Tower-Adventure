@@ -13,6 +13,7 @@ public class GeneralStats : MonoBehaviour
     [SerializeField] PowerManager pManager; //power manager for max number of adventurers
     [SerializeField] FloorTracker fTracker;
     [SerializeField] MercenaryManager mManager;
+    [SerializeField] LootTracker loot;
 
     private int highestFloor = 1;
     private int numAdventurers;          //the number of adventurers currantly summoned
@@ -95,7 +96,7 @@ public class GeneralStats : MonoBehaviour
     //Get the chance a skilled adventurer will be summoned instead
     public float GetSkilledChance()
     {
-        return skilledChance;
+        return skilledChance % loot.GetController("lodedDice").GetTotalBonus();
     }
 
     //Set the chance a skilled adventurer will be summoned instead
@@ -107,7 +108,7 @@ public class GeneralStats : MonoBehaviour
     //Get the total amount of adventurers that can be summoned at any given time
     public int GetMaxAdventurers()
     {
-        return maxAdventurers + pManager.GetAutoLimit();
+        return maxAdventurers + loot.GetController("tomeOfCharisma").GetTotalBonus().ToInt() + pManager.GetAutoLimit();
     }
 
     //Set how many adventurers can be summoned at a given time
@@ -174,7 +175,7 @@ public class GeneralStats : MonoBehaviour
             }
         }
 
-        AddGold(currentGold);
+        AddGold(currentGold % loot.GetController("investments").GetTotalBonus());
 
         //add popup for the amount of gold gained
     }

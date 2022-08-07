@@ -161,7 +161,7 @@ public class PowerManager : MonoBehaviour
     {
         if(hasteIsActive)
         {
-            return hasteRate;
+            return hasteRate % loot.GetController("highQualityIngredients").GetTotalBonus();
         }
         return 1.0f;
     }
@@ -175,7 +175,7 @@ public class PowerManager : MonoBehaviour
     {
         if (hasteIsActive)
         {
-            return hasteSpeed % loot.GetController("highQualityIngredients").GetTotalBonus();
+            return hasteSpeed;
         }
         return 1.0f;
     }
@@ -201,7 +201,7 @@ public class PowerManager : MonoBehaviour
 
     public float GetTeleportRate()
     {
-        return teleportRate;
+        return teleportRate % loot.GetController("tomeOfIntelegence").GetTotalBonus();
     }
 
     public float GetTeleportBoost()

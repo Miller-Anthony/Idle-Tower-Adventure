@@ -326,6 +326,18 @@ public class BigNumber
         return num1 <= new BigNumber(num2);
     }
 
+    //returns the BigNumber as an int as best as possible (cant do numbers above the int cap)
+    public int ToInt()
+    {
+        double temp = number;
+
+        for(int i = 0; i < modifier; i++)
+        {
+            temp /= 1000;
+        }
+        return (int)temp;
+    }
+
     //returns a string formatted for UI display purposes
     public override string ToString()
     {

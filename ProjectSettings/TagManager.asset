@@ -44,13 +44,11 @@ TagManager:
   - longSword
   - spear
   - dagger
-  - breastPlate
   - gauntlets
   - gemPouch
   - tomeOfLuck
   - alchemyKit
   - largeVial
-  - tombOfLuck
   - highQualityIngredients
   - ringOfWishes
   - amuletOfTime
@@ -62,7 +60,6 @@ TagManager:
   - summonersRing
   - summonersStaff
   - tomeOfCharisma
-  - loadedDice
   - tomeOfStrength
   - swiftBoots
   - tomeOfDexterity
@@ -74,6 +71,8 @@ TagManager:
   - dungeonMap
   - portalStone
   - pendantOfTheDawn
+  - breastplate
+  - lodedDice
   layers:
   - Default
   - TransparentFX

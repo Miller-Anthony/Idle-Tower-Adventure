@@ -210,7 +210,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored speed stat
     public float GetSpeed()
     {
-        return speed * pManager.GetHasteSpeed();
+        return speed * pManager.GetHasteSpeed() % loot.GetController("swiftBoots").GetTotalBonus();
     }
 
     //Set the stored spawn stat
@@ -222,7 +222,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored spawn stat
     public float GetSpawn()
     {
-        return (spawn * spawnPercent) / pManager.GetHasteRate();
+        return (spawn * spawnPercent) / pManager.GetHasteRate() % loot.GetController("tomeOfDexterity").GetTotalBonus();
     }
 
     //Set the stored spawnPercent stat

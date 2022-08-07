@@ -246,7 +246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_TagString
-      value: tombOfLuck
+      value: tomeOfLuck
       objectReference: {fileID: 0}
     - target: {fileID: 8244113902975015307, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
@@ -452,7 +452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_TagString
-      value: breastPlate
+      value: breastplate
       objectReference: {fileID: 0}
     - target: {fileID: 8244113902975015307, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
@@ -579,7 +579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1478,7 +1478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1558,7 +1558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923862, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_TagString
-      value: loadedDice
+      value: lodedDice
       objectReference: {fileID: 0}
     - target: {fileID: 8244113902975015307, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
@@ -2077,7 +2077,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5417,6 +5417,7 @@ MonoBehaviour:
   spawnChance: 10
   minFloorSpawn: 50
   chest: {fileID: 1712489960744577879, guid: 659ee7b39409c334f91fc356946c3468, type: 3}
+  loot: {fileID: 1001115782}
 --- !u!1 &1565164468
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,12 +5615,7 @@ MonoBehaviour:
   teleport: {fileID: 740944587}
   autoSpawner: {fileID: 669588566}
   rebirth: {fileID: 823465699}
-  sword: {fileID: 2666387354376992953}
-  longSword: {fileID: 1082201071}
-  shield: {fileID: 755575566}
-  helmet: {fileID: 1282063446}
-  magnifyingGlass: {fileID: 420273438}
-  wallet: {fileID: 1227188265}
+  loot: {fileID: 1001115782}
 --- !u!114 &1565164474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5906,7 +5902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6490,7 +6486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6632,7 +6628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6850,7 +6846,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7014,7 +7010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 29
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7606,6 +7602,10 @@ PrefabInstance:
       value: clearFloorAuto
       objectReference: {fileID: 0}
     - target: {fileID: 830624246730544838, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: loot
+      value: 
+      objectReference: {fileID: 1001115782}
+    - target: {fileID: 830624246730544838, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: fTracker
       value: 
       objectReference: {fileID: 1565164472}
@@ -7633,6 +7633,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 830624247322716567, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 1524125958}
     - target: {fileID: 830624247440288209, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: loot
       value: 
@@ -7821,6 +7825,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 830624248150655169, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 1524125958}
+    - target: {fileID: 830624248259459163, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 1524125958}
+    - target: {fileID: 830624248541374525, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: tracker
+      value: 
+      objectReference: {fileID: 1524125958}
     - target: {fileID: 830624248838841073, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -9262,6 +9278,10 @@ PrefabInstance:
       propertyPath: factory
       value: 
       objectReference: {fileID: 1565164471}
+    - target: {fileID: 3881851391167141772, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
+      propertyPath: pManager
+      value: 
+      objectReference: {fileID: 1424275580}
     - target: {fileID: 3881851391167141772, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
       propertyPath: chestSpawn
       value: 

@@ -315,8 +315,8 @@ public class NPCFactory : MonoBehaviour
         //set the stats
         holder.transform.position = pos;
         holdStats.SetLevel(lvl);
-        holdStats.SetMaxHealth(floor.GetEnemyHealth());
-        holdStats.SetStrength(floor.GetEnemyStrength());
+        holdStats.SetMaxHealth(floor.GetEnemyHealth() % loot.GetController("sharpeningStone").GetTotalBonus());
+        holdStats.SetStrength(floor.GetEnemyStrength() % loot.GetController("tomeOfEndurance").GetTotalBonus());
         holder.GetComponent<CombatController>().SetFloor(floor);
 
         if(spawn == enemyChest)
@@ -365,8 +365,8 @@ public class NPCFactory : MonoBehaviour
         {
             //set the skilledAdventurers stats
             holdStats.SetLevel(adventurerStats.GetLevel());
-            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost() * 0.05f);
-            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost() * 0.05f);
+            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost() * 0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
+            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost() * 0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
             holdStats.SetSpeed(adventurerStats.GetSpeed() * 0.02f);
             holdStats.SetGold(new BigNumber(0));
         }
