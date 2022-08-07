@@ -107,7 +107,7 @@ public class LootDisplayController : MonoBehaviour
             case "tomeOfCharisma":
                 bonus = new BigNumber(30);
                 break;
-            case "lodedDice":
+            case "loadedDice":
                 bonus = new BigNumber(80);
                 break;
             case "tomeOfStrength":

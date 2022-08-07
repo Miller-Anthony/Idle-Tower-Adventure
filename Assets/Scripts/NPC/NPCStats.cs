@@ -20,6 +20,7 @@ public class NPCStats : MonoBehaviour
     void Start()
     {
         currentHealth = health;
+        loot = GameObject.Find("LootTracker").GetComponent<LootTracker>();
     }
 
     // Update is called once per frame

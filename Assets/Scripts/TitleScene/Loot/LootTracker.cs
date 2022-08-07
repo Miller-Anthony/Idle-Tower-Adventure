@@ -30,7 +30,7 @@ public class LootTracker : MonoBehaviour
     [SerializeField] LootDisplayController summonersRingController;
     [SerializeField] LootDisplayController summonersStaffController;
     [SerializeField] LootDisplayController tomeOfCharismaController;
-    [SerializeField] LootDisplayController lodedDiceController;
+    [SerializeField] LootDisplayController loadedDiceController;
     [SerializeField] LootDisplayController tomeOfStrengthController;
     [SerializeField] LootDisplayController swiftBootsController;
     [SerializeField] LootDisplayController tomeOfDexterityController;
@@ -76,7 +76,7 @@ public class LootTracker : MonoBehaviour
         lootList.Add(summonersRingController);
         lootList.Add(summonersStaffController);
         lootList.Add(tomeOfCharismaController);
-        lootList.Add(lodedDiceController);
+        lootList.Add(loadedDiceController);
         lootList.Add(tomeOfStrengthController);
         lootList.Add(swiftBootsController);
         lootList.Add(tomeOfDexterityController);
@@ -196,8 +196,8 @@ public class LootTracker : MonoBehaviour
             case "tomeOfCharisma":
                 holder = tomeOfCharismaController;
                 break;
-            case "lodedDice":
-                holder = lodedDiceController;
+            case "loadedDice":
+                holder = loadedDiceController;
                 break;
             case "tomeOfStrength":
                 holder = tomeOfStrengthController;

@@ -112,7 +112,7 @@ public class OnStart : MonoBehaviour
         loot.GetController("summonersRing").OnStart();
         loot.GetController("summonersStaff").OnStart();
         loot.GetController("tomeOfCharisma").OnStart();
-        loot.GetController("lodedDice").OnStart();
+        loot.GetController("loadedDice").OnStart();
         loot.GetController("tomeOfStrength").OnStart();
         loot.GetController("swiftBoots").OnStart();
         loot.GetController("tomeOfDexterity").OnStart();

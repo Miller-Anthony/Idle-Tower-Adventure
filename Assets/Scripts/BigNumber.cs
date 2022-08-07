@@ -160,14 +160,14 @@ public class BigNumber
     public static float operator %(float num1, BigNumber num2)
     {
         //this is wrong as it does not take the modefier of the percentage big number into account
-        return num1 * ((float)num2.number / 100) + 1;
+        return num1 * ((float)num2.number / 100 + 1);
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
     public static double operator %(double num1, BigNumber num2)
     {
         //this is wrong as it does not take the modefier of the percentage big number into account
-        return num1 * (num2.number / 100) + 1;
+        return num1 * (num2.number / 100 + 1);
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage

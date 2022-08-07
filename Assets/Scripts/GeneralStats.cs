@@ -96,7 +96,7 @@ public class GeneralStats : MonoBehaviour
     //Get the chance a skilled adventurer will be summoned instead
     public float GetSkilledChance()
     {
-        return skilledChance % loot.GetController("lodedDice").GetTotalBonus();
+        return skilledChance % loot.GetController("loadedDice").GetTotalBonus();
     }
 
     //Set the chance a skilled adventurer will be summoned instead
