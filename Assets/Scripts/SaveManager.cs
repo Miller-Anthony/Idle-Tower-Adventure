@@ -193,7 +193,7 @@ public class SaveManager : MonoBehaviour
         data = data + loot.GetController("investments").GetLooted() + "\n";
         data = data + loot.GetController("adventuringVoucher").GetLooted() + "\n";
         data = data + loot.GetController("dungeonMap").GetLooted() + "\n";
-        data = data + loot.GetController("poertalStone").GetLooted() + "\n";
+        data = data + loot.GetController("portalStone").GetLooted() + "\n";
         data = data + loot.GetController("pendantOfTheDawn").GetLooted() + "\n";
         data = data + year + " " + month.ToString().PadLeft(2) + " " + day.ToString().PadLeft(2) + " " + hour.ToString().PadLeft(2) + " " + minute.ToString().PadLeft(2) + " " + second.ToString().PadLeft(2) + "\n";
         data = data + chests.Length.ToString().PadLeft(3);

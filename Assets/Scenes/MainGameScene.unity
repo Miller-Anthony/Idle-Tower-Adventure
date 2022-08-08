@@ -3629,7 +3629,7 @@ MonoBehaviour:
   summonersRingController: {fileID: 150360451}
   summonersStaffController: {fileID: 1816139799}
   tomeOfCharismaController: {fileID: 585594099}
-  loadedDiceController: {fileID: 0}
+  loadedDiceController: {fileID: 1193613282}
   tomeOfStrengthController: {fileID: 1896991677}
   swiftBootsController: {fileID: 1700315580}
   tomeOfDexterityController: {fileID: 1645047877}
@@ -4164,6 +4164,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45375b3c58fe8404bb1a9018d43982ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1193613282 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+  m_PrefabInstance: {fileID: 492702229}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 653f808a2d1cac045a8515fbac85bdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1207059893
