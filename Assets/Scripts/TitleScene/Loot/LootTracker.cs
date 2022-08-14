@@ -43,6 +43,9 @@ public class LootTracker : MonoBehaviour
     [SerializeField] LootDisplayController portalStoneController;
     [SerializeField] LootDisplayController pendantOfTheDawnController;
 
+    //for displaying the loot that was added
+    [SerializeField] NewLootController newLoot;
+
     //internal variables
     private List<LootDisplayController> lootList;
     private List<LootDisplayController> tempList;
@@ -111,6 +114,7 @@ public class LootTracker : MonoBehaviour
             {
                 numerator.Current.AddLoot();
                 numerator.Current.UpdateText();
+                newLoot.Loot(numerator.Current);
                 return;
             }
         }

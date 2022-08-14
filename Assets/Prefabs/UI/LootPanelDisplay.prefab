@@ -251,9 +251,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 653f808a2d1cac045a8515fbac85bdab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleText: {fileID: 8244113902975015307}
   lootedText: {fileID: 8244113902640971558}
   bonusText: {fileID: 8981389468005778089}
+  descriptionText: {fileID: 8244113901603319804}
+  image: {fileID: 8244113902285913578}
   looted: 0
+  maxLootable: 0
+  startingWeight: 0
+  startingFloor: 0
 --- !u!1 &8244113902285913580
 GameObject:
   m_ObjectHideFlags: 0

@@ -153,28 +153,28 @@ public class BigNumber
     public static BigNumber operator %(BigNumber num1, BigNumber num2)
     {
         //this is wrong as it does not take the modefier of the percentage big number into account
-        return new BigNumber(num1.number * ((num2.number / 100) + 1), num1.modifier);
+        return new BigNumber(num1.number * (num2.number / 100), num1.modifier);
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
     public static float operator %(float num1, BigNumber num2)
     {
         //this is wrong as it does not take the modefier of the percentage big number into account
-        return num1 * ((float)num2.number / 100 + 1);
+        return num1 * ((float)num2.number / 100);
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
     public static double operator %(double num1, BigNumber num2)
     {
         //this is wrong as it does not take the modefier of the percentage big number into account
-        return num1 * (num2.number / 100 + 1);
+        return num1 * (num2.number / 100);
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
     public static int operator %(int num1, BigNumber num2)
     {
         //this is wrong as it does not take the modefier of the percentage big number into account
-        return (int)(num1 * (num2.number / 100) + 1);
+        return (int)(num1 * (num2.number / 100));
     }
 
     public static bool operator <(BigNumber num1, BigNumber num2)

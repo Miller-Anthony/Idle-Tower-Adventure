@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class LootDisplayController : MonoBehaviour
 {
+    [SerializeField] Text titleText;
     [SerializeField] Text lootedText;
     [SerializeField] Text bonusText;
+    [SerializeField] Text descriptionText;
+    [SerializeField] Image image;
 
     [SerializeField] int looted;
     [SerializeField] int maxLootable; // 0 = unlimited
@@ -183,6 +186,10 @@ public class LootDisplayController : MonoBehaviour
     {
         switch(tag)
         {
+            case "dagger":
+                return new BigNumber(0) + (bonus * looted);
+            case "gauntlets":
+                return new BigNumber(0) + (bonus * looted);
             case "alchemistKit":
                 return new BigNumber(100) - (bonus * looted);
             case "largeVial":
@@ -212,7 +219,7 @@ public class LootDisplayController : MonoBehaviour
             case "adventuringVoucher":
                 return new BigNumber(100) - (bonus * looted);
             default:
-                return bonus * looted;
+                return 100 + bonus * looted;
         }
     }
 
@@ -253,6 +260,21 @@ public class LootDisplayController : MonoBehaviour
             }
             return holder;
         }  
+    }
+
+    public string GetTitle()
+    {
+        return titleText.text;
+    }
+
+    public string GetDescription()
+    {
+        return descriptionText.text;
+    }
+
+    public Image GetImage()
+    {
+        return image;
     }
 
     //updates the text to 
