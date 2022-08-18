@@ -215,7 +215,7 @@ public class PowerManager : MonoBehaviour
 
     public void SetAutoLimit(int limit)
     {
-        autoLimit = limit % loot.GetController("summonersStaff").GetTotalBonus();
+        autoLimit = limit % loot.GetController("summonersStaff").GetTotalBonus().ToInt();
     }
 
     public int GetAutoLimit()
@@ -234,7 +234,7 @@ public class PowerManager : MonoBehaviour
 
     public int GetAutoPerSecond()
     {
-        return autoPerSecond % loot.GetController("summonersStaff").GetTotalBonus();
+        return autoPerSecond % loot.GetController("summonersStaff").GetTotalBonus().ToInt();
     }
 
     public int GetHasteLevel()

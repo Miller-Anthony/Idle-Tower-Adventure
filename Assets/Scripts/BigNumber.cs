@@ -503,6 +503,16 @@ public class BigNumber
         return true;
     }
 
+    public int ToInt()
+    {
+        int toReturn = 0;
+        for(int i = 0; i < CountDigits(); ++i)
+        {
+            toReturn += digit[i] * (int)(Math.Pow(10, i));
+        }
+        return toReturn;
+    }
+
     //returns a string formatted for UI display purposes
     public override string ToString()
     {
