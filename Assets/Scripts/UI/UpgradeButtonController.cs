@@ -8,6 +8,7 @@ public class UpgradeButtonController : MonoBehaviour
     [SerializeField] GeneralStats genStats;
     [SerializeField] BigNumber cost;
     [SerializeField] UpgradePanelController panel;
+    [SerializeField] LootTracker loot;
 
     // Start is called before the first frame update
     void Start()
@@ -102,7 +103,7 @@ public class UpgradeButtonController : MonoBehaviour
         {
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
-            cost = cost * 1.1f;
+            cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
 
             Upgrade();
 
@@ -116,7 +117,7 @@ public class UpgradeButtonController : MonoBehaviour
         //for the number of levels, level up the given NPC
         for(int i = 0; i < levels; i++)
         {
-            cost = cost * 1.1f;
+            cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
 
             Upgrade();
         }

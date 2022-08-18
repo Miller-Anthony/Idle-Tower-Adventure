@@ -43,12 +43,7 @@ public class OnStart : MonoBehaviour
     [SerializeField] MiscUpgradeButtonController teleport;
     [SerializeField] MiscUpgradeButtonController autoSpawner;
     [SerializeField] MiscUpgradeButtonController rebirth;
-    [SerializeField] LootDisplayController sword;
-    [SerializeField] LootDisplayController longSword;
-    [SerializeField] LootDisplayController shield;
-    [SerializeField] LootDisplayController helmet;
-    [SerializeField] LootDisplayController magnifyingGlass;
-    [SerializeField] LootDisplayController wallet;
+    [SerializeField] LootTracker loot;
 
     // Start is called before the first frame update
     void Start()
@@ -92,12 +87,43 @@ public class OnStart : MonoBehaviour
         teleport.OnStart();
         autoSpawner.OnStart();
         rebirth.OnStart();
-        sword.OnStart();
-        longSword.OnStart();
-        shield.OnStart();
-        helmet.OnStart();
-        magnifyingGlass.OnStart();
-        wallet.OnStart();
+        loot.GetController("sword").OnStart();
+        loot.GetController("longSword").OnStart();
+        loot.GetController("spear").OnStart();
+        loot.GetController("dagger").OnStart();
+        loot.GetController("shield").OnStart();
+        loot.GetController("helmet").OnStart();
+        loot.GetController("breastplate").OnStart();
+        loot.GetController("gauntlets").OnStart();
+        loot.GetController("magnifyingGlass").OnStart();
+        loot.GetController("tomeOfLuck").OnStart();
+        loot.GetController("gemPouch").OnStart();
+        loot.GetController("wallet").OnStart();
+        loot.GetController("alchemyKit").OnStart();
+        loot.GetController("largeVial").OnStart();
+        loot.GetController("highQualityIngredients").OnStart();
+        loot.GetController("ringOfWishes").OnStart();
+        loot.GetController("amuletOfTime").OnStart();
+        loot.GetController("glovesOfMidas").OnStart();
+        loot.GetController("manaPotion").OnStart();
+        loot.GetController("magicFocus").OnStart();
+        loot.GetController("tomeOfIntelegence").OnStart();
+        loot.GetController("summonersRobe").OnStart();
+        loot.GetController("summonersRing").OnStart();
+        loot.GetController("summonersStaff").OnStart();
+        loot.GetController("tomeOfCharisma").OnStart();
+        loot.GetController("loadedDice").OnStart();
+        loot.GetController("tomeOfStrength").OnStart();
+        loot.GetController("swiftBoots").OnStart();
+        loot.GetController("tomeOfDexterity").OnStart();
+        loot.GetController("poisonVial").OnStart();
+        loot.GetController("tomeOfEndurance").OnStart();
+        loot.GetController("sharpeningStone").OnStart();
+        loot.GetController("investments").OnStart();
+        loot.GetController("adventuringVoucher").OnStart();
+        loot.GetController("dungeonMap").OnStart();
+        loot.GetController("portalStone").OnStart();
+        loot.GetController("pendantOfTheDawn").OnStart();
     }
 
     // Update is called once per frame

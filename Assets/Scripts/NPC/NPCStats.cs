@@ -12,13 +12,15 @@ public class NPCStats : MonoBehaviour
     [SerializeField] BigNumber gold;     //how much gold you get from the enemy (only needed for enemies)
     [SerializeField] GameObject healthBar; //the healthbar of an enemy
     [SerializeField] Transform currentHealthBar; //the current health represented graphically
-    
+    [SerializeField] LootTracker loot;
+
     private BigNumber currentHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = health;
+        loot = GameObject.Find("LootTracker").GetComponent<LootTracker>();
     }
 
     // Update is called once per frame
@@ -167,7 +169,7 @@ public class NPCStats : MonoBehaviour
     //only called for enemies
     public void RegenHealth()
     {
-        currentHealth += health * 0.2f;
+        currentHealth += health * 0.2f % loot.GetController("poisonVial").GetTotalBonus() ;
         if(currentHealth >= health)
         {
             currentHealth = health;

@@ -7,6 +7,7 @@ public class ChestFactory : MonoBehaviour
     [SerializeField] float spawnChance;
     [SerializeField] int minFloorSpawn;
     [SerializeField] GameObject chest;
+    [SerializeField] LootTracker loot;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class ChestFactory : MonoBehaviour
         {
             float num = Random.Range(0.0f, 100.0f);
 
-            if (num <= spawnChance)
+            if (num <= spawnChance % loot.GetController("dungeonMap").GetTotalBonus())
             {
                 answer = true;
             }

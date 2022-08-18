@@ -36,6 +36,7 @@ public class NPCFactory : MonoBehaviour
     [SerializeField] GameObject druid;
     [SerializeField] FloorTracker tracker;
     [SerializeField] PowerManager pManager;
+    [SerializeField] LootTracker loot;
 
     [SerializeField] float chestChance;
 
@@ -296,7 +297,7 @@ public class NPCFactory : MonoBehaviour
         //determine if a chest will be spawned or not
         GameObject spawn = enemy;
 
-        if(floor.GetFloor() % 5 != 0 && chestChance > Random.value)
+        if(floor.GetFloor() % 5 != 0 && chestChance % loot.GetController("tomeOfLuck").GetTotalBonus() > Random.value)
         {
             spawn = enemyChest;
         }
@@ -314,13 +315,13 @@ public class NPCFactory : MonoBehaviour
         //set the stats
         holder.transform.position = pos;
         holdStats.SetLevel(lvl);
-        holdStats.SetMaxHealth(floor.GetEnemyHealth());
-        holdStats.SetStrength(floor.GetEnemyStrength());
+        holdStats.SetMaxHealth(floor.GetEnemyHealth() % loot.GetController("sharpeningStone").GetTotalBonus());
+        holdStats.SetStrength(floor.GetEnemyStrength() % loot.GetController("tomeOfEndurance").GetTotalBonus());
         holder.GetComponent<CombatController>().SetFloor(floor);
 
         if(spawn == enemyChest)
         {
-            holdStats.SetGold(floor.GetEnemyGold() * 2.0f);
+            holdStats.SetGold(floor.GetEnemyGold() * 1.5f % loot.GetController("gemPouch").GetTotalBonus());
         }
         else
         {
@@ -364,8 +365,8 @@ public class NPCFactory : MonoBehaviour
         {
             //set the skilledAdventurers stats
             holdStats.SetLevel(adventurerStats.GetLevel());
-            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost() * 0.05f);
-            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost() * 0.05f);
+            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost() * 0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
+            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost() * 0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
             holdStats.SetSpeed(adventurerStats.GetSpeed() * 0.02f);
             holdStats.SetGold(new BigNumber(0));
         }
