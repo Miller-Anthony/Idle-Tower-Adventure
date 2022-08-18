@@ -84,6 +84,14 @@ public class BigNumberTests : MonoBehaviour
         Debug.Log("993 % 11 = ");
         Debug.Log((l % m).ToString());
 
+        BigNumber aa = new BigNumber(10);
+        BigNumber cc = aa * 0.3;
+        Debug.Log("10 * 0.3 = ");
+        Debug.Log((cc).ToString());
+        BigNumber bb = new BigNumber(17);
+        Debug.Log("17 * 0.7 = ");
+        Debug.Log((bb * 0.7).ToString());
+
         /*BigNumber d = new BigNumber(1, 0);
         int comparator = 1;
 

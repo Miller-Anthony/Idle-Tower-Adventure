@@ -235,7 +235,28 @@ public class BigNumber
     {
         BigNumber toReturn = new BigNumber(0);
 
+        int digits = 1;
         // code here - WIP
+        if(num2 > 10)
+        {
+            digits = (int)(Math.Log10(num2));
+        }
+        for (int i = 0; i < num1.CountDigits(); ++i)
+        {
+            for (int j = 0; j < digits; ++j)
+            {
+                int current = (int)(num2) / (int)(Math.Pow(10, j)) % 10;
+                toReturn += new BigNumber(num1.digit[i] * current * Math.Pow(10, (i + j)));
+            }
+        }
+        num2 %= 1.0;
+        int counter = 0;
+        while(num2 < 1.0 && num2 > 0.0)
+        {
+            num2 *= 10;
+            ++counter;
+            toReturn += BigDivision((num1 * new BigNumber(num2 % 10)), new BigNumber(Math.Pow(10, counter)));
+        }
 
         return toReturn;
     }
@@ -299,7 +320,7 @@ public class BigNumber
             while (val * new BigNumber(10) < num1_clone)
             {
                 val *= new BigNumber(10);
-                iter *= 10;
+                iter *= new BigNumber(10);
             }
             BigNumber val_clone = val;
             BigNumber iter_clone = iter;
@@ -311,11 +332,32 @@ public class BigNumber
             num1_clone -= val;
             total += iter;
         }
+        if (num1_clone == num2)
+            total = total + new BigNumber(1);
         return total;
     }
 
     //multiplies BigNumber by another BigNumber representing a percentage
+
+    //THIS IS NOT A MODULO OPERATION (see below function)
     public static BigNumber operator %(BigNumber num1, BigNumber num2)
+    {
+        return BigDivision(num1 * num2, new BigNumber(100));
+    }
+    public static float operator %(float num1, BigNumber num2)
+    {
+        return (float)((num2 * num1) / new BigNumber(100));
+    }
+    public static double operator %(double num1, BigNumber num2)
+    {
+        return (num2 * num1) / new BigNumber(100);
+    }
+    public static BigNumber operator %(int num1, BigNumber num2)
+    {
+        return BigDivision(new BigNumber(num1) * num2, new BigNumber(100));
+    }
+
+    public static BigNumber modulo(BigNumber num1, BigNumber num2)
     {
         if (num2 == new BigNumber(0))
             return num1;
@@ -350,7 +392,7 @@ public class BigNumber
             {
                 if (num1.digit[i] < num2.digit[i])
                     return true;
-                else if (num1.digit[i] < num2.digit[i])
+                else if (num1.digit[i] > num2.digit[i])
                     return false;
             }
         }
