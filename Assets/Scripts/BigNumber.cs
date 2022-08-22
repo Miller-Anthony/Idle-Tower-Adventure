@@ -416,7 +416,7 @@ public class BigNumber
             {
                 if (num1.digit[i] < num2.digit[i])
                     return true;
-                else if (num1.digit[i] < num2.digit[i])
+                else if (num1.digit[i] > num2.digit[i])
                     return false;
             }
         }
