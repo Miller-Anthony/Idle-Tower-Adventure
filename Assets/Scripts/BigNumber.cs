@@ -444,22 +444,19 @@ public class BigNumber
     //when a BigNumber is multiplied by an int
     public static BigNumber operator *(BigNumber num1, int num2)
     {
-        //return new BigNumber(num1.number * num2, num1.modifier);
-        return new BigNumber(0);
+        return num1 * new BigNumber(num2);
     }
 
     //when a BigNumber is multiplied by an int
     public static BigNumber operator *(int num1, BigNumber num2)
     {
-        //return new BigNumber(num1 * num2.number, num2.modifier);
-        return new BigNumber(0);
+        return new BigNumber(num1) * num2;
     }
 
     //when a BigNumber is multiplied by a float
     public static BigNumber operator *(BigNumber num1, float num2)
     {
-        //return new BigNumber(num1.number * num2, num1.modifier);
-        return new BigNumber(0);
+        return num1 * (double)num2;
     }
 
     //when a BigNumber is compared to an int
