@@ -185,7 +185,7 @@ public class NPCStats : MonoBehaviour
     //return the percent health left of the NPC as a float
     public float PercentHealth()
     {
-        return currentHealth / health;
+        return (float)(currentHealth / health);
     }
 
     //returns true if current health is at maximum
