@@ -152,6 +152,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increases the chance mimic will spawn
@@ -370,6 +382,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase health of Adventurers and Mercenaries above level 1000
@@ -597,6 +621,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the duration of Auto Summon
@@ -729,6 +765,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the duration of Increased Bounty
@@ -1252,6 +1300,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increases gold looted from defeated enemies
@@ -1417,6 +1477,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease the cooldown of Teleport
@@ -1571,6 +1643,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the chance to summon a Skilled Adventurer
@@ -1811,6 +1895,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Improve daily rewards
@@ -1954,6 +2050,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase rewards granted from video chests
@@ -2086,6 +2194,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the duration of Teleport
@@ -2207,6 +2327,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the maximum number of Adventurers able to be summoned
@@ -2550,6 +2682,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 999999
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase damage of Adventurers and Mercenaries By  flat amount
@@ -2717,6 +2857,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6825234716127650875, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -79.999985
@@ -3026,6 +3178,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: increase the effect of Teleport
@@ -3194,6 +3358,10 @@ PrefabInstance:
     - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: bonus
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6825234716127650875, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -3415,6 +3583,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: increase the effect of Increased Bounty
@@ -3654,6 +3834,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6825234716127650875, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -80.000015
@@ -3978,6 +4170,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease enemy health
@@ -4247,6 +4451,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase offline gold gain
@@ -4535,6 +4751,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: increase the effect of Haste Potion
@@ -4656,6 +4884,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increases gold looted from defeated mimics
@@ -4791,6 +5031,18 @@ PrefabInstance:
     - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: bonus
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5566795809217268964, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
@@ -4962,6 +5214,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease enemy attack
@@ -5629,6 +5893,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Reduce the cost of Mercenaries
@@ -5961,8 +6237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35397a2502951894689138e05de9af41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnChance: 10
-  minFloorSpawn: 50
+  spawnChance: 100
+  minFloorSpawn: 10
   chest: {fileID: 1712489960744577879, guid: 659ee7b39409c334f91fc356946c3468, type: 3}
   loot: {fileID: 1001115782}
 --- !u!1001 &1536697989
@@ -6340,6 +6616,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 999999
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase health of Adventurers and Mercenaries by a flat amount
@@ -6491,6 +6771,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease the cooldown of Increased Bounty
@@ -6612,6 +6904,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease the spawn time of Merceneries
@@ -6937,6 +7241,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6825234716127650875, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -79.999985
@@ -7220,6 +7536,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease the cooldown of Haste Potion
@@ -7352,6 +7680,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: increase the effect of Auto Summon
@@ -7506,6 +7846,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase Adventurer and Mercenraies movement speed
@@ -7627,6 +7979,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the chance to find Loot Chests
@@ -7827,6 +8191,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the attack and health of Skilled Adventurers
@@ -8003,6 +8379,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease enemy health regen rate
@@ -8135,6 +8523,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: looted
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Decrease the cooldown of Auto Summon
@@ -8267,6 +8671,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 181403799}
     m_Modifications:
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingFloor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8244113901603319804, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: Increase the duration of Haste Potion
@@ -10331,6 +10747,14 @@ PrefabInstance:
       propertyPath: lootedText
       value: 
       objectReference: {fileID: 2119526386}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: maxLootable
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 738196840587357688, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
+      propertyPath: startingWeight
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5566795809217268964, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_Text
       value: 'Bonus:'

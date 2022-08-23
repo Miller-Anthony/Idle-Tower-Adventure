@@ -238,7 +238,7 @@ public class LootDisplayController : MonoBehaviour
     public float GetWeight(int floor)
     {
         // If the loot should not spawn yet return no weight
-        if (startingFloor < floor || looted == maxLootable)
+        if (startingFloor > floor || looted == maxLootable)
         {
             return 0;
         }

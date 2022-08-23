@@ -91,6 +91,8 @@ public class LootTracker : MonoBehaviour
         lootList.Add(dungeonMapController);
         lootList.Add(portalStoneController);
         lootList.Add(pendantOfTheDawnController);
+
+        tempList = new List<LootDisplayController>();
     }
 
     // Update is called once per frame
@@ -247,10 +249,16 @@ public class LootTracker : MonoBehaviour
         List<LootDisplayController>.Enumerator numerator = lootList.GetEnumerator();
         float total = 0;
 
+        //clear out the old temp list
+        tempList.Clear();
+
+        //go through the whole list of loot
         while(numerator.MoveNext())
         {
+            //get the weight of the current loot
             float holder = numerator.Current.GetWeight(floor);
 
+            //if there was a weight to return add it to the list to look through
             if (holder > 0)
             {
                 tempList.Add(numerator.Current);
