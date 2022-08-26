@@ -90,7 +90,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
             }
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
-            cost = cost * 11.0f;
+            cost = cost * 10;
 
             switch (tag)
             {
@@ -160,7 +160,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
         //for the numbers of levels, level up the upgrade
         for (int i = 0; i < levels; i++)
         {
-            cost = cost * 10.0f;
+            cost = cost * 10;
 
             switch (tag)
             {
