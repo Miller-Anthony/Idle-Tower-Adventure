@@ -47,64 +47,64 @@ public class StatStorrage : MonoBehaviour
                 strength = new BigNumber(3);
                 gold = new BigNumber(2);
                 break;
-            case "fighter":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
-                gold = new BigNumber(0);
-                break;
-            case "barbarian":
-                health = new BigNumber(1444);
-                strength = new BigNumber(1555);
-                gold = new BigNumber(0);
-                break;
-            case "rogue":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
-                gold = new BigNumber(0);
-                break;
-            case "ranger":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
-                gold = new BigNumber(0);
-                break;
-            case "monk":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
-                gold = new BigNumber(0);
-                break;
             case "cleric":
                 health = new BigNumber(5);
                 strength = new BigNumber(1);
                 gold = new BigNumber(0);
                 break;
+            case "fighter":
+                health = new BigNumber(20);
+                strength = new BigNumber(10);
+                gold = new BigNumber(0);
+                break;
+            case "barbarian":
+                health = new BigNumber(150);
+                strength = new BigNumber(35);
+                gold = new BigNumber(0);
+                break;
+            case "rogue":
+                health = new BigNumber(1000);
+                strength = new BigNumber(90);
+                gold = new BigNumber(0);
+                break;
+            case "ranger":
+                health = new BigNumber(16666);
+                strength = new BigNumber(300);
+                gold = new BigNumber(0);
+                break;
+            case "monk":
+                health = new BigNumber(278450);
+                strength = new BigNumber(1100);
+                gold = new BigNumber(0);
+                break;
             case "bard":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
+                health = new BigNumber(12000000);
+                strength = new BigNumber(4700);
                 gold = new BigNumber(0);
                 break;
             case "wizzard":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
+                health = new BigNumber(518000000);
+                strength = new BigNumber(25000);
                 gold = new BigNumber(0);
                 break;
             case "warlock":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
+                health = new BigNumber(57960000000);
+                strength = new BigNumber(154600);
                 gold = new BigNumber(0);
                 break;
             case "sorcerer":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
+                health = new BigNumber(6489000000000);
+                strength = new BigNumber(1214660);
                 gold = new BigNumber(0);
                 break;
             case "paladin":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
+                health = new BigNumber(188300000000000);
+                strength = new BigNumber(11111111);
                 gold = new BigNumber(0);
                 break;
             case "druid":
-                health = new BigNumber(5);
-                strength = new BigNumber(1);
+                health = new BigNumber(546800000000000000);
+                strength = new BigNumber(129000000);
                 gold = new BigNumber(0);
                 break;
             default:

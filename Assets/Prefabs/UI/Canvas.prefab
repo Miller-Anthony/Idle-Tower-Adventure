@@ -833,7 +833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &830624247241927047
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1425,6 +1425,7 @@ MonoBehaviour:
   stats: {fileID: 830624247932314369}
   genStats: {fileID: 830624246730544838}
   panel: {fileID: 830624247932314372}
+  loot: {fileID: 0}
 --- !u!1 &830624247511335958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,10 +2177,9 @@ MonoBehaviour:
   level: 1
   speed: 1
   spawn: 0
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1 &830624247936877493
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,6 +3468,10 @@ MonoBehaviour:
   bottomFloor: 0
   maxAdventurers: 5
   skilledChance: 0
+  pManager: {fileID: 0}
+  fTracker: {fileID: 0}
+  mManager: {fileID: 0}
+  loot: {fileID: 0}
 --- !u!114 &830624248032913424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3772,12 +3776,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7069857158499253593}
   - {fileID: 8490989323851951619}
   - {fileID: 8490989323762850938}
   - {fileID: 7457361534990366555}
   - {fileID: 6558036351036039072}
   - {fileID: 1118820371866422869}
-  - {fileID: 7069857158499253593}
   - {fileID: 8531184977510883671}
   - {fileID: 7339466653063014569}
   - {fileID: 1183490060543968165}
@@ -4276,14 +4280,19 @@ MonoBehaviour:
   increaseText: {fileID: 0}
   teleportText: {fileID: 0}
   autoText: {fileID: 0}
-  hasteActive: 0
-  increaseActive: 0
-  teleportActive: 0
-  autoActive: 0
+  hasteActiveTime: 0
+  increaseActiveTime: 0
+  teleportActiveTime: 0
+  autoActiveTime: 0
   hasteCooldown: 0
   increaseCooldown: 0
   teleportCooldown: 0
   autoCooldown: 0
+  loot: {fileID: 0}
+  hasteIsActive: 0
+  increaseIsActive: 0
+  teleportIsActive: 0
+  autoIsActive: 0
 --- !u!1 &4079348855823186340
 GameObject:
   m_ObjectHideFlags: 0
@@ -4438,14 +4447,19 @@ MonoBehaviour:
   increaseText: {fileID: 0}
   teleportText: {fileID: 0}
   autoText: {fileID: 0}
-  hasteActive: 0
-  increaseActive: 0
-  teleportActive: 0
-  autoActive: 0
+  hasteActiveTime: 0
+  increaseActiveTime: 0
+  teleportActiveTime: 0
+  autoActiveTime: 0
   hasteCooldown: 0
   increaseCooldown: 0
   teleportCooldown: 0
   autoCooldown: 0
+  loot: {fileID: 0}
+  hasteIsActive: 0
+  increaseIsActive: 0
+  teleportIsActive: 0
+  autoIsActive: 0
 --- !u!1 &4258803709163377169
 GameObject:
   m_ObjectHideFlags: 0
@@ -5717,14 +5731,19 @@ MonoBehaviour:
   increaseText: {fileID: 0}
   teleportText: {fileID: 0}
   autoText: {fileID: 0}
-  hasteActive: 0
-  increaseActive: 0
-  teleportActive: 0
-  autoActive: 0
+  hasteActiveTime: 0
+  increaseActiveTime: 0
+  teleportActiveTime: 0
+  autoActiveTime: 0
   hasteCooldown: 0
   increaseCooldown: 0
   teleportCooldown: 0
   autoCooldown: 0
+  loot: {fileID: 0}
+  hasteIsActive: 0
+  increaseIsActive: 0
+  teleportIsActive: 0
+  autoIsActive: 0
 --- !u!1 &7967074312776745203
 GameObject:
   m_ObjectHideFlags: 0
@@ -6310,14 +6329,19 @@ MonoBehaviour:
   increaseText: {fileID: 0}
   teleportText: {fileID: 0}
   autoText: {fileID: 0}
-  hasteActive: 0
-  increaseActive: 0
-  teleportActive: 0
-  autoActive: 0
+  hasteActiveTime: 0
+  increaseActiveTime: 0
+  teleportActiveTime: 0
+  autoActiveTime: 0
   hasteCooldown: 0
   increaseCooldown: 0
   teleportCooldown: 0
   autoCooldown: 0
+  loot: {fileID: 0}
+  hasteIsActive: 0
+  increaseIsActive: 0
+  teleportIsActive: 0
+  autoIsActive: 0
 --- !u!1 &9072965926630277305
 GameObject:
   m_ObjectHideFlags: 0
@@ -6630,14 +6654,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
---- !u!224 &8531184977510883671 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
-  m_PrefabInstance: {fileID: 591148160843199147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8531184977510883668 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
+  m_PrefabInstance: {fileID: 591148160843199147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8531184977510883671 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
   m_PrefabInstance: {fileID: 591148160843199147}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &515051782794462195
@@ -6655,10 +6679,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &830624247725723526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6688,7 +6711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6825,10 +6848,9 @@ MonoBehaviour:
   level: 0
   speed: 1.004
   spawn: 2.1
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &830624247781277183
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6858,7 +6880,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6970,14 +6992,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
---- !u!224 &8490989323851951619 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
-  m_PrefabInstance: {fileID: 830624247781277183}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8490989323851951616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
+  m_PrefabInstance: {fileID: 830624247781277183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8490989323851951619 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
   m_PrefabInstance: {fileID: 830624247781277183}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &830624247781277180
@@ -6995,10 +7017,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &943725598298614299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7327,7 +7348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_AnchorMax.x
@@ -7451,14 +7472,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
---- !u!224 &7457361534990366555 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
-  m_PrefabInstance: {fileID: 1814153888832644263}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7457361534990366552 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
+  m_PrefabInstance: {fileID: 1814153888832644263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7457361534990366555 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
   m_PrefabInstance: {fileID: 1814153888832644263}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5643559556946340151
@@ -7476,10 +7497,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &1922905290372021652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7658,10 +7678,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &1984947926381968213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7815,14 +7834,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
---- !u!1 &7339466653063014570 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
-  m_PrefabInstance: {fileID: 1984947926381968213}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &7339466653063014569 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
+  m_PrefabInstance: {fileID: 1984947926381968213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7339466653063014570 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
   m_PrefabInstance: {fileID: 1984947926381968213}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5855784314477692473
@@ -7840,10 +7859,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &2039523939018469029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7873,7 +7891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8022,10 +8040,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &2689254563878947932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8055,7 +8072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8179,14 +8196,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
---- !u!1 &6558036351036039075 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
-  m_PrefabInstance: {fileID: 2689254563878947932}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &6558036351036039072 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
+  m_PrefabInstance: {fileID: 2689254563878947932}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6558036351036039075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
   m_PrefabInstance: {fileID: 2689254563878947932}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &46149997253505442
@@ -8204,10 +8221,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &2928474463474762759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8369,17 +8385,6 @@ PrefabInstance:
       objectReference: {fileID: 830624246730544838}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
---- !u!114 &4970966858077200015 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7807099936966253192, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
-  m_PrefabInstance: {fileID: 2928474463474762759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4895365690750351594 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7731516361863101677, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
@@ -8391,6 +8396,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4970966857891179083 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7807099936815754828, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
+  m_PrefabInstance: {fileID: 2928474463474762759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4970966859431580536 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7807099936207525759, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
@@ -8402,11 +8412,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &4970966857891179083 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7807099936815754828, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
+--- !u!114 &4970966858077200015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7807099936966253192, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
   m_PrefabInstance: {fileID: 2928474463474762759}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3520146845939753119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8690,14 +8706,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
---- !u!224 &4699235179944194450 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
-  m_PrefabInstance: {fileID: 4568898420782654062}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4699235179944194449 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9102044878908445695, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
+  m_PrefabInstance: {fileID: 4568898420782654062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &4699235179944194450 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
   m_PrefabInstance: {fileID: 4568898420782654062}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &3944172677840627554
@@ -8715,10 +8731,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &5574013587984506667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8872,11 +8887,17 @@ PrefabInstance:
       objectReference: {fileID: 830624246730544838}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
---- !u!224 &2378670073333477735 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7807099936815754828, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
+--- !u!114 &2742976919182779334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7731516361863101677, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
   m_PrefabInstance: {fileID: 5574013587984506667}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2378670073932646484 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7807099936207525759, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
@@ -8899,17 +8920,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2742976919182779334 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7731516361863101677, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
+--- !u!224 &2378670073333477735 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7807099936815754828, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
   m_PrefabInstance: {fileID: 5574013587984506667}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5678047396574775591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9063,6 +9078,22 @@ PrefabInstance:
       objectReference: {fileID: 830624246730544838}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
+--- !u!224 &2491649484850423659 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7807099936815754828, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
+  m_PrefabInstance: {fileID: 5678047396574775591}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2704313912862684618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7731516361863101677, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
+  m_PrefabInstance: {fileID: 5678047396574775591}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2491649484513353304 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7807099936207525759, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
@@ -9085,22 +9116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2704313912862684618 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7731516361863101677, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
-  m_PrefabInstance: {fileID: 5678047396574775591}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3deb1308b629f2488e0477bdfeb4d4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &2491649484850423659 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7807099936815754828, guid: 6bf16eff6b1b32841beb2ef72edeac57, type: 3}
-  m_PrefabInstance: {fileID: 5678047396574775591}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6289992573722381228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9417,10 +9432,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &6951922539993053700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10275,10 +10289,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &8202792858106846633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10308,7 +10321,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9102044878908445692, guid: 13ba933354be95c40ade6f08771b8018, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10457,10 +10470,9 @@ MonoBehaviour:
   level: 0
   speed: 0.91
   spawn: 2
-  sword: {fileID: 0}
-  shield: {fileID: 0}
-  wallet: {fileID: 0}
+  loot: {fileID: 0}
   mManager: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1001 &8968605442997264375
 PrefabInstance:
   m_ObjectHideFlags: 0

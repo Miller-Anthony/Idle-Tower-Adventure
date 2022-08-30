@@ -961,12 +961,12 @@ MonoBehaviour:
   genStats: {fileID: 985715577}
   floors: {fileID: 1565164472}
   adventurerStats: {fileID: 2099734206}
+  clericStats: {fileID: 1774441470}
   fighterStats: {fileID: 69711939}
   barbarianStats: {fileID: 275950702}
   rogueStats: {fileID: 258577472}
   rangerStats: {fileID: 24699742}
   monkStats: {fileID: 752194859}
-  clericStats: {fileID: 1774441470}
   bardStats: {fileID: 1479159945}
   wizzardStats: {fileID: 847301577}
   warlockStats: {fileID: 1417630892}
@@ -1011,12 +1011,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genStats: {fileID: 985715577}
   adventurerButton: {fileID: 1646843126}
+  clericButton: {fileID: 1107593510}
   fighterButton: {fileID: 531096438}
   barbarianButton: {fileID: 1682245993}
   rogueButton: {fileID: 1093436846}
   rangerButton: {fileID: 1165890134}
   monkButton: {fileID: 1235087709}
-  clericButton: {fileID: 1107593510}
   bardButton: {fileID: 641552553}
   wizzardButton: {fileID: 163059178}
   warlockButton: {fileID: 1989974459}
@@ -9124,7 +9124,7 @@ PrefabInstance:
       objectReference: {fileID: 1424275580}
     - target: {fileID: 830624246749808459, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 830624246781670175, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -9490,6 +9490,14 @@ PrefabInstance:
       propertyPath: loot
       value: 
       objectReference: {fileID: 1001115782}
+    - target: {fileID: 1118820371866422869, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118820371866422869, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -495
+      objectReference: {fileID: 0}
     - target: {fileID: 1118820371866422870, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Name
       value: monkUpgrades
@@ -9728,6 +9736,14 @@ PrefabInstance:
       propertyPath: loot
       value: 
       objectReference: {fileID: 1001115782}
+    - target: {fileID: 2554384836433178363, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_TagString
+      value: druid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554384837877263113, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_TagString
+      value: druid
+      objectReference: {fileID: 0}
     - target: {fileID: 2704313912862684618, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: floors
       value: 
@@ -10052,7 +10068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543157691145498259, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1026.2249
+      value: 1120.8772
       objectReference: {fileID: 0}
     - target: {fileID: 5543157691145498259, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10162,6 +10178,14 @@ PrefabInstance:
       propertyPath: pManager
       value: 
       objectReference: {fileID: 1424275580}
+    - target: {fileID: 6558036351036039072, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558036351036039072, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -405
+      objectReference: {fileID: 0}
     - target: {fileID: 6558036351036039075, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: ranger
@@ -10330,6 +10354,14 @@ PrefabInstance:
       propertyPath: loot
       value: 
       objectReference: {fileID: 1001115782}
+    - target: {fileID: 7069857158499253593, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069857158499253593, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -45
+      objectReference: {fileID: 0}
     - target: {fileID: 7069857158499253594, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Name
       value: clericUpgrades
@@ -10454,6 +10486,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: rogue
       objectReference: {fileID: 0}
+    - target: {fileID: 7457361534990366555, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457361534990366555, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -315
+      objectReference: {fileID: 0}
     - target: {fileID: 7457361535378525348, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Color.b
       value: 0.29803923
@@ -10564,7 +10604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8490989323762850938, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -134.99997
+      value: -225.00003
       objectReference: {fileID: 0}
     - target: {fileID: 8490989323841192899, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
@@ -10596,7 +10636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8490989323851951619, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -44.999985
+      value: -135
       objectReference: {fileID: 0}
     - target: {fileID: 8490989324206167548, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Color.b
@@ -10691,6 +10731,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8720581421585840080, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873341221668586807, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8873341221668586807, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

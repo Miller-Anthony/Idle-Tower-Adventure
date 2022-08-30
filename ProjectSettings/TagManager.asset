@@ -73,6 +73,7 @@ TagManager:
   - pendantOfTheDawn
   - breastplate
   - loadedDice
+  - druid
   layers:
   - Default
   - TransparentFX

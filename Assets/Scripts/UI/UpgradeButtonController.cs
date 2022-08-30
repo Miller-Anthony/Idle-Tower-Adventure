@@ -29,41 +29,41 @@ public class UpgradeButtonController : MonoBehaviour
             case "adventurer":
                 cost = new BigNumber(10);
                 break;
-            case "fighter":
+            case "cleric":
                 cost = new BigNumber(10);
                 break;
+            case "fighter":
+                cost = new BigNumber(20);
+                break;
             case "barbarian":
-                cost = new BigNumber(1111);
+                cost = new BigNumber(111);
                 break;
             case "rogue":
-                cost = new BigNumber(11);
+                cost = new BigNumber(730);
                 break;
             case "ranger":
-                cost = new BigNumber(11);
+                cost = new BigNumber(12600);
                 break;
             case "monk":
-                cost = new BigNumber(11);
-                break;
-            case "cleric":
-                cost = new BigNumber(11);
+                cost = new BigNumber(221122);
                 break;
             case "bard":
-                cost = new BigNumber(11);
+                cost = new BigNumber(9950000);
                 break;
             case "wizzard":
-                cost = new BigNumber(11);
+                cost = new BigNumber(453000000);
                 break;
             case "warlock":
-                cost = new BigNumber(11);
+                cost = new BigNumber(52860000000);
                 break;
             case "sorcerer":
-                cost = new BigNumber(11);
+                cost = new BigNumber(5286000000000);
                 break;
             case "paladin":
-                cost = new BigNumber(11);
+                cost = new BigNumber(1889000000000000);
                 break;
             case "druid":
-                cost = new BigNumber(11);
+                cost = new BigNumber(490000000000000000);
                 break;
             default:
                 break;
