@@ -42,103 +42,103 @@ public class LootDisplayController : MonoBehaviour
                 bonus = new BigNumber(80);
                 break;
             case "spear":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(40);
                 break;
             case "dagger":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(150);
                 break;
             case "shield":
                 bonus = new BigNumber(30);
                 break;
             case "helmet":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(80);
                 break;
             case "breastplate":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(40);
                 break;
             case "gauntlets":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(150);
                 break;
             case "magnifyingGlass":
                 bonus = new BigNumber(30);
                 break;
             case "tomeOfLuck":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(1);
                 break;
             case "gemPouch":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(20);
                 break;
             case "wallet":
-                bonus = new BigNumber(15);
+                bonus = new BigNumber(1000);
                 break;
             case "alchemyKit":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "largeVial":
-                bonus = new BigNumber(80);
+                bonus = new BigNumber(5);
                 break;
             case "highQualityIngredients":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(15);
                 break;
             case "ringOfWishes":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "amuletOfTime":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "glovesOfMidas":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(15);
                 break;
             case "manaPotion":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "magicFocus":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "tomeOfIntelegence":
-                bonus = new BigNumber(5);
+                bonus = new BigNumber(15);
                 break;
             case "summonersRobe":
                 bonus = new BigNumber(5);
                 break;
             case "summonersRing":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "summonersStaff":
                 bonus = new BigNumber(15);
                 break;
             case "tomeOfCharisma":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(1);
                 break;
             case "loadedDice":
-                bonus = new BigNumber(80);
+                bonus = new BigNumber(10);
                 break;
             case "tomeOfStrength":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(15);
                 break;
             case "swiftBoots":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(1);
                 break;
             case "tomeOfDexterity":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(1);
                 break;
             case "poisonVial":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "tomeOfEndurance":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "sharpeningStone":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(5);
                 break;
             case "investments":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(10);
                 break;
             case "adventuringVoucher":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(1);
                 break;
             case "dungeonMap":
-                bonus = new BigNumber(30);
+                bonus = new BigNumber(1);
                 break;
             case "portalStone":
                 bonus = new BigNumber(1);

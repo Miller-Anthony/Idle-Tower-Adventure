@@ -84,10 +84,48 @@ public class MiscUpgradeButtonController : MonoBehaviour
     {
         if (genStats.CheckGold() >= cost)
         {
-            if(tag == "clearFloor" && genStats.GetTopFloor() - 20 < genStats.GetBottomFloor())
+            switch(tag)
             {
-                return;
+                case "clearFloor":
+                    if (genStats.GetTopFloor() - 20 < genStats.GetBottomFloor())
+                    {
+                        return;
+                    }
+                    break;
+                case "clearFloorAuto":
+                    if (genStats.GetTopFloor() < 80)
+                    {
+                        return;
+                    }
+                    break;
+                case "hastePotion":
+                    if (adventurerStats.GetLevel() < 50)
+                    {
+                        return;
+                    }
+                    break;
+                case "increasedBounty":
+                    if (adventurerStats.GetLevel() < 100)
+                    {
+                        return;
+                    }
+                    break;
+                case "teleport":
+                    if (adventurerStats.GetLevel() < 200)
+                    {
+                        return;
+                    }
+                    break;
+                case "autoSpawner":
+                    if (adventurerStats.GetLevel() < 400)
+                    {
+                        return;
+                    }
+                    break;
+                default:
+                    break;
             }
+            
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
             cost = cost * 10;
@@ -123,6 +161,11 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "hireRate":
                     mManager.ChangeSpawnTime(0.01f);
+                    
+                    if(mManager.GetSpawnPercent() >= 0.25f)
+                    {
+                        gameObject.GetComponent<Button>().interactable = false;
+                    }
                     break;
                 case "improveGear":
                     mManager.ChangeGearValue(0.1f);
