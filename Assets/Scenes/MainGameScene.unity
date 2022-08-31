@@ -6057,7 +6057,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1508864229
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6270,7 +6270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8244113901901923861, guid: 6d2b668150d7e6c4a82be920a679d00a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8966,6 +8966,10 @@ PrefabInstance:
       propertyPath: wallet
       value: 
       objectReference: {fileID: 1227188265}
+    - target: {fileID: 93981097900058723, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1000000
+      objectReference: {fileID: 0}
     - target: {fileID: 93981098854751396, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: increasedBounty
@@ -9038,6 +9042,10 @@ PrefabInstance:
       propertyPath: wallet
       value: 
       objectReference: {fileID: 1227188265}
+    - target: {fileID: 692773192740507444, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1.111 * 10^13
+      objectReference: {fileID: 0}
     - target: {fileID: 806687068681488105, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: stats
       value: 
@@ -9100,7 +9108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 815116830777602377, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
-      value: 123456
+      value: 25000000
       objectReference: {fileID: 0}
     - target: {fileID: 815116830892443022, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -9136,7 +9144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830624247241927048, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 830624247322716567, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: tracker
@@ -9418,6 +9426,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -230.475
       objectReference: {fileID: 0}
+    - target: {fileID: 874354396757500044, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 25000
+      objectReference: {fileID: 0}
     - target: {fileID: 890685085698856748, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: stats
       value: 
@@ -9482,6 +9494,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: hastePotion
       objectReference: {fileID: 0}
+    - target: {fileID: 1118820371257088736, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 278450
+      objectReference: {fileID: 0}
     - target: {fileID: 1118820371504466852, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: monk
@@ -9505,6 +9521,18 @@ PrefabInstance:
     - target: {fileID: 1118820371866422870, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: monk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118820371943199212, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118820372388002449, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 221122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1166017953442137471, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1166017953558966715, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9534,9 +9562,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1183490060450356252, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 154600
+      objectReference: {fileID: 0}
     - target: {fileID: 1183490060543968166, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183490061163067233, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 52860000000
       objectReference: {fileID: 0}
     - target: {fileID: 1183490062046905935, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: loot
@@ -9545,6 +9581,10 @@ PrefabInstance:
     - target: {fileID: 1183490062046905940, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: warlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1183490062210537232, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 5.796 * 10^10
       objectReference: {fileID: 0}
     - target: {fileID: 1296851192030361722, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: save
@@ -9674,6 +9714,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Increase movement and appearance rate of Adventurers and Mercenaries
       objectReference: {fileID: 0}
+    - target: {fileID: 2378670072578000291, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 25000
+      objectReference: {fileID: 0}
     - target: {fileID: 2378670073333477732, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: hastePotion
@@ -9730,7 +9774,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2491649485339546543, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
-      value: 123456
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554384836210933695, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 5.468 * 10^17
       objectReference: {fileID: 0}
     - target: {fileID: 2554384836433178336, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: loot
@@ -9740,9 +9788,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: druid
       objectReference: {fileID: 0}
+    - target: {fileID: 2554384837291597774, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 490000000000000000
+      objectReference: {fileID: 0}
     - target: {fileID: 2554384837877263113, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: druid
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554384837937329331, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 129000000
       objectReference: {fileID: 0}
     - target: {fileID: 2704313912862684618, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: floors
@@ -9776,6 +9832,14 @@ PrefabInstance:
       propertyPath: adventurerStats
       value: 
       objectReference: {fileID: 2099734206}
+    - target: {fileID: 2900688554164686729, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900688554164686729, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3092085475765676561, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -110
@@ -9906,6 +9970,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: strengthInNumbers
       objectReference: {fileID: 0}
+    - target: {fileID: 4256727298961068324, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 2000000
+      objectReference: {fileID: 0}
     - target: {fileID: 4323833605696075585, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: stats
       value: 
@@ -9934,9 +10002,17 @@ PrefabInstance:
       propertyPath: adventurerStats
       value: 
       objectReference: {fileID: 2099734206}
+    - target: {fileID: 4699235179928880470, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 5286000000000
+      objectReference: {fileID: 0}
     - target: {fileID: 4699235179944194449, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: sorcerer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4699235180020444715, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1214660
       objectReference: {fileID: 0}
     - target: {fileID: 4699235180655195235, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -9946,8 +10022,20 @@ PrefabInstance:
       propertyPath: loot
       value: 
       objectReference: {fileID: 1001115782}
+    - target: {fileID: 4699235180944680231, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 6.489 * 10^12
+      objectReference: {fileID: 0}
     - target: {fileID: 4776095189213583843, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776095189213583843, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776095189213583843, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4827462753966107773, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
@@ -9973,6 +10061,10 @@ PrefabInstance:
     - target: {fileID: 4970966857891179080, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: autoSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970966858077200015, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 5.555 * 10^11
       objectReference: {fileID: 0}
     - target: {fileID: 4970966859331989434, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -10178,6 +10270,14 @@ PrefabInstance:
       propertyPath: pManager
       value: 
       objectReference: {fileID: 1424275580}
+    - target: {fileID: 6558036350248135524, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 12600
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558036350945099801, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 6558036351036039072, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 8.5
@@ -10189,6 +10289,10 @@ PrefabInstance:
     - target: {fileID: 6558036351036039075, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: ranger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558036351364909845, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 16666
       objectReference: {fileID: 0}
     - target: {fileID: 6558036351679535690, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: loot
@@ -10228,7 +10332,7 @@ PrefabInstance:
       objectReference: {fileID: 2099734206}
     - target: {fileID: 6666021105081940503, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
-      value: 500
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 6666021106103865040, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -10324,7 +10428,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6995350463046977027, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
-      value: 100
+      value: 500000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007791687088025747, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 500000000
       objectReference: {fileID: 0}
     - target: {fileID: 7007791687341212756, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -10354,6 +10462,10 @@ PrefabInstance:
       propertyPath: loot
       value: 
       objectReference: {fileID: 1001115782}
+    - target: {fileID: 7069857158442510828, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7069857158499253593, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 8.5
@@ -10380,7 +10492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130441621181117496, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.65495545
+      value: 0.0002905253
       objectReference: {fileID: 0}
     - target: {fileID: 7277673767687990146, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: loot
@@ -10390,9 +10502,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: paladin
       objectReference: {fileID: 0}
+    - target: {fileID: 7277673768002648797, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1.883 * 10^14
+      objectReference: {fileID: 0}
     - target: {fileID: 7277673768327556715, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: paladin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277673768420585937, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 11111111
+      objectReference: {fileID: 0}
+    - target: {fileID: 7277673769117555372, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1889000000000000
       objectReference: {fileID: 0}
     - target: {fileID: 7331570695667394278, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10410,9 +10534,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: wizzard
       objectReference: {fileID: 0}
+    - target: {fileID: 7339466651643624476, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 518000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339466652777241709, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 453000000
+      objectReference: {fileID: 0}
     - target: {fileID: 7339466653063014570, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: wizzard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339466653137237776, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 25000
       objectReference: {fileID: 0}
     - target: {fileID: 7352059336277287014, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: stats
@@ -10482,6 +10618,14 @@ PrefabInstance:
       propertyPath: magnifyingGlass
       value: 
       objectReference: {fileID: 420273438}
+    - target: {fileID: 7457361534775886751, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 730
+      objectReference: {fileID: 0}
+    - target: {fileID: 7457361534935083234, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 7457361534990366552, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: rogue
@@ -10514,6 +10658,10 @@ PrefabInstance:
       propertyPath: loot
       value: 
       objectReference: {fileID: 1001115782}
+    - target: {fileID: 7457361535857157102, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
@@ -10529,6 +10677,10 @@ PrefabInstance:
     - target: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: increasedBounty
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967074312776745203, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8022788903256706174, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10578,6 +10730,10 @@ PrefabInstance:
       propertyPath: pManager
       value: 
       objectReference: {fileID: 1424275580}
+    - target: {fileID: 8490989323760497082, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8490989323762850938, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -10608,7 +10764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8490989323841192899, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
-      value: 160
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8490989323851951619, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10650,6 +10806,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.92549026
       objectReference: {fileID: 0}
+    - target: {fileID: 8490989324675701447, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8490989324756412606, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 111
+      objectReference: {fileID: 0}
     - target: {fileID: 8490989325480876432, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: cost
       value: 1111
@@ -10670,9 +10834,17 @@ PrefabInstance:
       propertyPath: m_Text
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8490989325792197302, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8490989325837306063, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
-      value: 1500
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531184975821747682, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 12000000
       objectReference: {fileID: 0}
     - target: {fileID: 8531184976069158054, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
@@ -10682,6 +10854,10 @@ PrefabInstance:
       propertyPath: loot
       value: 
       objectReference: {fileID: 1001115782}
+    - target: {fileID: 8531184976922072467, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 9950000
+      objectReference: {fileID: 0}
     - target: {fileID: 8531184977510883668, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Name
       value: bardUpgrades
@@ -10689,6 +10865,10 @@ PrefabInstance:
     - target: {fileID: 8531184977510883668, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_TagString
       value: bard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531184977551556334, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_Text
+      value: 4700
       objectReference: {fileID: 0}
     - target: {fileID: 8559399243281991951, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -10736,11 +10916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8873341221668586807, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 0.00012207
       objectReference: {fileID: 0}
     - target: {fileID: 8873341221668586807, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 8934196732779162589, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: loot

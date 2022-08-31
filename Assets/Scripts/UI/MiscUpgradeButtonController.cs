@@ -33,40 +33,40 @@ public class MiscUpgradeButtonController : MonoBehaviour
         switch (tag)
         {
             case "adventurerCount":
-                cost = new BigNumber(100);
+                cost = new BigNumber(1000);
                 break;
             case "clearFloor":
-                cost = new BigNumber(500);
+                cost = new BigNumber(25000);
                 break;
             case "clearFloorAuto":
-                cost = new BigNumber(123456);
+                cost = new BigNumber(25000000);
                 break;
             case "skilledAdventurer":
-                cost = new BigNumber(100);
+                cost = new BigNumber(500000);
                 break;
             case "hireRate":
-                cost = new BigNumber(500);
+                cost = new BigNumber(50000);
                 break;
             case "improveGear":
-                cost = new BigNumber(123456);
+                cost = new BigNumber(80000);
                 break;
             case "strengthInNumbers":
-                cost = new BigNumber(100);
+                cost = new BigNumber(2000000);
                 break;
             case "hastePotion":
-                cost = new BigNumber(100);
+                cost = new BigNumber(25000);
                 break;
             case "increasedBounty":
-                cost = new BigNumber(100);
+                cost = new BigNumber(1000000);
                 break;
             case "teleport":
-                cost = new BigNumber(100);
+                cost = new BigNumber(500000000);
                 break;
             case "autoSpawner":
-                cost = new BigNumber(100);
+                cost = new BigNumber(555555555555);
                 break;
             case "rebirth":
-                cost = new BigNumber(123456);
+                cost = new BigNumber(11111111111111);
                 break;
             default:
                 break;
@@ -94,30 +94,6 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "clearFloorAuto":
                     if (genStats.GetTopFloor() < 80)
-                    {
-                        return;
-                    }
-                    break;
-                case "hastePotion":
-                    if (adventurerStats.GetLevel() < 50)
-                    {
-                        return;
-                    }
-                    break;
-                case "increasedBounty":
-                    if (adventurerStats.GetLevel() < 100)
-                    {
-                        return;
-                    }
-                    break;
-                case "teleport":
-                    if (adventurerStats.GetLevel() < 200)
-                    {
-                        return;
-                    }
-                    break;
-                case "autoSpawner":
-                    if (adventurerStats.GetLevel() < 400)
                     {
                         return;
                     }
