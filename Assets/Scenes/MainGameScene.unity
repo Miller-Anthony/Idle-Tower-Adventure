@@ -11244,6 +11244,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1424275580}
     - target: {fileID: 3881851391167141772, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
+      propertyPath: spawnTime
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3881851391167141772, guid: 6284683a6340f25448a748baa14ef57b, type: 3}
       propertyPath: chestSpawn
       value: 
       objectReference: {fileID: 0}

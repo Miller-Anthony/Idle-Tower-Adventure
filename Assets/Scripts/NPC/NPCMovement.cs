@@ -35,9 +35,13 @@ public class NPCMovement : MonoBehaviour
 
         //switch direction if going out of bounds;
         float limit = 1.5f * 2.5f * Screen.width / Screen.height;
-        if (transform.position.x > limit || transform.position.x < -limit)
+        if (transform.position.x > limit)
         {
-            moveLeft = !moveLeft;
+            moveLeft = true;
+        }
+        else if(transform.position.x < -limit)
+        {
+            moveLeft = false;
         }
 
     }
