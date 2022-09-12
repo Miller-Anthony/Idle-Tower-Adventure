@@ -122,6 +122,7 @@ public class MercenaryManager : MonoBehaviour
     {
         return fighterStats.GetGearPercent();
     }
+
     public void ChangeGearValue(float change)
     {
         fighterStats.ChangeGearPercent(change);

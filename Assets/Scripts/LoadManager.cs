@@ -261,12 +261,12 @@ public class LoadManager : MonoBehaviour
                     skilledAdventurerController.LoadLevels((int)++num);
                 }
 
-                spawnPercent -= 1;
                 spawnPercent *= 100;
+                spawnPercent -= 100;
                 hireRateController.LoadLevels((int)spawnPercent);
 
-                improveGearLevel -= 1;
                 improveGearLevel *= 10;
+                improveGearLevel -= 10;
                 improveGearController.LoadLevels((int)improveGearLevel);
 
                 strengthInNumbersLevel *= 100;

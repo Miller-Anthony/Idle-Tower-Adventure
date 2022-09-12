@@ -66,11 +66,14 @@ public class MiscUpgradeButtonController : MonoBehaviour
                 cost = new BigNumber(555555555555);
                 break;
             case "rebirth":
-                cost = new BigNumber(11111111111111);
+                cost = new BigNumber(1111111111);
                 break;
             default:
                 break;
         }
+        
+        //update the UI cost text
+        panel.UpdateText(cost);
     }
 
     public void UpgradeAdventurerCount()
@@ -138,7 +141,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
                 case "hireRate":
                     mManager.ChangeSpawnTime(0.01f);
                     
-                    if(mManager.GetSpawnPercent() >= 0.25f)
+                    if(mManager.GetSpawnPercent() >= 1.25f)
                     {
                         gameObject.GetComponent<Button>().interactable = false;
                     }
@@ -208,6 +211,11 @@ public class MiscUpgradeButtonController : MonoBehaviour
                     break;
                 case "hireRate":
                     mManager.ChangeSpawnTime(0.01f);
+
+                    if (mManager.GetSpawnPercent() >= 1.25f)
+                    {
+                        gameObject.GetComponent<Button>().interactable = false;
+                    }
                     break;
                 case "improveGear":
                     mManager.ChangeGearValue(0.1f);

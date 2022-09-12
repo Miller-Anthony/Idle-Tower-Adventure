@@ -229,9 +229,18 @@ public class BigNumber
         return toReturn;
     }
 
+    //Modefied By Anthony Miller
     public static BigNumber operator *(BigNumber num1, double num2)
     {
         BigNumber toReturn = new BigNumber(0);
+
+        //seperate numbers 2 or greater to have a proper multiplication
+        if(num2 >= 2)
+        {
+            int holder = (int)num2 - 1;
+            num2 -= holder;
+            toReturn += holder * num1;
+        }
 
         int digits = 1;
         // code here - WIP
@@ -517,7 +526,7 @@ public class BigNumber
         if (CountDigits() == 0)
             return "0";
 
-        if (CountDigits() < 10)
+        if (CountDigits() < 7)
         {
             string num = "";
             for (int i = CountDigits() - 1; i >= 0; --i)
@@ -530,7 +539,7 @@ public class BigNumber
             num += ".";
             for (int i = 1; i < 4; ++i)
                 num += digit[CountDigits() - (1 + i)].ToString();
-            num += " * 10^";
+            num += "E";
             num += (CountDigits() - 1).ToString();
             return num;
         }

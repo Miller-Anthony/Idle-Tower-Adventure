@@ -616,10 +616,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floor: 4
   spawnCount: 2
-  spawnTime: 3
+  spawnTime: 4.5
   factory: {fileID: 6287039250623377954, guid: 403ec20174bfe7f4c83e5641d8b56e26, type: 3}
   chestFactory: {fileID: 0}
   stats: {fileID: 0}
+  pManager: {fileID: 0}
   enemySpawn1: {fileID: 6507356565221674499}
   enemySpawn2: {fileID: 3214647370350436795}
   enemySpawn3: {fileID: 2097132350888129376}
@@ -627,9 +628,6 @@ MonoBehaviour:
   playerSpawn: {fileID: 3742675438939181050}
   chestSpawn: {fileID: 0}
   text: {fileID: 5515247120991806544}
-  strength: 0
-  health: 0
-  gold: 0
 --- !u!50 &3087161271475799395
 Rigidbody2D:
   serializedVersion: 4

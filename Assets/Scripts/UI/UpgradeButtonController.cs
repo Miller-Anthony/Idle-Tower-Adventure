@@ -27,7 +27,7 @@ public class UpgradeButtonController : MonoBehaviour
         switch (tag)
         {
             case "adventurer":
-                cost = new BigNumber(10);
+                cost = new BigNumber(2);
                 break;
             case "cleric":
                 cost = new BigNumber(10);
@@ -68,6 +68,9 @@ public class UpgradeButtonController : MonoBehaviour
             default:
                 break;
         }
+
+        //update the UI cost text
+        panel.UpdateText(cost);
     }
 
     public void Upgrade()
@@ -103,11 +106,19 @@ public class UpgradeButtonController : MonoBehaviour
         {
             //subtract the amount of money used to but the upgrade and increase the cost of the next one
             genStats.SubtractGold(cost);
-            cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
+
+            if(tag == "adventurer" && stats.GetLevel() == 1)
+            {
+                cost = new BigNumber(11);
+            }
+            else
+            {
+                cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
+            }
 
             Upgrade();
 
-            //update the Adventurer UI text
+            //update the UI cost text
             panel.UpdateText(cost);
         }
     }

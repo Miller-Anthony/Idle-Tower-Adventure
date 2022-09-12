@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GeneralStats : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GeneralStats : MonoBehaviour
     [SerializeField] FloorTracker fTracker;
     [SerializeField] MercenaryManager mManager;
     [SerializeField] LootTracker loot;
+    [SerializeField] GameObject offlineGoldPanel;
+    [SerializeField] Text offlineGoldText;
 
     private int highestFloor = 1;
     private int numAdventurers;          //the number of adventurers currantly summoned
@@ -175,7 +178,15 @@ public class GeneralStats : MonoBehaviour
             }
         }
 
-        AddGold(currentGold % loot.GetController("investments").GetTotalBonus());
+        currentGold %= loot.GetController("investments").GetTotalBonus();
+        
+        if(currentGold > 0)
+        {
+            offlineGoldPanel.SetActive(true);
+            offlineGoldText.text = "Offline Gold Gained \n" + currentGold.ToString();
+            AddGold(currentGold);
+        }
+        
 
         //add popup for the amount of gold gained
     }
