@@ -190,6 +190,8 @@ public class LootDisplayController : MonoBehaviour
                 return new BigNumber(0) + (bonus * looted);
             case "gauntlets":
                 return new BigNumber(0) + (bonus * looted);
+            case "wallet":
+                return new BigNumber(0) + (bonus * looted);
             case "alchemistKit":
                 return new BigNumber(100) - (bonus * looted);
             case "largeVial":

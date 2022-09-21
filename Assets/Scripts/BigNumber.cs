@@ -103,6 +103,15 @@ public class BigNumber
         if (num != 0)
             digit.Add((byte)num);
     }
+    public BigNumber(string num)
+    {
+        digit = new List<byte>();
+
+        for(int i = num.Length - 1; i >= 0; i--)
+        {
+            digit.Add(byte.Parse(num.Substring(i, 1)));
+        }
+    }
 
     public static BigNumber operator +(BigNumber num)
     {

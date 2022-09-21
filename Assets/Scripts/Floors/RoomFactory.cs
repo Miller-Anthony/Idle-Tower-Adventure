@@ -84,9 +84,9 @@ public class RoomFactory : MonoBehaviour
         RoomController holdRoom = holder.GetComponent<RoomController>();
 
         //update enemy held stats
-        enemyStats.SetStrength((enemyStats.GetStrength() * 1.19f) + 1);
-        enemyStats.SetHealth((enemyStats.GetHealth() * 1.19f) + 1);
-        enemyStats.SetGold((enemyStats.GetGold() * 1.1f) + 1);
+        enemyStats.SetStrength((enemyStats.GetStrength() * 1.21f) + 1);
+        enemyStats.SetHealth((enemyStats.GetHealth() * 1.21f) + 1);
+        enemyStats.SetGold((enemyStats.GetGold() * 1.2f) + 1);
 
         //Calculate the scale of the room
         Vector3 scale = holder.transform.localScale;

@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 7961627494569994687}
   moveLeft: 0
+  sprite: {fileID: 3766606625073857449}
 --- !u!114 &3337956998436335701
 MonoBehaviour:
   m_ObjectHideFlags: 0

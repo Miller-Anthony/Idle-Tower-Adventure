@@ -107,7 +107,6 @@ public class LoadManager : MonoBehaviour
     private int minute;
     private int second;
     private int chestCount;
-    private int[] chestList;
 
     // Start is called before the first frame update
     void Start()
@@ -136,7 +135,7 @@ public class LoadManager : MonoBehaviour
                 //Parse save data
                 highestFloor = int.Parse(data[0]);
                 topFloor = int.Parse(data[1]);
-                gold = new BigNumber(int.Parse(data[2]));
+                gold = new BigNumber(data[2]);
                 adventurerLevel = int.Parse(data[3]);
                 clericLevel = int.Parse(data[4]);
                 fighterLevel = int.Parse(data[5]);
@@ -206,13 +205,13 @@ public class LoadManager : MonoBehaviour
                 second = int.Parse(data[64].Substring(17, 2));
                 chestCount = int.Parse(data[65].Substring(0, 3));
 
-                chestList = new int[chestCount];
-
                 //grab all the chests
                 for (int i = 0; i < chestCount; i++)
                 {
-                    chestList[i] = int.Parse(data[65].Substring(5 + (6 * i), 5));
+                    chests.AddChest(int.Parse(data[65].Substring(4 + (5 * i), 4)));
                 }
+
+                
 
                 //spawn all the floors needed
                 for (int i = 1; i < topFloor - 1; i++)

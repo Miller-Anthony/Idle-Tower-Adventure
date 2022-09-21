@@ -124,7 +124,6 @@ public class OnStart : MonoBehaviour
         teleport.OnStart();
         autoSpawner.OnStart();
         rebirth.OnStart();
-        
     }
 
     // Update is called once per frame

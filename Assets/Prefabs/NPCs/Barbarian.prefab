@@ -125,11 +125,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  strength: 4
-  health: 3
   speed: 1
   spawn: 0
-  gold: 0
+  healthBar: {fileID: 0}
+  currentHealthBar: {fileID: 0}
+  loot: {fileID: 0}
 --- !u!114 &2030826120856592178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 376872774794824113}
   moveLeft: 0
+  sprite: {fileID: 6846075101001261991}
 --- !u!114 &4977964096888049755
 MonoBehaviour:
   m_ObjectHideFlags: 0

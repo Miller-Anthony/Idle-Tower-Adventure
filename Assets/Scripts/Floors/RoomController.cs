@@ -50,6 +50,21 @@ public class RoomController : MonoBehaviour
             health = new BigNumber(7);
             strength = new BigNumber(3);
             gold = new BigNumber(2);
+
+
+            //Calculate the scale of the room
+            Vector3 scale = transform.localScale;
+            scale.x *= 1.5f * Screen.width / Screen.height;
+            scale.y *= 1.5f * Screen.width / Screen.height;
+            transform.localScale = scale;
+
+            //get the ground for its location
+            Transform ground = GameObject.Find("Ground").GetComponent<Transform>();
+
+            //have the first floor on the ground
+            Vector3 pos = transform.position;
+            pos.y = ground.position.y + (ground.localScale.y + transform.localScale.y) / 2;
+            transform.position = pos;
         }
 
         //calculate the boundry for the mouse clicks

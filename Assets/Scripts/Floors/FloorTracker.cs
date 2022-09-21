@@ -21,16 +21,6 @@ public class FloorTracker : MonoBehaviour
         topFloor = room;
         floorQueue.Enqueue(room);
 
-        //Calculate the scale of the room
-        Vector3 scale = room.transform.localScale;
-        scale.x *= 1.5f * Screen.width / Screen.height;
-        scale.y *= 1.5f * Screen.width / Screen.height;
-        room.transform.localScale = scale;
-
-        //have the first floor on the ground
-        Vector3 pos = room.transform.position;
-        pos.y = transform.position.y + (transform.localScale.y + room.transform.localScale.y) / 2;
-        room.transform.position = pos;
 
     }
 

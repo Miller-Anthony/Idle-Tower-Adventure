@@ -85,18 +85,18 @@ public class UpgradeButtonController : MonoBehaviour
         }
 
         //get the int stats of the fighter to modefy
-        BigNumber dmg = stats.LevelStrength();
-        BigNumber hp = stats.LevelHealth();
+        //BigNumber dmg = stats.LevelStrength();
+        //BigNumber hp = stats.LevelHealth();
 
         //calculate and set the damage and health stat increase
-        stats.SetStrength((dmg * 1.05f) + 1);
-        stats.SetHealth((hp * 1.1f) + 1);
+        stats.SetStrength((stats.LevelStrength() * 1.07f) + 1);
+        stats.SetHealth((stats.LevelStrength() * 1.4f) + 1);
 
 
         //set the new speed stat (needs to be updated later to not increase every level)
         if (stats.GetLevel() % 50 == 0)
         {
-            stats.SetSpeed(stats.GetSpeed() * 1.1f);
+            stats.SetSpeed(stats.GetSpeed() * 1.05f);
         }
     }
 
@@ -128,7 +128,14 @@ public class UpgradeButtonController : MonoBehaviour
         //for the number of levels, level up the given NPC
         for(int i = 0; i < levels; i++)
         {
-            cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
+            if (tag == "adventurer" && stats.GetLevel() == 1)
+            {
+                cost = new BigNumber(11);
+            }
+            else
+            {
+                cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
+            }
 
             Upgrade();
         }

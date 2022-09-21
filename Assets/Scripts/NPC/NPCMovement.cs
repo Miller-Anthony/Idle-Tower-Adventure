@@ -6,6 +6,7 @@ public class NPCMovement : MonoBehaviour
 {
     [SerializeField] NPCStats stats;
     [SerializeField] bool moveLeft;
+    [SerializeField] SpriteRenderer sprite;
 
     private bool climb = false;
 
@@ -116,5 +117,6 @@ public class NPCMovement : MonoBehaviour
     public void StopClimbing()
     {
         climb = false;
+        sprite.flipX = !sprite.flipX;
     }
 }

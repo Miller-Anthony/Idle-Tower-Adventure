@@ -129,6 +129,7 @@ MonoBehaviour:
   spawn: 0
   healthBar: {fileID: 0}
   currentHealthBar: {fileID: 0}
+  loot: {fileID: 0}
 --- !u!114 &7922197422301336167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 8423234089051342052}
   moveLeft: 0
+  sprite: {fileID: 3377022440258875122}
 --- !u!114 &3804128764927778062
 MonoBehaviour:
   m_ObjectHideFlags: 0
