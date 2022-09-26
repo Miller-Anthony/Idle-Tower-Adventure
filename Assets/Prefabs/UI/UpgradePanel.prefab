@@ -357,8 +357,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: 33.999}
-  m_SizeDelta: {x: -31, y: -110}
+  m_AnchoredPosition: {x: -5, y: 17.400024}
+  m_SizeDelta: {x: 216.4992, y: 211.3796}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9102044878908445691
 CanvasRenderer:
@@ -882,6 +882,7 @@ MonoBehaviour:
   stats: {fileID: 0}
   genStats: {fileID: 0}
   panel: {fileID: 9102044878908445693}
+  loot: {fileID: 0}
 --- !u!1 &9102044879386520257
 GameObject:
   m_ObjectHideFlags: 0
