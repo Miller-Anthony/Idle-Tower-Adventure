@@ -465,9 +465,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genStats: {fileID: 0}
+  mManager: {fileID: 0}
   panel: {fileID: 0}
   floors: {fileID: 0}
+  autoClear: {fileID: 0}
+  autoClearUpgradeButton: {fileID: 0}
   save: {fileID: 0}
+  adventurerStats: {fileID: 0}
+  pManager: {fileID: 0}
 --- !u!1 &7807099936207525745
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,7 +669,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.5, y: 250.74548}
-  m_SizeDelta: {x: 1049, y: 254.2556}
+  m_SizeDelta: {x: 450, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7807099936815754827
 CanvasRenderer:
@@ -719,6 +724,10 @@ MonoBehaviour:
   costText: {fileID: 0}
   countText: {fileID: 0}
   stats: {fileID: 0}
+  floors: {fileID: 0}
+  mManager: {fileID: 0}
+  pManager: {fileID: 0}
+  adventurerStats: {fileID: 0}
 --- !u!1 &7807099936966253194
 GameObject:
   m_ObjectHideFlags: 0

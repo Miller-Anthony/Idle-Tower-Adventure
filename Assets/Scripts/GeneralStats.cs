@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GeneralStats : MonoBehaviour
 {
     [SerializeField] BigNumber gold;
+    [SerializeField] BigNumber gems;
     [SerializeField] UIController ui;
     [SerializeField] int topFloor = 1;   //Stores the top floor 
     [SerializeField] int bottomFloor;    //Stores the bottom floor 
@@ -53,6 +54,26 @@ public class GeneralStats : MonoBehaviour
     public BigNumber CheckGold()
     {
         return gold;
+    }
+
+    // Add a given amount of gems
+    public void AddGems(BigNumber value)
+    {
+        gems += value;
+        ui.UpdateGems(gems);
+    }
+
+    // Subtract a gien amount of gems
+    public void SubtractGems(BigNumber value)
+    {
+        gems -= value;
+        ui.UpdateGems(gems);
+    }
+
+    //return the amount of gems currently held
+    public BigNumber CheckGems()
+    {
+        return gems;
     }
 
     //increment the top floor to the next floor

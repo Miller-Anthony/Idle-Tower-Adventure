@@ -18,6 +18,12 @@ public class AddManager : MonoBehaviour
 
     [SerializeField] BannerAdPredefinedSize bannerSize = BannerAdPredefinedSize.Banner;
 
+    //the button for desplay reward ads
+    [SerializeField] GameObject button;
+    private float timer = 0;
+    private float adTimer = 600.0f;
+
+
     IBannerAd m_BannerAd;
 
     // Start is called before the first frame update
@@ -38,7 +44,12 @@ public class AddManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if(timer >= adTimer)
+        {
+            button.SetActive(true);
+            timer = 0.0f;
+        }
     }
 
     InitializationOptions GetGameId()

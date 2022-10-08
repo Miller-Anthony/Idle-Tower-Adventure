@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     [SerializeField] Text goldText;
+    [SerializeField] Text gemText;
     [SerializeField] Text topFloorText;
     [SerializeField] Text adventurerCountText;
 
@@ -24,6 +25,11 @@ public class UIController : MonoBehaviour
     public void UpdateGold(BigNumber newGold)
     {
         goldText.text = newGold.ToString();
+    }
+
+    public void UpdateGems(BigNumber newGems)
+    {
+        gemText.text = newGems.ToString();
     }
 
     public void UpdateTopFloor(int floor)
