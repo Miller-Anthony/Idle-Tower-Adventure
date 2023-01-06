@@ -1,9 +1,9 @@
 {
-    "m_SelectedDeviceId": "R5CT10X2CZF",
+    "m_SelectedDeviceId": "R5CR71KF7DW",
     "m_SelectedPackage": {
-        "deviceId": "R5CT10X2CZF",
+        "deviceId": "R5CR71KF7DW",
         "name": "com.DefaultCompany.com.unity.template.mobile2D",
-        "processId": 9951,
+        "processId": 23227,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,12 @@
             "deviceId": "R5CR71KF7DW",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 31464,
+            "exited": false
+        },
+        {
+            "deviceId": "R5CR71KF7DW",
+            "name": "com.DefaultCompany.com.unity.template.mobile2D",
+            "processId": 23227,
             "exited": false
         },
         {

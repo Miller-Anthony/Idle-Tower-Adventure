@@ -6115,7 +6115,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Add
+  m_Text: Ad
 --- !u!222 &1053507869
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8697,7 +8697,7 @@ MonoBehaviour:
   androidGameId: 4758797
   bannerAdAnchor: 0
   bannerSize: 3
-  button: {fileID: 0}
+  button: {fileID: 1800977052}
 --- !u!1001 &1566130254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9510,7 +9510,7 @@ GameObject:
   - component: {fileID: 1800977055}
   - component: {fileID: 1800977054}
   m_Layer: 5
-  m_Name: AddButton
+  m_Name: AdButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11914,7 +11914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 830624248847036836, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 836850148845241201, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -12394,6 +12394,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2900688554164686729, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20.693
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900688554164686729, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3092085475765676561, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -110
@@ -12656,6 +12664,10 @@ PrefabInstance:
       propertyPath: wallet
       value: 
       objectReference: {fileID: 1227188265}
+    - target: {fileID: 5131606079708046521, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5490102242113989134, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: save
       value: 
@@ -13223,6 +13235,14 @@ PrefabInstance:
     - target: {fileID: 7457361535857157102, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_Text
       value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801986118001937780, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 60.226
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801986118001937780, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -226.95
       objectReference: {fileID: 0}
     - target: {fileID: 7817547705397173188, guid: 95d0419bfe8765342847c97594e5910d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
