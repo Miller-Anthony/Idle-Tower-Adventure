@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,9 +26,9 @@ public class MiscUpgradeController : MonoBehaviour
         
     }
 
-    public void UpdateText(BigNumber newCost)
+    public void UpdateText(BigInteger newCost)
     {
-        costText.text = newCost.ToString();
+        costText.text = newCost.ToString("E3");
 
         if (tag == "adventurerCount")
         {

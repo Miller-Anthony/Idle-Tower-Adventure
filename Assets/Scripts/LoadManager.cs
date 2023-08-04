@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using System.IO;
 
@@ -38,7 +39,7 @@ public class LoadManager : MonoBehaviour
     //data to load
     private int highestFloor;
     private int topFloor;
-    private BigNumber gold;
+    private BigInteger gold;
     private int clericLevel;
     private int fighterLevel;
     private int barbarianLevel;
@@ -135,7 +136,7 @@ public class LoadManager : MonoBehaviour
                 //Parse save data
                 highestFloor = int.Parse(data[0]);
                 topFloor = int.Parse(data[1]);
-                gold = new BigNumber(data[2]);
+                gold = BigInteger.Parse(data[2]);
                 adventurerLevel = int.Parse(data[3]);
                 clericLevel = int.Parse(data[4]);
                 fighterLevel = int.Parse(data[5]);

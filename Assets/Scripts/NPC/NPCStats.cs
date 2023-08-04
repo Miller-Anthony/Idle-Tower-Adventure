@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class NPCStats : MonoBehaviour
 {
     [SerializeField] int level;    //the level of the NPC (used to calculate enemy spawn position)
-    [SerializeField] BigNumber strength; //how much damage the NPC does
-    [SerializeField] BigNumber health;   //how much health the NPC has
+    [SerializeField] BigInteger strength; //how much damage the NPC does
+    [SerializeField] BigInteger health;   //how much health the NPC has
     [SerializeField] float speed;  //how fast the NPC moves (only for moving NPCs) 
     [SerializeField] float spawn;  //how quick enemies spawn (only needed for enemies)
-    [SerializeField] BigNumber gold;     //how much gold you get from the enemy (only needed for enemies)
+    [SerializeField] BigInteger gold;     //how much gold you get from the enemy (only needed for enemies)
     [SerializeField] GameObject healthBar; //the healthbar of an enemy
     [SerializeField] Transform currentHealthBar; //the current health represented graphically
     [SerializeField] LootTracker loot;
 
-    private BigNumber currentHealth;
+    private BigInteger currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -61,37 +62,37 @@ public class NPCStats : MonoBehaviour
     }
 
     // Returns the strength of the NPC
-    public BigNumber GetStrength()
+    public BigInteger GetStrength()
     {
         return strength;
     }
 
     // Set the strength of the NPC to something specific
-    public void SetStrength(BigNumber correction)
+    public void SetStrength(BigInteger correction)
     {
         strength = correction;
     }
 
     // Add an amount of strength to the NPC
-    public void AddStrength(BigNumber addition)
+    public void AddStrength(BigInteger addition)
     {
         strength += addition;
     }
 
     // Subtract an amount of strength to the NPC
-    public void SubtractStrength(BigNumber subtraction)
+    public void SubtractStrength(BigInteger subtraction)
     {
         strength -= subtraction;
     }
 
     // Returns the current health of the NPC
-    public BigNumber GetCurrentHealth()
+    public BigInteger GetCurrentHealth()
     {
         return currentHealth;
     }
 
     // Set the current health of the NPC to something specific
-    public void SetCurrentHealth(BigNumber correction)
+    public void SetCurrentHealth(BigInteger correction)
     {
         currentHealth = correction;
         if (currentHealth >= health)
@@ -107,26 +108,26 @@ public class NPCStats : MonoBehaviour
         if (tag == "enemy")
         {
             healthBar.SetActive(true);
-            Vector3 holder = currentHealthBar.localScale;
+            UnityEngine.Vector3 holder = currentHealthBar.localScale;
             holder.x = PercentHealth();
             currentHealthBar.localScale = holder;
         }
     }
 
     // Returns the maximum health of the NPC
-    public BigNumber GetMaxHealth()
+    public BigInteger GetMaxHealth()
     {
         return currentHealth;
     }
 
     // Set the maximum health of the NPC to something specific
-    public void SetMaxHealth(BigNumber correction)
+    public void SetMaxHealth(BigInteger correction)
     {
         health = correction;
     }
 
     // Add an amount of health to the NPC
-    public void Heal(BigNumber addition)
+    public void Heal(BigInteger addition)
     {
         currentHealth += addition;
         if (currentHealth >= health)
@@ -141,14 +142,14 @@ public class NPCStats : MonoBehaviour
 
         if (tag == "enemy")
         {
-            Vector3 holder = currentHealthBar.localScale;
+            UnityEngine.Vector3 holder = currentHealthBar.localScale;
             holder.x = PercentHealth();
             currentHealthBar.localScale = holder;
         }
     }
 
     // Subtract an amount of health to the NPC
-    public void Damage(BigNumber subtraction)
+    public void Damage(BigInteger subtraction)
     {
         currentHealth -= subtraction;
 
@@ -159,7 +160,7 @@ public class NPCStats : MonoBehaviour
 
         if (tag == "enemy")
         {
-            Vector3 holder = currentHealthBar.localScale;
+            UnityEngine.Vector3 holder = currentHealthBar.localScale;
             holder.x = PercentHealth();
             currentHealthBar.localScale = holder;
         }
@@ -169,7 +170,7 @@ public class NPCStats : MonoBehaviour
     //only called for enemies
     public void RegenHealth()
     {
-        currentHealth += health * 0.2f % loot.GetController("poisonVial").GetTotalBonus() ;
+        currentHealth += health * (new BigInteger(2) / 100) * (loot.GetController("poisonVial").GetTotalBonus() / new BigInteger(100) );
         if(currentHealth >= health)
         {
             currentHealth = health;
@@ -177,7 +178,7 @@ public class NPCStats : MonoBehaviour
             return;
         }
 
-        Vector3 holder = currentHealthBar.localScale;
+        UnityEngine.Vector3 holder = currentHealthBar.localScale;
         holder.x = PercentHealth();
         currentHealthBar.localScale = holder;
     }
@@ -257,25 +258,25 @@ public class NPCStats : MonoBehaviour
     }
 
     // Returns the gold of the NPC
-    public BigNumber GetGold()
+    public BigInteger GetGold()
     {
         return gold;
     }
 
     // Set the gold of the NPC to something specific
-    public void SetGold(BigNumber correction)
+    public void SetGold(BigInteger correction)
     {
         gold = correction;
     }
 
     // Add an amount of gold to the NPC
-    public void AddGold(BigNumber addition)
+    public void AddGold(BigInteger addition)
     {
         gold += addition;
     }
 
     // Subtract an amount of gold to the NPC
-    public void SubtractGold(BigNumber subtraction)
+    public void SubtractGold(BigInteger subtraction)
     {
         gold -= subtraction;
     }

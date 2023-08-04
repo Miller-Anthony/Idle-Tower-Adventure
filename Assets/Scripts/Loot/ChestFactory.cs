@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class ChestFactory : MonoBehaviour
@@ -29,7 +30,7 @@ public class ChestFactory : MonoBehaviour
         {
             float num = Random.Range(0.0f, 100.0f);
 
-            if (num <= spawnChance % loot.GetController("dungeonMap").GetTotalBonus())
+            if (num <= spawnChance * (float)(loot.GetController("dungeonMap").GetTotalBonus() / new BigInteger(100)))
             {
                 answer = true;
             }
@@ -45,7 +46,7 @@ public class ChestFactory : MonoBehaviour
         holder.transform.position = pos.transform.position;
 
         //calculate and set the scale of the chest
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;

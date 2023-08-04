@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class MercenaryManager : MonoBehaviour
@@ -30,9 +31,9 @@ public class MercenaryManager : MonoBehaviour
         
     }
 
-    public BigNumber GetTotalStrength(float percent = 1.0f)
+    public BigInteger GetTotalStrength(float percent = 1.0f)
     {
-        BigNumber holder = new BigNumber(0);
+        BigInteger holder = new BigInteger(0);
 
         if (fighterStats.GetLevel() > 0)
         {
@@ -94,7 +95,7 @@ public class MercenaryManager : MonoBehaviour
             holder += druidStats.GetStrength();
         }
 
-        return holder * percent;
+        return holder * (BigInteger)percent;
     }
 
     public float GetSpawnPercent()

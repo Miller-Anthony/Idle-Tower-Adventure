@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class NPCFactory : MonoBehaviour
@@ -292,12 +293,12 @@ public class NPCFactory : MonoBehaviour
     }
 
     //spawn an enemy at the given position
-    public GameObject SpawnEmemy(Vector3 pos, RoomController floor, int lvl)
+    public GameObject SpawnEmemy(UnityEngine.Vector3 pos, RoomController floor, int lvl)
     {
         //determine if a chest will be spawned or not
         GameObject spawn = enemy;
 
-        if(floor.GetFloor() % 5 != 0 && chestChance % loot.GetController("tomeOfLuck").GetTotalBonus() > Random.value)
+        if(floor.GetFloor() % 5 != 0 && (BigInteger)chestChance * (loot.GetController("tomeOfLuck").GetTotalBonus() / new BigInteger(100)) > (BigInteger)Random.value)
         {
             spawn = enemyChest;
         }
@@ -307,7 +308,7 @@ public class NPCFactory : MonoBehaviour
         NPCStats holdStats = holder.GetComponent<NPCStats>();
 
         //Calculate the scale of the room
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -315,13 +316,13 @@ public class NPCFactory : MonoBehaviour
         //set the stats
         holder.transform.position = pos;
         holdStats.SetLevel(lvl);
-        holdStats.SetMaxHealth(floor.GetEnemyHealth() % loot.GetController("sharpeningStone").GetTotalBonus());
+        holdStats.SetMaxHealth(floor.GetEnemyHealth() * (loot.GetController("sharpeningStone").GetTotalBonus() / new BigInteger(100)));
         holdStats.SetStrength(floor.GetEnemyStrength() % loot.GetController("tomeOfEndurance").GetTotalBonus());
         holder.GetComponent<CombatController>().SetFloor(floor);
 
         if(spawn == enemyChest)
         {
-            holdStats.SetGold(floor.GetEnemyGold() * 1.5f % loot.GetController("gemPouch").GetTotalBonus());
+            holdStats.SetGold(floor.GetEnemyGold() * (BigInteger)1.5f % loot.GetController("gemPouch").GetTotalBonus());
         }
         else
         {
@@ -332,7 +333,7 @@ public class NPCFactory : MonoBehaviour
     }
 
     //spawn an adventurer at the given position
-    public GameObject SpawnAdventurer(Vector3 pos, int floor)
+    public GameObject SpawnAdventurer(UnityEngine.Vector3 pos, int floor)
     {
         GameObject toSpawn = adventurer;
         if (general.GetSkilledChance() >= Random.Range(0.01f, 1))
@@ -353,7 +354,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the adventurer
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -365,26 +366,26 @@ public class NPCFactory : MonoBehaviour
         {
             //set the skilledAdventurers stats
             holdStats.SetLevel(adventurerStats.GetLevel());
-            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost() * 0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
-            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost() * 0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
+            holdStats.SetMaxHealth(adventurerStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost() * (BigInteger)0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
+            holdStats.SetStrength(adventurerStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost() * (BigInteger)0.05f % loot.GetController("tomeOfStrength").GetTotalBonus());
             holdStats.SetSpeed(adventurerStats.GetSpeed() * 0.02f);
-            holdStats.SetGold(new BigNumber(0));
+            holdStats.SetGold(new BigInteger(0));
         }
         else
         {
             //set the adventurers stats
             holdStats.SetLevel(adventurerStats.GetLevel());
-            holdStats.SetMaxHealth(adventurerStats.GetHealth() * pManager.GetTeleportBoost());
-            holdStats.SetStrength(adventurerStats.GetStrength() * pManager.GetTeleportBoost());
+            holdStats.SetMaxHealth(adventurerStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+            holdStats.SetStrength(adventurerStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
             holdStats.SetSpeed(adventurerStats.GetSpeed());
-            holdStats.SetGold(new BigNumber(0));
+            holdStats.SetGold(new BigInteger(0));
         }
 
         general.SummonAdventurer();
         return holder;
     }
 
-    public GameObject SpawnFighter(Vector3 pos, int floor)
+    public GameObject SpawnFighter(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(fighter);
         if (floor % 2 == 0)
@@ -400,7 +401,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the fighter
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -410,16 +411,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(fighterStats.GetLevel());
-        holdStats.SetMaxHealth(fighterStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(fighterStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(fighterStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(fighterStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(fighterStats.GetSpeed());
         holdStats.SetSpawn(fighterStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnBarbarian(Vector3 pos, int floor)
+    public GameObject SpawnBarbarian(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(barbarian);
         if (floor % 2 == 0)
@@ -435,7 +436,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -445,16 +446,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(barbarianStats.GetLevel());
-        holdStats.SetMaxHealth(barbarianStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(barbarianStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(barbarianStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(barbarianStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(barbarianStats.GetSpeed());
         holdStats.SetSpawn(barbarianStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnRogue(Vector3 pos, int floor)
+    public GameObject SpawnRogue(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(rogue);
         if (floor % 2 == 0)
@@ -470,7 +471,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -480,16 +481,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(rogueStats.GetLevel());
-        holdStats.SetMaxHealth(rogueStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(rogueStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(rogueStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(rogueStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(rogueStats.GetSpeed());
         holdStats.SetSpawn(rogueStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnRanger(Vector3 pos, int floor)
+    public GameObject SpawnRanger(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(ranger);
         if (floor % 2 == 0)
@@ -505,7 +506,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -515,16 +516,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(rangerStats.GetLevel());
-        holdStats.SetMaxHealth(rangerStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(rangerStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(rangerStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(rangerStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(rangerStats.GetSpeed());
         holdStats.SetSpawn(rangerStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnMonk(Vector3 pos, int floor)
+    public GameObject SpawnMonk(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(monk);
         if (floor % 2 == 0)
@@ -540,7 +541,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -550,16 +551,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(monkStats.GetLevel());
-        holdStats.SetMaxHealth(monkStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(monkStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(monkStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(monkStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(monkStats.GetSpeed());
         holdStats.SetSpawn(monkStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnCleric(Vector3 pos, int floor)
+    public GameObject SpawnCleric(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(cleric);
         if (floor % 2 == 0)
@@ -575,7 +576,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -585,16 +586,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(clericStats.GetLevel());
-        holdStats.SetMaxHealth(clericStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(clericStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(clericStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(clericStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(clericStats.GetSpeed());
         holdStats.SetSpawn(clericStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnBard(Vector3 pos, int floor)
+    public GameObject SpawnBard(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(bard);
         if (floor % 2 == 0)
@@ -610,7 +611,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -620,16 +621,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(bardStats.GetLevel());
-        holdStats.SetMaxHealth(bardStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(bardStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(bardStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(bardStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(bardStats.GetSpeed());
         holdStats.SetSpawn(bardStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnWizzard(Vector3 pos, int floor)
+    public GameObject SpawnWizzard(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(wizzard);
         if (floor % 2 == 0)
@@ -645,7 +646,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -655,16 +656,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(wizzardStats.GetLevel());
-        holdStats.SetMaxHealth(wizzardStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(wizzardStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(wizzardStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(wizzardStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(wizzardStats.GetSpeed());
         holdStats.SetSpawn(wizzardStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnWarlock(Vector3 pos, int floor)
+    public GameObject SpawnWarlock(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(warlock);
         if (floor % 2 == 0)
@@ -680,7 +681,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -690,16 +691,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(warlockStats.GetLevel());
-        holdStats.SetMaxHealth(warlockStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(warlockStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(warlockStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(warlockStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(warlockStats.GetSpeed());
         holdStats.SetSpawn(warlockStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnSorcerer(Vector3 pos, int floor)
+    public GameObject SpawnSorcerer(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(sorcerer);
         if (floor % 2 == 0)
@@ -715,7 +716,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -725,16 +726,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(sorcererStats.GetLevel());
-        holdStats.SetMaxHealth(sorcererStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(sorcererStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(sorcererStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(sorcererStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(sorcererStats.GetSpeed());
         holdStats.SetSpawn(sorcererStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnPaladin(Vector3 pos, int floor)
+    public GameObject SpawnPaladin(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(paladin);
         if (floor % 2 == 0)
@@ -750,7 +751,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -760,16 +761,16 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(paladinStats.GetLevel());
-        holdStats.SetMaxHealth(paladinStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(paladinStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(paladinStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(paladinStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(paladinStats.GetSpeed());
         holdStats.SetSpawn(paladinStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }
 
-    public GameObject SpawnDruid(Vector3 pos, int floor)
+    public GameObject SpawnDruid(UnityEngine.Vector3 pos, int floor)
     {
         GameObject holder = Instantiate(druid);
         if (floor % 2 == 0)
@@ -785,7 +786,7 @@ public class NPCFactory : MonoBehaviour
         holder.transform.position = pos;
 
         //Calculate the scale of the barbarian
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -795,11 +796,11 @@ public class NPCFactory : MonoBehaviour
 
         //set the adventurers stats
         holdStats.SetLevel(druidStats.GetLevel());
-        holdStats.SetMaxHealth(druidStats.GetHealth() * pManager.GetTeleportBoost());
-        holdStats.SetStrength(druidStats.GetStrength() * pManager.GetTeleportBoost());
+        holdStats.SetMaxHealth(druidStats.GetHealth() * (BigInteger)pManager.GetTeleportBoost());
+        holdStats.SetStrength(druidStats.GetStrength() * (BigInteger)pManager.GetTeleportBoost());
         holdStats.SetSpeed(druidStats.GetSpeed());
         holdStats.SetSpawn(druidStats.GetSpawn());
-        holdStats.SetGold(new BigNumber(0));
+        holdStats.SetGold(new BigInteger(0));
 
         return holder;
     }

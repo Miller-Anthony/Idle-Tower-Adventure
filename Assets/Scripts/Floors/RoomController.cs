@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,11 +22,11 @@ public class RoomController : MonoBehaviour
     [SerializeField] Text text;
 
     //enemy stats for the floor
-    [SerializeField] BigNumber strength;
-    [SerializeField] BigNumber health;
-    [SerializeField] BigNumber gold;
+    [SerializeField] BigInteger strength;
+    [SerializeField] BigInteger health;
+    [SerializeField] BigInteger gold;
 
-    private Vector2 boundry;
+    private UnityEngine.Vector2 boundry;
     private float spawnTimer;
     private float timer1 = 0.1f;
     private float timer2 = 0.1f;
@@ -47,13 +48,13 @@ public class RoomController : MonoBehaviour
         //set stats for first floor
         if (floor == 1)
         {
-            health = new BigNumber(7);
-            strength = new BigNumber(3);
-            gold = new BigNumber(2);
+            health = new BigInteger(7);
+            strength = new BigInteger(3);
+            gold = new BigInteger(2);
 
 
             //Calculate the scale of the room
-            Vector3 scale = transform.localScale;
+            UnityEngine.Vector3 scale = transform.localScale;
             scale.x *= 1.5f * Screen.width / Screen.height;
             scale.y *= 1.5f * Screen.width / Screen.height;
             transform.localScale = scale;
@@ -62,13 +63,13 @@ public class RoomController : MonoBehaviour
             Transform ground = GameObject.Find("Ground").GetComponent<Transform>();
 
             //have the first floor on the ground
-            Vector3 pos = transform.position;
+            UnityEngine.Vector3 pos = transform.position;
             pos.y = ground.position.y + (ground.localScale.y + transform.localScale.y) / 2;
             transform.position = pos;
         }
 
         //calculate the boundry for the mouse clicks
-        boundry = new Vector2(transform.position.y + (transform.localScale.y / 2), transform.position.y - (transform.localScale.y / 2));
+        boundry = new UnityEngine.Vector2(transform.position.y + (transform.localScale.y / 2), transform.position.y - (transform.localScale.y / 2));
 
         //make the first enemies spawn
         isTiming = true;
@@ -114,7 +115,7 @@ public class RoomController : MonoBehaviour
         //spawn an adventurer
         if(isActive && Input.GetMouseButtonDown(0) && stats.GetMaxAdventurers() > stats.GetNumAdventurers())
         {
-            Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            UnityEngine.Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             //if the click is withis the boudry of the floor you spawn a warrior
             if (click.y < boundry.x && click.y > boundry.y)
@@ -125,7 +126,7 @@ public class RoomController : MonoBehaviour
         }
         else if(pManager.autoIsActive && isActive && Input.GetMouseButton(0) && stats.GetMaxAdventurers() > stats.GetNumAdventurers())
         {
-            Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            UnityEngine.Vector3 click = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             spawnTimer -= Time.deltaTime;
 
@@ -224,32 +225,32 @@ public class RoomController : MonoBehaviour
         return spawnCount;
     }
 
-    public void SetEnemyStrength(BigNumber str)
+    public void SetEnemyStrength(BigInteger str)
     {
         strength = str;
     }
 
-    public BigNumber GetEnemyStrength()
+    public BigInteger GetEnemyStrength()
     {
         return strength;
     }
 
-    public void SetEnemyHealth(BigNumber hp)
+    public void SetEnemyHealth(BigInteger hp)
     {
         health = hp;
     }
 
-    public BigNumber GetEnemyHealth()
+    public BigInteger GetEnemyHealth()
     {
         return health;
     }
 
-    public void SetEnemyGold(BigNumber gld)
+    public void SetEnemyGold(BigInteger gld)
     {
         gold = gld;
     }
 
-    public BigNumber GetEnemyGold()
+    public BigInteger GetEnemyGold()
     {
         return gold;
     }

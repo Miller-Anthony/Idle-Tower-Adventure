@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class RoomFactory : MonoBehaviour
@@ -84,12 +85,12 @@ public class RoomFactory : MonoBehaviour
         RoomController holdRoom = holder.GetComponent<RoomController>();
 
         //update enemy held stats
-        enemyStats.SetStrength((enemyStats.GetStrength() * 1.21f) + 1);
-        enemyStats.SetHealth((enemyStats.GetHealth() * 1.21f) + 1);
-        enemyStats.SetGold((enemyStats.GetGold() * 1.2f) + 1);
+        enemyStats.SetStrength((enemyStats.GetStrength() * (BigInteger)1.21f) + 1);
+        enemyStats.SetHealth((enemyStats.GetHealth() * (BigInteger)1.21f) + 1);
+        enemyStats.SetGold((enemyStats.GetGold() * (BigInteger)1.2f) + 1);
 
         //Calculate the scale of the room
-        Vector3 scale = holder.transform.localScale;
+        UnityEngine.Vector3 scale = holder.transform.localScale;
         scale.x *= 1.5f * Screen.width / Screen.height;
         scale.y *= 1.5f * Screen.width / Screen.height;
         holder.transform.localScale = scale;
@@ -101,9 +102,9 @@ public class RoomFactory : MonoBehaviour
         holdRoom.SetLoading(loading);
         if (bossFloor)
         {
-            holdRoom.SetEnemyStrength((enemyStats.GetStrength() * 1.2f) + 1);
-            holdRoom.SetEnemyHealth((enemyStats.GetHealth() * 1.2f) + 1);
-            holdRoom.SetEnemyGold((enemyStats.GetGold() * 1.05f) + 1);
+            holdRoom.SetEnemyStrength((enemyStats.GetStrength() * (BigInteger)1.2f) + 1);
+            holdRoom.SetEnemyHealth((enemyStats.GetHealth() * (BigInteger)1.2f) + 1);
+            holdRoom.SetEnemyGold((enemyStats.GetGold() * (BigInteger)1.05f) + 1);
         }
         else
         {
@@ -112,7 +113,7 @@ public class RoomFactory : MonoBehaviour
             holdRoom.SetEnemyGold(enemyStats.GetGold());
         }
 
-        Vector3 pos = holder.transform.position;
+        UnityEngine.Vector3 pos = holder.transform.position;
         pos.y = GetComponentInParent<Transform>().position.y + scale.y;
         holder.transform.position = pos;
 

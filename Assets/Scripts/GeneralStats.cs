@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class GeneralStats : MonoBehaviour
 {
-    [SerializeField] BigNumber gold;
-    [SerializeField] BigNumber gems;
+    [SerializeField] BigInteger gold;
+    [SerializeField] BigInteger gems;
     [SerializeField] UIController ui;
     [SerializeField] int topFloor = 1;   //Stores the top floor 
     [SerializeField] int bottomFloor;    //Stores the bottom floor 
@@ -25,7 +26,7 @@ public class GeneralStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gold = new BigNumber(0);
+        gold = new BigInteger(0);
         numAdventurers = 0;
         skilledChance = 0;
     }
@@ -37,41 +38,41 @@ public class GeneralStats : MonoBehaviour
     }
 
     // Add a given amount of gold
-    public void AddGold(BigNumber value)
+    public void AddGold(BigInteger value)
     {
         gold += value;
         ui.UpdateGold(gold);
     }
 
     // Subtract a gien amount of gold
-    public void SubtractGold(BigNumber value)
+    public void SubtractGold(BigInteger value)
     {
         gold -= value;
         ui.UpdateGold(gold);
     }
 
     //return the amount of gold currently held
-    public BigNumber CheckGold()
+    public BigInteger CheckGold()
     {
         return gold;
     }
 
     // Add a given amount of gems
-    public void AddGems(BigNumber value)
+    public void AddGems(BigInteger value)
     {
         gems += value;
         ui.UpdateGems(gems);
     }
 
     // Subtract a gien amount of gems
-    public void SubtractGems(BigNumber value)
+    public void SubtractGems(BigInteger value)
     {
         gems -= value;
         ui.UpdateGems(gems);
     }
 
     //return the amount of gems currently held
-    public BigNumber CheckGems()
+    public BigInteger CheckGems()
     {
         return gems;
     }
@@ -120,7 +121,7 @@ public class GeneralStats : MonoBehaviour
     //Get the chance a skilled adventurer will be summoned instead
     public float GetSkilledChance()
     {
-        return skilledChance % loot.GetController("loadedDice").GetTotalBonus();
+        return skilledChance * ((float)(loot.GetController("loadedDice").GetTotalBonus() / new BigInteger(100)));
     }
 
     //Set the chance a skilled adventurer will be summoned instead
@@ -132,7 +133,7 @@ public class GeneralStats : MonoBehaviour
     //Get the total amount of adventurers that can be summoned at any given time
     public int GetMaxAdventurers()
     {
-        return maxAdventurers + loot.GetController("tomeOfCharisma").GetTotalBonus().ToInt() + pManager.GetAutoLimit();
+        return maxAdventurers + ((int)loot.GetController("tomeOfCharisma").GetTotalBonus()) + pManager.GetAutoLimit();
     }
 
     //Set how many adventurers can be summoned at a given time
@@ -167,11 +168,11 @@ public class GeneralStats : MonoBehaviour
     {
         //get needed info for calculations
         RoomController room = fTracker.GetTopFloor().GetComponent<RoomController>();
-        BigNumber topGold = room.GetEnemyGold();
-        BigNumber topHealth = room.GetEnemyHealth();
-        BigNumber totalAttack = mManager.GetTotalStrength();
-        BigNumber curentHealth = topHealth;
-        BigNumber currentGold = new BigNumber(0);
+        BigInteger topGold = room.GetEnemyGold();
+        BigInteger topHealth = room.GetEnemyHealth();
+        BigInteger totalAttack = mManager.GetTotalStrength();
+        BigInteger curentHealth = topHealth;
+        BigInteger currentGold = new BigInteger(0);
 
         //load time from save file and calculate the time passed
         System.DateTime oldTime = new System.DateTime(loadYear, loadMonth, loadDay, loadHour, loadMin, loadSec, 0, System.DateTimeKind.Utc);
@@ -199,7 +200,7 @@ public class GeneralStats : MonoBehaviour
             }
         }
 
-        currentGold %= loot.GetController("investments").GetTotalBonus();
+        currentGold *= loot.GetController("investments").GetTotalBonus() / new BigInteger(100);
         
         if(currentGold > 0)
         {

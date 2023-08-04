@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -65,7 +66,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (hasteIsActive)
                 {
-                    hasteTimer = hasteCooldown % loot.GetController("alchemyKit").GetTotalBonus();
+                    hasteTimer = hasteCooldown * (float)(loot.GetController("alchemyKit").GetTotalBonus() / new BigInteger(100));
                     hasteIsActive = false;
                 }
             }
@@ -88,7 +89,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (increaseIsActive)
                 {
-                    increaseTimer = increaseCooldown % loot.GetController("ringOfWishes").GetTotalBonus();
+                    increaseTimer = increaseCooldown * (float)(loot.GetController("ringOfWishes").GetTotalBonus() / new BigInteger(100));
                     increaseIsActive = false;
                 }
             }
@@ -111,7 +112,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (teleportIsActive)
                 {
-                    teleportTimer = teleportCooldown % loot.GetController("manaPotion").GetTotalBonus();
+                    teleportTimer = teleportCooldown * (float)(loot.GetController("manaPotion").GetTotalBonus() / new BigInteger(100));
                     teleportIsActive = false;
                 }
             }
@@ -134,7 +135,7 @@ public class PowerManager : MonoBehaviour
             {
                 if (autoIsActive)
                 {
-                    autoTimer = autoCooldown % loot.GetController("summonersRobe").GetTotalBonus();
+                    autoTimer = autoCooldown * (float)(loot.GetController("summonersRobe").GetTotalBonus() / new BigInteger(100));
                     autoIsActive = false;
                 }
             }
@@ -161,7 +162,7 @@ public class PowerManager : MonoBehaviour
     {
         if(hasteIsActive)
         {
-            return hasteRate % loot.GetController("highQualityIngredients").GetTotalBonus();
+            return hasteRate * (float)(loot.GetController("highQualityIngredients").GetTotalBonus() / new BigInteger(100));
         }
         return 1.0f;
     }
@@ -189,7 +190,7 @@ public class PowerManager : MonoBehaviour
     {
         if(increaseIsActive)
         {
-            return bountyRate % loot.GetController("glovesOfMidas").GetTotalBonus();
+            return bountyRate * (float)(loot.GetController("glovesOfMidas").GetTotalBonus() / new BigInteger(100));
         }
         return 1.0f;
     }
@@ -201,7 +202,7 @@ public class PowerManager : MonoBehaviour
 
     public float GetTeleportRate()
     {
-        return teleportRate % loot.GetController("tomeOfIntelegence").GetTotalBonus();
+        return teleportRate * (float)(loot.GetController("tomeOfIntelegence").GetTotalBonus() / new BigInteger(100));
     }
 
     public float GetTeleportBoost()
@@ -215,7 +216,7 @@ public class PowerManager : MonoBehaviour
 
     public void SetAutoLimit(int limit)
     {
-        autoLimit = limit % loot.GetController("summonersStaff").GetTotalBonus().ToInt();
+        autoLimit = limit * (int)(loot.GetController("summonersStaff").GetTotalBonus() / new BigInteger(100));
     }
 
     public int GetAutoLimit()
@@ -234,7 +235,7 @@ public class PowerManager : MonoBehaviour
 
     public int GetAutoPerSecond()
     {
-        return autoPerSecond % loot.GetController("summonersStaff").GetTotalBonus().ToInt();
+        return autoPerSecond * (int)(loot.GetController("summonersStaff").GetTotalBonus() / new BigInteger(100));
     }
 
     public int GetHasteLevel()
@@ -345,28 +346,28 @@ public class PowerManager : MonoBehaviour
             case "hastePotion":
                 if (hasteTimer <= 0)
                 {
-                    hasteTimer = hasteActiveTime % loot.GetController("largeVial").GetTotalBonus();
+                    hasteTimer = hasteActiveTime * (float)(loot.GetController("largeVial").GetTotalBonus() / new BigInteger(100));
                     hasteIsActive = true;
                 }
                 break;
             case "increasedBounty":
                 if (increaseTimer <= 0)
                 {
-                    increaseTimer = increaseActiveTime % loot.GetController("amuletOfTime").GetTotalBonus();
+                    increaseTimer = increaseActiveTime * (float)(loot.GetController("amuletOfTime").GetTotalBonus() / new BigInteger(100));
                     increaseIsActive = true;
                 }
                 break;
             case "teleport":
                 if (teleportTimer <= 0)
                 {
-                    teleportTimer = teleportActiveTime % loot.GetController("magicFocus").GetTotalBonus();
+                    teleportTimer = teleportActiveTime * (float)(loot.GetController("magicFocus").GetTotalBonus() / new BigInteger(100));
                     teleportIsActive = true;
                 }
                 break;
             case "autoSpawner":
                 if (autoTimer <= 0)
                 {
-                    autoTimer = autoActiveTime % loot.GetController("summonersRing").GetTotalBonus();
+                    autoTimer = autoActiveTime * (float)(loot.GetController("summonersRing").GetTotalBonus() / new BigInteger(100));
                     autoIsActive = true;
                 }
                 break;

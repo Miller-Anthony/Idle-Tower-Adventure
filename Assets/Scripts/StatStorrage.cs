@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class StatStorrage : MonoBehaviour
 {
     //stats
     [SerializeField] int level;
-    [SerializeField] BigNumber health;
-    [SerializeField] BigNumber strength;
+    [SerializeField] BigInteger health;
+    [SerializeField] BigInteger strength;
     [SerializeField] float speed;
     [SerializeField] float spawn;
-    [SerializeField] BigNumber gold;
+    [SerializeField] BigInteger gold;
 
     //stat modifiers
     [SerializeField] LootTracker loot;
@@ -38,74 +39,74 @@ public class StatStorrage : MonoBehaviour
         switch (tag)
         {
             case "adventurer":
-                health = new BigNumber(2);
-                strength = new BigNumber(1);
-                gold = new BigNumber(0);
+                health = new BigInteger(2);
+                strength = new BigInteger(1);
+                gold = new BigInteger(0);
                 break;
             case "enemy":
-                health = new BigNumber(7);
-                strength = new BigNumber(3);
-                gold = new BigNumber(2);
+                health = new BigInteger(7);
+                strength = new BigInteger(3);
+                gold = new BigInteger(2);
                 break;
             case "cleric":
-                health = new BigNumber(5);
-                strength = new BigNumber(3);
-                gold = new BigNumber(0);
+                health = new BigInteger(5);
+                strength = new BigInteger(3);
+                gold = new BigInteger(0);
                 break;
             case "fighter":
-                health = new BigNumber(16);
-                strength = new BigNumber(12);
-                gold = new BigNumber(0);
+                health = new BigInteger(16);
+                strength = new BigInteger(12);
+                gold = new BigInteger(0);
                 break;
             case "barbarian":
-                health = new BigNumber(85);
-                strength = new BigNumber(65);
-                gold = new BigNumber(0);
+                health = new BigInteger(85);
+                strength = new BigInteger(65);
+                gold = new BigInteger(0);
                 break;
             case "rogue":
-                health = new BigNumber(330);
-                strength = new BigNumber(255);
-                gold = new BigNumber(0);
+                health = new BigInteger(330);
+                strength = new BigInteger(255);
+                gold = new BigInteger(0);
                 break;
             case "ranger":
-                health = new BigNumber(2575);
-                strength = new BigNumber(1980);
-                gold = new BigNumber(0);
+                health = new BigInteger(2575);
+                strength = new BigInteger(1980);
+                gold = new BigInteger(0);
                 break;
             case "monk":
-                health = new BigNumber(18500);
-                strength = new BigNumber(14200);
-                gold = new BigNumber(0);
+                health = new BigInteger(18500);
+                strength = new BigInteger(14200);
+                gold = new BigInteger(0);
                 break;
             case "bard":
-                health = new BigNumber(275150);
-                strength = new BigNumber(211653);
-                gold = new BigNumber(0);
+                health = new BigInteger(275150);
+                strength = new BigInteger(211653);
+                gold = new BigInteger(0);
                 break;
             case "wizzard":
-                health = new BigNumber(3870000);
-                strength = new BigNumber(2977000);
-                gold = new BigNumber(0);
+                health = new BigInteger(3870000);
+                strength = new BigInteger(2977000);
+                gold = new BigInteger(0);
                 break;
             case "warlock":
-                health = new BigNumber(1123400000);
-                strength = new BigNumber(87250000);
-                gold = new BigNumber(0);
+                health = new BigInteger(1123400000);
+                strength = new BigInteger(87250000);
+                gold = new BigInteger(0);
                 break;
             case "sorcerer":
-                health = new BigNumber(3138000000);
-                strength = new BigNumber(2414000000);
-                gold = new BigNumber(0);
+                health = new BigInteger(3138000000);
+                strength = new BigInteger(2414000000);
+                gold = new BigInteger(0);
                 break;
             case "paladin":
-                health = new BigNumber(180900000000);
-                strength = new BigNumber(139100000000);
-                gold = new BigNumber(0);
+                health = new BigInteger(180900000000);
+                strength = new BigInteger(139100000000);
+                gold = new BigInteger(0);
                 break;
             case "druid":
-                health = new BigNumber(9848000000000);
-                strength = new BigNumber(7575000000000);
-                gold = new BigNumber(0);
+                health = new BigInteger(9848000000000);
+                strength = new BigInteger(7575000000000);
+                gold = new BigInteger(0);
                 break;
             default:
                 break;
@@ -127,20 +128,20 @@ public class StatStorrage : MonoBehaviour
     }
 
     //Set the stored health stat
-    public void SetHealth(BigNumber hp)
+    public void SetHealth(BigInteger hp)
     {
         health = hp;
     }
 
     // Get the stored health stat
-    public BigNumber GetHealth()
+    public BigInteger GetHealth()
     {
         if (tag == "enemy")
         {
             return health % loot.GetController("sharpeningStone").GetTotalBonus();
         }
 
-        BigNumber holder = health;
+        BigInteger holder = health;
 
         holder %= loot.GetController("shield").GetTotalBonus();
         holder %= loot.GetController("helmet").GetTotalBonus();
@@ -150,32 +151,32 @@ public class StatStorrage : MonoBehaviour
             holder %= loot.GetController("breastplate").GetTotalBonus();
         }
 
-        holder *= gearPercent;
+        holder *= (BigInteger)gearPercent;
         holder += loot.GetController("gauntlets").GetTotalBonus();
 
         return holder;
     }
 
-    public BigNumber LevelHealth()
+    public BigInteger LevelHealth()
     {
         return health;
     }
 
     //Set the stored strength stat
-    public void SetStrength(BigNumber str)
+    public void SetStrength(BigInteger str)
     {
         strength = str;
     }
 
     // Get the stored strength stat
-    public BigNumber GetStrength()
+    public BigInteger GetStrength()
     {
         if(tag == "enemy")
         {
             return strength % loot.GetController("tomeOfEndurance").GetTotalBonus();
         }
 
-        BigNumber holder = strength;
+        BigInteger holder = strength;
         holder %= loot.GetController("sword").GetTotalBonus();
         holder %= loot.GetController("longSword").GetTotalBonus();
 
@@ -184,7 +185,7 @@ public class StatStorrage : MonoBehaviour
             holder %= loot.GetController("spear").GetTotalBonus();
         }
 
-        holder *= gearPercent;
+        holder *= (BigInteger)gearPercent;
         
         if(strengthPercent != 0)
         {
@@ -196,7 +197,7 @@ public class StatStorrage : MonoBehaviour
         return holder;
     }
 
-    public BigNumber LevelStrength()
+    public BigInteger LevelStrength()
     {
         return strength;
     }
@@ -210,7 +211,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored speed stat
     public float GetSpeed()
     {
-        return speed * pManager.GetHasteSpeed() % loot.GetController("swiftBoots").GetTotalBonus();
+        return speed * pManager.GetHasteSpeed() * (float)(loot.GetController("swiftBoots").GetTotalBonus() / new BigInteger(100));
     }
 
     //Set the stored spawn stat
@@ -222,7 +223,7 @@ public class StatStorrage : MonoBehaviour
     // Get the stored spawn stat
     public float GetSpawn()
     {
-        return (spawn * spawnPercent) / pManager.GetHasteRate() % loot.GetController("tomeOfDexterity").GetTotalBonus();
+        return (spawn * spawnPercent) / pManager.GetHasteRate() * (float)(loot.GetController("tomeOfDexterity").GetTotalBonus() / new BigInteger(100));
     }
 
     //Set the stored spawnPercent stat
@@ -280,14 +281,14 @@ public class StatStorrage : MonoBehaviour
     }
 
     //Set the stored gold stat
-    public void SetGold(BigNumber gld)
+    public void SetGold(BigInteger gld)
     {
         gold = gld;
     }
 
     // Get the stored gold stat
-    public BigNumber GetGold()
+    public BigInteger GetGold()
     {
-        return gold % loot.GetController("magnifyingGlass").GetTotalBonus() * pManager.GetBountyRate();
+        return gold * (loot.GetController("magnifyingGlass").GetTotalBonus() / new BigInteger(100)) * (BigInteger)pManager.GetBountyRate();
     }
 }

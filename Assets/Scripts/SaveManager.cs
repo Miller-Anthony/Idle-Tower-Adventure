@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Numerics;
 using System.IO;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
@@ -36,7 +37,7 @@ public class SaveManager : MonoBehaviour
     //data to save
     private int highestFloor;
     private int topFloor;
-    private BigNumber gold;
+    private BigInteger gold;
     private int adventurerLevel;
     private int adventurerCount;
     private int clearedFloorLevel;
@@ -133,7 +134,7 @@ public class SaveManager : MonoBehaviour
         string path = Application.persistentDataPath + "\\Save.txt";
         string data = highestFloor + "\n";
         data = data + topFloor + "\n";
-        data = data + gold.SaveString() + "\n";
+        data = data + gold.ToString() + "\n";
         data = data + adventurerLevel + "\n";
         data = data + clericLevel + "\n";
         data = data + fighterLevel + "\n";
@@ -244,7 +245,7 @@ public class SaveManager : MonoBehaviour
         string path = Application.persistentDataPath + "\\Save.txt";
         string data = highestFloor + "\n";
         data = data + topFloor + "\n";
-        data = data + gold.SaveString() + "\n";
+        data = data + gold.ToString() + "\n";
         data = data + adventurerLevel + "\n";
         data = data + clericLevel + "\n";
         data = data + fighterLevel + "\n";

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,12 +25,12 @@ public class UpgradePanelController : MonoBehaviour
         
     }
 
-    public void UpdateText(BigNumber newCost)
+    public void UpdateText(BigInteger newCost)
     {
-        costText.text = newCost.ToString();
+        costText.text = newCost.ToString("E3");
         levelText.text = stats.GetLevel().ToString();
-        healthText.text = stats.GetHealth().ToString();
-        strengthText.text = stats.GetStrength().ToString();
+        healthText.text = stats.GetHealth().ToString("E3");
+        strengthText.text = stats.GetStrength().ToString("E3");
         speedText.text = stats.GetSpeed().ToString();
 
     }

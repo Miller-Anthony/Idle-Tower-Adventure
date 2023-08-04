@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 public class UpgradeButtonController : MonoBehaviour
 {
     [SerializeField] StatStorrage stats;
     [SerializeField] GeneralStats genStats;
-    [SerializeField] BigNumber cost;
+    [SerializeField] BigInteger cost;
     [SerializeField] UpgradePanelController panel;
     [SerializeField] LootTracker loot;
 
@@ -27,43 +28,43 @@ public class UpgradeButtonController : MonoBehaviour
         switch (tag)
         {
             case "adventurer":
-                cost = new BigNumber(2);
+                cost = new BigInteger(2);
                 break;
             case "cleric":
-                cost = new BigNumber(10);
+                cost = new BigInteger(10);
                 break;
             case "fighter":
-                cost = new BigNumber(20);
+                cost = new BigInteger(20);
                 break;
             case "barbarian":
-                cost = new BigNumber(111);
+                cost = new BigInteger(111);
                 break;
             case "rogue":
-                cost = new BigNumber(730);
+                cost = new BigInteger(730);
                 break;
             case "ranger":
-                cost = new BigNumber(12600);
+                cost = new BigInteger(12600);
                 break;
             case "monk":
-                cost = new BigNumber(221122);
+                cost = new BigInteger(221122);
                 break;
             case "bard":
-                cost = new BigNumber(9950000);
+                cost = new BigInteger(9950000);
                 break;
             case "wizzard":
-                cost = new BigNumber(453000000);
+                cost = new BigInteger(453000000);
                 break;
             case "warlock":
-                cost = new BigNumber(52860000000);
+                cost = new BigInteger(52860000000);
                 break;
             case "sorcerer":
-                cost = new BigNumber(5286000000000);
+                cost = new BigInteger(5286000000000);
                 break;
             case "paladin":
-                cost = new BigNumber(1889000000000000);
+                cost = new BigInteger(1889000000000000);
                 break;
             case "druid":
-                cost = new BigNumber(490000000000000000);
+                cost = new BigInteger(490000000000000000);
                 break;
             default:
                 break;
@@ -89,9 +90,8 @@ public class UpgradeButtonController : MonoBehaviour
         //BigNumber hp = stats.LevelHealth();
 
         //calculate and set the damage and health stat increase
-        stats.SetStrength((stats.LevelStrength() * 1.07f) + 1);
-        stats.SetHealth((stats.LevelStrength() * 1.4f) + 1);
-
+        stats.SetStrength(stats.LevelStrength() * 107 / 100 + 1);
+        stats.SetHealth(stats.LevelStrength() * 140 / 100 + 1);
 
         //set the new speed stat (needs to be updated later to not increase every level)
         if (stats.GetLevel() % 50 == 0)
@@ -109,11 +109,11 @@ public class UpgradeButtonController : MonoBehaviour
 
             if(tag == "adventurer" && stats.GetLevel() == 1)
             {
-                cost = new BigNumber(11);
+                cost = new BigInteger(11);
             }
             else
             {
-                cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
+                cost = (cost * (BigInteger)1.1f) * (loot.GetController("adventuringVoucher").GetTotalBonus() / new BigInteger(100));
             }
 
             Upgrade();
@@ -130,12 +130,12 @@ public class UpgradeButtonController : MonoBehaviour
         {
             if (tag == "adventurer" && stats.GetLevel() == 1)
             {
-                cost = new BigNumber(11);
+                cost = new BigInteger(11);
             }
             else
             {
-                cost = (cost * 1.1f) % loot.GetController("adventuringVoucher").GetTotalBonus();
-            }
+                cost = (cost * 110 / 100) * (loot.GetController("adventuringVoucher").GetTotalBonus() / new BigInteger(100));
+    }
 
             Upgrade();
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class MiscUpgradeButtonController : MonoBehaviour
 {
     [SerializeField] GeneralStats genStats;
     [SerializeField] MercenaryManager mManager;
-    [SerializeField] BigNumber cost;
+    [SerializeField] BigInteger cost;
     [SerializeField] MiscUpgradeController panel;
     [SerializeField] FloorTracker floors;
     [SerializeField] AutoFloorClearManager autoClear;
@@ -33,40 +34,40 @@ public class MiscUpgradeButtonController : MonoBehaviour
         switch (tag)
         {
             case "adventurerCount":
-                cost = new BigNumber(1000);
+                cost = new BigInteger(1000);
                 break;
             case "clearFloor":
-                cost = new BigNumber(25000);
+                cost = new BigInteger(25000);
                 break;
             case "clearFloorAuto":
-                cost = new BigNumber(25000000);
+                cost = new BigInteger(25000000);
                 break;
             case "skilledAdventurer":
-                cost = new BigNumber(500000);
+                cost = new BigInteger(500000);
                 break;
             case "hireRate":
-                cost = new BigNumber(50000);
+                cost = new BigInteger(50000);
                 break;
             case "improveGear":
-                cost = new BigNumber(80000);
+                cost = new BigInteger(80000);
                 break;
             case "strengthInNumbers":
-                cost = new BigNumber(2000000);
+                cost = new BigInteger(2000000);
                 break;
             case "hastePotion":
-                cost = new BigNumber(25000);
+                cost = new BigInteger(25000);
                 break;
             case "increasedBounty":
-                cost = new BigNumber(1000000);
+                cost = new BigInteger(1000000);
                 break;
             case "teleport":
-                cost = new BigNumber(500000000);
+                cost = new BigInteger(500000000);
                 break;
             case "autoSpawner":
-                cost = new BigNumber(555555555555);
+                cost = new BigInteger(555555555555);
                 break;
             case "rebirth":
-                cost = new BigNumber(1111111111);
+                cost = new BigInteger(1111111111);
                 break;
             default:
                 break;

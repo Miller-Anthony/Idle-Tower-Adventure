@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,7 @@ public class LootDisplayController : MonoBehaviour
 
     [SerializeField] int looted;
     [SerializeField] int maxLootable; // 0 = unlimited
-    [SerializeField] BigNumber bonus;
+    [SerializeField] BigInteger bonus;
 
     //internal stats for figuring out loot chance
     [SerializeField] float startingWeight;
@@ -36,115 +37,115 @@ public class LootDisplayController : MonoBehaviour
         switch (tag)
         {
             case "sword":
-                bonus = new BigNumber(30);
+                bonus = new BigInteger(30);
                 break;
             case "longSword":
-                bonus = new BigNumber(80);
+                bonus = new BigInteger(80);
                 break;
             case "spear":
-                bonus = new BigNumber(40);
+                bonus = new BigInteger(40);
                 break;
             case "dagger":
-                bonus = new BigNumber(150);
+                bonus = new BigInteger(150);
                 break;
             case "shield":
-                bonus = new BigNumber(30);
+                bonus = new BigInteger(30);
                 break;
             case "helmet":
-                bonus = new BigNumber(80);
+                bonus = new BigInteger(80);
                 break;
             case "breastplate":
-                bonus = new BigNumber(40);
+                bonus = new BigInteger(40);
                 break;
             case "gauntlets":
-                bonus = new BigNumber(150);
+                bonus = new BigInteger(150);
                 break;
             case "magnifyingGlass":
-                bonus = new BigNumber(30);
+                bonus = new BigInteger(30);
                 break;
             case "tomeOfLuck":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             case "gemPouch":
-                bonus = new BigNumber(20);
+                bonus = new BigInteger(20);
                 break;
             case "wallet":
-                bonus = new BigNumber(1000);
+                bonus = new BigInteger(1000);
                 break;
             case "alchemyKit":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "largeVial":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "highQualityIngredients":
-                bonus = new BigNumber(15);
+                bonus = new BigInteger(15);
                 break;
             case "ringOfWishes":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "amuletOfTime":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "glovesOfMidas":
-                bonus = new BigNumber(15);
+                bonus = new BigInteger(15);
                 break;
             case "manaPotion":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "magicFocus":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "tomeOfIntelegence":
-                bonus = new BigNumber(15);
+                bonus = new BigInteger(15);
                 break;
             case "summonersRobe":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "summonersRing":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "summonersStaff":
-                bonus = new BigNumber(15);
+                bonus = new BigInteger(15);
                 break;
             case "tomeOfCharisma":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             case "loadedDice":
-                bonus = new BigNumber(10);
+                bonus = new BigInteger(10);
                 break;
             case "tomeOfStrength":
-                bonus = new BigNumber(15);
+                bonus = new BigInteger(15);
                 break;
             case "swiftBoots":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             case "tomeOfDexterity":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             case "poisonVial":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "tomeOfEndurance":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "sharpeningStone":
-                bonus = new BigNumber(5);
+                bonus = new BigInteger(5);
                 break;
             case "investments":
-                bonus = new BigNumber(10);
+                bonus = new BigInteger(10);
                 break;
             case "adventuringVoucher":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             case "dungeonMap":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             case "portalStone":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             case "pendantOfTheDawn":
-                bonus = new BigNumber(1);
+                bonus = new BigInteger(1);
                 break;
             default:
                 break;
@@ -170,56 +171,56 @@ public class LootDisplayController : MonoBehaviour
     }
 
     //Set the bonus amount each item gives
-    public void SetBonus(BigNumber bns)
+    public void SetBonus(BigInteger bns)
     {
         bonus = bns;
     }
 
     // Get the bonus amount each item gives
-    public BigNumber GetBonus()
+    public BigInteger GetBonus()
     {
         return bonus;
     }
 
     // Get the total bonus granted from the item
-    public BigNumber GetTotalBonus()
+    public BigInteger GetTotalBonus()
     {
         switch(tag)
         {
             case "dagger":
-                return new BigNumber(0) + (bonus * looted);
+                return new BigInteger(0) + (bonus * looted);
             case "gauntlets":
-                return new BigNumber(0) + (bonus * looted);
+                return new BigInteger(0) + (bonus * looted);
             case "wallet":
-                return new BigNumber(0) + (bonus * looted);
+                return new BigInteger(0) + (bonus * looted);
             case "alchemistKit":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "largeVial":
-                return new BigNumber(100) + (bonus * looted);
+                return new BigInteger(100) + (bonus * looted);
             case "ringOfWishes":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "amuletOfTime":
-                return new BigNumber(100) + (bonus * looted);
+                return new BigInteger(100) + (bonus * looted);
             case "manaPotion":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "magicFocus":
-                return new BigNumber(100) + (bonus * looted);
+                return new BigInteger(100) + (bonus * looted);
             case "summonersRobe":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "sommonersRing":
-                return new BigNumber(100) + (bonus * looted);
+                return new BigInteger(100) + (bonus * looted);
             case "tomeOfCharisma":
-                return new BigNumber(0) + (bonus * looted);
+                return new BigInteger(0) + (bonus * looted);
             case "tomeOfDexterity":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "poisonVial":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "tomeOfEndurance":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "sharpeningStone":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             case "adventuringVoucher":
-                return new BigNumber(100) - (bonus * looted);
+                return new BigInteger(100) - (bonus * looted);
             default:
                 return 100 + bonus * looted;
         }
