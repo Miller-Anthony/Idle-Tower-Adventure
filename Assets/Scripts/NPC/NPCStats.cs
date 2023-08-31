@@ -170,7 +170,13 @@ public class NPCStats : MonoBehaviour
     //only called for enemies
     public void RegenHealth()
     {
-        currentHealth += health * (new BigInteger(2) / 100) * (loot.GetController("poisonVial").GetTotalBonus() / new BigInteger(100) );
+        BigInteger basePercent = (health * 2) / 100;
+        BigInteger regenAmount = basePercent * loot.GetController("poisonVial").GetTotalBonus() / 100;
+        if(regenAmount < 1)
+        {
+            regenAmount = 1;
+        }
+        currentHealth += regenAmount;
         if(currentHealth >= health)
         {
             currentHealth = health;
@@ -186,7 +192,7 @@ public class NPCStats : MonoBehaviour
     //return the percent health left of the NPC as a float
     public float PercentHealth()
     {
-        return (float)(currentHealth / health);
+        return ((float)(currentHealth * 100 / health)) / 100;
     }
 
     //returns true if current health is at maximum
