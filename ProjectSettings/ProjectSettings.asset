@@ -250,7 +250,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: user.keystore'
+  AndroidKeystoreName: '{inproject}: adventure.keystore'
   AndroidKeyaliasName: group gaming
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
